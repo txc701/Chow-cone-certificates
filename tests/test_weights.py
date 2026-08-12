@@ -9,8 +9,7 @@ import pytest
 import weights_bitmask as impl1
 import weights_recursive as impl2
 
-# Stage 1 scope: validate for d <= 5 (extend after the first decision gate).
-AGREE_RANGE = range(1, 6)
+AGREE_RANGE = range(1, 12)  # full 2^d maps; d<=11 keeps the suite fast
 
 
 @pytest.mark.parametrize("d", AGREE_RANGE)

@@ -318,6 +318,13 @@ $\varnothing\to\{2\},\varnothing\to\{3\}$ ($d=3$), realize the certificates.
   ideal oracle vs both max-flow networks agree, all feasible, $d\le5$.
 * 2026-08-10 — Equivalence proofs written (this file, Sections 2–4) and
   reviewed against code; all tests re-run.
+* 2026-08-10 — Stage 2: support-DAG max-flow **FEASIBLE for every
+  $d=1,\dots,25$** (exact big-int Dinic; per-$d$ JSON in `results/`).
+  Reproduces the paper's $d\le19$ (Remark 3.31) and extends to $d\le25$.
+  Sizes at $d=25$: 121393 nodes, 823800 split edges, supply $S$ of 90 bits,
+  63 s, 333 MiB. $\sum_J w_J=0$ checked exactly for all these $d$.
+  Note: $S$ exceeds 63 bits from $d=18$ on, so exact big-integer capacities
+  are not optional — an int64 max-flow library would silently overflow.
 
 ## Failed ideas
 

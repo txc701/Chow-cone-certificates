@@ -1,8 +1,10 @@
 # STATUS
 
-**Current stage:** Stage 1 complete; flow/ideal equivalence proofs written and
-reviewed. Next: Stage 2 (progressive exact max-flow reproduction toward
-$d\le19$) — **not started**, awaiting go-ahead.
+**Current stage:** Stage 2 complete — Conjecture 3.30's flow certificate is
+**feasible for every $d\le25$** (exact arithmetic). This reproduces the
+authors' $d\le19$ verification (Remark 3.31) and extends it by six
+dimensions; no counterexample exists in this range. Next: Stage 3
+(structural certificate and tight-cut extraction).
 
 ## Completed and mechanically verified
 
@@ -36,14 +38,30 @@ $d\le19$) — **not started**, awaiting go-ahead.
       the max-flow value (§4) — this is what makes $d\approx20$ tractable
       (Fibonacci-many nodes instead of $2^d$).
 
+## Stage 2 (complete)
+
+- [x] Implementation-agreement tests re-widened before the run: dual weight
+      maps agree for $d\le11$; support map matches the full map for $d\le11$;
+      full-lattice and support-DAG max-flows agree for $d\le11$
+      (81 tests pass).
+- [x] Progressive per-$d$ exact max-flow on the support DAG, one process per
+      $d$ (`src/run_flow.py`), machine-readable `results/flow_dXX.json` with
+      wall time and peak RSS for every $d=1..25$. **All FEASIBLE.**
+- [x] Resource profile (~×2.2 time, ~×1.62 RSS per dimension; Fibonacci node
+      growth): d=19: 0.66 s / 30 MiB; d=22: 7.0 s / 80 MiB;
+      d=25: 63 s / 333 MiB. Capacities up to 90 bits ⇒ exact big-int
+      arithmetic was genuinely required (int64 would have overflowed at
+      $d\ge18$, where $S$ exceeds 63 bits).
+- [x] $\sum_J w_J=0$ verified exactly for every $d\le25$ (support sum).
+
 ## Blockers
 
 None.
 
 ## Next decision
 
-Start Stage 2: progressive per-$d$ support-DAG max-flow with wall-time and
-peak-RSS recording, $d=1,\dots,19$; then decide about $d=20$ (and only then
-$21/22$) from the recorded resource profile. Before the large run, re-widen
-the implementation-agreement tests beyond $d\le5$ (they were deliberately
-capped to match the Stage-1 scope).
+Stage 3: extract structurally distinct integral certificates (varying
+edge-order heuristics: earliest/latest block split, balanced/unbalanced,
+lexicographic), translate edges to block splits $n_i\to(p,n_i-p)$, search for
+local-data formulas validated against all $d\le25$; extract min/max tight
+cuts from the residual graph.

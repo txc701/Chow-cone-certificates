@@ -1,0 +1,17 @@
+{
+  "d": 25,
+  "n_support_nodes": 121393,
+  "n_positive": 112023,
+  "n_negative": 7159,
+  "n_zero_in_support": 2211,
+  "n_split_edges": 823800,
+  "total_supply": 816562372959583061011200000,
+  "max_flow": 816562372959583061011200000,
+  "feasible": true,
+  "deficit": 0,
+  "sum_w_support": 0,
+  "max_abs_w_bits": 80,
+  "wall_time_sec": 63.473,
+  "peak_rss_bytes": 349437952,
+  "python": "3.13.0"
+}

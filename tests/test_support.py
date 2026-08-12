@@ -14,8 +14,7 @@ def fib(n):
     return a
 
 
-# Stage 1 scope: d <= 5 (extend after the first decision gate).
-@pytest.mark.parametrize("d", range(1, 6))
+@pytest.mark.parametrize("d", range(1, 12))
 def test_support_matches_full_map(d):
     full = impl1.weight_map(d)
     sw = support.support_weights(d)
@@ -30,7 +29,7 @@ def test_support_matches_full_map(d):
     assert len(sw) == fib(d + 1)
 
 
-@pytest.mark.parametrize("d", range(2, 6))
+@pytest.mark.parametrize("d", range(2, 10))
 def test_split_dag_reachability_equals_containment(d):
     """In the reduced DAG, K is reachable from J iff J <= K (as subsets),
     for J, K in the support.  This is the connectivity fact behind the

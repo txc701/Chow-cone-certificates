@@ -11,9 +11,9 @@
     "deficit": 0,
     "oracle_and_flows_agree": true,
     "wall_time_sec": {
-      "ideal_enumeration": 1.9e-05,
-      "full_lattice_flow": 1.1e-05,
-      "support_dag_flow": 8e-06
+      "ideal_enumeration": 1.5e-05,
+      "full_lattice_flow": 8e-06,
+      "support_dag_flow": 7e-06
     }
   },
   {
@@ -28,9 +28,9 @@
     "deficit": 0,
     "oracle_and_flows_agree": true,
     "wall_time_sec": {
-      "ideal_enumeration": 1.5e-05,
-      "full_lattice_flow": 2.1e-05,
-      "support_dag_flow": 1.4e-05
+      "ideal_enumeration": 1.2e-05,
+      "full_lattice_flow": 1.8e-05,
+      "support_dag_flow": 1.2e-05
     }
   },
   {
@@ -45,9 +45,9 @@
     "deficit": 0,
     "oracle_and_flows_agree": true,
     "wall_time_sec": {
-      "ideal_enumeration": 3.9e-05,
-      "full_lattice_flow": 2.5e-05,
-      "support_dag_flow": 1.5e-05
+      "ideal_enumeration": 3.2e-05,
+      "full_lattice_flow": 2.1e-05,
+      "support_dag_flow": 1.3e-05
     }
   },
   {
@@ -62,9 +62,9 @@
     "deficit": 0,
     "oracle_and_flows_agree": true,
     "wall_time_sec": {
-      "ideal_enumeration": 0.000354,
-      "full_lattice_flow": 5.3e-05,
-      "support_dag_flow": 2.1e-05
+      "ideal_enumeration": 0.000299,
+      "full_lattice_flow": 4.6e-05,
+      "support_dag_flow": 1.8e-05
     }
   },
   {
@@ -79,9 +79,9 @@
     "deficit": 0,
     "oracle_and_flows_agree": true,
     "wall_time_sec": {
-      "ideal_enumeration": 0.022527,
+      "ideal_enumeration": 0.021153,
       "full_lattice_flow": 0.000142,
-      "support_dag_flow": 0.000172
+      "support_dag_flow": 0.000152
     }
   }
 ]

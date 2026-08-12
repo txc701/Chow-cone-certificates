@@ -24,8 +24,7 @@ def test_ideal_oracle_vs_flows(d):
     assert lat.feasible == sup.feasible == (best == 0)
 
 
-# Stage 1 scope: d <= 5 (extend after the first decision gate).
-@pytest.mark.parametrize("d", range(1, 6))
+@pytest.mark.parametrize("d", range(1, 12))
 def test_lattice_flow_equals_support_flow(d):
     lat = full_lattice_flow(d)
     sup = support_flow(d)
@@ -33,7 +32,7 @@ def test_lattice_flow_equals_support_flow(d):
     assert lat.max_flow == sup.max_flow, (d, lat.max_flow, sup.max_flow)
 
 
-@pytest.mark.parametrize("d", range(1, 6))
+@pytest.mark.parametrize("d", range(1, 12))
 def test_flow_conservation_and_divergence(d):
     """A max flow on the support DAG, if feasible, gives divergence w_J at
     every support node (out - in over cover edges = w_J)."""
