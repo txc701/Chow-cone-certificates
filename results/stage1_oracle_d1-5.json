@@ -1,0 +1,87 @@
+[
+  {
+    "d": 1,
+    "n_ideals_enumerated": 3,
+    "min_ideal_weight_sum": 0,
+    "a_minimizing_ideal_masks": [],
+    "total_supply": 0,
+    "max_flow_full_lattice": 0,
+    "max_flow_support_dag": 0,
+    "feasible": true,
+    "deficit": 0,
+    "oracle_and_flows_agree": true,
+    "wall_time_sec": {
+      "ideal_enumeration": 1.9e-05,
+      "full_lattice_flow": 1.1e-05,
+      "support_dag_flow": 8e-06
+    }
+  },
+  {
+    "d": 2,
+    "n_ideals_enumerated": 6,
+    "min_ideal_weight_sum": 0,
+    "a_minimizing_ideal_masks": [],
+    "total_supply": 6,
+    "max_flow_full_lattice": 6,
+    "max_flow_support_dag": 6,
+    "feasible": true,
+    "deficit": 0,
+    "oracle_and_flows_agree": true,
+    "wall_time_sec": {
+      "ideal_enumeration": 1.5e-05,
+      "full_lattice_flow": 2.1e-05,
+      "support_dag_flow": 1.4e-05
+    }
+  },
+  {
+    "d": 3,
+    "n_ideals_enumerated": 20,
+    "min_ideal_weight_sum": 0,
+    "a_minimizing_ideal_masks": [],
+    "total_supply": 20,
+    "max_flow_full_lattice": 20,
+    "max_flow_support_dag": 20,
+    "feasible": true,
+    "deficit": 0,
+    "oracle_and_flows_agree": true,
+    "wall_time_sec": {
+      "ideal_enumeration": 3.9e-05,
+      "full_lattice_flow": 2.5e-05,
+      "support_dag_flow": 1.5e-05
+    }
+  },
+  {
+    "d": 4,
+    "n_ideals_enumerated": 168,
+    "min_ideal_weight_sum": 0,
+    "a_minimizing_ideal_masks": [],
+    "total_supply": 90,
+    "max_flow_full_lattice": 90,
+    "max_flow_support_dag": 90,
+    "feasible": true,
+    "deficit": 0,
+    "oracle_and_flows_agree": true,
+    "wall_time_sec": {
+      "ideal_enumeration": 0.000354,
+      "full_lattice_flow": 5.3e-05,
+      "support_dag_flow": 2.1e-05
+    }
+  },
+  {
+    "d": 5,
+    "n_ideals_enumerated": 7581,
+    "min_ideal_weight_sum": 0,
+    "a_minimizing_ideal_masks": [],
+    "total_supply": 840,
+    "max_flow_full_lattice": 840,
+    "max_flow_support_dag": 840,
+    "feasible": true,
+    "deficit": 0,
+    "oracle_and_flows_agree": true,
+    "wall_time_sec": {
+      "ideal_enumeration": 0.022527,
+      "full_lattice_flow": 0.000142,
+      "support_dag_flow": 0.000172
+    }
+  }
+]
