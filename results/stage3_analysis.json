@@ -1,0 +1,105 @@
+{
+  "staircase_exact_match": {
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": true,
+    "10": true,
+    "11": true,
+    "12": true
+  },
+  "shell_sums_vanish": {
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": true,
+    "10": true,
+    "11": true,
+    "12": true,
+    "13": true,
+    "14": true,
+    "15": true,
+    "16": true,
+    "17": true,
+    "18": true,
+    "19": true,
+    "20": true,
+    "21": true,
+    "22": true,
+    "23": true,
+    "24": true,
+    "25": true
+  },
+  "certificate_flow_edges_checked": 2313,
+  "certificate_shell_crossings": 0,
+  "cascade_failures": {
+    "plain": {
+      "4": "stranded at (3, 3)",
+      "5": "negative excess at (2, 3, 2)",
+      "6": "negative excess at (2, 3, 3)",
+      "7": "stranded at (3, 3, 3)",
+      "8": "stranded at (2, 2, 3, 3)"
+    },
+    "pruned": {
+      "5": "negative excess at (2, 3, 2)",
+      "6": "negative excess at (2, 3, 3)",
+      "7": "negative excess at (2, 2, 3, 2)",
+      "8": "stranded at (2, 2, 3, 3)"
+    }
+  },
+  "rigid_skeleton": {
+    "4": {
+      "union_support": 3,
+      "in_all_four": 3,
+      "identical_flow_in_all_four": 3
+    },
+    "5": {
+      "union_support": 6,
+      "in_all_four": 6,
+      "identical_flow_in_all_four": 6
+    },
+    "6": {
+      "union_support": 12,
+      "in_all_four": 7,
+      "identical_flow_in_all_four": 5
+    },
+    "7": {
+      "union_support": 22,
+      "in_all_four": 13,
+      "identical_flow_in_all_four": 5
+    },
+    "8": {
+      "union_support": 40,
+      "in_all_four": 20,
+      "identical_flow_in_all_four": 8
+    },
+    "9": {
+      "union_support": 71,
+      "in_all_four": 22,
+      "identical_flow_in_all_four": 7
+    },
+    "10": {
+      "union_support": 128,
+      "in_all_four": 47,
+      "identical_flow_in_all_four": 5
+    },
+    "11": {
+      "union_support": 220,
+      "in_all_four": 69,
+      "identical_flow_in_all_four": 8
+    },
+    "12": {
+      "union_support": 401,
+      "in_all_four": 77,
+      "identical_flow_in_all_four": 7
+    }
+  }
+}

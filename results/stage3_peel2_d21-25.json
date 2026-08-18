@@ -1,0 +1,42 @@
+[
+  {
+    "d": 21,
+    "restriction": "peel2",
+    "feasible": true,
+    "deficit": 0,
+    "wall_time_sec": 1.838,
+    "peak_rss_bytes": 48775168
+  },
+  {
+    "d": 22,
+    "restriction": "peel2",
+    "feasible": true,
+    "deficit": 0,
+    "wall_time_sec": 3.865,
+    "peak_rss_bytes": 72269824
+  },
+  {
+    "d": 23,
+    "restriction": "peel2",
+    "feasible": true,
+    "deficit": 0,
+    "wall_time_sec": 8.018,
+    "peak_rss_bytes": 116637696
+  },
+  {
+    "d": 24,
+    "restriction": "peel2",
+    "feasible": true,
+    "deficit": 0,
+    "wall_time_sec": 19.918,
+    "peak_rss_bytes": 164085760
+  },
+  {
+    "d": 25,
+    "restriction": "peel2",
+    "feasible": true,
+    "deficit": 0,
+    "wall_time_sec": 33.912,
+    "peak_rss_bytes": 255164416
+  }
+]

@@ -1,10 +1,12 @@
 # STATUS
 
-**Current stage:** Stage 2 complete — Conjecture 3.30's flow certificate is
-**feasible for every $d\le25$** (exact arithmetic). This reproduces the
-authors' $d\le19$ verification (Remark 3.31) and extends it by six
-dimensions; no counterexample exists in this range. Next: Stage 3
-(structural certificate and tight-cut extraction).
+**Current stage:** Stage 3 complete. Conjecture 3.30's flow certificate is
+**feasible for every $d\le25$** (exact arithmetic; reproduces the authors'
+$d\le19$ and extends by six dimensions — no counterexample in range).
+Stage 3 found real structure: staircase tight ideals generalizing the
+paper's $\sum w=0$ identity, a forced shell decomposition of every
+certificate, and a surviving `peel2` restricted-certificate conjecture
+(RESEARCH_NOTES.md §8). Next: first decision gate report.
 
 ## Completed and mechanically verified
 
@@ -54,14 +56,32 @@ dimensions; no counterexample exists in this range. Next: Stage 3
       $d\ge18$, where $S$ exceeds 63 bits).
 - [x] $\sum_J w_J=0$ verified exactly for every $d\le25$ (support sum).
 
+## Stage 3 (complete)
+
+- [x] 4 deterministic edge-order heuristics ⇒ genuinely distinct integral
+      certificates for $d=4..12$ (`results/certificates/`, 36 files); rigid
+      skeleton is tiny (5–8 edges) ⇒ certificates are far from unique.
+- [x] Edge-restricted families: `peel2` feasible for **all $d\le25$**
+      (structural conjecture); `peel23` for all $d\le20$; `largest_block`
+      dies at $d=15$; first/last/balanced die at $d=4$
+      (`results/stage3_restrictions.json`, `stage3_peel2_d21-25.json`).
+- [x] Staircase tight principal ideals characterized exactly ($d\le14$,
+      regression-tested $d\le10$); shell identities verified $d\le25$;
+      forced shell decomposition of every certificate confirmed on all 2313
+      saved flow edges (`results/stage3_analysis.json`,
+      `tests/test_structure.py` — 28 new tests, 109 total, all pass).
+- [x] Tight-cut lattice via Picard–Queyranne for $d\le16$
+      (`results/stage3_tightcuts.json`): SCC counts 4→51; non-principal
+      tight ideals exist.
+- [x] Failed ideas logged (RESEARCH_NOTES.md §9): U-proportional cascades
+      (plain + pruned), largest-block, first/last/balanced-only.
+
 ## Blockers
 
 None.
 
 ## Next decision
 
-Stage 3: extract structurally distinct integral certificates (varying
-edge-order heuristics: earliest/latest block split, balanced/unbalanced,
-lexicographic), translate edges to block splits $n_i\to(p,n_i-p)$, search for
-local-data formulas validated against all $d\le25$; extract min/max tight
-cuts from the residual graph.
+Write the first-decision-gate report (REPORT.md): distinguish mechanically
+verified facts / proofs / empirical patterns / speculation / failed
+approaches. Then stop; do not touch the fourth-moment generalization.

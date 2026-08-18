@@ -325,7 +325,117 @@ $\varnothing\to\{2\},\varnothing\to\{3\}$ ($d=3$), realize the certificates.
   63 s, 333 MiB. $\sum_J w_J=0$ checked exactly for all these $d$.
   Note: $S$ exceeds 63 bits from $d=18$ on, so exact big-integer capacities
   are not optional — an int64 max-flow library would silently overflow.
+* 2026-08-11 — Stage 3 experiments (committed 88e5448 on 2026-08-18 after a
+  session interruption): edge-restricted families, 4-heuristic certificates,
+  Picard–Queyranne tight cuts.
+* 2026-08-18 — peel2 regenerated & persisted for $d=21..25$ (feasible).
+  Structural analysis: staircase/tight-principal characterization, shell
+  identities to $d\le25$, shell decomposition of all certificates, cascade
+  failures, rigid skeleton (Section 8; `results/stage3_analysis.json`).
 
-## Failed ideas
+## 8. Stage 3 — structural findings
 
-*(none recorded yet — the section is kept so that dead ends get logged here.)*
+All claims below are *machine-verified in the stated ranges* (reproduce with
+`python3 src/run_stage3.py`, `src/run_peel2_ext.py`, `src/run_stage3_analysis.py`;
+pinned as regression tests in `tests/test_structure.py`). None are proved for
+all $d$ unless said so.
+
+### 8.1 Staircase identities and tight principal ideals
+
+For $T\subseteq[d]$ let $\sigma(T)=\sum_{J\subseteq T}w_J$ (the ideal sum of
+the principal ideal $2^T$). Verified for $2\le d\le14$ over **all** $2^d$
+sets $T$ (zeta transform, exact ints):
+
+* $\sigma(T)\ge0$ always (no principal counterexamples), and
+* $\sigma(T)=0$ **exactly** for the *staircase family*
+  $T_k=\{2,4,\dots,2k\}\cup\{2k+1,\dots,d\}$, $0\le k\le\lfloor d/2\rfloor$,
+  each optionally $\cup\{1\}$ (element 1 is free since $w_J=0$ whenever
+  $1\in J$; note $\sigma$ only sees *sparse* $J$ — no element 1, no two
+  consecutive elements — because all other $J$ have a part $n_i=1$).
+
+The $T_k$ are nested: $T_{\lfloor d/2\rfloor}\subset\cdots\subset T_0=[d]$.
+$k=\lfloor d/2\rfloor$ gives the all-even set (for even $d$); $k=0$ gives
+$\sum_Jw_J=0$, i.e. Corollary 3.28 — so these identities **generalize the
+paper's sum-zero identity** to a chain of $\lfloor d/2\rfloor+1$ identities.
+
+Equivalent *shell* form (verified exactly for $2\le d\le25$ on the support):
+group support compositions by the smallest odd proper prefix sum
+$2k-1$ (equivalently: smallest odd element of $J$), merging
+everything with no odd prefix sum $<2\lfloor d/2\rfloor+1$ into a single
+*residual* class; then **every group's weight sum is exactly 0**.
+
+### 8.2 Shell decomposition of every certificate
+
+Because each $D_k=\{J:\text{no odd element}<2k+1\}$ is a *tight* ideal
+(Section 8.1) and no flow can enter an ideal (Prop. 2, §3.1), the flow
+leaving $D_k$ equals $\sigma(T_k)=0$; since all edge flows are $\ge0$, **every
+edge crossing $\partial D_k$ carries zero flow in every certificate**.
+Consequently any certificate decomposes into independent flows on the shells
+$S_k=D_{k-1}\setminus D_k$ = {$J$ with smallest odd element $2k-1$} plus the
+residual. (Conditional on 8.1, which is verified $d\le25$; the decomposition
+was ALSO confirmed directly: all 2313 flow edges across the 36 saved
+heuristic certificates, and all freshly extracted ones in the test suite,
+have zero shell crossings.)
+
+Corollary in split language: an edge $J\to J\cup\{j\}$ can carry flow only if
+$j$ is even, or $j$ is odd and $J$ already has an odd element $<j$ (or $j$ is
+in the residual range). "Parity of the new cut point is conserved."
+
+### 8.3 Edge-restricted structural families (kill tests of hypotheses)
+
+Restricting the network to a family of splits and re-running max-flow
+(`results/stage3_restrictions.json`, $d\le20$; peel2 extended to $d\le25$ in
+`results/stage3_peel2_d21-25.json`):
+
+| family (allowed splits $n_i\to(p,n_i-p)$) | verdict |
+|---|---|
+| `peel2`: $p=2$ or $n_i-p=2$ | **feasible for all $d\le25$** |
+| `peel23`: $p\in\{2,3\}$ or $n_i-p\in\{2,3\}$ | feasible for all $d\le20$ |
+| `largest_block`: only split a largest part | fails first at $d=15$ |
+| `largest_peel2` | fails first at $d=15$ |
+| `first_block` / `last_block` | fail at $d=4$ |
+| `balanced_only`: $|2p-n_i|\le1$ | fails at $d=4$ |
+| `peel2_left`: $p=2$ only | fails at $d=3$ |
+
+The surviving `peel2` family is the strongest structural conjecture found:
+**Conjecture 3.30 may hold with certificates using only peel-2 splits.**
+(If true for all $d$, the certificate lives on a much sparser DAG whose
+recursive structure — peeling dominoes off blocks — looks amenable to
+induction.) `largest_block` dying only at $d=15$ is a warning: small-$d$
+survival (here through $d=14$) is weak evidence.
+
+### 8.4 Certificate non-uniqueness and rigid skeleton
+
+Four deterministic edge-order heuristics give genuinely distinct integral
+certificates from $d=6$ on (`results/certificates/`). The *rigid skeleton*
+(edges carrying identical flow in all four) is tiny — 5 to 8 edges for
+$d=6..12$ versus union supports of 12..401 — so the certificate polytope is
+high-dimensional and **no canonical certificate can be read off a single
+solver run**. Any formula-based certificate must be chosen by an explicit
+principle, not extracted from arbitrary solver output.
+
+### 8.5 Tight-cut lattice beyond principal ideals
+
+Picard–Queyranne condensation (`results/stage3_tightcuts.json`, $d\le16$):
+the number of residual SCCs grows $4,4,5,6,7,9,11,14,18,23,30,39,51$ for
+$d=4..16$, so the distributive lattice of ALL tight ideals is much richer
+than the staircase chain; sampled non-principal tight ideals include e.g.
+(at $d=8$) the complement of the up-set generated by $(3,3,4)$. All sampled
+tight ideals have weight sum exactly 0 (asserted at extraction time).
+
+## 9. Failed ideas
+
+* **U-proportional cascade** (each node forwards its excess to children
+  proportionally to $U_{\text{child}}$, hoping for an explicit rational
+  certificate): fails already at $d=4$ (strands flow at the dead end
+  $(3,3)$) and at $d=5$ *undersupplies* the sink $(2,3,2)$.
+* **Alive-pruned cascade** (same, but only routing toward descendants with
+  demand): still fails — at $d=8$ it *oversupplies* the sink $(2,2,3,3)$.
+  Lesson: sinks are shared between many sources, so no demand-blind local
+  forwarding rule can allocate correctly; a valid explicit construction has
+  to be demand-aware (transportation-like) or exploit the shell recursion.
+* **largest-block-only certificates**: survive $d\le14$, die at $d=15$
+  (deficit returned by max-flow is positive). Recorded as a cautionary
+  example of a pattern that holds for a *long* initial range and then fails.
+* **first-block / last-block / balanced-only / left-peel-only** families:
+  all die at tiny $d$ (see 8.3).
