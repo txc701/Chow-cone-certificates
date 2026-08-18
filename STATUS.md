@@ -1,12 +1,18 @@
 # STATUS
 
-**Current stage:** Stage 3 complete. Conjecture 3.30's flow certificate is
-**feasible for every $d\le25$** (exact arithmetic; reproduces the authors'
-$d\le19$ and extends by six dimensions — no counterexample in range).
-Stage 3 found real structure: staircase tight ideals generalizing the
-paper's $\sum w=0$ identity, a forced shell decomposition of every
-certificate, and a surviving `peel2` restricted-certificate conjecture
-(RESEARCH_NOTES.md §8). Next: first decision gate report.
+**Current stage: PROOF.** An externally proposed explicit uniform peel2
+certificate passed the full audit protocol (RESEARCH_NOTES.md §9) and is
+written up as a self-contained proof: **PROOF_CONJECTURE_3_30.md** —
+Conjecture 3.30 holds for every $d\ge1$, with explicit coefficients
+$\lambda_{(J,J\cup\{j\})}=G(c(J\cup\{j\}))$. Machine-corroborated at every
+node for $d\le25$; the staircase identities and shell decomposition are now
+corollaries for all $d$. **Pending: external human review.** The
+fourth-moment generalization remains untouched.
+
+Earlier gate summary (still accurate as history): feasibility for every
+$d\le25$ reproduced the authors' $d\le19$ and extended it; Stage 3 found the
+staircase/shell structure and the peel2 conjecture that the explicit
+certificate now explains.
 
 ## Completed and mechanically verified
 

@@ -12,6 +12,11 @@ Definitions of $U_J$, $a_J$, $w_J=U_Ja_J$ and the equivalent formulations
 $\sum_{\mathcal D}w$ over all downward-closed ideals) are stated and **proved**
 in `RESEARCH_NOTES.md`. Current progress: `STATUS.md`.
 
+**Main result:** an explicit uniform certificate proving Conjecture 3.30 for
+every $d\ge1$ — `PROOF_CONJECTURE_3_30.md` (externally proposed formula,
+independently audited here; machine-corroborated in exact arithmetic for
+$d\le25$; pending external human review). Decision-gate history: `REPORT.md`.
+
 ## Layout
 
 - `src/weights_bitmask.py`, `src/weights_recursive.py` — two independent

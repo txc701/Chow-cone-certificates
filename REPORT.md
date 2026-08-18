@@ -1,5 +1,16 @@
 # First decision gate report — computational kill test of Cheng–Lin Conjecture 3.30
 
+> **Addendum (2026-08-18, after the gate).** An externally proposed explicit
+> uniform certificate — flows $f=G(\text{child})$ on peel-2 moves, with
+> $G(c)=U_c\prod(n_i-1)$ — passed the full independent audit (symbolic
+> re-derivation of all ratios, in-edge bijection proof, exact divergence
+> $=w_J$ at every node for $d\le25$, full-Boolean check $d\le10$). The
+> peel2 conjecture of §3 is now a **theorem for every $d$**:
+> see `PROOF_CONJECTURE_3_30.md`. The staircase identities and shell
+> decomposition of §§1,3 follow as corollaries for all $d$. Pending
+> external human review. The report below is preserved as the state at the
+> gate.
+
 **Target:** Conjecture 3.30 of R. Cheng & W. Lin, arXiv:2603.21680**v3** (pinned:
 `paper/cheng-lin-v3.pdf`): the inequality $\sum_{J\subseteq[d]}a_JN_J\le0$
 (Corollary 3.28) is a nonnegative linear combination of the monotonicity
