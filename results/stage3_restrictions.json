@@ -1,0 +1,664 @@
+{
+  "d_range": [
+    2,
+    20
+  ],
+  "families": {
+    "largest_block": {
+      "per_d": {
+        "2": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "3": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "4": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "5": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "6": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "7": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "8": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "9": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "10": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "11": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "12": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "13": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "14": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "15": {
+          "feasible": false,
+          "deficit": 54422393760
+        },
+        "16": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "17": {
+          "feasible": false,
+          "deficit": 43333124197104
+        },
+        "18": {
+          "feasible": false,
+          "deficit": 235117939533120
+        },
+        "19": {
+          "feasible": false,
+          "deficit": 16245604003436640
+        },
+        "20": {
+          "feasible": false,
+          "deficit": 731281762204815360
+        }
+      },
+      "first_infeasible_d": 15,
+      "feasible_for_all_tested": false
+    },
+    "first_block": {
+      "per_d": {
+        "2": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "3": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "4": {
+          "feasible": false,
+          "deficit": 30
+        },
+        "5": {
+          "feasible": false,
+          "deficit": 480
+        },
+        "6": {
+          "feasible": false,
+          "deficit": 3500
+        },
+        "7": {
+          "feasible": false,
+          "deficit": 35784
+        },
+        "8": {
+          "feasible": false,
+          "deficit": 351540
+        },
+        "9": {
+          "feasible": false,
+          "deficit": 3594480
+        },
+        "10": {
+          "feasible": false,
+          "deficit": 44876700
+        },
+        "11": {
+          "feasible": false,
+          "deficit": 553463460
+        },
+        "12": {
+          "feasible": false,
+          "deficit": 7548397285
+        },
+        "13": {
+          "feasible": false,
+          "deficit": 114656281740
+        },
+        "14": {
+          "feasible": false,
+          "deficit": 1744780450140
+        },
+        "15": {
+          "feasible": false,
+          "deficit": 29450865968160
+        },
+        "16": {
+          "feasible": false,
+          "deficit": 526429892644740
+        },
+        "17": {
+          "feasible": false,
+          "deficit": 9608408230141728
+        },
+        "18": {
+          "feasible": false,
+          "deficit": 191578318519310496
+        },
+        "19": {
+          "feasible": false,
+          "deficit": 3951035429063824080
+        },
+        "20": {
+          "feasible": false,
+          "deficit": 84493596976380522819
+        }
+      },
+      "first_infeasible_d": 4,
+      "feasible_for_all_tested": false
+    },
+    "last_block": {
+      "per_d": {
+        "2": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "3": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "4": {
+          "feasible": false,
+          "deficit": 15
+        },
+        "5": {
+          "feasible": false,
+          "deficit": 276
+        },
+        "6": {
+          "feasible": false,
+          "deficit": 2380
+        },
+        "7": {
+          "feasible": false,
+          "deficit": 26160
+        },
+        "8": {
+          "feasible": false,
+          "deficit": 283185
+        },
+        "9": {
+          "feasible": false,
+          "deficit": 3041080
+        },
+        "10": {
+          "feasible": false,
+          "deficit": 38137176
+        },
+        "11": {
+          "feasible": false,
+          "deficit": 489771360
+        },
+        "12": {
+          "feasible": false,
+          "deficit": 6687239130
+        },
+        "13": {
+          "feasible": false,
+          "deficit": 101872968120
+        },
+        "14": {
+          "feasible": false,
+          "deficit": 1590610807500
+        },
+        "15": {
+          "feasible": false,
+          "deficit": 26700846508336
+        },
+        "16": {
+          "feasible": false,
+          "deficit": 481430016042885
+        },
+        "17": {
+          "feasible": false,
+          "deficit": 8927172970082640
+        },
+        "18": {
+          "feasible": false,
+          "deficit": 177087958943720440
+        },
+        "19": {
+          "feasible": false,
+          "deficit": 3687265948217710320
+        },
+        "20": {
+          "feasible": false,
+          "deficit": 79416616580691464592
+        }
+      },
+      "first_infeasible_d": 4,
+      "feasible_for_all_tested": false
+    },
+    "peel2": {
+      "per_d": {
+        "2": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "3": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "4": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "5": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "6": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "7": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "8": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "9": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "10": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "11": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "12": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "13": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "14": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "15": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "16": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "17": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "18": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "19": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "20": {
+          "feasible": true,
+          "deficit": 0
+        }
+      },
+      "first_infeasible_d": null,
+      "feasible_for_all_tested": true
+    },
+    "peel2_left": {
+      "per_d": {
+        "2": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "3": {
+          "feasible": false,
+          "deficit": 8
+        },
+        "4": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "5": {
+          "feasible": false,
+          "deficit": 144
+        },
+        "6": {
+          "feasible": false,
+          "deficit": 560
+        },
+        "7": {
+          "feasible": false,
+          "deficit": 5760
+        },
+        "8": {
+          "feasible": false,
+          "deficit": 48384
+        },
+        "9": {
+          "feasible": false,
+          "deficit": 492800
+        },
+        "10": {
+          "feasible": false,
+          "deficit": 5398272
+        },
+        "11": {
+          "feasible": false,
+          "deficit": 64834560
+        },
+        "12": {
+          "feasible": false,
+          "deficit": 842716160
+        },
+        "13": {
+          "feasible": false,
+          "deficit": 11798341632
+        },
+        "14": {
+          "feasible": false,
+          "deficit": 176974387200
+        },
+        "15": {
+          "feasible": false,
+          "deficit": 2831591899136
+        },
+        "16": {
+          "feasible": false,
+          "deficit": 48137058385920
+        },
+        "17": {
+          "feasible": false,
+          "deficit": 866467059793920
+        },
+        "18": {
+          "feasible": false,
+          "deficit": 16462874116161536
+        },
+        "19": {
+          "feasible": false,
+          "deficit": 329257482367795200
+        },
+        "20": {
+          "feasible": false,
+          "deficit": 6914407129624608768
+        }
+      },
+      "first_infeasible_d": 3,
+      "feasible_for_all_tested": false
+    },
+    "peel23": {
+      "per_d": {
+        "2": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "3": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "4": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "5": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "6": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "7": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "8": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "9": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "10": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "11": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "12": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "13": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "14": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "15": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "16": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "17": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "18": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "19": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "20": {
+          "feasible": true,
+          "deficit": 0
+        }
+      },
+      "first_infeasible_d": null,
+      "feasible_for_all_tested": true
+    },
+    "balanced_only": {
+      "per_d": {
+        "2": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "3": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "4": {
+          "feasible": false,
+          "deficit": 45
+        },
+        "5": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "6": {
+          "feasible": false,
+          "deficit": 1120
+        },
+        "7": {
+          "feasible": false,
+          "deficit": 7560
+        },
+        "8": {
+          "feasible": false,
+          "deficit": 79065
+        },
+        "9": {
+          "feasible": false,
+          "deficit": 869000
+        },
+        "10": {
+          "feasible": false,
+          "deficit": 6881490
+        },
+        "11": {
+          "feasible": false,
+          "deficit": 135452460
+        },
+        "12": {
+          "feasible": false,
+          "deficit": 1039111073
+        },
+        "13": {
+          "feasible": false,
+          "deficit": 25037991720
+        },
+        "14": {
+          "feasible": false,
+          "deficit": 313678004640
+        },
+        "15": {
+          "feasible": false,
+          "deficit": 5729205791120
+        },
+        "16": {
+          "feasible": false,
+          "deficit": 103775687913060
+        },
+        "17": {
+          "feasible": false,
+          "deficit": 1587730414302576
+        },
+        "18": {
+          "feasible": false,
+          "deficit": 39127011896630470
+        },
+        "19": {
+          "feasible": false,
+          "deficit": 571872804256652220
+        },
+        "20": {
+          "feasible": false,
+          "deficit": 16890668073812720880
+        }
+      },
+      "first_infeasible_d": 4,
+      "feasible_for_all_tested": false
+    },
+    "largest_peel2": {
+      "per_d": {
+        "2": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "3": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "4": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "5": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "6": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "7": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "8": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "9": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "10": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "11": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "12": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "13": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "14": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "15": {
+          "feasible": false,
+          "deficit": 54422393760
+        },
+        "16": {
+          "feasible": true,
+          "deficit": 0
+        },
+        "17": {
+          "feasible": false,
+          "deficit": 43333124197104
+        },
+        "18": {
+          "feasible": false,
+          "deficit": 235117939533120
+        },
+        "19": {
+          "feasible": false,
+          "deficit": 16245604003436640
+        },
+        "20": {
+          "feasible": false,
+          "deficit": 731281762204815360
+        }
+      },
+      "first_infeasible_d": 15,
+      "feasible_for_all_tested": false
+    }
+  }
+}

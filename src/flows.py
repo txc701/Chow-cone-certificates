@@ -58,13 +58,19 @@ def full_lattice_flow(d: int) -> FlowResult:
                       {"weights": wm, "cover_eids": cover_eids, "d": d})
 
 
-def build_support_network(d: int, edge_order=None):
+def build_support_network(d: int, edge_order=None, edge_filter=None):
     """Returns (g, source, sink, comps, index, sw, edge_labels, total_supply).
 
     edge_order: optional callable (parts, i, p, child) -> sort key, applied to
     each node's outgoing split edges before insertion.  Dinic prefers edges in
     insertion order, so this deterministically steers which certificate flow
     is found (Stage 3), without affecting the max-flow value.
+
+    edge_filter: optional callable (parts, i, p, child) -> bool; when given,
+    only splits with a True value are added.  Restricting edges can only
+    lower the max flow, so feasibility of a restricted network is a
+    *structural theorem candidate* (Stage 3); infeasibility just kills the
+    hypothesis.
     """
     sw = support_weights(d)
     comps = sorted(sw)  # deterministic node order (lex on compositions)
@@ -81,6 +87,8 @@ def build_support_network(d: int, edge_order=None):
         elif w < 0:
             g.add_edge(index[c], sink, -w)
         splits = list(split_edges(c))
+        if edge_filter is not None:
+            splits = [t for t in splits if edge_filter(c, t[0], t[1], t[2])]
         if edge_order is not None:
             splits.sort(key=lambda t: edge_order(c, t[0], t[1], t[2]))
         for i, p, child in splits:
@@ -89,9 +97,9 @@ def build_support_network(d: int, edge_order=None):
     return g, source, sink, comps, index, sw, edge_labels, total_supply
 
 
-def support_flow(d: int, edge_order=None) -> FlowResult:
+def support_flow(d: int, edge_order=None, edge_filter=None) -> FlowResult:
     g, source, sink, comps, index, sw, edge_labels, total_supply = (
-        build_support_network(d, edge_order)
+        build_support_network(d, edge_order, edge_filter)
     )
     value = g.max_flow(source, sink)
     assert value <= total_supply

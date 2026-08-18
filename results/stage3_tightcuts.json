@@ -1,0 +1,1911 @@
+[
+  {
+    "d": 4,
+    "n_support_nodes": 5,
+    "n_residual_sccs": 4,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 5,
+      "weight_sum": 0,
+      "compositions": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          6
+        ]
+      ]
+    },
+    "n_nontrivial_samples": 2,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 4,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            6
+          ]
+        ]
+      },
+      {
+        "size": 0,
+        "weight_sum": 0,
+        "compositions": []
+      }
+    ]
+  },
+  {
+    "d": 5,
+    "n_support_nodes": 8,
+    "n_residual_sccs": 4,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 8,
+      "weight_sum": 0,
+      "compositions": [
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          2,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    "n_nontrivial_samples": 2,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 6,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            2
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            7
+          ]
+        ]
+      },
+      {
+        "size": 0,
+        "weight_sum": 0,
+        "compositions": []
+      }
+    ]
+  },
+  {
+    "d": 6,
+    "n_support_nodes": 13,
+    "n_residual_sccs": 5,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 13,
+      "weight_sum": 0,
+      "compositions": [
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          4
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          2,
+          3
+        ],
+        [
+          3,
+          3,
+          2
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          8
+        ]
+      ]
+    },
+    "n_nontrivial_samples": 3,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 10,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            4
+          ],
+          [
+            2,
+            3,
+            3
+          ],
+          [
+            2,
+            4,
+            2
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            4,
+            2,
+            2
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8
+          ]
+        ]
+      },
+      {
+        "size": 8,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            4
+          ],
+          [
+            2,
+            4,
+            2
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            4,
+            2,
+            2
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8
+          ]
+        ]
+      },
+      {
+        "size": 0,
+        "weight_sum": 0,
+        "compositions": []
+      }
+    ]
+  },
+  {
+    "d": 7,
+    "n_support_nodes": 21,
+    "n_residual_sccs": 6,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 21,
+      "weight_sum": 0,
+      "compositions": [
+        [
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          2,
+          2,
+          3,
+          2
+        ],
+        [
+          2,
+          2,
+          5
+        ],
+        [
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          2
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          2,
+          2,
+          2
+        ],
+        [
+          3,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          2
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          2,
+          3
+        ],
+        [
+          4,
+          3,
+          2
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          2,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          9
+        ]
+      ]
+    },
+    "n_nontrivial_samples": 4,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 20,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2,
+            3
+          ],
+          [
+            2,
+            2,
+            3,
+            2
+          ],
+          [
+            2,
+            2,
+            5
+          ],
+          [
+            2,
+            3,
+            2,
+            2
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            4,
+            3
+          ],
+          [
+            2,
+            5,
+            2
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            2,
+            2,
+            2
+          ],
+          [
+            3,
+            2,
+            4
+          ],
+          [
+            3,
+            4,
+            2
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            2,
+            3
+          ],
+          [
+            4,
+            3,
+            2
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            2,
+            2
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            9
+          ]
+        ]
+      },
+      {
+        "size": 16,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2,
+            3
+          ],
+          [
+            2,
+            2,
+            3,
+            2
+          ],
+          [
+            2,
+            2,
+            5
+          ],
+          [
+            2,
+            3,
+            2,
+            2
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            4,
+            3
+          ],
+          [
+            2,
+            5,
+            2
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            2,
+            3
+          ],
+          [
+            4,
+            3,
+            2
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            2,
+            2
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            9
+          ]
+        ]
+      },
+      {
+        "size": 12,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2,
+            3
+          ],
+          [
+            2,
+            2,
+            3,
+            2
+          ],
+          [
+            2,
+            2,
+            5
+          ],
+          [
+            2,
+            4,
+            3
+          ],
+          [
+            2,
+            5,
+            2
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            2,
+            3
+          ],
+          [
+            4,
+            3,
+            2
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            9
+          ]
+        ]
+      },
+      {
+        "size": 0,
+        "weight_sum": 0,
+        "compositions": []
+      }
+    ]
+  },
+  {
+    "d": 8,
+    "n_support_nodes": 34,
+    "n_residual_sccs": 7,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 34,
+      "weight_sum": 0,
+      "compositions": [
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          4
+        ],
+        [
+          2,
+          2,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          4,
+          2
+        ],
+        [
+          2,
+          2,
+          6
+        ],
+        [
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          3,
+          2
+        ],
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          4,
+          2,
+          2
+        ],
+        [
+          2,
+          4,
+          4
+        ],
+        [
+          2,
+          5,
+          3
+        ],
+        [
+          2,
+          6,
+          2
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          2,
+          2,
+          3
+        ],
+        [
+          3,
+          2,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          5
+        ],
+        [
+          3,
+          3,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          2
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          2,
+          2,
+          2
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          3,
+          3
+        ],
+        [
+          4,
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          2,
+          3
+        ],
+        [
+          5,
+          3,
+          2
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          2,
+          2
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          10
+        ]
+      ]
+    },
+    "n_nontrivial_samples": 5,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 32,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            2,
+            4
+          ],
+          [
+            2,
+            2,
+            3,
+            3
+          ],
+          [
+            2,
+            2,
+            4,
+            2
+          ],
+          [
+            2,
+            2,
+            6
+          ],
+          [
+            2,
+            3,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            5
+          ],
+          [
+            2,
+            4,
+            2,
+            2
+          ],
+          [
+            2,
+            4,
+            4
+          ],
+          [
+            2,
+            5,
+            3
+          ],
+          [
+            2,
+            6,
+            2
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            3,
+            2,
+            2,
+            3
+          ],
+          [
+            3,
+            2,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            5
+          ],
+          [
+            3,
+            4,
+            3
+          ],
+          [
+            3,
+            5,
+            2
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4,
+            2,
+            2,
+            2
+          ],
+          [
+            4,
+            2,
+            4
+          ],
+          [
+            4,
+            3,
+            3
+          ],
+          [
+            4,
+            4,
+            2
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            2,
+            3
+          ],
+          [
+            5,
+            3,
+            2
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            2,
+            2
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10
+          ]
+        ]
+      },
+      {
+        "size": 26,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            2,
+            4
+          ],
+          [
+            2,
+            2,
+            3,
+            3
+          ],
+          [
+            2,
+            2,
+            4,
+            2
+          ],
+          [
+            2,
+            2,
+            6
+          ],
+          [
+            2,
+            3,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            5
+          ],
+          [
+            2,
+            4,
+            2,
+            2
+          ],
+          [
+            2,
+            4,
+            4
+          ],
+          [
+            2,
+            5,
+            3
+          ],
+          [
+            2,
+            6,
+            2
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            4,
+            2,
+            2,
+            2
+          ],
+          [
+            4,
+            2,
+            4
+          ],
+          [
+            4,
+            3,
+            3
+          ],
+          [
+            4,
+            4,
+            2
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            2,
+            3
+          ],
+          [
+            5,
+            3,
+            2
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            2,
+            2
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10
+          ]
+        ]
+      },
+      {
+        "size": 20,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            2,
+            4
+          ],
+          [
+            2,
+            2,
+            3,
+            3
+          ],
+          [
+            2,
+            2,
+            4,
+            2
+          ],
+          [
+            2,
+            2,
+            6
+          ],
+          [
+            2,
+            4,
+            2,
+            2
+          ],
+          [
+            2,
+            4,
+            4
+          ],
+          [
+            2,
+            5,
+            3
+          ],
+          [
+            2,
+            6,
+            2
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            4,
+            2,
+            2,
+            2
+          ],
+          [
+            4,
+            2,
+            4
+          ],
+          [
+            4,
+            3,
+            3
+          ],
+          [
+            4,
+            4,
+            2
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            6,
+            2,
+            2
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10
+          ]
+        ]
+      },
+      {
+        "size": 16,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            2,
+            4
+          ],
+          [
+            2,
+            2,
+            4,
+            2
+          ],
+          [
+            2,
+            2,
+            6
+          ],
+          [
+            2,
+            4,
+            2,
+            2
+          ],
+          [
+            2,
+            4,
+            4
+          ],
+          [
+            2,
+            6,
+            2
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            4,
+            2,
+            2,
+            2
+          ],
+          [
+            4,
+            2,
+            4
+          ],
+          [
+            4,
+            4,
+            2
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            6,
+            2,
+            2
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10
+          ]
+        ]
+      },
+      {
+        "size": 0,
+        "weight_sum": 0,
+        "compositions": []
+      }
+    ]
+  },
+  {
+    "d": 9,
+    "n_support_nodes": 55,
+    "n_residual_sccs": 9,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 55,
+      "weight_sum": 0,
+      "compositions": null
+    },
+    "n_nontrivial_samples": 7,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 52,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 50,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 42,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 48,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 32,
+        "weight_sum": 0,
+        "compositions": [
+          [
+            2,
+            2,
+            2,
+            2,
+            3
+          ],
+          [
+            2,
+            2,
+            2,
+            3,
+            2
+          ],
+          [
+            2,
+            2,
+            2,
+            5
+          ],
+          [
+            2,
+            2,
+            3,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            2,
+            4,
+            3
+          ],
+          [
+            2,
+            2,
+            5,
+            2
+          ],
+          [
+            2,
+            2,
+            7
+          ],
+          [
+            2,
+            4,
+            2,
+            3
+          ],
+          [
+            2,
+            4,
+            3,
+            2
+          ],
+          [
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            5,
+            2,
+            2
+          ],
+          [
+            2,
+            5,
+            4
+          ],
+          [
+            2,
+            6,
+            3
+          ],
+          [
+            2,
+            7,
+            2
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            4,
+            2,
+            2,
+            3
+          ],
+          [
+            4,
+            2,
+            3,
+            2
+          ],
+          [
+            4,
+            2,
+            5
+          ],
+          [
+            4,
+            3,
+            2,
+            2
+          ],
+          [
+            4,
+            3,
+            4
+          ],
+          [
+            4,
+            4,
+            3
+          ],
+          [
+            4,
+            5,
+            2
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            6,
+            2,
+            3
+          ],
+          [
+            6,
+            3,
+            2
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            7,
+            2,
+            2
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            11
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "d": 10,
+    "n_support_nodes": 89,
+    "n_residual_sccs": 11,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 89,
+      "weight_sum": 0,
+      "compositions": null
+    },
+    "n_nontrivial_samples": 9,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 88,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 84,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 80,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 68,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 76,
+        "weight_sum": 0,
+        "compositions": null
+      }
+    ]
+  },
+  {
+    "d": 11,
+    "n_support_nodes": 144,
+    "n_residual_sccs": 14,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 144,
+      "weight_sum": 0,
+      "compositions": null
+    },
+    "n_nontrivial_samples": 12,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 142,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 136,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 130,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 124,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 126,
+        "weight_sum": 0,
+        "compositions": null
+      }
+    ]
+  },
+  {
+    "d": 12,
+    "n_support_nodes": 233,
+    "n_residual_sccs": 18,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 233,
+      "weight_sum": 0,
+      "compositions": null
+    },
+    "n_nontrivial_samples": 16,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 230,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 228,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 226,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 224,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 220,
+        "weight_sum": 0,
+        "compositions": null
+      }
+    ]
+  },
+  {
+    "d": 13,
+    "n_support_nodes": 377,
+    "n_residual_sccs": 23,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 377,
+      "weight_sum": 0,
+      "compositions": null
+    },
+    "n_nontrivial_samples": 20,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 376,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 372,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 368,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 364,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 360,
+        "weight_sum": 0,
+        "compositions": null
+      }
+    ]
+  },
+  {
+    "d": 14,
+    "n_support_nodes": 610,
+    "n_residual_sccs": 30,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 610,
+      "weight_sum": 0,
+      "compositions": null
+    },
+    "n_nontrivial_samples": 20,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 608,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 602,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 596,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 590,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 584,
+        "weight_sum": 0,
+        "compositions": null
+      }
+    ]
+  },
+  {
+    "d": 15,
+    "n_support_nodes": 987,
+    "n_residual_sccs": 39,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 987,
+      "weight_sum": 0,
+      "compositions": null
+    },
+    "n_nontrivial_samples": 20,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 984,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 982,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 980,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 978,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 976,
+        "weight_sum": 0,
+        "compositions": null
+      }
+    ]
+  },
+  {
+    "d": 16,
+    "n_support_nodes": 1597,
+    "n_residual_sccs": 51,
+    "minimal_tight_ideal": {
+      "size": 0,
+      "weight_sum": 0,
+      "compositions": []
+    },
+    "maximal_tight_ideal": {
+      "size": 1597,
+      "weight_sum": 0,
+      "compositions": null
+    },
+    "n_nontrivial_samples": 20,
+    "nontrivial_tight_ideal_samples": [
+      {
+        "size": 1596,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 1592,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 1588,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 1584,
+        "weight_sum": 0,
+        "compositions": null
+      },
+      {
+        "size": 1580,
+        "weight_sum": 0,
+        "compositions": null
+      }
+    ]
+  }
+]
