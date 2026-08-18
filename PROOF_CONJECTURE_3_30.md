@@ -165,6 +165,18 @@ block $4$, the coincident-edge case of Section 3); there the single edge
 carries $2G(c)$, matching the two $2$-blocks at positions $r-1,r$. Every
 selected move has flow $G(\text{child})=G(c)$ by definition.
 
+Two further points close all coincidence loopholes. *Distinct moves of one
+parent have distinct children:* splitting blocks $i\ne i'$ of $p$ yields
+children that differ at position $\min(i,i')$ (one has the created $2$
+there, the other the untouched block $p_{\min(i,i')}\ge4$). *No edge
+aliasing:* the element added by a move splitting block $i$ at offset $p$ is
+$j=\pi_i+p$ with $2\le p\le n_i-2$, strictly interior to block $i$; block
+interiors are disjoint, so two moves from the same $J$ add the same element
+— i.e. define the same Boolean cover edge — only in the final-$4$ FL/FR
+case already accounted for. Since the child composition is determined by
+$J\cup\{j\}$, the classification by the position of the created $2$ is
+exhaustive and unambiguous.
+
 Degenerate cases: if $r=1$ there is no $2$-block for $d\ge1$ (the single
 block is $d+2\ge3$) and indeed no selected move has a one-block child. Runs
 of consecutive $2$'s at positions $i,i+1\le r-2$ produce *different*
@@ -173,6 +185,13 @@ Blocks equal to $3$ receive nothing. Compositions containing a part $1$
 are neither sources nor targets of selected moves, since parents (merges)
 and children (peels with both pieces $\ge2$) of support nodes are support
 nodes. $\blacksquare$
+
+*(Adversarial re-audit, 2026-08-19: the constructive description above was
+checked by exhaustive forward enumeration of all selected moves for
+$d\le14$ — exact multiset equality of (parent, block, offset) triples per
+child, flow values, counts vs. $2$-block counts, the coincidence
+characterization, and the cut-point claims $j=\pi_i+2$ or $j=d$ used in
+Corollary 1; pinned in `tests/test_lemma2_adversarial.py`.)*
 
 ## 5. Proof of the Theorem
 
