@@ -1,0 +1,971 @@
+{
+  "holdout_dimensions": [
+    13,
+    14,
+    15,
+    16
+  ],
+  "method": "direct normalized divergence; no certificate values used",
+  "results": [
+    {
+      "basis": "P0",
+      "basis_columns": [
+        "one"
+      ],
+      "coefficients": null,
+      "fit": {
+        "free_parameters": [],
+        "inconsistent_row": 12,
+        "n_equations": 372,
+        "n_free_parameters": 0,
+        "n_parameters": 12,
+        "rank": 12,
+        "status": "inconsistent"
+      },
+      "holdout_dimensions": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "passed": false,
+      "phase_checks": {},
+      "schema": "chow-cone/k4-direct-ansatz/v1",
+      "solver": "deterministic Fraction Gauss-Jordan RREF",
+      "status": "inconsistent",
+      "training_dimensions": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "validation_dimensions": [
+        12
+      ]
+    },
+    {
+      "basis": "P1",
+      "basis_columns": [
+        "one",
+        "z",
+        "z2"
+      ],
+      "coefficients": null,
+      "fit": {
+        "free_parameters": [
+          {
+            "basis_column": "z",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s3:balanced:nonfinal"
+          }
+        ],
+        "inconsistent_row": 28,
+        "n_equations": 372,
+        "n_free_parameters": 8,
+        "n_parameters": 36,
+        "rank": 28,
+        "status": "inconsistent"
+      },
+      "holdout_dimensions": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "passed": false,
+      "phase_checks": {},
+      "schema": "chow-cone/k4-direct-ansatz/v1",
+      "solver": "deterministic Fraction Gauss-Jordan RREF",
+      "status": "inconsistent",
+      "training_dimensions": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "validation_dimensions": [
+        12
+      ]
+    },
+    {
+      "basis": "P2",
+      "basis_columns": [
+        "one",
+        "z",
+        "z2",
+        "z3",
+        "z4",
+        "N_ext",
+        "N_ext2",
+        "z_N_ext",
+        "V_ext",
+        "z_V_ext",
+        "z2_V_ext",
+        "V_ext2",
+        "Q_ext"
+      ],
+      "coefficients": null,
+      "fit": {
+        "free_parameters": [
+          {
+            "basis_column": "z",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z3",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z4",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z_N_ext",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z_V_ext",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z2_V_ext",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z3",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z4",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_N_ext",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_V_ext",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2_V_ext",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z3",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z4",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z_N_ext",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z_V_ext",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z2_V_ext",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z3",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z4",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_N_ext",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_V_ext",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2_V_ext",
+            "edge_type": "s3:balanced:nonfinal"
+          }
+        ],
+        "inconsistent_row": 128,
+        "n_equations": 372,
+        "n_free_parameters": 28,
+        "n_parameters": 156,
+        "rank": 128,
+        "status": "inconsistent"
+      },
+      "holdout_dimensions": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "passed": false,
+      "phase_checks": {},
+      "schema": "chow-cone/k4-direct-ansatz/v1",
+      "solver": "deterministic Fraction Gauss-Jordan RREF",
+      "status": "inconsistent",
+      "training_dimensions": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "validation_dimensions": [
+        12
+      ]
+    },
+    {
+      "basis": "P3",
+      "basis_columns": [
+        "one",
+        "z",
+        "z2",
+        "z3",
+        "z4",
+        "L",
+        "R",
+        "L2",
+        "L_R",
+        "R2",
+        "z_L",
+        "z_R",
+        "VL",
+        "VR",
+        "z_VL",
+        "z_VR",
+        "z2_VL",
+        "z2_VR",
+        "QL",
+        "QR",
+        "VL2",
+        "VL_VR",
+        "VR2"
+      ],
+      "coefficients": null,
+      "fit": {
+        "free_parameters": [
+          {
+            "basis_column": "z",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z3",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z4",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "R",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "L_R",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "R2",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z_L",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z_R",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "VR",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z_VL",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z_VR",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z2_VL",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z2_VR",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "QR",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "VL_VR",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "VR2",
+            "edge_type": "s2:balanced:final"
+          },
+          {
+            "basis_column": "z",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z3",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z4",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_L",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_R",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_VL",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_VR",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2_VL",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2_VR",
+            "edge_type": "s2:balanced:nonfinal"
+          },
+          {
+            "basis_column": "R",
+            "edge_type": "s2:left:final"
+          },
+          {
+            "basis_column": "L_R",
+            "edge_type": "s2:left:final"
+          },
+          {
+            "basis_column": "R2",
+            "edge_type": "s2:left:final"
+          },
+          {
+            "basis_column": "z_R",
+            "edge_type": "s2:left:final"
+          },
+          {
+            "basis_column": "VR",
+            "edge_type": "s2:left:final"
+          },
+          {
+            "basis_column": "z_VR",
+            "edge_type": "s2:left:final"
+          },
+          {
+            "basis_column": "z2_VR",
+            "edge_type": "s2:left:final"
+          },
+          {
+            "basis_column": "QR",
+            "edge_type": "s2:left:final"
+          },
+          {
+            "basis_column": "VL_VR",
+            "edge_type": "s2:left:final"
+          },
+          {
+            "basis_column": "VR2",
+            "edge_type": "s2:left:final"
+          },
+          {
+            "basis_column": "R",
+            "edge_type": "s2:right:final"
+          },
+          {
+            "basis_column": "L_R",
+            "edge_type": "s2:right:final"
+          },
+          {
+            "basis_column": "R2",
+            "edge_type": "s2:right:final"
+          },
+          {
+            "basis_column": "z_R",
+            "edge_type": "s2:right:final"
+          },
+          {
+            "basis_column": "VR",
+            "edge_type": "s2:right:final"
+          },
+          {
+            "basis_column": "z_VR",
+            "edge_type": "s2:right:final"
+          },
+          {
+            "basis_column": "z2_VR",
+            "edge_type": "s2:right:final"
+          },
+          {
+            "basis_column": "QR",
+            "edge_type": "s2:right:final"
+          },
+          {
+            "basis_column": "VL_VR",
+            "edge_type": "s2:right:final"
+          },
+          {
+            "basis_column": "VR2",
+            "edge_type": "s2:right:final"
+          },
+          {
+            "basis_column": "z",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z3",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z4",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "R",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "L_R",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "R2",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z_L",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z_R",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "VR",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z_VL",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z_VR",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z2_VL",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z2_VR",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "QR",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "VL_VR",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "VR2",
+            "edge_type": "s3:balanced:final"
+          },
+          {
+            "basis_column": "z",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z3",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z4",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_L",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_R",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_VL",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z_VR",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2_VL",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "z2_VR",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "VL2",
+            "edge_type": "s3:balanced:nonfinal"
+          },
+          {
+            "basis_column": "R",
+            "edge_type": "s3:left:final"
+          },
+          {
+            "basis_column": "L_R",
+            "edge_type": "s3:left:final"
+          },
+          {
+            "basis_column": "R2",
+            "edge_type": "s3:left:final"
+          },
+          {
+            "basis_column": "z_R",
+            "edge_type": "s3:left:final"
+          },
+          {
+            "basis_column": "VR",
+            "edge_type": "s3:left:final"
+          },
+          {
+            "basis_column": "z_VR",
+            "edge_type": "s3:left:final"
+          },
+          {
+            "basis_column": "z2_VR",
+            "edge_type": "s3:left:final"
+          },
+          {
+            "basis_column": "QR",
+            "edge_type": "s3:left:final"
+          },
+          {
+            "basis_column": "VL_VR",
+            "edge_type": "s3:left:final"
+          },
+          {
+            "basis_column": "VR2",
+            "edge_type": "s3:left:final"
+          },
+          {
+            "basis_column": "z2_VL",
+            "edge_type": "s3:left:nonfinal"
+          },
+          {
+            "basis_column": "VL2",
+            "edge_type": "s3:left:nonfinal"
+          },
+          {
+            "basis_column": "R",
+            "edge_type": "s3:right:final"
+          },
+          {
+            "basis_column": "L_R",
+            "edge_type": "s3:right:final"
+          },
+          {
+            "basis_column": "R2",
+            "edge_type": "s3:right:final"
+          },
+          {
+            "basis_column": "z_R",
+            "edge_type": "s3:right:final"
+          },
+          {
+            "basis_column": "VR",
+            "edge_type": "s3:right:final"
+          },
+          {
+            "basis_column": "z_VR",
+            "edge_type": "s3:right:final"
+          },
+          {
+            "basis_column": "z2_VR",
+            "edge_type": "s3:right:final"
+          },
+          {
+            "basis_column": "QR",
+            "edge_type": "s3:right:final"
+          },
+          {
+            "basis_column": "VL_VR",
+            "edge_type": "s3:right:final"
+          },
+          {
+            "basis_column": "VR2",
+            "edge_type": "s3:right:final"
+          },
+          {
+            "basis_column": "z2_VL",
+            "edge_type": "s3:right:nonfinal"
+          },
+          {
+            "basis_column": "VL2",
+            "edge_type": "s3:right:nonfinal"
+          }
+        ],
+        "inconsistent_row": 177,
+        "n_equations": 372,
+        "n_free_parameters": 99,
+        "n_parameters": 276,
+        "rank": 177,
+        "status": "inconsistent"
+      },
+      "holdout_dimensions": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "passed": false,
+      "phase_checks": {},
+      "schema": "chow-cone/k4-direct-ansatz/v1",
+      "solver": "deterministic Fraction Gauss-Jordan RREF",
+      "status": "inconsistent",
+      "training_dimensions": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "validation_dimensions": [
+        12
+      ]
+    }
+  ],
+  "schema": "chow-cone/k4-direct-ansatz/v1",
+  "training_dimensions": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "training_prefix_diagnostics": [
+    {
+      "basis": "P0",
+      "first_inconsistent_maximum_dimension": 4,
+      "first_training_dimension": 3,
+      "last_dimension_examined": 4,
+      "steps": [
+        {
+          "maximum_training_dimension": 3,
+          "n_equations": 3,
+          "n_free_parameters": 0,
+          "n_parameters": 2,
+          "rank": 2,
+          "status": "unique"
+        },
+        {
+          "maximum_training_dimension": 4,
+          "n_equations": 8,
+          "n_free_parameters": 0,
+          "n_parameters": 5,
+          "rank": 5,
+          "status": "inconsistent"
+        }
+      ]
+    },
+    {
+      "basis": "P1",
+      "first_inconsistent_maximum_dimension": 6,
+      "first_training_dimension": 3,
+      "last_dimension_examined": 6,
+      "steps": [
+        {
+          "maximum_training_dimension": 3,
+          "n_equations": 3,
+          "n_free_parameters": 4,
+          "n_parameters": 6,
+          "rank": 2,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 4,
+          "n_equations": 8,
+          "n_free_parameters": 9,
+          "n_parameters": 15,
+          "rank": 6,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 5,
+          "n_equations": 16,
+          "n_free_parameters": 14,
+          "n_parameters": 27,
+          "rank": 13,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 6,
+          "n_equations": 29,
+          "n_free_parameters": 12,
+          "n_parameters": 30,
+          "rank": 18,
+          "status": "inconsistent"
+        }
+      ]
+    },
+    {
+      "basis": "P2",
+      "first_inconsistent_maximum_dimension": 9,
+      "first_training_dimension": 3,
+      "last_dimension_examined": 9,
+      "steps": [
+        {
+          "maximum_training_dimension": 3,
+          "n_equations": 3,
+          "n_free_parameters": 24,
+          "n_parameters": 26,
+          "rank": 2,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 4,
+          "n_equations": 8,
+          "n_free_parameters": 59,
+          "n_parameters": 65,
+          "rank": 6,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 5,
+          "n_equations": 16,
+          "n_free_parameters": 104,
+          "n_parameters": 117,
+          "rank": 13,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 6,
+          "n_equations": 29,
+          "n_free_parameters": 105,
+          "n_parameters": 130,
+          "rank": 25,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 7,
+          "n_equations": 50,
+          "n_free_parameters": 111,
+          "n_parameters": 156,
+          "rank": 45,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 8,
+          "n_equations": 84,
+          "n_free_parameters": 78,
+          "n_parameters": 156,
+          "rank": 78,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 9,
+          "n_equations": 139,
+          "n_free_parameters": 48,
+          "n_parameters": 156,
+          "rank": 108,
+          "status": "inconsistent"
+        }
+      ]
+    },
+    {
+      "basis": "P3",
+      "first_inconsistent_maximum_dimension": 10,
+      "first_training_dimension": 3,
+      "last_dimension_examined": 10,
+      "steps": [
+        {
+          "maximum_training_dimension": 3,
+          "n_equations": 3,
+          "n_free_parameters": 44,
+          "n_parameters": 46,
+          "rank": 2,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 4,
+          "n_equations": 8,
+          "n_free_parameters": 109,
+          "n_parameters": 115,
+          "rank": 6,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 5,
+          "n_equations": 16,
+          "n_free_parameters": 194,
+          "n_parameters": 207,
+          "rank": 13,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 6,
+          "n_equations": 29,
+          "n_free_parameters": 205,
+          "n_parameters": 230,
+          "rank": 25,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 7,
+          "n_equations": 50,
+          "n_free_parameters": 231,
+          "n_parameters": 276,
+          "rank": 45,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 8,
+          "n_equations": 84,
+          "n_free_parameters": 198,
+          "n_parameters": 276,
+          "rank": 78,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 9,
+          "n_equations": 139,
+          "n_free_parameters": 145,
+          "n_parameters": 276,
+          "rank": 131,
+          "status": "underdetermined"
+        },
+        {
+          "maximum_training_dimension": 10,
+          "n_equations": 228,
+          "n_free_parameters": 117,
+          "n_parameters": 276,
+          "rank": 159,
+          "status": "inconsistent"
+        }
+      ]
+    }
+  ],
+  "validation_dimensions": [
+    12
+  ]
+}

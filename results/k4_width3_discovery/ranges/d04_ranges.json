@@ -1,0 +1,113 @@
+{
+  "baseline_certificate": "primary/d04_lex.json",
+  "classification_counts": {
+    "fixed_positive": 1,
+    "fixed_zero": 0,
+    "forced_variable": 2,
+    "optional": 2
+  },
+  "d": 4,
+  "edge_encoding": {
+    "current": "canonical decimal integer string",
+    "maximum": "canonical decimal integer string",
+    "minimum": "canonical decimal integer string"
+  },
+  "edge_order": "canonical (parent composition, block, left)",
+  "edges": [
+    {
+      "block": 1,
+      "child": [
+        2,
+        2,
+        2
+      ],
+      "classification": "optional",
+      "current": "15120",
+      "left": 2,
+      "maximum": "15120",
+      "minimum": "0",
+      "parent": [
+        2,
+        4
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        2,
+        2,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 2,
+      "maximum": "15120",
+      "minimum": "0",
+      "parent": [
+        4,
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        2,
+        4
+      ],
+      "classification": "forced_variable",
+      "current": "15840",
+      "left": 2,
+      "maximum": "15840",
+      "minimum": "720",
+      "parent": [
+        6
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        3,
+        3
+      ],
+      "classification": "fixed_positive",
+      "current": "5760",
+      "left": 3,
+      "maximum": "5760",
+      "minimum": "5760",
+      "parent": [
+        6
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        4,
+        2
+      ],
+      "classification": "forced_variable",
+      "current": "360",
+      "left": 4,
+      "maximum": "15480",
+      "minimum": "360",
+      "parent": [
+        6
+      ]
+    }
+  ],
+  "method": {
+    "arithmetic": "Python arbitrary-precision integers only",
+    "auxiliary_problems_per_edge": 2,
+    "cutoff": {
+      "explanation": "Complete edgewise analysis requires two auxiliary exact max-flow problems per allowed edge and is intentionally bounded to d<=10.",
+      "maximum_dimension": 10
+    },
+    "explanation": "For each allowed edge, remove that edge from the residual network of the saved lex certificate. Exact integer max-flow rerouting computes the greatest feasible decrease and increase. Feasible-flow differences are residual circulations, so the resulting coordinate minimum and maximum are exact and independent of the baseline solver tie-breaking.",
+    "name": "exact residual-circulation edge-coordinate ranges",
+    "natural_edge_upper_bound": "total_supply"
+  },
+  "n_allowed_edges": 5,
+  "peel_width_max": 3,
+  "schema": "chow-cone/k4-edgewise-ranges/v1",
+  "total_supply": "21960",
+  "weight_scale": 720
+}

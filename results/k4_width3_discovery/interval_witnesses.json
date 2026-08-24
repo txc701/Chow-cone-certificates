@@ -1,0 +1,266 @@
+{
+  "dimensions_analyzed": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "levels": [
+    {
+      "level": "block_local",
+      "n_repeated_signature_groups": 40,
+      "pairs_checked": 6068,
+      "signature_fields": [
+        "peel_width",
+        "peel_side",
+        "is_final_block",
+        "block_size"
+      ],
+      "witness": {
+        "first_edge": {
+          "B4_720": 240,
+          "G_child": 3,
+          "G_child_over_parent": {
+            "den": 1,
+            "num": 1
+          },
+          "G_parent": 3,
+          "L": 0,
+          "N": 4,
+          "N_ext": 0,
+          "Q2": 64,
+          "QL": 0,
+          "QR": 0,
+          "Q_ext": 0,
+          "R": 0,
+          "S4_child": -240,
+          "S4_parent": 240,
+          "V": 8,
+          "VL": 0,
+          "VR": 0,
+          "V_ext": 0,
+          "added_subset_element": 2,
+          "affected_block": 4,
+          "block_index": 0,
+          "block_position": 1,
+          "child": [
+            2,
+            2
+          ],
+          "child_block_count": 2,
+          "child_prefix_sums": [
+            2
+          ],
+          "cross": 0,
+          "d": 2,
+          "delta_S4": -480,
+          "delta_V": -8,
+          "edge_id": "d2:(4):i0:p2",
+          "edge_type": "s2:balanced:final",
+          "is_final_block": true,
+          "left_part": 2,
+          "parent": [
+            4
+          ],
+          "parent_block_count": 1,
+          "parent_prefix_sums": [],
+          "peel_side": "balanced",
+          "peel_width": 2,
+          "prefix_block_count": 0,
+          "right_part": 2,
+          "schema": "chow-cone/k4-edge-features/v1",
+          "suffix_block_count": 0,
+          "v_affected": 8,
+          "v_child_blocks": [
+            0,
+            0
+          ],
+          "v_left": 0,
+          "v_parent_blocks": [
+            8
+          ],
+          "v_right": 0,
+          "w4_child": -720,
+          "w4_parent": 720,
+          "z": 0
+        },
+        "first_normalized_interval": {
+          "maximum": {
+            "den": 1,
+            "num": 240
+          },
+          "minimum": {
+            "den": 1,
+            "num": 240
+          }
+        },
+        "gap": {
+          "den": 1,
+          "num": 312
+        },
+        "interpretation": "all feasible certificates force disjoint normalized ranges on two edges with the same declared signature",
+        "second_edge": {
+          "B4_720": 693,
+          "G_child": 120,
+          "G_child_over_parent": {
+            "den": 1,
+            "num": 1
+          },
+          "G_parent": 120,
+          "L": 3,
+          "N": 7,
+          "N_ext": 3,
+          "Q2": 73,
+          "QL": 9,
+          "QR": 0,
+          "Q_ext": 9,
+          "R": 0,
+          "S4_child": -648,
+          "S4_parent": 552,
+          "V": 11,
+          "VL": 3,
+          "VR": 0,
+          "V_ext": 3,
+          "added_subset_element": 5,
+          "affected_block": 4,
+          "block_index": 1,
+          "block_position": 2,
+          "child": [
+            3,
+            2,
+            2
+          ],
+          "child_block_count": 3,
+          "child_prefix_sums": [
+            3,
+            5
+          ],
+          "cross": 24,
+          "d": 5,
+          "delta_S4": -1200,
+          "delta_V": -8,
+          "edge_id": "d5:(3,4):i1:p2",
+          "edge_type": "s2:balanced:final",
+          "is_final_block": true,
+          "left_part": 2,
+          "parent": [
+            3,
+            4
+          ],
+          "parent_block_count": 2,
+          "parent_prefix_sums": [
+            3
+          ],
+          "peel_side": "balanced",
+          "peel_width": 2,
+          "prefix_block_count": 1,
+          "right_part": 2,
+          "schema": "chow-cone/k4-edge-features/v1",
+          "suffix_block_count": 0,
+          "v_affected": 8,
+          "v_child_blocks": [
+            3,
+            0,
+            0
+          ],
+          "v_left": 0,
+          "v_parent_blocks": [
+            3,
+            8
+          ],
+          "v_right": 0,
+          "w4_child": -77760,
+          "w4_parent": 66240,
+          "z": 0
+        },
+        "second_normalized_interval": {
+          "maximum": {
+            "den": 1,
+            "num": 648
+          },
+          "minimum": {
+            "den": 1,
+            "num": 552
+          }
+        },
+        "signature": {
+          "block_size": 4,
+          "is_final_block": true,
+          "peel_side": "balanced",
+          "peel_width": 2
+        }
+      }
+    },
+    {
+      "level": "prefix_state",
+      "n_repeated_signature_groups": 74,
+      "pairs_checked": 1449,
+      "signature_fields": [
+        "peel_width",
+        "peel_side",
+        "is_final_block",
+        "block_size",
+        "L",
+        "VL"
+      ],
+      "witness": null
+    },
+    {
+      "level": "symmetric_moment_state",
+      "n_repeated_signature_groups": 86,
+      "pairs_checked": 408,
+      "signature_fields": [
+        "peel_width",
+        "peel_side",
+        "is_final_block",
+        "block_size",
+        "N_ext",
+        "V_ext",
+        "Q_ext"
+      ],
+      "witness": null
+    },
+    {
+      "level": "two_sided_state",
+      "n_repeated_signature_groups": 68,
+      "pairs_checked": 88,
+      "signature_fields": [
+        "peel_width",
+        "peel_side",
+        "is_final_block",
+        "block_size",
+        "L",
+        "R",
+        "VL",
+        "VR"
+      ],
+      "witness": null
+    },
+    {
+      "level": "moment_state",
+      "n_repeated_signature_groups": 68,
+      "pairs_checked": 88,
+      "signature_fields": [
+        "peel_width",
+        "peel_side",
+        "is_final_block",
+        "block_size",
+        "L",
+        "R",
+        "VL",
+        "VR",
+        "QL",
+        "QR"
+      ],
+      "witness": null
+    }
+  ],
+  "max_d": 10,
+  "method": "exact normalized coordinate intervals; no solver tie-breaking",
+  "schema": "chow-cone/k4-interval-witness/v1"
+}

@@ -1,0 +1,662 @@
+{
+  "baseline_certificate": "primary/d07_lex.json",
+  "classification_counts": {
+    "fixed_positive": 0,
+    "fixed_zero": 0,
+    "forced_variable": 7,
+    "optional": 29
+  },
+  "d": 7,
+  "edge_encoding": {
+    "current": "canonical decimal integer string",
+    "maximum": "canonical decimal integer string",
+    "minimum": "canonical decimal integer string"
+  },
+  "edge_order": "canonical (parent composition, block, left)",
+  "edges": [
+    {
+      "block": 2,
+      "child": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "classification": "optional",
+      "current": "4312224",
+      "left": 2,
+      "maximum": "4312224",
+      "minimum": "0",
+      "parent": [
+        2,
+        2,
+        5
+      ]
+    },
+    {
+      "block": 2,
+      "child": [
+        2,
+        2,
+        3,
+        2
+      ],
+      "classification": "optional",
+      "current": "2695680",
+      "left": 3,
+      "maximum": "3469824",
+      "minimum": "0",
+      "parent": [
+        2,
+        2,
+        5
+      ]
+    },
+    {
+      "block": 2,
+      "child": [
+        2,
+        3,
+        2,
+        2
+      ],
+      "classification": "forced_variable",
+      "current": "3290112",
+      "left": 2,
+      "maximum": "3749760",
+      "minimum": "282240",
+      "parent": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "classification": "forced_variable",
+      "current": "1100736",
+      "left": 2,
+      "maximum": "3731904",
+      "minimum": "211680",
+      "parent": [
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        2,
+        2,
+        3,
+        2
+      ],
+      "classification": "optional",
+      "current": "912960",
+      "left": 2,
+      "maximum": "2769984",
+      "minimum": "0",
+      "parent": [
+        2,
+        5,
+        2
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        2,
+        3,
+        2,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 3,
+      "maximum": "774144",
+      "minimum": "0",
+      "parent": [
+        2,
+        5,
+        2
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        2,
+        2,
+        5
+      ],
+      "classification": "optional",
+      "current": "1857024",
+      "left": 2,
+      "maximum": "1857024",
+      "minimum": "0",
+      "parent": [
+        2,
+        7
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        2,
+        3,
+        4
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 3,
+      "maximum": "774144",
+      "minimum": "0",
+      "parent": [
+        2,
+        7
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        2,
+        4,
+        3
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 4,
+      "maximum": "1857024",
+      "minimum": "0",
+      "parent": [
+        2,
+        7
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        2,
+        5,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 5,
+      "maximum": "1857024",
+      "minimum": "0",
+      "parent": [
+        2,
+        7
+      ]
+    },
+    {
+      "block": 2,
+      "child": [
+        3,
+        2,
+        2,
+        2
+      ],
+      "classification": "forced_variable",
+      "current": "3608640",
+      "left": 2,
+      "maximum": "3608640",
+      "minimum": "282240",
+      "parent": [
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        3,
+        2,
+        2,
+        2
+      ],
+      "classification": "forced_variable",
+      "current": "141120",
+      "left": 2,
+      "maximum": "3273984",
+      "minimum": "141120",
+      "parent": [
+        3,
+        4,
+        2
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        3,
+        2,
+        4
+      ],
+      "classification": "optional",
+      "current": "3132864",
+      "left": 2,
+      "maximum": "3132864",
+      "minimum": "0",
+      "parent": [
+        3,
+        6
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        3,
+        3,
+        3
+      ],
+      "classification": "forced_variable",
+      "current": "193536",
+      "left": 3,
+      "maximum": "967680",
+      "minimum": "193536",
+      "parent": [
+        3,
+        6
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        3,
+        4,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 4,
+      "maximum": "3132864",
+      "minimum": "0",
+      "parent": [
+        3,
+        6
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "classification": "forced_variable",
+      "current": "211680",
+      "left": 2,
+      "maximum": "5412960",
+      "minimum": "211680",
+      "parent": [
+        4,
+        2,
+        3
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        2,
+        2,
+        3,
+        2
+      ],
+      "classification": "forced_variable",
+      "current": "141120",
+      "left": 2,
+      "maximum": "3749760",
+      "minimum": "141120",
+      "parent": [
+        4,
+        3,
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        2,
+        2,
+        5
+      ],
+      "classification": "optional",
+      "current": "4001760",
+      "left": 2,
+      "maximum": "4001760",
+      "minimum": "0",
+      "parent": [
+        4,
+        5
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        4,
+        2,
+        3
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 2,
+      "maximum": "4001760",
+      "minimum": "0",
+      "parent": [
+        4,
+        5
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        4,
+        3,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 3,
+      "maximum": "3469824",
+      "minimum": "0",
+      "parent": [
+        4,
+        5
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        2,
+        3,
+        2,
+        2
+      ],
+      "classification": "optional",
+      "current": "459648",
+      "left": 2,
+      "maximum": "3467520",
+      "minimum": "0",
+      "parent": [
+        5,
+        2,
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        3,
+        2,
+        2,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 3,
+      "maximum": "967680",
+      "minimum": "0",
+      "parent": [
+        5,
+        2,
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        2,
+        3,
+        4
+      ],
+      "classification": "optional",
+      "current": "3007872",
+      "left": 2,
+      "maximum": "3201408",
+      "minimum": "0",
+      "parent": [
+        5,
+        4
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        3,
+        2,
+        4
+      ],
+      "classification": "optional",
+      "current": "193536",
+      "left": 3,
+      "maximum": "967680",
+      "minimum": "0",
+      "parent": [
+        5,
+        4
+      ]
+    },
+    {
+      "block": 1,
+      "child": [
+        5,
+        2,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 2,
+      "maximum": "3201408",
+      "minimum": "0",
+      "parent": [
+        5,
+        4
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        2,
+        4,
+        3
+      ],
+      "classification": "optional",
+      "current": "889056",
+      "left": 2,
+      "maximum": "1933632",
+      "minimum": "0",
+      "parent": [
+        6,
+        3
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        3,
+        3,
+        3
+      ],
+      "classification": "optional",
+      "current": "774144",
+      "left": 3,
+      "maximum": "774144",
+      "minimum": "0",
+      "parent": [
+        6,
+        3
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        4,
+        2,
+        3
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 4,
+      "maximum": "1933632",
+      "minimum": "0",
+      "parent": [
+        6,
+        3
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        2,
+        5,
+        2
+      ],
+      "classification": "optional",
+      "current": "453312",
+      "left": 2,
+      "maximum": "723744",
+      "minimum": "0",
+      "parent": [
+        7,
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        3,
+        4,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 3,
+      "maximum": "723744",
+      "minimum": "0",
+      "parent": [
+        7,
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        4,
+        3,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 4,
+      "maximum": "723744",
+      "minimum": "0",
+      "parent": [
+        7,
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        5,
+        2,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 5,
+      "maximum": "723744",
+      "minimum": "0",
+      "parent": [
+        7,
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        2,
+        7
+      ],
+      "classification": "optional",
+      "current": "270432",
+      "left": 2,
+      "maximum": "270432",
+      "minimum": "0",
+      "parent": [
+        9
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        3,
+        6
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 3,
+      "maximum": "270432",
+      "minimum": "0",
+      "parent": [
+        9
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        6,
+        3
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 6,
+      "maximum": "270432",
+      "minimum": "0",
+      "parent": [
+        9
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        7,
+        2
+      ],
+      "classification": "optional",
+      "current": "0",
+      "left": 7,
+      "maximum": "270432",
+      "minimum": "0",
+      "parent": [
+        9
+      ]
+    }
+  ],
+  "method": {
+    "arithmetic": "Python arbitrary-precision integers only",
+    "auxiliary_problems_per_edge": 2,
+    "cutoff": {
+      "explanation": "Complete edgewise analysis requires two auxiliary exact max-flow problems per allowed edge and is intentionally bounded to d<=10.",
+      "maximum_dimension": 10
+    },
+    "explanation": "For each allowed edge, remove that edge from the residual network of the saved lex certificate. Exact integer max-flow rerouting computes the greatest feasible decrease and increase. Feasible-flow differences are residual circulations, so the resulting coordinate minimum and maximum are exact and independent of the baseline solver tie-breaking.",
+    "name": "exact residual-circulation edge-coordinate ranges",
+    "natural_edge_upper_bound": "total_supply"
+  },
+  "n_allowed_edges": 36,
+  "peel_width_max": 3,
+  "schema": "chow-cone/k4-edgewise-ranges/v1",
+  "total_supply": "17841600",
+  "weight_scale": 720
+}

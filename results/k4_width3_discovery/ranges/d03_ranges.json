@@ -1,0 +1,64 @@
+{
+  "baseline_certificate": "primary/d03_lex.json",
+  "classification_counts": {
+    "fixed_positive": 2,
+    "fixed_zero": 0,
+    "forced_variable": 0,
+    "optional": 0
+  },
+  "d": 3,
+  "edge_encoding": {
+    "current": "canonical decimal integer string",
+    "maximum": "canonical decimal integer string",
+    "minimum": "canonical decimal integer string"
+  },
+  "edge_order": "canonical (parent composition, block, left)",
+  "edges": [
+    {
+      "block": 0,
+      "child": [
+        2,
+        3
+      ],
+      "classification": "fixed_positive",
+      "current": "3600",
+      "left": 2,
+      "maximum": "3600",
+      "minimum": "3600",
+      "parent": [
+        5
+      ]
+    },
+    {
+      "block": 0,
+      "child": [
+        3,
+        2
+      ],
+      "classification": "fixed_positive",
+      "current": "2400",
+      "left": 3,
+      "maximum": "2400",
+      "minimum": "2400",
+      "parent": [
+        5
+      ]
+    }
+  ],
+  "method": {
+    "arithmetic": "Python arbitrary-precision integers only",
+    "auxiliary_problems_per_edge": 2,
+    "cutoff": {
+      "explanation": "Complete edgewise analysis requires two auxiliary exact max-flow problems per allowed edge and is intentionally bounded to d<=10.",
+      "maximum_dimension": 10
+    },
+    "explanation": "For each allowed edge, remove that edge from the residual network of the saved lex certificate. Exact integer max-flow rerouting computes the greatest feasible decrease and increase. Feasible-flow differences are residual circulations, so the resulting coordinate minimum and maximum are exact and independent of the baseline solver tie-breaking.",
+    "name": "exact residual-circulation edge-coordinate ranges",
+    "natural_edge_upper_bound": "total_supply"
+  },
+  "n_allowed_edges": 2,
+  "peel_width_max": 3,
+  "schema": "chow-cone/k4-edgewise-ranges/v1",
+  "total_supply": "6000",
+  "weight_scale": 720
+}

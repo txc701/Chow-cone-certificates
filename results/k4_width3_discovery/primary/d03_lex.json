@@ -1,0 +1,37 @@
+{
+  "d": 3,
+  "edges": [
+    [
+      [
+        5
+      ],
+      0,
+      2,
+      "3600"
+    ],
+    [
+      [
+        5
+      ],
+      0,
+      3,
+      "2400"
+    ]
+  ],
+  "generation": {
+    "algorithm": "Dinic exact-integer max flow",
+    "cover_capacity": "total_supply + 1",
+    "edge_order": "lex",
+    "edge_order_key": "(block_index, left_part, child_composition)",
+    "flow_encoding": "sparse positive edges; decimal integer strings",
+    "node_order": "lexicographic compositions",
+    "source_sink_order": "interleaved by lexicographic node order"
+  },
+  "n_allowed_edges": 2,
+  "n_positive_edges": 2,
+  "n_support_nodes": 3,
+  "peel_width_max": 3,
+  "schema": "chow-cone/k4-peel-width-certificate/v1",
+  "total_supply": "6000",
+  "weight_scale": 720
+}

@@ -1,0 +1,1320 @@
+{
+  "exact_coordinate_range_dimensions": [
+    {
+      "classification_counts": {
+        "fixed_positive": 1,
+        "fixed_zero": 0,
+        "forced_variable": 0,
+        "optional": 0
+      },
+      "d": 2,
+      "n_allowed_edges": 1,
+      "n_exactly_fixed_coordinates": 1,
+      "n_exactly_variable_coordinates": 0
+    },
+    {
+      "classification_counts": {
+        "fixed_positive": 2,
+        "fixed_zero": 0,
+        "forced_variable": 0,
+        "optional": 0
+      },
+      "d": 3,
+      "n_allowed_edges": 2,
+      "n_exactly_fixed_coordinates": 2,
+      "n_exactly_variable_coordinates": 0
+    },
+    {
+      "classification_counts": {
+        "fixed_positive": 1,
+        "fixed_zero": 0,
+        "forced_variable": 2,
+        "optional": 2
+      },
+      "d": 4,
+      "n_allowed_edges": 5,
+      "n_exactly_fixed_coordinates": 1,
+      "n_exactly_variable_coordinates": 4
+    },
+    {
+      "classification_counts": {
+        "fixed_positive": 0,
+        "fixed_zero": 0,
+        "forced_variable": 5,
+        "optional": 5
+      },
+      "d": 5,
+      "n_allowed_edges": 10,
+      "n_exactly_fixed_coordinates": 0,
+      "n_exactly_variable_coordinates": 10
+    },
+    {
+      "classification_counts": {
+        "fixed_positive": 0,
+        "fixed_zero": 0,
+        "forced_variable": 3,
+        "optional": 16
+      },
+      "d": 6,
+      "n_allowed_edges": 19,
+      "n_exactly_fixed_coordinates": 0,
+      "n_exactly_variable_coordinates": 19
+    },
+    {
+      "classification_counts": {
+        "fixed_positive": 0,
+        "fixed_zero": 0,
+        "forced_variable": 7,
+        "optional": 29
+      },
+      "d": 7,
+      "n_allowed_edges": 36,
+      "n_exactly_fixed_coordinates": 0,
+      "n_exactly_variable_coordinates": 36
+    },
+    {
+      "classification_counts": {
+        "fixed_positive": 0,
+        "fixed_zero": 0,
+        "forced_variable": 6,
+        "optional": 60
+      },
+      "d": 8,
+      "n_allowed_edges": 66,
+      "n_exactly_fixed_coordinates": 0,
+      "n_exactly_variable_coordinates": 66
+    },
+    {
+      "classification_counts": {
+        "fixed_positive": 0,
+        "fixed_zero": 0,
+        "forced_variable": 4,
+        "optional": 116
+      },
+      "d": 9,
+      "n_allowed_edges": 120,
+      "n_exactly_fixed_coordinates": 0,
+      "n_exactly_variable_coordinates": 120
+    },
+    {
+      "classification_counts": {
+        "fixed_positive": 0,
+        "fixed_zero": 0,
+        "forced_variable": 12,
+        "optional": 203
+      },
+      "d": 10,
+      "n_allowed_edges": 215,
+      "n_exactly_fixed_coordinates": 0,
+      "n_exactly_variable_coordinates": 215
+    }
+  ],
+  "exact_invariants": {
+    "added_cut_position": "Writing Phi(c) for the sum of the proper prefix sums of c, a split at cut j has Phi(child)-Phi(parent)=j. Therefore sum_e j(e)f(e)=-sum_c Phi(c)w4(c), independent of f.",
+    "edge_coordinate_ranges": "For d<=10, every coordinate minimum and maximum is exact; minimum=maximum is a solver-independent invariant.",
+    "rank_cut_flows": "For every block-count cut, the total crossing flow equals the cumulative w4 divergence on lower ranks.",
+    "reflected_position": "This equals (d+1) times total_internal_flow minus added_cut_position, so it is also fixed on the feasible set.",
+    "total_internal_flow": "The sum of all edge flows is the sum of the forced rank-cut flows, so the total_internal_flow objective is constant on the entire feasible set."
+  },
+  "representative_dimensions": [
+    {
+      "certificate_names": [
+        "primary_lex",
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow"
+      ],
+      "d": 4,
+      "forced_added_cut_position": "110880",
+      "forced_rank_cut_flows": {
+        "1": "21960",
+        "2": "15120"
+      },
+      "forced_reflected_position": "74520",
+      "forced_total_internal_flow": "37080",
+      "n_allowed_edges": 5,
+      "n_coordinates_constant_among_saved_certificates": 1,
+      "n_coordinates_varying_among_saved_certificates": 4,
+      "n_distinct_edgewise_vectors": 2,
+      "n_saved_certificates": 9,
+      "objective_sample_variation": {
+        "added_cut_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "110880",
+          "minimum_saved_value": "110880",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "balanced_split_mass": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "20880",
+          "minimum_saved_value": "20880",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "final_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "37080",
+          "minimum_saved_value": "21960",
+          "n_distinct_values_among_saved_certificates": 2
+        },
+        "first_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "37080",
+          "minimum_saved_value": "21960",
+          "n_distinct_values_among_saved_certificates": 2
+        },
+        "peel3_mass": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "5760",
+          "minimum_saved_value": "5760",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "reflected_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "74520",
+          "minimum_saved_value": "74520",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "right_peel_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "15480",
+          "minimum_saved_value": "360",
+          "n_distinct_values_among_saved_certificates": 2
+        },
+        "total_internal_flow": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "37080",
+          "minimum_saved_value": "37080",
+          "n_distinct_values_among_saved_certificates": 1
+        }
+      },
+      "objective_values": {
+        "mincost:added_cut_position": {
+          "added_cut_position": "110880",
+          "balanced_split_mass": "20880",
+          "final_block_mass": "37080",
+          "first_block_mass": "21960",
+          "peel3_mass": "5760",
+          "reflected_position": "74520",
+          "right_peel_mass": "360",
+          "total_internal_flow": "37080"
+        },
+        "mincost:balanced_split_mass": {
+          "added_cut_position": "110880",
+          "balanced_split_mass": "20880",
+          "final_block_mass": "37080",
+          "first_block_mass": "21960",
+          "peel3_mass": "5760",
+          "reflected_position": "74520",
+          "right_peel_mass": "360",
+          "total_internal_flow": "37080"
+        },
+        "mincost:final_block_mass": {
+          "added_cut_position": "110880",
+          "balanced_split_mass": "20880",
+          "final_block_mass": "21960",
+          "first_block_mass": "37080",
+          "peel3_mass": "5760",
+          "reflected_position": "74520",
+          "right_peel_mass": "15480",
+          "total_internal_flow": "37080"
+        },
+        "mincost:first_block_mass": {
+          "added_cut_position": "110880",
+          "balanced_split_mass": "20880",
+          "final_block_mass": "37080",
+          "first_block_mass": "21960",
+          "peel3_mass": "5760",
+          "reflected_position": "74520",
+          "right_peel_mass": "360",
+          "total_internal_flow": "37080"
+        },
+        "mincost:peel3_mass": {
+          "added_cut_position": "110880",
+          "balanced_split_mass": "20880",
+          "final_block_mass": "37080",
+          "first_block_mass": "21960",
+          "peel3_mass": "5760",
+          "reflected_position": "74520",
+          "right_peel_mass": "360",
+          "total_internal_flow": "37080"
+        },
+        "mincost:reflected_position": {
+          "added_cut_position": "110880",
+          "balanced_split_mass": "20880",
+          "final_block_mass": "37080",
+          "first_block_mass": "21960",
+          "peel3_mass": "5760",
+          "reflected_position": "74520",
+          "right_peel_mass": "360",
+          "total_internal_flow": "37080"
+        },
+        "mincost:right_peel_mass": {
+          "added_cut_position": "110880",
+          "balanced_split_mass": "20880",
+          "final_block_mass": "37080",
+          "first_block_mass": "21960",
+          "peel3_mass": "5760",
+          "reflected_position": "74520",
+          "right_peel_mass": "360",
+          "total_internal_flow": "37080"
+        },
+        "mincost:total_internal_flow": {
+          "added_cut_position": "110880",
+          "balanced_split_mass": "20880",
+          "final_block_mass": "37080",
+          "first_block_mass": "21960",
+          "peel3_mass": "5760",
+          "reflected_position": "74520",
+          "right_peel_mass": "360",
+          "total_internal_flow": "37080"
+        },
+        "primary_lex": {
+          "added_cut_position": "110880",
+          "balanced_split_mass": "20880",
+          "final_block_mass": "37080",
+          "first_block_mass": "21960",
+          "peel3_mass": "5760",
+          "reflected_position": "74520",
+          "right_peel_mass": "360",
+          "total_internal_flow": "37080"
+        }
+      }
+    },
+    {
+      "certificate_names": [
+        "primary_lex",
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow"
+      ],
+      "d": 6,
+      "forced_added_cut_position": "12650400",
+      "forced_rank_cut_flows": {
+        "1": "134736",
+        "2": "2355360",
+        "3": "574560"
+      },
+      "forced_reflected_position": "8802192",
+      "forced_total_internal_flow": "3064656",
+      "n_allowed_edges": 19,
+      "n_coordinates_constant_among_saved_certificates": 1,
+      "n_coordinates_varying_among_saved_certificates": 18,
+      "n_distinct_edgewise_vectors": 8,
+      "n_saved_certificates": 9,
+      "objective_sample_variation": {
+        "added_cut_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "12650400",
+          "minimum_saved_value": "12650400",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "balanced_split_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "1388016",
+          "minimum_saved_value": "1253280",
+          "n_distinct_values_among_saved_certificates": 4
+        },
+        "final_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "2050272",
+          "minimum_saved_value": "1552656",
+          "n_distinct_values_among_saved_certificates": 7
+        },
+        "first_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "1298976",
+          "minimum_saved_value": "1149120",
+          "n_distinct_values_among_saved_certificates": 4
+        },
+        "peel3_mass": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "193536",
+          "minimum_saved_value": "193536",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "reflected_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "8802192",
+          "minimum_saved_value": "8802192",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "right_peel_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "924336",
+          "minimum_saved_value": "305760",
+          "n_distinct_values_among_saved_certificates": 8
+        },
+        "total_internal_flow": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "3064656",
+          "minimum_saved_value": "3064656",
+          "n_distinct_values_among_saved_certificates": 1
+        }
+      },
+      "objective_values": {
+        "mincost:added_cut_position": {
+          "added_cut_position": "12650400",
+          "balanced_split_mass": "1388016",
+          "final_block_mass": "1822128",
+          "first_block_mass": "1149120",
+          "peel3_mass": "193536",
+          "reflected_position": "8802192",
+          "right_peel_mass": "651504",
+          "total_internal_flow": "3064656"
+        },
+        "mincost:balanced_split_mass": {
+          "added_cut_position": "12650400",
+          "balanced_split_mass": "1253280",
+          "final_block_mass": "1897056",
+          "first_block_mass": "1298976",
+          "peel3_mass": "193536",
+          "reflected_position": "8802192",
+          "right_peel_mass": "595056",
+          "total_internal_flow": "3064656"
+        },
+        "mincost:final_block_mass": {
+          "added_cut_position": "12650400",
+          "balanced_split_mass": "1253280",
+          "final_block_mass": "1552656",
+          "first_block_mass": "1283856",
+          "peel3_mass": "193536",
+          "reflected_position": "8802192",
+          "right_peel_mass": "924336",
+          "total_internal_flow": "3064656"
+        },
+        "mincost:first_block_mass": {
+          "added_cut_position": "12650400",
+          "balanced_split_mass": "1267056",
+          "final_block_mass": "2046912",
+          "first_block_mass": "1149120",
+          "peel3_mass": "193536",
+          "reflected_position": "8802192",
+          "right_peel_mass": "309120",
+          "total_internal_flow": "3064656"
+        },
+        "mincost:peel3_mass": {
+          "added_cut_position": "12650400",
+          "balanced_split_mass": "1267056",
+          "final_block_mass": "1969632",
+          "first_block_mass": "1229760",
+          "peel3_mass": "193536",
+          "reflected_position": "8802192",
+          "right_peel_mass": "467040",
+          "total_internal_flow": "3064656"
+        },
+        "mincost:reflected_position": {
+          "added_cut_position": "12650400",
+          "balanced_split_mass": "1388016",
+          "final_block_mass": "1822128",
+          "first_block_mass": "1149120",
+          "peel3_mass": "193536",
+          "reflected_position": "8802192",
+          "right_peel_mass": "654864",
+          "total_internal_flow": "3064656"
+        },
+        "mincost:right_peel_mass": {
+          "added_cut_position": "12650400",
+          "balanced_split_mass": "1270416",
+          "final_block_mass": "2050272",
+          "first_block_mass": "1149120",
+          "peel3_mass": "193536",
+          "reflected_position": "8802192",
+          "right_peel_mass": "305760",
+          "total_internal_flow": "3064656"
+        },
+        "mincost:total_internal_flow": {
+          "added_cut_position": "12650400",
+          "balanced_split_mass": "1388016",
+          "final_block_mass": "1910832",
+          "first_block_mass": "1149120",
+          "peel3_mass": "193536",
+          "reflected_position": "8802192",
+          "right_peel_mass": "566160",
+          "total_internal_flow": "3064656"
+        },
+        "primary_lex": {
+          "added_cut_position": "12650400",
+          "balanced_split_mass": "1270416",
+          "final_block_mass": "2050272",
+          "first_block_mass": "1149120",
+          "peel3_mass": "193536",
+          "reflected_position": "8802192",
+          "right_peel_mass": "305760",
+          "total_internal_flow": "3064656"
+        }
+      }
+    },
+    {
+      "certificate_names": [
+        "primary_lex",
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow"
+      ],
+      "d": 8,
+      "forced_added_cut_position": "1853953920",
+      "forced_rank_cut_flows": {
+        "1": "496800",
+        "2": "72878400",
+        "3": "250387200",
+        "4": "32659200"
+      },
+      "forced_reflected_position": "1353840480",
+      "forced_total_internal_flow": "356421600",
+      "n_allowed_edges": 66,
+      "n_coordinates_constant_among_saved_certificates": 16,
+      "n_coordinates_varying_among_saved_certificates": 50,
+      "n_distinct_edgewise_vectors": 9,
+      "n_saved_certificates": 9,
+      "objective_sample_variation": {
+        "added_cut_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "1853953920",
+          "minimum_saved_value": "1853953920",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "balanced_split_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "167244480",
+          "minimum_saved_value": "152409600",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "final_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "191881440",
+          "minimum_saved_value": "143532000",
+          "n_distinct_values_among_saved_certificates": 7
+        },
+        "first_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "115395840",
+          "minimum_saved_value": "104509440",
+          "n_distinct_values_among_saved_certificates": 3
+        },
+        "peel3_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "24900480",
+          "minimum_saved_value": "12441600",
+          "n_distinct_values_among_saved_certificates": 5
+        },
+        "reflected_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "1353840480",
+          "minimum_saved_value": "1353840480",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "right_peel_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "102867840",
+          "minimum_saved_value": "27851040",
+          "n_distinct_values_among_saved_certificates": 8
+        },
+        "total_internal_flow": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "356421600",
+          "minimum_saved_value": "356421600",
+          "n_distinct_values_among_saved_certificates": 1
+        }
+      },
+      "objective_values": {
+        "mincost:added_cut_position": {
+          "added_cut_position": "1853953920",
+          "balanced_split_mass": "158803200",
+          "final_block_mass": "179375040",
+          "first_block_mass": "115395840",
+          "peel3_mass": "12441600",
+          "reflected_position": "1353840480",
+          "right_peel_mass": "56172960",
+          "total_internal_flow": "356421600"
+        },
+        "mincost:balanced_split_mass": {
+          "added_cut_position": "1853953920",
+          "balanced_split_mass": "152409600",
+          "final_block_mass": "180135360",
+          "first_block_mass": "104509440",
+          "peel3_mass": "12441600",
+          "reflected_position": "1353840480",
+          "right_peel_mass": "44979840",
+          "total_internal_flow": "356421600"
+        },
+        "mincost:final_block_mass": {
+          "added_cut_position": "1853953920",
+          "balanced_split_mass": "166047840",
+          "final_block_mass": "143532000",
+          "first_block_mass": "115395840",
+          "peel3_mass": "24900480",
+          "reflected_position": "1353840480",
+          "right_peel_mass": "102867840",
+          "total_internal_flow": "356421600"
+        },
+        "mincost:first_block_mass": {
+          "added_cut_position": "1853953920",
+          "balanced_split_mass": "162963360",
+          "final_block_mass": "188736480",
+          "first_block_mass": "104509440",
+          "peel3_mass": "18277920",
+          "reflected_position": "1353840480",
+          "right_peel_mass": "33147360",
+          "total_internal_flow": "356421600"
+        },
+        "mincost:peel3_mass": {
+          "added_cut_position": "1853953920",
+          "balanced_split_mass": "157127040",
+          "final_block_mass": "191881440",
+          "first_block_mass": "110315520",
+          "peel3_mass": "12441600",
+          "reflected_position": "1353840480",
+          "right_peel_mass": "38046240",
+          "total_internal_flow": "356421600"
+        },
+        "mincost:reflected_position": {
+          "added_cut_position": "1853953920",
+          "balanced_split_mass": "156263040",
+          "final_block_mass": "187496640",
+          "first_block_mass": "104509440",
+          "peel3_mass": "12441600",
+          "reflected_position": "1353840480",
+          "right_peel_mass": "47597760",
+          "total_internal_flow": "356421600"
+        },
+        "mincost:right_peel_mass": {
+          "added_cut_position": "1853953920",
+          "balanced_split_mass": "167244480",
+          "final_block_mass": "188736480",
+          "first_block_mass": "104509440",
+          "peel3_mass": "22559040",
+          "reflected_position": "1353840480",
+          "right_peel_mass": "27851040",
+          "total_internal_flow": "356421600"
+        },
+        "mincost:total_internal_flow": {
+          "added_cut_position": "1853953920",
+          "balanced_split_mass": "154448640",
+          "final_block_mass": "189311040",
+          "first_block_mass": "104509440",
+          "peel3_mass": "12441600",
+          "reflected_position": "1353840480",
+          "right_peel_mass": "35259840",
+          "total_internal_flow": "356421600"
+        },
+        "primary_lex": {
+          "added_cut_position": "1853953920",
+          "balanced_split_mass": "159321600",
+          "final_block_mass": "191881440",
+          "first_block_mass": "104509440",
+          "peel3_mass": "14636160",
+          "reflected_position": "1353840480",
+          "right_peel_mass": "27851040",
+          "total_internal_flow": "356421600"
+        }
+      }
+    },
+    {
+      "certificate_names": [
+        "primary_lex",
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow"
+      ],
+      "d": 10,
+      "forced_added_cut_position": "360116800560",
+      "forced_rank_cut_flows": {
+        "1": "1386792",
+        "2": "1267135056",
+        "3": "22135029840",
+        "4": "31614105600",
+        "5": "2604571200"
+      },
+      "forced_reflected_position": "273727712808",
+      "forced_total_internal_flow": "57622228488",
+      "n_allowed_edges": 215,
+      "n_coordinates_constant_among_saved_certificates": 74,
+      "n_coordinates_varying_among_saved_certificates": 141,
+      "n_distinct_edgewise_vectors": 9,
+      "n_saved_certificates": 9,
+      "objective_sample_variation": {
+        "added_cut_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "360116800560",
+          "minimum_saved_value": "360116800560",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "balanced_split_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "27222433128",
+          "minimum_saved_value": "25395483960",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "final_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "25713753120",
+          "minimum_saved_value": "19296279288",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "first_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "14518072800",
+          "minimum_saved_value": "13891046400",
+          "n_distinct_values_among_saved_certificates": 4
+        },
+        "peel3_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "3153300480",
+          "minimum_saved_value": "1561190400",
+          "n_distinct_values_among_saved_certificates": 8
+        },
+        "reflected_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "273727712808",
+          "minimum_saved_value": "273727712808",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "right_peel_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "13626243576",
+          "minimum_saved_value": "3391093728",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "total_internal_flow": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "57622228488",
+          "minimum_saved_value": "57622228488",
+          "n_distinct_values_among_saved_certificates": 1
+        }
+      },
+      "objective_values": {
+        "mincost:added_cut_position": {
+          "added_cut_position": "360116800560",
+          "balanced_split_mass": "26146150272",
+          "final_block_mass": "25345588752",
+          "first_block_mass": "13891046400",
+          "peel3_mass": "1595151360",
+          "reflected_position": "273727712808",
+          "right_peel_mass": "5309979048",
+          "total_internal_flow": "57622228488"
+        },
+        "mincost:balanced_split_mass": {
+          "added_cut_position": "360116800560",
+          "balanced_split_mass": "25395483960",
+          "final_block_mass": "24220932120",
+          "first_block_mass": "13891046400",
+          "peel3_mass": "1561190400",
+          "reflected_position": "273727712808",
+          "right_peel_mass": "7230354912",
+          "total_internal_flow": "57622228488"
+        },
+        "mincost:final_block_mass": {
+          "added_cut_position": "360116800560",
+          "balanced_split_mass": "27222433128",
+          "final_block_mass": "19296279288",
+          "first_block_mass": "14294384280",
+          "peel3_mass": "3153300480",
+          "reflected_position": "273727712808",
+          "right_peel_mass": "13626243576",
+          "total_internal_flow": "57622228488"
+        },
+        "mincost:first_block_mass": {
+          "added_cut_position": "360116800560",
+          "balanced_split_mass": "26621998920",
+          "final_block_mass": "24769348560",
+          "first_block_mass": "13891046400",
+          "peel3_mass": "2438290800",
+          "reflected_position": "273727712808",
+          "right_peel_mass": "5828567976",
+          "total_internal_flow": "57622228488"
+        },
+        "mincost:peel3_mass": {
+          "added_cut_position": "360116800560",
+          "balanced_split_mass": "25943983560",
+          "final_block_mass": "24932982888",
+          "first_block_mass": "14352940800",
+          "peel3_mass": "1561190400",
+          "reflected_position": "273727712808",
+          "right_peel_mass": "6128119008",
+          "total_internal_flow": "57622228488"
+        },
+        "mincost:reflected_position": {
+          "added_cut_position": "360116800560",
+          "balanced_split_mass": "26595774216",
+          "final_block_mass": "24186453192",
+          "first_block_mass": "13891046400",
+          "peel3_mass": "2128997376",
+          "reflected_position": "273727712808",
+          "right_peel_mass": "6074146584",
+          "total_internal_flow": "57622228488"
+        },
+        "mincost:right_peel_mass": {
+          "added_cut_position": "360116800560",
+          "balanced_split_mass": "26737131168",
+          "final_block_mass": "25713753120",
+          "first_block_mass": "13891046400",
+          "peel3_mass": "2309852160",
+          "reflected_position": "273727712808",
+          "right_peel_mass": "3391093728",
+          "total_internal_flow": "57622228488"
+        },
+        "mincost:total_internal_flow": {
+          "added_cut_position": "360116800560",
+          "balanced_split_mass": "26219472840",
+          "final_block_mass": "24956087112",
+          "first_block_mass": "14518072800",
+          "peel3_mass": "1663073280",
+          "reflected_position": "273727712808",
+          "right_peel_mass": "8531980776",
+          "total_internal_flow": "57622228488"
+        },
+        "primary_lex": {
+          "added_cut_position": "360116800560",
+          "balanced_split_mass": "25887209832",
+          "final_block_mass": "25201851840",
+          "first_block_mass": "13891046400",
+          "peel3_mass": "1621914624",
+          "reflected_position": "273727712808",
+          "right_peel_mass": "4575463200",
+          "total_internal_flow": "57622228488"
+        }
+      }
+    },
+    {
+      "certificate_names": [
+        "primary_lex",
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow"
+      ],
+      "d": 12,
+      "forced_added_cut_position": "90409578738336",
+      "forced_rank_cut_flows": {
+        "1": "3238872",
+        "2": "16153401264",
+        "3": "1044947711808",
+        "4": "6207800639040",
+        "5": "4864730270400",
+        "6": "277880803200"
+      },
+      "forced_reflected_position": "70940130101256",
+      "forced_total_internal_flow": "12411516064584",
+      "n_allowed_edges": 673,
+      "n_coordinates_constant_among_saved_certificates": 270,
+      "n_coordinates_varying_among_saved_certificates": 403,
+      "n_distinct_edgewise_vectors": 9,
+      "n_saved_certificates": 9,
+      "objective_sample_variation": {
+        "added_cut_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "90409578738336",
+          "minimum_saved_value": "90409578738336",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "balanced_split_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "5963789881608",
+          "minimum_saved_value": "5570404952112",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "final_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "4700389240872",
+          "minimum_saved_value": "3559894584168",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "first_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "2692616197128",
+          "minimum_saved_value": "2540624486400",
+          "n_distinct_values_among_saved_certificates": 4
+        },
+        "peel3_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "569706165288",
+          "minimum_saved_value": "283197358080",
+          "n_distinct_values_among_saved_certificates": 8
+        },
+        "reflected_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "70940130101256",
+          "minimum_saved_value": "70940130101256",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "right_peel_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "2736650080944",
+          "minimum_saved_value": "639763615920",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "total_internal_flow": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "12411516064584",
+          "minimum_saved_value": "12411516064584",
+          "n_distinct_values_among_saved_certificates": 1
+        }
+      },
+      "objective_values": {
+        "mincost:added_cut_position": {
+          "added_cut_position": "90409578738336",
+          "balanced_split_mass": "5843290262160",
+          "final_block_mass": "4557904087776",
+          "first_block_mass": "2549164400640",
+          "peel3_mass": "421735436616",
+          "reflected_position": "70940130101256",
+          "right_peel_mass": "1252433829504",
+          "total_internal_flow": "12411516064584"
+        },
+        "mincost:balanced_split_mass": {
+          "added_cut_position": "90409578738336",
+          "balanced_split_mass": "5570404952112",
+          "final_block_mass": "4399839677064",
+          "first_block_mass": "2540624486400",
+          "peel3_mass": "283197358080",
+          "reflected_position": "70940130101256",
+          "right_peel_mass": "1535880343920",
+          "total_internal_flow": "12411516064584"
+        },
+        "mincost:final_block_mass": {
+          "added_cut_position": "90409578738336",
+          "balanced_split_mass": "5963789881608",
+          "final_block_mass": "3559894584168",
+          "first_block_mass": "2692616197128",
+          "peel3_mass": "569706165288",
+          "reflected_position": "70940130101256",
+          "right_peel_mass": "2736650080944",
+          "total_internal_flow": "12411516064584"
+        },
+        "mincost:first_block_mass": {
+          "added_cut_position": "90409578738336",
+          "balanced_split_mass": "5848678640376",
+          "final_block_mass": "4574968816392",
+          "first_block_mass": "2540624486400",
+          "peel3_mass": "463206197376",
+          "reflected_position": "70940130101256",
+          "right_peel_mass": "1132376467872",
+          "total_internal_flow": "12411516064584"
+        },
+        "mincost:peel3_mass": {
+          "added_cut_position": "90409578738336",
+          "balanced_split_mass": "5693686990992",
+          "final_block_mass": "4618867741176",
+          "first_block_mass": "2641429440000",
+          "peel3_mass": "283197358080",
+          "reflected_position": "70940130101256",
+          "right_peel_mass": "1181855693928",
+          "total_internal_flow": "12411516064584"
+        },
+        "mincost:reflected_position": {
+          "added_cut_position": "90409578738336",
+          "balanced_split_mass": "5788330255344",
+          "final_block_mass": "4478349476640",
+          "first_block_mass": "2540624486400",
+          "peel3_mass": "370320105792",
+          "reflected_position": "70940130101256",
+          "right_peel_mass": "1180198624176",
+          "total_internal_flow": "12411516064584"
+        },
+        "mincost:right_peel_mass": {
+          "added_cut_position": "90409578738336",
+          "balanced_split_mass": "5863590238584",
+          "final_block_mass": "4700389240872",
+          "first_block_mass": "2540624486400",
+          "peel3_mass": "476167887624",
+          "reflected_position": "70940130101256",
+          "right_peel_mass": "639763615920",
+          "total_internal_flow": "12411516064584"
+        },
+        "mincost:total_internal_flow": {
+          "added_cut_position": "90409578738336",
+          "balanced_split_mass": "5857019330448",
+          "final_block_mass": "4374473824968",
+          "first_block_mass": "2540624486400",
+          "peel3_mass": "434747748864",
+          "reflected_position": "70940130101256",
+          "right_peel_mass": "1698299842824",
+          "total_internal_flow": "12411516064584"
+        },
+        "primary_lex": {
+          "added_cut_position": "90409578738336",
+          "balanced_split_mass": "5833459076016",
+          "final_block_mass": "4589851432920",
+          "first_block_mass": "2540624486400",
+          "peel3_mass": "438781308888",
+          "reflected_position": "70940130101256",
+          "right_peel_mass": "835567354128",
+          "total_internal_flow": "12411516064584"
+        }
+      }
+    },
+    {
+      "certificate_names": [
+        "primary_lex",
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow"
+      ],
+      "d": 14,
+      "forced_added_cut_position": "28593391028005440",
+      "forced_rank_cut_flows": {
+        "1": "6677280",
+        "2": "169056912960",
+        "3": "34852609471680",
+        "4": "627847744043520",
+        "5": "1830308223744000",
+        "6": "909160604352000",
+        "7": "38249475264000"
+      },
+      "forced_reflected_position": "23015424778976160",
+      "forced_total_internal_flow": "3440587720465440",
+      "n_allowed_edges": 2050,
+      "n_coordinates_constant_among_saved_certificates": 890,
+      "n_coordinates_varying_among_saved_certificates": 1160,
+      "n_distinct_edgewise_vectors": 9,
+      "n_saved_certificates": 9,
+      "objective_sample_variation": {
+        "added_cut_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "28593391028005440",
+          "minimum_saved_value": "28593391028005440",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "balanced_split_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "1653575158753920",
+          "minimum_saved_value": "1564589074688640",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "final_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "1136660661997920",
+          "minimum_saved_value": "863033335139520",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "first_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "637974497341440",
+          "minimum_saved_value": "611991604224000",
+          "n_distinct_values_among_saved_certificates": 6
+        },
+        "peel3_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "124369093006560",
+          "minimum_saved_value": "67958447800320",
+          "n_distinct_values_among_saved_certificates": 8
+        },
+        "reflected_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "23015424778976160",
+          "minimum_saved_value": "23015424778976160",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "right_peel_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "615196104467040",
+          "minimum_saved_value": "147585345148800",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "total_internal_flow": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "3440587720465440",
+          "minimum_saved_value": "3440587720465440",
+          "n_distinct_values_among_saved_certificates": 1
+        }
+      },
+      "objective_values": {
+        "mincost:added_cut_position": {
+          "added_cut_position": "28593391028005440",
+          "balanced_split_mass": "1653575158753920",
+          "final_block_mass": "1098662818203360",
+          "first_block_mass": "618530555522880",
+          "peel3_mass": "124369093006560",
+          "reflected_position": "23015424778976160",
+          "right_peel_mass": "362437931756160",
+          "total_internal_flow": "3440587720465440"
+        },
+        "mincost:balanced_split_mass": {
+          "added_cut_position": "28593391028005440",
+          "balanced_split_mass": "1564589074688640",
+          "final_block_mass": "1043247438969120",
+          "first_block_mass": "614942952624000",
+          "peel3_mass": "67958447800320",
+          "reflected_position": "23015424778976160",
+          "right_peel_mass": "419717474180640",
+          "total_internal_flow": "3440587720465440"
+        },
+        "mincost:final_block_mass": {
+          "added_cut_position": "28593391028005440",
+          "balanced_split_mass": "1623227776948800",
+          "final_block_mass": "863033335139520",
+          "first_block_mass": "624231032412960",
+          "peel3_mass": "99472610374560",
+          "reflected_position": "23015424778976160",
+          "right_peel_mass": "615196104467040",
+          "total_internal_flow": "3440587720465440"
+        },
+        "mincost:first_block_mass": {
+          "added_cut_position": "28593391028005440",
+          "balanced_split_mass": "1633961230212960",
+          "final_block_mass": "1104628545698400",
+          "first_block_mass": "611991604224000",
+          "peel3_mass": "110668153147200",
+          "reflected_position": "23015424778976160",
+          "right_peel_mass": "289529973757440",
+          "total_internal_flow": "3440587720465440"
+        },
+        "mincost:peel3_mass": {
+          "added_cut_position": "28593391028005440",
+          "balanced_split_mass": "1596083392874880",
+          "final_block_mass": "1106554017568320",
+          "first_block_mass": "637974497341440",
+          "peel3_mass": "67958447800320",
+          "reflected_position": "23015424778976160",
+          "right_peel_mass": "301995118802880",
+          "total_internal_flow": "3440587720465440"
+        },
+        "mincost:reflected_position": {
+          "added_cut_position": "28593391028005440",
+          "balanced_split_mass": "1626554166320160",
+          "final_block_mass": "1069630895102400",
+          "first_block_mass": "611991604224000",
+          "peel3_mass": "93946443433920",
+          "reflected_position": "23015424778976160",
+          "right_peel_mass": "335266811642880",
+          "total_internal_flow": "3440587720465440"
+        },
+        "mincost:right_peel_mass": {
+          "added_cut_position": "28593391028005440",
+          "balanced_split_mass": "1648602868092480",
+          "final_block_mass": "1136660661997920",
+          "first_block_mass": "611991604224000",
+          "peel3_mass": "119890701983520",
+          "reflected_position": "23015424778976160",
+          "right_peel_mass": "147585345148800",
+          "total_internal_flow": "3440587720465440"
+        },
+        "mincost:total_internal_flow": {
+          "added_cut_position": "28593391028005440",
+          "balanced_split_mass": "1629133709767200",
+          "final_block_mass": "1091537018061120",
+          "first_block_mass": "611991604224000",
+          "peel3_mass": "95405501842560",
+          "reflected_position": "23015424778976160",
+          "right_peel_mass": "277070969378880",
+          "total_internal_flow": "3440587720465440"
+        },
+        "primary_lex": {
+          "added_cut_position": "28593391028005440",
+          "balanced_split_mass": "1613930919088320",
+          "final_block_mass": "1121185432825920",
+          "first_block_mass": "614822289681600",
+          "peel3_mass": "83346533000640",
+          "reflected_position": "23015424778976160",
+          "right_peel_mass": "203748867560160",
+          "total_internal_flow": "3440587720465440"
+        }
+      }
+    },
+    {
+      "certificate_names": [
+        "primary_lex",
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow"
+      ],
+      "d": 16,
+      "forced_added_cut_position": "11142735883211635200",
+      "forced_rank_cut_flows": {
+        "1": "12550896",
+        "2": "1541617419744",
+        "3": "930444073730496",
+        "4": "43504294294581120",
+        "5": "345215617940793600",
+        "6": "593707897361779200",
+        "7": "204175698959232000",
+        "8": "6602447884032000"
+      },
+      "forced_reflected_position": "9157609133238388752",
+      "forced_total_internal_flow": "1194137942144119056",
+      "n_allowed_edges": 6121,
+      "n_coordinates_constant_among_saved_certificates": 3066,
+      "n_coordinates_varying_among_saved_certificates": 3055,
+      "n_distinct_edgewise_vectors": 9,
+      "n_saved_certificates": 9,
+      "objective_sample_variation": {
+        "added_cut_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "11142735883211635200",
+          "minimum_saved_value": "11142735883211635200",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "balanced_split_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "578389662461507040",
+          "minimum_saved_value": "548441807486826240",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "final_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "349838199112275648",
+          "minimum_saved_value": "266149087709565456",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "first_block_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "195510156301393920",
+          "minimum_saved_value": "187802962034688000",
+          "n_distinct_values_among_saved_certificates": 8
+        },
+        "peel3_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "39536914754467008",
+          "minimum_saved_value": "20795210907254784",
+          "n_distinct_values_among_saved_certificates": 8
+        },
+        "reflected_position": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "9157609133238388752",
+          "minimum_saved_value": "9157609133238388752",
+          "n_distinct_values_among_saved_certificates": 1
+        },
+        "right_peel_mass": {
+          "constant_across_saved_certificates": false,
+          "maximum_saved_value": "197234729894261520",
+          "minimum_saved_value": "45535364402412240",
+          "n_distinct_values_among_saved_certificates": 9
+        },
+        "total_internal_flow": {
+          "constant_across_saved_certificates": true,
+          "maximum_saved_value": "1194137942144119056",
+          "minimum_saved_value": "1194137942144119056",
+          "n_distinct_values_among_saved_certificates": 1
+        }
+      },
+      "objective_values": {
+        "mincost:added_cut_position": {
+          "added_cut_position": "11142735883211635200",
+          "balanced_split_mass": "576681981066383040",
+          "final_block_mass": "334484974925398656",
+          "first_block_mass": "188514774050803200",
+          "peel3_mass": "36906659681534784",
+          "reflected_position": "9157609133238388752",
+          "right_peel_mass": "129445604983434240",
+          "total_internal_flow": "1194137942144119056"
+        },
+        "mincost:balanced_split_mass": {
+          "added_cut_position": "11142735883211635200",
+          "balanced_split_mass": "548441807486826240",
+          "final_block_mass": "321361742720965968",
+          "first_block_mass": "191462310522362880",
+          "peel3_mass": "20795210907254784",
+          "reflected_position": "9157609133238388752",
+          "right_peel_mass": "158077278044873712",
+          "total_internal_flow": "1194137942144119056"
+        },
+        "mincost:final_block_mass": {
+          "added_cut_position": "11142735883211635200",
+          "balanced_split_mass": "568961511461007696",
+          "final_block_mass": "266149087709565456",
+          "first_block_mass": "190994392196346096",
+          "peel3_mass": "32513299333185312",
+          "reflected_position": "9157609133238388752",
+          "right_peel_mass": "197234729894261520",
+          "total_internal_flow": "1194137942144119056"
+        },
+        "mincost:first_block_mass": {
+          "added_cut_position": "11142735883211635200",
+          "balanced_split_mass": "571842716975914176",
+          "final_block_mass": "335845476423247680",
+          "first_block_mass": "187802962034688000",
+          "peel3_mass": "34830109660072896",
+          "reflected_position": "9157609133238388752",
+          "right_peel_mass": "111455383120399440",
+          "total_internal_flow": "1194137942144119056"
+        },
+        "mincost:peel3_mass": {
+          "added_cut_position": "11142735883211635200",
+          "balanced_split_mass": "558331890197004288",
+          "final_block_mass": "335746282124607840",
+          "first_block_mass": "195510156301393920",
+          "peel3_mass": "20795210907254784",
+          "reflected_position": "9157609133238388752",
+          "right_peel_mass": "109724882950555344",
+          "total_internal_flow": "1194137942144119056"
+        },
+        "mincost:reflected_position": {
+          "added_cut_position": "11142735883211635200",
+          "balanced_split_mass": "567358642149820416",
+          "final_block_mass": "327174002428098816",
+          "first_block_mass": "188412217018945920",
+          "peel3_mass": "27451944433264896",
+          "reflected_position": "9157609133238388752",
+          "right_peel_mass": "110235026239744896",
+          "total_internal_flow": "1194137942144119056"
+        },
+        "mincost:right_peel_mass": {
+          "added_cut_position": "11142735883211635200",
+          "balanced_split_mass": "578389662461507040",
+          "final_block_mass": "349838199112275648",
+          "first_block_mass": "187802962034688000",
+          "peel3_mass": "39536914754467008",
+          "reflected_position": "9157609133238388752",
+          "right_peel_mass": "45535364402412240",
+          "total_internal_flow": "1194137942144119056"
+        },
+        "mincost:total_internal_flow": {
+          "added_cut_position": "11142735883211635200",
+          "balanced_split_mass": "570011349024299520",
+          "final_block_mass": "336607940862762624",
+          "first_block_mass": "188456596837501824",
+          "peel3_mass": "30883454202362112",
+          "reflected_position": "9157609133238388752",
+          "right_peel_mass": "103153953773023488",
+          "total_internal_flow": "1194137942144119056"
+        },
+        "primary_lex": {
+          "added_cut_position": "11142735883211635200",
+          "balanced_split_mass": "565060284439624800",
+          "final_block_mass": "345571324931579760",
+          "first_block_mass": "190037961925564896",
+          "peel3_mass": "26361777858099984",
+          "reflected_position": "9157609133238388752",
+          "right_peel_mass": "67865719628676816",
+          "total_internal_flow": "1194137942144119056"
+        }
+      }
+    }
+  ],
+  "sample_warning": "Equality among saved certificates alone is not treated as an invariant; variation is a valid nonuniqueness witness, while sampled equality is only descriptive.",
+  "schema": "chow-cone/k4-nonuniqueness-summary/v1"
+}

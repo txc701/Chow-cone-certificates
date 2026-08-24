@@ -1,0 +1,903 @@
+{
+  "artifact_schemas": {
+    "ansatz": "chow-cone/k4-direct-ansatz/v1",
+    "certificate": "chow-cone/k4-peel-width-certificate/v1",
+    "edge_feature_row": "chow-cone/k4-edge-features/v1",
+    "edge_feature_table": "chow-cone/k4-edge-feature-table/v1",
+    "edgewise_ranges": "chow-cone/k4-edgewise-ranges/v1",
+    "interval_witness": "chow-cone/k4-interval-witness/v1",
+    "manifest": "chow-cone/k4-discovery-manifest/v1",
+    "nonuniqueness_summary": "chow-cone/k4-nonuniqueness-summary/v1",
+    "verification_summary": "chow-cone/k4-certificate-verification-summary/v1"
+  },
+  "files": [
+    {
+      "d": 2,
+      "kind": "primary_certificate",
+      "path": "primary/d02_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "623c735b01a0372052925cb4f89da2883475471b2e79ff14c637f0fb183a26ef"
+    },
+    {
+      "d": 3,
+      "kind": "primary_certificate",
+      "path": "primary/d03_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "b7c416e215ccd5965a358c9f25ad3b684a7dd999f3a895f2c0e7dfa1241113eb"
+    },
+    {
+      "d": 4,
+      "kind": "primary_certificate",
+      "path": "primary/d04_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "904ad81d40c52c2a1da598270f26385bbedff5d8727e59d1bc8d42dedea1cd81"
+    },
+    {
+      "d": 5,
+      "kind": "primary_certificate",
+      "path": "primary/d05_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "e17980dcbc467a4b8a4965186b31ea4a6f84e29ea3cdf57bb8b62e80db40d2b9"
+    },
+    {
+      "d": 6,
+      "kind": "primary_certificate",
+      "path": "primary/d06_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "81b8e4e2d81f987dae4b9bb351c4609724f0373e232d1e437ee829cd25061040"
+    },
+    {
+      "d": 7,
+      "kind": "primary_certificate",
+      "path": "primary/d07_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "5846fdf5c1ee16585539216055d7c9f45346846fe1c5786e9f578bba774a8b0d"
+    },
+    {
+      "d": 8,
+      "kind": "primary_certificate",
+      "path": "primary/d08_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "0b9609c2dd01aee316e2888cb03e296c319f9aecf7e26afaf5aca8e16eb0c2af"
+    },
+    {
+      "d": 9,
+      "kind": "primary_certificate",
+      "path": "primary/d09_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "9369629b7b3d1cd1374648894491333bc5904360b6d713c4354f3b8bbaf07390"
+    },
+    {
+      "d": 10,
+      "kind": "primary_certificate",
+      "path": "primary/d10_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "13212428c9f8cb9c7300ee327a1cd07c8851ff178f8140835026025c6e087b81"
+    },
+    {
+      "d": 11,
+      "kind": "primary_certificate",
+      "path": "primary/d11_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "dd36ec1440234f827921f87ba99591503cc351ca7015b293fcb471f870725744"
+    },
+    {
+      "d": 12,
+      "kind": "primary_certificate",
+      "path": "primary/d12_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "d0eef08ecfb41234505d634227bcd4d0a9f0474127d3de13fd756366c0aee5c2"
+    },
+    {
+      "d": 13,
+      "kind": "primary_certificate",
+      "path": "primary/d13_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "44abc9875a8f97aea31d88ed68c56db8036d337be62145060c0b301a8484d327"
+    },
+    {
+      "d": 14,
+      "kind": "primary_certificate",
+      "path": "primary/d14_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "a90fbb124b015cc947fb515764a5cab766fbc61161cf57fb97f651548932726a"
+    },
+    {
+      "d": 15,
+      "kind": "primary_certificate",
+      "path": "primary/d15_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "b598e2bf6776e6faa9be41506cf24066fc763ff99df38d99a6ffb1b2f2e0f37f"
+    },
+    {
+      "d": 16,
+      "kind": "primary_certificate",
+      "path": "primary/d16_lex.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "5563e1c94d31d53f76427207deb408ab96ec126dce2ddd10d7f2d0d63090ffa1"
+    },
+    {
+      "d": 4,
+      "kind": "minimum_cost_certificate",
+      "objective": "added_cut_position",
+      "path": "objectives/d04_added_cut_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "a144f45502f3c6b0111fdea21d1b2bb542a4495d963572672aaec1333f08d286"
+    },
+    {
+      "d": 4,
+      "kind": "minimum_cost_certificate",
+      "objective": "balanced_split_mass",
+      "path": "objectives/d04_balanced_split_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "9da0671d0965f6261fd0c228b7a9e3a22b36a0364caef379dbd261ae14de20b0"
+    },
+    {
+      "d": 4,
+      "kind": "minimum_cost_certificate",
+      "objective": "final_block_mass",
+      "path": "objectives/d04_final_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "d1770383cd5d9b3594cad09c02856f163d729122b752a46a9d0ed415a5237932"
+    },
+    {
+      "d": 4,
+      "kind": "minimum_cost_certificate",
+      "objective": "first_block_mass",
+      "path": "objectives/d04_first_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "4096c18222dc0e511a182bd7f344b07e53f07ce8f5a19d5211e65057d4ab4ab7"
+    },
+    {
+      "d": 4,
+      "kind": "minimum_cost_certificate",
+      "objective": "peel3_mass",
+      "path": "objectives/d04_peel3_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "8e3a94e981d0dd8584f35791c9f403272166e73bcfd5ea0ab34e54c0c11f320e"
+    },
+    {
+      "d": 4,
+      "kind": "minimum_cost_certificate",
+      "objective": "reflected_position",
+      "path": "objectives/d04_reflected_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "141221c301d19e3ebefc9b66555ba54d0b8af05632a3b7e81c3aa5523e9eac4e"
+    },
+    {
+      "d": 4,
+      "kind": "minimum_cost_certificate",
+      "objective": "right_peel_mass",
+      "path": "objectives/d04_right_peel_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "77620174d5570e91920daefc2b31d96c2404a2b16ece287d9742315768ec435b"
+    },
+    {
+      "d": 4,
+      "kind": "minimum_cost_certificate",
+      "objective": "total_internal_flow",
+      "path": "objectives/d04_total_internal_flow.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "edccb2400c5f67a287c655968d17b985179584468b4f390baa3632d232eb69d5"
+    },
+    {
+      "d": 6,
+      "kind": "minimum_cost_certificate",
+      "objective": "added_cut_position",
+      "path": "objectives/d06_added_cut_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "fde895500b056f75542fa0376ed38010588d92bebbd717f295f165658c890621"
+    },
+    {
+      "d": 6,
+      "kind": "minimum_cost_certificate",
+      "objective": "balanced_split_mass",
+      "path": "objectives/d06_balanced_split_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "b85f82ed9373572224eaed45c9cc65f4112d9a3fa5206e6782f3f798b127054b"
+    },
+    {
+      "d": 6,
+      "kind": "minimum_cost_certificate",
+      "objective": "final_block_mass",
+      "path": "objectives/d06_final_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "5030ac8233c53a8b4192671a1634fc665cc228a0c2f34e574184863a5960ded2"
+    },
+    {
+      "d": 6,
+      "kind": "minimum_cost_certificate",
+      "objective": "first_block_mass",
+      "path": "objectives/d06_first_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "697a01f4a605ff5a3b31983cb7e158a74f059041fa8e01ec473eb51faa1e8afb"
+    },
+    {
+      "d": 6,
+      "kind": "minimum_cost_certificate",
+      "objective": "peel3_mass",
+      "path": "objectives/d06_peel3_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "b7f6b6ea47ed90787090aced5a257d9ef25b0d67491b7252b196fb2d7e0ee171"
+    },
+    {
+      "d": 6,
+      "kind": "minimum_cost_certificate",
+      "objective": "reflected_position",
+      "path": "objectives/d06_reflected_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "5ada904a82b4433c25b5ce1b3dfd5345f83d1c395377ca016c4c1f5c239687bf"
+    },
+    {
+      "d": 6,
+      "kind": "minimum_cost_certificate",
+      "objective": "right_peel_mass",
+      "path": "objectives/d06_right_peel_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "b264b82bbf8bc0f1052b7cf357de58d476df941fdb3891ed98920b595ab530f0"
+    },
+    {
+      "d": 6,
+      "kind": "minimum_cost_certificate",
+      "objective": "total_internal_flow",
+      "path": "objectives/d06_total_internal_flow.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "c1d7df524f7ff72ed69d5cb32a8ebd820b9637eda4baddacc2efa26c3f97a320"
+    },
+    {
+      "d": 8,
+      "kind": "minimum_cost_certificate",
+      "objective": "added_cut_position",
+      "path": "objectives/d08_added_cut_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "71e64d874eda6af22d139245d2cd7d41960e4b83719bb3e87dd68c6bd47498d0"
+    },
+    {
+      "d": 8,
+      "kind": "minimum_cost_certificate",
+      "objective": "balanced_split_mass",
+      "path": "objectives/d08_balanced_split_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "5e14629554904b36b2e2b9457dee0f7df74765876429f1032f5b6925f0ddb1aa"
+    },
+    {
+      "d": 8,
+      "kind": "minimum_cost_certificate",
+      "objective": "final_block_mass",
+      "path": "objectives/d08_final_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "cd62d55242e14bb336b7054cb242e86b12e9352bb95e13cc31c49b2fef81a728"
+    },
+    {
+      "d": 8,
+      "kind": "minimum_cost_certificate",
+      "objective": "first_block_mass",
+      "path": "objectives/d08_first_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "9606284b627feb3074c3b80aa848bf4d6b0f2ff8b04174a5ec18a1f1066f8919"
+    },
+    {
+      "d": 8,
+      "kind": "minimum_cost_certificate",
+      "objective": "peel3_mass",
+      "path": "objectives/d08_peel3_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "64747a95fca4daf582eb87b3721ebec0cf7f49e4c9bc900db46f76b0b1ea67a2"
+    },
+    {
+      "d": 8,
+      "kind": "minimum_cost_certificate",
+      "objective": "reflected_position",
+      "path": "objectives/d08_reflected_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "b2a15aa7c2000a783f7b73f8e265f25e10ee28848cc2d539129825d8f7849aa7"
+    },
+    {
+      "d": 8,
+      "kind": "minimum_cost_certificate",
+      "objective": "right_peel_mass",
+      "path": "objectives/d08_right_peel_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "831045012ffd40971c58319d0a2ae5abe00c42475e974ea88793acb095dbdce6"
+    },
+    {
+      "d": 8,
+      "kind": "minimum_cost_certificate",
+      "objective": "total_internal_flow",
+      "path": "objectives/d08_total_internal_flow.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "e5f3585deb776d5b7b9c2b46d7a307be3b7dd93bbb9334b2e97a893fbdaa7aa7"
+    },
+    {
+      "d": 10,
+      "kind": "minimum_cost_certificate",
+      "objective": "added_cut_position",
+      "path": "objectives/d10_added_cut_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "e920e4fec55bd38f34730ed1ab6ff3e00a9af21236a032f247365b42af4b955c"
+    },
+    {
+      "d": 10,
+      "kind": "minimum_cost_certificate",
+      "objective": "balanced_split_mass",
+      "path": "objectives/d10_balanced_split_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "49ade536e796cf1d02a9d10ecca2e898cf85108bdbb5f694674659f68403c68c"
+    },
+    {
+      "d": 10,
+      "kind": "minimum_cost_certificate",
+      "objective": "final_block_mass",
+      "path": "objectives/d10_final_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "4a2ca16cae333a462f7dfd0f51f1d1e6170ce93b47304af428492e5502db47ae"
+    },
+    {
+      "d": 10,
+      "kind": "minimum_cost_certificate",
+      "objective": "first_block_mass",
+      "path": "objectives/d10_first_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "6a90d4abc084646bac5f7f2f9212ed1ceaca6e0ea1a5b5519ef44c4f996bf77d"
+    },
+    {
+      "d": 10,
+      "kind": "minimum_cost_certificate",
+      "objective": "peel3_mass",
+      "path": "objectives/d10_peel3_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "5fa593591c333efdbb90f299576b99c0a28d3752e6b3af00d06578143140733a"
+    },
+    {
+      "d": 10,
+      "kind": "minimum_cost_certificate",
+      "objective": "reflected_position",
+      "path": "objectives/d10_reflected_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "9dcecefeebb8ba106517a81bb04adff37672933780ad0c97247aa668ab26298d"
+    },
+    {
+      "d": 10,
+      "kind": "minimum_cost_certificate",
+      "objective": "right_peel_mass",
+      "path": "objectives/d10_right_peel_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "69bcf97d3007e5eb531892e9f67815e96e8255e4da5452f5cc5c06c886bd1f52"
+    },
+    {
+      "d": 10,
+      "kind": "minimum_cost_certificate",
+      "objective": "total_internal_flow",
+      "path": "objectives/d10_total_internal_flow.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "2ac4393129320de9b3bc23bedfaebff50ca5db06dc0257dcfda71baff3de6c6a"
+    },
+    {
+      "d": 12,
+      "kind": "minimum_cost_certificate",
+      "objective": "added_cut_position",
+      "path": "objectives/d12_added_cut_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "ff1b24ac92b39bbdffa55e63bf59bdb9f87ea1609b45635b83233eb9723494c0"
+    },
+    {
+      "d": 12,
+      "kind": "minimum_cost_certificate",
+      "objective": "balanced_split_mass",
+      "path": "objectives/d12_balanced_split_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "bd0007a0443be9dd1f55ae77079a75dc08ef9d3f07ca72bad95e18c0966e1a4c"
+    },
+    {
+      "d": 12,
+      "kind": "minimum_cost_certificate",
+      "objective": "final_block_mass",
+      "path": "objectives/d12_final_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "985d4baa3fa1fc27ad9ddc7e40bf9538d300181a86b8f87639eda79d79fd73e7"
+    },
+    {
+      "d": 12,
+      "kind": "minimum_cost_certificate",
+      "objective": "first_block_mass",
+      "path": "objectives/d12_first_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "de6899f3b65bf162be1b234db2cf2c630d9cd988352e011dfcb85258000443ef"
+    },
+    {
+      "d": 12,
+      "kind": "minimum_cost_certificate",
+      "objective": "peel3_mass",
+      "path": "objectives/d12_peel3_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "997fcf08ad2e66af2dc6feb676813b75865dee3ea861d21d553fa4c94c67c4c3"
+    },
+    {
+      "d": 12,
+      "kind": "minimum_cost_certificate",
+      "objective": "reflected_position",
+      "path": "objectives/d12_reflected_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "fb3fd9bd4265ebed80412d8e553d3ccb746f1588a3d994e1a67991c2832997f4"
+    },
+    {
+      "d": 12,
+      "kind": "minimum_cost_certificate",
+      "objective": "right_peel_mass",
+      "path": "objectives/d12_right_peel_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "8539e3a90e32ba1bbdf2bcc107426d541a7bfa79e0a26e3019aa51d43dac3622"
+    },
+    {
+      "d": 12,
+      "kind": "minimum_cost_certificate",
+      "objective": "total_internal_flow",
+      "path": "objectives/d12_total_internal_flow.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "316c5adc3ce9aed3acc6b05b78fd42dffa5bbc71a5e838801df8a4f837f2d935"
+    },
+    {
+      "d": 14,
+      "kind": "minimum_cost_certificate",
+      "objective": "added_cut_position",
+      "path": "objectives/d14_added_cut_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "4da8b891e3f901c19b7f11076f63980c143b9974dbfea1600ec0e2fb36bf6063"
+    },
+    {
+      "d": 14,
+      "kind": "minimum_cost_certificate",
+      "objective": "balanced_split_mass",
+      "path": "objectives/d14_balanced_split_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "215d1521a10f49f2467af3358e96ac5860e94757ab672ff1b1d12e6f887d7f58"
+    },
+    {
+      "d": 14,
+      "kind": "minimum_cost_certificate",
+      "objective": "final_block_mass",
+      "path": "objectives/d14_final_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "910d0cbd9db45bac01efd51a3c131809f23d6ed228845911b6e42512b64c8c80"
+    },
+    {
+      "d": 14,
+      "kind": "minimum_cost_certificate",
+      "objective": "first_block_mass",
+      "path": "objectives/d14_first_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "25c2e43a424d9ded74bf733d1cc8529ef6dceff70aadbf1a828959b1116b1855"
+    },
+    {
+      "d": 14,
+      "kind": "minimum_cost_certificate",
+      "objective": "peel3_mass",
+      "path": "objectives/d14_peel3_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "9888970fcd2786851730a18073c859de474e792aa037787950ffd061c5af4f2f"
+    },
+    {
+      "d": 14,
+      "kind": "minimum_cost_certificate",
+      "objective": "reflected_position",
+      "path": "objectives/d14_reflected_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "a3597264018a430ac215179b0f848afa97bb4c917f71c20b9f895c0744612e08"
+    },
+    {
+      "d": 14,
+      "kind": "minimum_cost_certificate",
+      "objective": "right_peel_mass",
+      "path": "objectives/d14_right_peel_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "91294e83960c52271ef5611676f75bae4cb0653c02b3c0ac50c027ca7efe3e0b"
+    },
+    {
+      "d": 14,
+      "kind": "minimum_cost_certificate",
+      "objective": "total_internal_flow",
+      "path": "objectives/d14_total_internal_flow.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "cd01f71b92cdef85b86d8dee8c3cc3887abfb76769ed4984f73b9a5a662a3790"
+    },
+    {
+      "d": 16,
+      "kind": "minimum_cost_certificate",
+      "objective": "added_cut_position",
+      "path": "objectives/d16_added_cut_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "2e842f049082583a69d4613bb37f489a5f35775cc8ee137a5dddb1e4e838df58"
+    },
+    {
+      "d": 16,
+      "kind": "minimum_cost_certificate",
+      "objective": "balanced_split_mass",
+      "path": "objectives/d16_balanced_split_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "3dad239308422060d3865cccdfda8ccc51fcfd46142fccceba1fb58e7d251d5e"
+    },
+    {
+      "d": 16,
+      "kind": "minimum_cost_certificate",
+      "objective": "final_block_mass",
+      "path": "objectives/d16_final_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "f7be89317d967c3f5431cfc09fa66f5af50f0748ef12a64c0ea26fc10e24f987"
+    },
+    {
+      "d": 16,
+      "kind": "minimum_cost_certificate",
+      "objective": "first_block_mass",
+      "path": "objectives/d16_first_block_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "f7225f4f285957c06f067040cef730ec3e11e5c3daa50976a90dba2f7e53278a"
+    },
+    {
+      "d": 16,
+      "kind": "minimum_cost_certificate",
+      "objective": "peel3_mass",
+      "path": "objectives/d16_peel3_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "bd967f0c00d1f86ab2fef832309db5b61395594453bfce114a22d77ca1c3140e"
+    },
+    {
+      "d": 16,
+      "kind": "minimum_cost_certificate",
+      "objective": "reflected_position",
+      "path": "objectives/d16_reflected_position.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "a953feb5fe8e62145f6713ab75aba497b155bafc30b3b74f88dd4453eb1c4d0f"
+    },
+    {
+      "d": 16,
+      "kind": "minimum_cost_certificate",
+      "objective": "right_peel_mass",
+      "path": "objectives/d16_right_peel_mass.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "4ec97e760041ddd2f28630409591c57a2735e3e1a6c79c8ed5557603063d6a27"
+    },
+    {
+      "d": 16,
+      "kind": "minimum_cost_certificate",
+      "objective": "total_internal_flow",
+      "path": "objectives/d16_total_internal_flow.json",
+      "schema": "chow-cone/k4-peel-width-certificate/v1",
+      "sha256": "3973acff970a4651e86466684844c4ab79f01a2633e02c1e1a86fd0cc507f035"
+    },
+    {
+      "d": 2,
+      "kind": "exact_edgewise_ranges",
+      "path": "ranges/d02_ranges.json",
+      "schema": "chow-cone/k4-edgewise-ranges/v1",
+      "sha256": "c01a5650628fbedfe62fc168e6173ada9c892d6fe966fe1b05d78712f968a2d2"
+    },
+    {
+      "d": 3,
+      "kind": "exact_edgewise_ranges",
+      "path": "ranges/d03_ranges.json",
+      "schema": "chow-cone/k4-edgewise-ranges/v1",
+      "sha256": "c283bfe910b7e6800425c6a3a790009d63999627a802b9bf133bbf5bfb3ea637"
+    },
+    {
+      "d": 4,
+      "kind": "exact_edgewise_ranges",
+      "path": "ranges/d04_ranges.json",
+      "schema": "chow-cone/k4-edgewise-ranges/v1",
+      "sha256": "8a99defaa2b21913410bb42608404647eb4cd76ddd1b1a63d810485a3f7d6f6f"
+    },
+    {
+      "d": 5,
+      "kind": "exact_edgewise_ranges",
+      "path": "ranges/d05_ranges.json",
+      "schema": "chow-cone/k4-edgewise-ranges/v1",
+      "sha256": "e19aa6a67497bfc94c0d4c046b835d826cc55764b74b5c3f2682c3b6e8433b42"
+    },
+    {
+      "d": 6,
+      "kind": "exact_edgewise_ranges",
+      "path": "ranges/d06_ranges.json",
+      "schema": "chow-cone/k4-edgewise-ranges/v1",
+      "sha256": "cd91e140388d5b4fa7bf32bdd8f80efb74c8eb972323aac781ef76f7346d1e39"
+    },
+    {
+      "d": 7,
+      "kind": "exact_edgewise_ranges",
+      "path": "ranges/d07_ranges.json",
+      "schema": "chow-cone/k4-edgewise-ranges/v1",
+      "sha256": "74ed80ea06342da6dfb1478e29e407e008b57011ac70a18e267cfb3621e1a263"
+    },
+    {
+      "d": 8,
+      "kind": "exact_edgewise_ranges",
+      "path": "ranges/d08_ranges.json",
+      "schema": "chow-cone/k4-edgewise-ranges/v1",
+      "sha256": "f028d478de00bc41ddf0ab07549462b80a85db0e21e0c8c94b4955cff4288132"
+    },
+    {
+      "d": 9,
+      "kind": "exact_edgewise_ranges",
+      "path": "ranges/d09_ranges.json",
+      "schema": "chow-cone/k4-edgewise-ranges/v1",
+      "sha256": "e8a92b611a4da2e916414bf88d6d2219d7a744c43147bf76c1f834b0c502999c"
+    },
+    {
+      "d": 10,
+      "kind": "exact_edgewise_ranges",
+      "path": "ranges/d10_ranges.json",
+      "schema": "chow-cone/k4-edgewise-ranges/v1",
+      "sha256": "47621a8e3e4a048caef53b708834c8b98afb85efca7499c70654a03de524bee1"
+    },
+    {
+      "d": 2,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d02_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "890c802f2341b146e30355833cf076d7e5511a7b72cdaed4c8b934a64d56a8f6"
+    },
+    {
+      "d": 3,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d03_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "4c0e819cfcff97e8623d4fc94136666c31bd550c6129977e2e42c7bb4628358b"
+    },
+    {
+      "d": 4,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d04_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "5065737655666079b58108bff650628901b08c79100e56e577653281b32d745f"
+    },
+    {
+      "d": 5,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d05_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "7ff4df06de86403c40a48ff48bd7c3ac1594b9b1df918ccee09a9962b8d1cb7f"
+    },
+    {
+      "d": 6,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d06_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "0a523286fcc1bfadad56c7ac473d9f9edb939f0eb872065960cca1943fe997d0"
+    },
+    {
+      "d": 7,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d07_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "5c7f1fd288573103835b0d08f65b50ffc263a3bb9a760c3f35dc55506329dd01"
+    },
+    {
+      "d": 8,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d08_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "3c052d7dcc608e0fc7249fb5127924a2a0927dd7caa18e03564e307e19ff3d2f"
+    },
+    {
+      "d": 9,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d09_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "a051276e21b822ba9988945024dc0c63180672203c2db279baca957055cd7325"
+    },
+    {
+      "d": 10,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d10_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "e652440e4b0388e74cc1def999b2acaeb9f4c816c2ec3f9ab51fd3b7d0b0381d"
+    },
+    {
+      "d": 11,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d11_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "ba49d6fc9957799d48c4d1662c1b26798144f2d2b902cf348bcf9a88c1885a23"
+    },
+    {
+      "d": 12,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d12_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "28931d65c553c7ef1d6e29b82b99cad358cbf1acf065ef34ff534d613e061660"
+    },
+    {
+      "d": 13,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d13_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "b0baf4229d7a5ad6f0599b26e5cbe175a0dc61530e2c1baf819516ebc7c528b5"
+    },
+    {
+      "d": 14,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d14_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "1df57c8ac6abc636b5d159e27a97b44383d985afc25612f4158cd55b05bce65d"
+    },
+    {
+      "d": 15,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d15_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "21309382c90c691986e901d5648c3aecbbcdbbb7c574fb02f23338cc57b744ea"
+    },
+    {
+      "d": 16,
+      "kind": "exact_edge_feature_table",
+      "path": "features/d16_features.jsonl",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "27017fdc41b222a9c3bf8ad0477bfcc18bb381a15d05e4193420d432b3cd53e1"
+    },
+    {
+      "kind": "feature_table_schema",
+      "path": "features/schema.json",
+      "schema": "chow-cone/k4-edge-feature-table/v1",
+      "sha256": "9d1800376f3f61d2f1c4635aaf18df3566fc16290fc593a51dadc7cbaae095c3"
+    },
+    {
+      "kind": "nonuniqueness_summary",
+      "path": "nonuniqueness_summary.json",
+      "schema": "chow-cone/k4-nonuniqueness-summary/v1",
+      "sha256": "5ed07a28cf15b9469aed60fa8fda862b93f9ab9bb4f134d651ef82f798d3cf92"
+    },
+    {
+      "kind": "direct_exact_ansatz_results",
+      "path": "ansatz_results.json",
+      "schema": "chow-cone/k4-direct-ansatz/v1",
+      "sha256": "3fe438ac97f9853741485d51fad496b433467689ab5dd6eb34c474f6da494397"
+    },
+    {
+      "kind": "solver_independent_interval_witnesses",
+      "path": "interval_witnesses.json",
+      "schema": "chow-cone/k4-interval-witness/v1",
+      "sha256": "4125b0de5143a7b0c8f619a1033e53e426666767077bf27539897a521b826175"
+    },
+    {
+      "kind": "solver_independent_interval_witnesses_d_ge_3",
+      "path": "interval_witnesses_d03_d10.json",
+      "schema": "chow-cone/k4-interval-witness/v1",
+      "sha256": "82ed49a36386b6ddfc180ad57e73649985c9ad3211f642a5e92657c495793e74"
+    },
+    {
+      "kind": "verification_summary",
+      "path": "verification_summary.json",
+      "schema": "chow-cone/k4-certificate-verification-summary/v1",
+      "sha256": "69baa7d33bbc9b34e5107ed2fa323acf66c470105a797f52a8cafc997907bbbc"
+    }
+  ],
+  "generator_parameters": {
+    "ansatz_method": "direct exact normalized-divergence equations over Fraction; certificate values are not fitted",
+    "ansatz_split": {
+      "holdout_dimensions": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "training_dimensions": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "validation_dimensions": [
+        12
+      ]
+    },
+    "edge_range_maximum_dimension": 10,
+    "json_encoding": "UTF-8, indent=2, sorted object keys, LF newline; unbounded flows and range endpoints encoded as decimal strings",
+    "maximum_dimension_guard": 16,
+    "node_order": "lexicographic compositions",
+    "objective_algorithm": "successive-shortest-augmenting-path exact-integer minimum-cost maximum flow",
+    "objective_definitions": {
+      "added_cut_position": "sum_e j(e) f(e), where j(e)=sum(parent[:block])+left",
+      "balanced_split_mass": "sum_{e: left=right} f(e): cost 1 on balanced splits, 0 otherwise",
+      "final_block_mass": "sum_{e: block=len(parent)-1} f(e): cost 1 on final-block splits, 0 otherwise",
+      "first_block_mass": "sum_{e: block=0} f(e): cost 1 on first-block splits, 0 otherwise",
+      "peel3_mass": "sum_{e: min(left,right)=3} f(e): cost 1 on width-3 peels, 0 otherwise",
+      "reflected_position": "sum_e (d+1-j(e)) f(e), where j(e)=sum(parent[:block])+left",
+      "right_peel_mass": "sum_{e: left>right} f(e): cost 1 when the narrow peel is on the right, 0 otherwise",
+      "total_internal_flow": "sum_e f(e): unit cost 1 on every internal cover edge"
+    },
+    "peel_width_max": 3,
+    "primary_algorithm": "Dinic exact-integer max flow",
+    "range_method": "For each allowed edge, remove that edge from the residual network of the saved lex certificate. Exact integer max-flow rerouting computes the greatest feasible decrease and increase. Feasible-flow differences are residual circulations, so the resulting coordinate minimum and maximum are exact and independent of the baseline solver tie-breaking.",
+    "weight_scale": 720
+  },
+  "manifest_self_hash": "omitted because a file cannot contain its own SHA256 digest",
+  "n_files_hashed": 101,
+  "plan": {
+    "objective_dimensions": [
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16
+    ],
+    "objectives": [
+      "added_cut_position",
+      "balanced_split_mass",
+      "final_block_mass",
+      "first_block_mass",
+      "peel3_mass",
+      "reflected_position",
+      "right_peel_mass",
+      "total_internal_flow"
+    ],
+    "primary_dimensions": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "primary_edge_order": "lex",
+    "range_dimensions": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "schema": "chow-cone/k4-discovery-manifest/v1",
+  "source_provenance": [
+    {
+      "path": "src/dinic.py",
+      "sha256": "b515a51581928c2df33a6e2e22fff445df33a197eccad447cd01cbbf48e25c7e"
+    },
+    {
+      "path": "src/k4_certificates.py",
+      "sha256": "bd8806dee86837b70044e1e2552786decd363f21c692a70d7d7adba4f3fd2ecc"
+    },
+    {
+      "path": "src/k4_feature_analysis.py",
+      "sha256": "64dc1586b55f06b38a1ae1e8fc6f7b43f8703b870a874731c99006ddd4704b9f"
+    },
+    {
+      "path": "src/k4_weights.py",
+      "sha256": "ab4f0902a072ee8741d245e27ac1174017ca658f867d8d923145b7c17238f11c"
+    },
+    {
+      "path": "src/min_cost_flow.py",
+      "sha256": "9716650003dd2dca444d76bfbe3d10fb42e52c2a5bccda7fca53b95f946c1f1f"
+    },
+    {
+      "path": "src/run_k4_discovery.py",
+      "sha256": "753b5bcb059527ff2c26bb22feedee7cfab6cca23e8391b9f49745d1ed442359"
+    },
+    {
+      "path": "src/support.py",
+      "sha256": "897e843aaec5171225a76bf00b4051d118d16c3e8d6baf15c8efe3e2bc0f6aaa"
+    },
+    {
+      "path": "src/verify_k4_certificates.py",
+      "sha256": "c4229ae7dde0a1e941d20e9340822fb96ba3e91a5ed0ffa1cb8959195ab19b7e"
+    }
+  ]
+}

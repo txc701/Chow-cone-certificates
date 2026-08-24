@@ -1,0 +1,91 @@
+{
+  "d": 5,
+  "edges": [
+    [
+      [
+        2,
+        5
+      ],
+      1,
+      2,
+      "66960"
+    ],
+    [
+      [
+        2,
+        5
+      ],
+      1,
+      3,
+      "52272"
+    ],
+    [
+      [
+        3,
+        4
+      ],
+      1,
+      2,
+      "75600"
+    ],
+    [
+      [
+        4,
+        3
+      ],
+      0,
+      2,
+      "49680"
+    ],
+    [
+      [
+        5,
+        2
+      ],
+      0,
+      2,
+      "25488"
+    ],
+    [
+      [
+        5,
+        2
+      ],
+      0,
+      3,
+      "2160"
+    ],
+    [
+      [
+        7
+      ],
+      0,
+      2,
+      "50112"
+    ],
+    [
+      [
+        7
+      ],
+      0,
+      3,
+      "9360"
+    ]
+  ],
+  "generation": {
+    "algorithm": "Dinic exact-integer max flow",
+    "cover_capacity": "total_supply + 1",
+    "edge_order": "lex",
+    "edge_order_key": "(block_index, left_part, child_composition)",
+    "flow_encoding": "sparse positive edges; decimal integer strings",
+    "node_order": "lexicographic compositions",
+    "source_sink_order": "interleaved by lexicographic node order"
+  },
+  "n_allowed_edges": 10,
+  "n_positive_edges": 8,
+  "n_support_nodes": 8,
+  "peel_width_max": 3,
+  "schema": "chow-cone/k4-peel-width-certificate/v1",
+  "total_supply": "272160",
+  "weight_scale": 720
+}

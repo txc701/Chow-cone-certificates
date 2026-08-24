@@ -1,0 +1,210 @@
+{
+  "files": [
+    {
+      "certificate_columns": [
+        "primary_lex"
+      ],
+      "d": 2,
+      "includes_exact_edge_ranges": true,
+      "n_rows": 1,
+      "path": "features/d02_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "primary_lex"
+      ],
+      "d": 3,
+      "includes_exact_edge_ranges": true,
+      "n_rows": 2,
+      "path": "features/d03_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow",
+        "primary_lex"
+      ],
+      "d": 4,
+      "includes_exact_edge_ranges": true,
+      "n_rows": 5,
+      "path": "features/d04_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "primary_lex"
+      ],
+      "d": 5,
+      "includes_exact_edge_ranges": true,
+      "n_rows": 10,
+      "path": "features/d05_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow",
+        "primary_lex"
+      ],
+      "d": 6,
+      "includes_exact_edge_ranges": true,
+      "n_rows": 19,
+      "path": "features/d06_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "primary_lex"
+      ],
+      "d": 7,
+      "includes_exact_edge_ranges": true,
+      "n_rows": 36,
+      "path": "features/d07_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow",
+        "primary_lex"
+      ],
+      "d": 8,
+      "includes_exact_edge_ranges": true,
+      "n_rows": 66,
+      "path": "features/d08_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "primary_lex"
+      ],
+      "d": 9,
+      "includes_exact_edge_ranges": true,
+      "n_rows": 120,
+      "path": "features/d09_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow",
+        "primary_lex"
+      ],
+      "d": 10,
+      "includes_exact_edge_ranges": true,
+      "n_rows": 215,
+      "path": "features/d10_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "primary_lex"
+      ],
+      "d": 11,
+      "includes_exact_edge_ranges": false,
+      "n_rows": 382,
+      "path": "features/d11_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow",
+        "primary_lex"
+      ],
+      "d": 12,
+      "includes_exact_edge_ranges": false,
+      "n_rows": 673,
+      "path": "features/d12_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "primary_lex"
+      ],
+      "d": 13,
+      "includes_exact_edge_ranges": false,
+      "n_rows": 1178,
+      "path": "features/d13_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow",
+        "primary_lex"
+      ],
+      "d": 14,
+      "includes_exact_edge_ranges": false,
+      "n_rows": 2050,
+      "path": "features/d14_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "primary_lex"
+      ],
+      "d": 15,
+      "includes_exact_edge_ranges": false,
+      "n_rows": 3550,
+      "path": "features/d15_features.jsonl"
+    },
+    {
+      "certificate_columns": [
+        "mincost:added_cut_position",
+        "mincost:balanced_split_mass",
+        "mincost:final_block_mass",
+        "mincost:first_block_mass",
+        "mincost:peel3_mass",
+        "mincost:reflected_position",
+        "mincost:right_peel_mass",
+        "mincost:total_internal_flow",
+        "primary_lex"
+      ],
+      "d": 16,
+      "includes_exact_edge_ranges": false,
+      "n_rows": 6121,
+      "path": "features/d16_features.jsonl"
+    }
+  ],
+  "flow_normalization": "h(parent->child) = flow / G(child)",
+  "format": "UTF-8 JSON Lines; one canonical allowed edge per line",
+  "integer_arithmetic": "All JSON integer fields were produced with Python arbitrary-precision integers.",
+  "ordering": "dimension file, then (parent composition, block, left)",
+  "range_fields": "Exact minimum/current/maximum fields occur precisely for d<=10.",
+  "rational_encoding": {
+    "normalization": "lowest terms with positive denominator",
+    "shape": {
+      "den": "positive integer denominator",
+      "num": "integer numerator"
+    }
+  },
+  "row_schema": "chow-cone/k4-edge-features/v1",
+  "schema": "chow-cone/k4-edge-feature-table/v1",
+  "zero_coordinates": "Every allowed edge is present; omitted sparse-certificate edges appear here with flow zero."
+}

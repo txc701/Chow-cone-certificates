@@ -1,0 +1,62 @@
+{
+  "d": 4,
+  "edges": [
+    [
+      [
+        2,
+        4
+      ],
+      1,
+      2,
+      "15120"
+    ],
+    [
+      [
+        6
+      ],
+      0,
+      2,
+      "15840"
+    ],
+    [
+      [
+        6
+      ],
+      0,
+      3,
+      "5760"
+    ],
+    [
+      [
+        6
+      ],
+      0,
+      4,
+      "360"
+    ]
+  ],
+  "generation": {
+    "algorithm": "successive-shortest-augmenting-path exact-integer minimum-cost maximum flow",
+    "cover_capacity": "total_supply + 1",
+    "edge_order": "lex",
+    "edge_order_key": "(block_index, left_part, child_composition)",
+    "flow_encoding": "sparse positive edges; decimal integer strings",
+    "flow_requirement": "maximum flow equals total_supply",
+    "node_order": "lexicographic compositions",
+    "source_sink_order": "interleaved by lexicographic node order",
+    "tie_breaking": "Dijkstra (distance,node); equal-distance relaxations retain first lex-inserted edge"
+  },
+  "n_allowed_edges": 5,
+  "n_positive_edges": 4,
+  "n_support_nodes": 5,
+  "objective": {
+    "definition": "sum_e f(e): unit cost 1 on every internal cover edge",
+    "name": "total_internal_flow",
+    "unit_costs": "nonnegative integers on internal cover edges",
+    "value": "37080"
+  },
+  "peel_width_max": 3,
+  "schema": "chow-cone/k4-peel-width-certificate/v1",
+  "total_supply": "21960",
+  "weight_scale": 720
+}
