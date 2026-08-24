@@ -8,7 +8,7 @@ $\lambda_{(J,J\cup\{j\})}=G(c(J\cup\{j\}))$. Machine-corroborated at every
 node for $d\le25$; the staircase identities and shell decomposition are now
 corollaries for all $d$. **Pending: external human review.**
 
-**Lean certification (2026-08-22, commit `131daca`):** the combinatorial
+**Lean certification (2026-08-21, commit `131daca`):** the combinatorial
 core is machine-checked in Lean 4 (`lean/`, mathlib v4.32.2): divergence
 identity `div f = w` for every `d ≥ 1` (support and full lattice), flow
 nonnegativity, the three ratio lemmas, the in-edge classification, the
@@ -101,8 +101,9 @@ certificate now explains.
 
 None.
 
-## Next decision
+## Branch disposition
 
-Write the first-decision-gate report (REPORT.md): distinguish mechanically
-verified facts / proofs / empirical patterns / speculation / failed
-approaches. Then stop; do not touch the fourth-moment generalization.
+Conjecture 3.30 and its Lean certification stop at the completed combinatorial
+core, pending external human review. Fourth-moment discovery is isolated on
+the existing `k4-fourth-moment` branch; its future questions are recorded in
+`K4_NOTES.md` there.
