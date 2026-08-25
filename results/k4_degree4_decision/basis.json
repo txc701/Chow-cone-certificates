@@ -1,0 +1,3377 @@
+{
+  "anti_invariant_basis": [
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          2,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          3,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          0,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          1,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          1,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          3,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": -1,
+        "exponents": [
+          3,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  ],
+  "anti_invariant_basis_count": 25,
+  "anti_invariant_degree_counts": {
+    "0": 0,
+    "1": 1,
+    "2": 3,
+    "3": 7,
+    "4": 14
+  },
+  "balanced_invariant_basis": [
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          2,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          3,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          2,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  ],
+  "balanced_invariant_basis_count": 18,
+  "edge_channels": {
+    "balanced": "for each peel width, balanced flow uses the invariant basis after removing z-divisible polynomials, which vanish identically because balanced edges have z=0",
+    "oriented": "for each peel width, left/right form one equivariant pair: the invariant component is shared and the anti component changes sign",
+    "peel_widths": [
+      2,
+      3
+    ]
+  },
+  "invariant_basis": [
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          2,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          1,
+          3,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          0,
+          2,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          1,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          3,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient": 1,
+        "exponents": [
+          3,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "coefficient": 1,
+        "exponents": [
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  ],
+  "invariant_basis_count": 35,
+  "invariant_degree_counts": {
+    "0": 1,
+    "1": 2,
+    "2": 5,
+    "3": 9,
+    "4": 18
+  },
+  "maximum_weighted_degree": 4,
+  "mirror": {
+    "composition": "reverse the parent composition",
+    "peel_side": "left and right swap; balanced is fixed",
+    "split": "(p,q) maps to (q,p) in the mirrored block",
+    "variables": [
+      "z",
+      "R",
+      "L",
+      "VR",
+      "VL",
+      "QR",
+      "QL"
+    ],
+    "warning": "G(reverse(c))/G(c)=first_block/last_block, so mirror equivariance is an ansatz restriction, not a symmetry deduced from the divergence equations"
+  },
+  "normalization": "h(e)=f(e)/G(child)",
+  "parameter_count": 156,
+  "parameter_names": [
+    "s2:oriented:invariant:00",
+    "s2:oriented:invariant:01",
+    "s2:oriented:invariant:02",
+    "s2:oriented:invariant:03",
+    "s2:oriented:invariant:04",
+    "s2:oriented:invariant:05",
+    "s2:oriented:invariant:06",
+    "s2:oriented:invariant:07",
+    "s2:oriented:invariant:08",
+    "s2:oriented:invariant:09",
+    "s2:oriented:invariant:10",
+    "s2:oriented:invariant:11",
+    "s2:oriented:invariant:12",
+    "s2:oriented:invariant:13",
+    "s2:oriented:invariant:14",
+    "s2:oriented:invariant:15",
+    "s2:oriented:invariant:16",
+    "s2:oriented:invariant:17",
+    "s2:oriented:invariant:18",
+    "s2:oriented:invariant:19",
+    "s2:oriented:invariant:20",
+    "s2:oriented:invariant:21",
+    "s2:oriented:invariant:22",
+    "s2:oriented:invariant:23",
+    "s2:oriented:invariant:24",
+    "s2:oriented:invariant:25",
+    "s2:oriented:invariant:26",
+    "s2:oriented:invariant:27",
+    "s2:oriented:invariant:28",
+    "s2:oriented:invariant:29",
+    "s2:oriented:invariant:30",
+    "s2:oriented:invariant:31",
+    "s2:oriented:invariant:32",
+    "s2:oriented:invariant:33",
+    "s2:oriented:invariant:34",
+    "s2:oriented:anti:00",
+    "s2:oriented:anti:01",
+    "s2:oriented:anti:02",
+    "s2:oriented:anti:03",
+    "s2:oriented:anti:04",
+    "s2:oriented:anti:05",
+    "s2:oriented:anti:06",
+    "s2:oriented:anti:07",
+    "s2:oriented:anti:08",
+    "s2:oriented:anti:09",
+    "s2:oriented:anti:10",
+    "s2:oriented:anti:11",
+    "s2:oriented:anti:12",
+    "s2:oriented:anti:13",
+    "s2:oriented:anti:14",
+    "s2:oriented:anti:15",
+    "s2:oriented:anti:16",
+    "s2:oriented:anti:17",
+    "s2:oriented:anti:18",
+    "s2:oriented:anti:19",
+    "s2:oriented:anti:20",
+    "s2:oriented:anti:21",
+    "s2:oriented:anti:22",
+    "s2:oriented:anti:23",
+    "s2:oriented:anti:24",
+    "s2:balanced:invariant:00",
+    "s2:balanced:invariant:01",
+    "s2:balanced:invariant:02",
+    "s2:balanced:invariant:03",
+    "s2:balanced:invariant:04",
+    "s2:balanced:invariant:05",
+    "s2:balanced:invariant:06",
+    "s2:balanced:invariant:07",
+    "s2:balanced:invariant:08",
+    "s2:balanced:invariant:09",
+    "s2:balanced:invariant:10",
+    "s2:balanced:invariant:11",
+    "s2:balanced:invariant:12",
+    "s2:balanced:invariant:13",
+    "s2:balanced:invariant:14",
+    "s2:balanced:invariant:15",
+    "s2:balanced:invariant:16",
+    "s2:balanced:invariant:17",
+    "s3:oriented:invariant:00",
+    "s3:oriented:invariant:01",
+    "s3:oriented:invariant:02",
+    "s3:oriented:invariant:03",
+    "s3:oriented:invariant:04",
+    "s3:oriented:invariant:05",
+    "s3:oriented:invariant:06",
+    "s3:oriented:invariant:07",
+    "s3:oriented:invariant:08",
+    "s3:oriented:invariant:09",
+    "s3:oriented:invariant:10",
+    "s3:oriented:invariant:11",
+    "s3:oriented:invariant:12",
+    "s3:oriented:invariant:13",
+    "s3:oriented:invariant:14",
+    "s3:oriented:invariant:15",
+    "s3:oriented:invariant:16",
+    "s3:oriented:invariant:17",
+    "s3:oriented:invariant:18",
+    "s3:oriented:invariant:19",
+    "s3:oriented:invariant:20",
+    "s3:oriented:invariant:21",
+    "s3:oriented:invariant:22",
+    "s3:oriented:invariant:23",
+    "s3:oriented:invariant:24",
+    "s3:oriented:invariant:25",
+    "s3:oriented:invariant:26",
+    "s3:oriented:invariant:27",
+    "s3:oriented:invariant:28",
+    "s3:oriented:invariant:29",
+    "s3:oriented:invariant:30",
+    "s3:oriented:invariant:31",
+    "s3:oriented:invariant:32",
+    "s3:oriented:invariant:33",
+    "s3:oriented:invariant:34",
+    "s3:oriented:anti:00",
+    "s3:oriented:anti:01",
+    "s3:oriented:anti:02",
+    "s3:oriented:anti:03",
+    "s3:oriented:anti:04",
+    "s3:oriented:anti:05",
+    "s3:oriented:anti:06",
+    "s3:oriented:anti:07",
+    "s3:oriented:anti:08",
+    "s3:oriented:anti:09",
+    "s3:oriented:anti:10",
+    "s3:oriented:anti:11",
+    "s3:oriented:anti:12",
+    "s3:oriented:anti:13",
+    "s3:oriented:anti:14",
+    "s3:oriented:anti:15",
+    "s3:oriented:anti:16",
+    "s3:oriented:anti:17",
+    "s3:oriented:anti:18",
+    "s3:oriented:anti:19",
+    "s3:oriented:anti:20",
+    "s3:oriented:anti:21",
+    "s3:oriented:anti:22",
+    "s3:oriented:anti:23",
+    "s3:oriented:anti:24",
+    "s3:balanced:invariant:00",
+    "s3:balanced:invariant:01",
+    "s3:balanced:invariant:02",
+    "s3:balanced:invariant:03",
+    "s3:balanced:invariant:04",
+    "s3:balanced:invariant:05",
+    "s3:balanced:invariant:06",
+    "s3:balanced:invariant:07",
+    "s3:balanced:invariant:08",
+    "s3:balanced:invariant:09",
+    "s3:balanced:invariant:10",
+    "s3:balanced:invariant:11",
+    "s3:balanced:invariant:12",
+    "s3:balanced:invariant:13",
+    "s3:balanced:invariant:14",
+    "s3:balanced:invariant:15",
+    "s3:balanced:invariant:16",
+    "s3:balanced:invariant:17"
+  ],
+  "raw_degree_counts": {
+    "0": 1,
+    "1": 3,
+    "2": 8,
+    "3": 16,
+    "4": 32
+  },
+  "raw_monomial_count": 60,
+  "raw_monomials": [
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 0
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 1
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 1
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 1
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 2
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 2
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 2
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 2
+    },
+    {
+      "exponents": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 2
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 2
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 2
+    },
+    {
+      "exponents": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 2
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 3
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        1,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        1,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        2,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        2,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        3,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        3,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    },
+    {
+      "exponents": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mirror_exponents": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weighted_degree": 4
+    }
+  ],
+  "schema": "chow-cone/k4-degree4-basis/v1",
+  "variables": [
+    {
+      "definition": "affected_block_size - 2*peel_width",
+      "name": "z",
+      "weight": 1
+    },
+    {
+      "definition": "sum of blocks before the split block",
+      "name": "L",
+      "weight": 1
+    },
+    {
+      "definition": "sum of blocks after the split block",
+      "name": "R",
+      "weight": 1
+    },
+    {
+      "definition": "sum n(n-2) over blocks before",
+      "name": "VL",
+      "weight": 2
+    },
+    {
+      "definition": "sum n(n-2) over blocks after",
+      "name": "VR",
+      "weight": 2
+    },
+    {
+      "definition": "sum [n(n-2)]^2 over blocks before",
+      "name": "QL",
+      "weight": 4
+    },
+    {
+      "definition": "sum [n(n-2)]^2 over blocks after",
+      "name": "QR",
+      "weight": 4
+    }
+  ]
+}

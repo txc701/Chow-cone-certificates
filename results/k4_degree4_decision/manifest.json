@@ -1,0 +1,92 @@
+{
+  "checkpoint_base": "f3efcfd4fa718884ed9934590af83f46c0772a00",
+  "files": [
+    {
+      "path": "basis.json",
+      "sha256": "903ffdb08cf704a5c7edffead725c79a3ac39c095a5fd8bed5548ff7428ca757"
+    },
+    {
+      "path": "training_system.json",
+      "sha256": "db5dc0772dcd11d5b3ec8973605366749da01c484a81037df32b965e1bf8483c"
+    },
+    {
+      "path": "inconsistency_witness.json",
+      "sha256": "3ee67d50e2ff2bc90dab60217d8452e116a529820364732128f74872f744d979"
+    },
+    {
+      "path": "preceding_prefix_solution.json",
+      "sha256": "6c9a628850002bdce380da2c955464754ae351a4ec1b48774deeb5ae71cf722e"
+    },
+    {
+      "path": "decision.json",
+      "sha256": "e6d2b0652b50615e694921accd1edf6faeb143aab0b37a0c10e45ae39fe0e1fc"
+    },
+    {
+      "path": "verification_summary.json",
+      "sha256": "cedf6d9c94f6919c102e251f58467c97a349ffd986b48112e95c677e0cd1cddb"
+    }
+  ],
+  "fixed_parameters": {
+    "arithmetic": "Python arbitrary-precision integers and Fraction",
+    "certificate_coordinates_used": false,
+    "holdout_dimensions": [
+      13,
+      14,
+      15,
+      16
+    ],
+    "maximum_weighted_degree": 4,
+    "peel_width_maximum": 3,
+    "training_dimensions": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "manifest_self_hash": "omitted because a file cannot contain its own SHA256 digest",
+  "n_files_hashed": 6,
+  "schema": "chow-cone/k4-degree4-manifest/v1",
+  "schemas": {
+    "basis": "chow-cone/k4-degree4-basis/v1",
+    "decision": "chow-cone/k4-degree4-decision/v1",
+    "inconsistency_witness": "chow-cone/k4-degree4-inconsistency-witness/v1",
+    "manifest": "chow-cone/k4-degree4-manifest/v1",
+    "preceding_prefix_solution": "chow-cone/k4-degree4-prefix-solution/v1",
+    "training_system": "chow-cone/k4-degree4-training-system/v1",
+    "verification": "chow-cone/k4-degree4-verification-summary/v1"
+  },
+  "source_provenance": [
+    {
+      "path": "src/k4_degree4_decision.py",
+      "sha256": "94347a00d7a5c7d8a4e877c8a8e7e2cdccbb5831bf7998e591b471c47478f367"
+    },
+    {
+      "path": "src/k4_feature_analysis.py",
+      "sha256": "64dc1586b55f06b38a1ae1e8fc6f7b43f8703b870a874731c99006ddd4704b9f"
+    },
+    {
+      "path": "src/k4_weights.py",
+      "sha256": "ab4f0902a072ee8741d245e27ac1174017ca658f867d8d923145b7c17238f11c"
+    },
+    {
+      "path": "src/run_k4_degree4_decision.py",
+      "sha256": "1db26bd85f82d6083ed512d55e9601a26717d21a2bcc740b8cf43081a1cae3da"
+    },
+    {
+      "path": "src/support.py",
+      "sha256": "897e843aaec5171225a76bf00b4051d118d16c3e8d6baf15c8efe3e2bc0f6aaa"
+    },
+    {
+      "path": "src/verify_k4_degree4_decision.py",
+      "sha256": "d9b53976d72d6fc46b17f0efebc4848c5a459404187a8795abc0e873a2fdd899"
+    }
+  ]
+}

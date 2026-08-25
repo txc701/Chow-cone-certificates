@@ -1,0 +1,50 @@
+{
+  "dimensions": [
+    2,
+    3,
+    4
+  ],
+  "interpretation": "the integer row combination has zero coefficient in every parameter column and a nonzero right-hand side",
+  "multipliers": [
+    {
+      "composition": [
+        2,
+        2,
+        2
+      ],
+      "d": 4,
+      "multiplier": "-1",
+      "row": 5
+    },
+    {
+      "composition": [
+        2,
+        4
+      ],
+      "d": 4,
+      "multiplier": "2",
+      "row": 6
+    },
+    {
+      "composition": [
+        4,
+        2
+      ],
+      "d": 4,
+      "multiplier": "-2",
+      "row": 8
+    }
+  ],
+  "n_parameters": 156,
+  "schema": "chow-cone/k4-degree4-inconsistency-witness/v1",
+  "smallest_inconsistent_dimension": 4,
+  "verification": {
+    "n_nonzero_column_sums": 0,
+    "n_nonzero_multipliers": 3,
+    "rhs_sum": {
+      "den": "1",
+      "num": "504"
+    },
+    "verified": true
+  }
+}

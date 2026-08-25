@@ -1,0 +1,97 @@
+{
+  "ansatz": {
+    "certificate_coordinates_used": false,
+    "construction": "direct substitution into exact normalized divergence equations",
+    "description": "complete full-reversal-invariant normalized-flow polynomial class of weighted degree at most 4",
+    "parameter_count": 156
+  },
+  "checkpoint_base": "f3efcfd4fa718884ed9934590af83f46c0772a00",
+  "equality_status": "inconsistent",
+  "holdout_dimensions": [
+    13,
+    14,
+    15,
+    16
+  ],
+  "holdout_explanation": "the frozen rule requires holdout evaluation only for a feasible training coefficient vector; no such vector exists",
+  "holdout_status": "not_run_no_training_solution",
+  "nonnegativity_explanation": "no coefficient vector satisfies the divergence equalities, so none can satisfy those equalities together with edgewise nonnegativity",
+  "nonnegativity_status": "infeasible_a_fortiori",
+  "preceding_consistent_prefix": {
+    "dimensions": [
+      2,
+      3
+    ],
+    "path": "preceding_prefix_solution.json",
+    "verified": true
+  },
+  "prefix_diagnostics": [
+    {
+      "augmented_rank": 1,
+      "coefficient_rank": 1,
+      "dimensions": [
+        2
+      ],
+      "equality_status": "consistent",
+      "maximum_dimension": 2,
+      "n_edges": 1,
+      "n_rows": 2
+    },
+    {
+      "augmented_rank": 2,
+      "coefficient_rank": 2,
+      "dimensions": [
+        2,
+        3
+      ],
+      "equality_status": "consistent",
+      "maximum_dimension": 3,
+      "n_edges": 3,
+      "n_rows": 5
+    },
+    {
+      "augmented_rank": 6,
+      "coefficient_rank": 5,
+      "dimensions": [
+        2,
+        3,
+        4
+      ],
+      "equality_status": "inconsistent",
+      "maximum_dimension": 4,
+      "n_edges": 8,
+      "n_rows": 10
+    }
+  ],
+  "schema": "chow-cone/k4-degree4-decision/v1",
+  "smallest_inconsistent_dimension": 4,
+  "stopping_rule": "stop after this decision; do not increase degree, add features, or launch another search",
+  "training_dimensions": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "training_problem": {
+    "augmented_rank": 156,
+    "coefficient_rank": 155,
+    "n_edges": 1529,
+    "n_parameters": 156,
+    "n_rows": 607
+  },
+  "witness": {
+    "n_nonzero_multipliers": 3,
+    "path": "inconsistency_witness.json",
+    "rhs_sum": {
+      "den": "1",
+      "num": "504"
+    }
+  }
+}
