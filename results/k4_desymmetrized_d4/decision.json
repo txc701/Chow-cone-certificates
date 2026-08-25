@@ -1,0 +1,209 @@
+{
+  "checkpoint_base": "59560a535c7c1ae3201a44215053ac24cc50b803",
+  "equality_status": "consistent",
+  "matrix": {
+    "augmented_rank": 4,
+    "coefficient_rank": 4,
+    "n_columns": 276,
+    "n_edges": 5,
+    "n_rows": 5,
+    "nullity": 272
+  },
+  "old_witness_after_untying": {
+    "entries": [
+      {
+        "column": 0,
+        "name": "s2:left:invariant:00",
+        "value": {
+          "den": "1",
+          "num": "-2"
+        }
+      },
+      {
+        "column": 2,
+        "name": "s2:left:invariant:02",
+        "value": {
+          "den": "1",
+          "num": "-4"
+        }
+      },
+      {
+        "column": 7,
+        "name": "s2:left:invariant:07",
+        "value": {
+          "den": "1",
+          "num": "-8"
+        }
+      },
+      {
+        "column": 16,
+        "name": "s2:left:invariant:16",
+        "value": {
+          "den": "1",
+          "num": "-16"
+        }
+      },
+      {
+        "column": 34,
+        "name": "s2:left:invariant:34",
+        "value": {
+          "den": "1",
+          "num": "-32"
+        }
+      },
+      {
+        "column": 60,
+        "name": "s2:right:invariant:00",
+        "value": {
+          "den": "1",
+          "num": "2"
+        }
+      },
+      {
+        "column": 62,
+        "name": "s2:right:invariant:02",
+        "value": {
+          "den": "1",
+          "num": "4"
+        }
+      },
+      {
+        "column": 67,
+        "name": "s2:right:invariant:07",
+        "value": {
+          "den": "1",
+          "num": "8"
+        }
+      },
+      {
+        "column": 76,
+        "name": "s2:right:invariant:16",
+        "value": {
+          "den": "1",
+          "num": "16"
+        }
+      },
+      {
+        "column": 94,
+        "name": "s2:right:invariant:34",
+        "value": {
+          "den": "1",
+          "num": "32"
+        }
+      }
+    ],
+    "interpretation": "a linear condition on all displayed untied columns, not a distinguished phi_G coefficient",
+    "n_nonzero_columns": 10,
+    "rhs": {
+      "den": "1",
+      "num": "504"
+    }
+  },
+  "schema": "chow-cone/k4-desymmetrized-d4-decision/v1",
+  "scope": {
+    "dimensions": [
+      4
+    ],
+    "equality_only": true,
+    "holdouts_run": false,
+    "nonnegativity_optimization_run": false,
+    "phi_G_appended": false
+  },
+  "solution": {
+    "method": "exact sparse echelon solve; free parameters set to zero",
+    "nonzero_coefficients": [
+      {
+        "column": 0,
+        "name": "s2:left:invariant:00",
+        "value": {
+          "den": "1",
+          "num": "276"
+        }
+      },
+      {
+        "column": 60,
+        "name": "s2:right:invariant:00",
+        "value": {
+          "den": "1",
+          "num": "528"
+        }
+      },
+      {
+        "column": 120,
+        "name": "s2:balanced:invariant:00",
+        "value": {
+          "den": "1",
+          "num": "252"
+        }
+      },
+      {
+        "column": 258,
+        "name": "s3:balanced:invariant:00",
+        "value": {
+          "den": "1",
+          "num": "144"
+        }
+      }
+    ],
+    "residuals": [
+      {
+        "composition": [
+          2,
+          2,
+          2
+        ],
+        "residual": {
+          "den": "1",
+          "num": "0"
+        }
+      },
+      {
+        "composition": [
+          2,
+          4
+        ],
+        "residual": {
+          "den": "1",
+          "num": "0"
+        }
+      },
+      {
+        "composition": [
+          3,
+          3
+        ],
+        "residual": {
+          "den": "1",
+          "num": "0"
+        }
+      },
+      {
+        "composition": [
+          4,
+          2
+        ],
+        "residual": {
+          "den": "1",
+          "num": "0"
+        }
+      },
+      {
+        "composition": [
+          6
+        ],
+        "residual": {
+          "den": "1",
+          "num": "0"
+        }
+      }
+    ],
+    "verification": {
+      "first_mismatch": null,
+      "n_mismatches": 0,
+      "n_parameters": 276,
+      "n_rows": 5,
+      "verified": true
+    }
+  },
+  "stopping_rule": "stop after the d=4 equality decision; do not optimize edge nonnegativity or evaluate another dimension"
+}
