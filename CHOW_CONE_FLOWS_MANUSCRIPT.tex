@@ -1,0 +1,979 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1.12in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,
+  urlcolor=blue!55!black]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\CH}{\operatorname{CH}}
+\newcommand{\divg}{\operatorname{div}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\E}{\mathbb E}
+\newcommand{\C}{\mathcal C}
+\newcommand{\B}{\mathcal B}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\edge}[2]{\mathbf e_{#1,#2}}
+
+\title[Nonnegative flows for Chow-polynomial moments]
+  {Nonnegative flows for Chow-polynomial moments of matroids}
+\author{Anonymous}
+\date{August 28, 2026}
+
+\begin{document}
+
+\begin{abstract}
+Cheng and Lin expressed central-moment inequalities for the standard Chow
+polynomial of a matroid as linear inequalities in flag numbers.  We prove
+their Conjecture~3.30 in every rank by exhibiting its variance flag form as
+an explicit nonnegative combination of their normalized flag-count
+inequalities.  We also prove the case $k=4$ of their Conjecture~3.14: if
+$M$ is a loopless matroid of rank $d+1$, then
+\[
+ \E\left[(X_M-d/2)^4\right]\le
+ \begin{cases}
+  1/16,&d=1,\\
+  1/3,&d=2,\\
+  (d+2)(5d+8)/240,&d\ge3.
+ \end{cases}
+\]
+The fourth-moment result is strengthened to an identity expressing its flag
+form as a nonnegative combination of the same normalized inequalities.
+Both proofs use one mechanism: flag types form a support subgraph of the
+Boolean lattice, the desired coefficient vector is a divergence, and
+finite-poset summation by parts converts a nonnegative flow into the required
+linear combination.  The variance flow uses peel-two splits.  For the fourth
+moment, a signed combination of three primitive peel flows is converted into
+a nonnegative peel-width-three flow by explicit zero-divergence reroutings.
+All identities and inequalities in the proof are symbolic and uniform in
+the rank.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+Throughout, matroids are loopless, as in the global convention of
+Cheng and Lin~\cite[p.~2]{ChengLin}.  Let $M$ have rank $d+1$.  Its
+standard Chow polynomial is
+\[
+  \CH_M(x)=\sum_{p=0}^{d}h_p(M)x^p,
+  \qquad h_p(M)=\dim_{\mathbb Q}A^p(M),
+\]
+where $A^p(M)$ is the degree-$p$ part of its Chow ring.  Following
+\cite[Definition~3.1, p.~8]{ChengLin}, the associated random variable
+$X_M$ is defined by
+$\Pr(X_M=p)=h_p(M)/\CH_M(1)$.  We follow the conventions and notation of
+Cheng and Lin~\cite{ChengLin}.  Their moment conjectures compare $X_M$ to
+the corresponding random variable $X_d$ for the Boolean matroid on
+$d+1$ elements.  The latter has the Eulerian distribution.
+
+The standard Chow ring was introduced in this combinatorial form by
+Feichtner and Yuzvinsky~\cite{FY}; its Hodge theory was established by
+Adiprasito, Huh, and Katz~\cite{AHK}.  Chow-polynomial formulas and related
+Hilbert--Poincar\'e series have been developed further, for example in
+\cite{FMSV}.  Cheng and Lin's flag expansion turns the moment comparisons
+into inequalities in the flag numbers of $M$.  Our contribution is an
+explicit common certificate for two such inequalities.
+
+The first result settles their Conjecture~3.30.
+
+\begin{theorem}[Cheng--Lin Conjecture~3.30]
+\label{thm:intro-k2}
+For every $d\ge1$, the variance flag form of Cheng and Lin is an explicit
+nonnegative linear combination of the normalized flag-count inequalities in
+their Lemma~3.29.  The combination is supported on Boolean cover pairs.
+\end{theorem}
+
+Our second result proves the fourth-moment instance of Cheng and Lin's
+Conjecture~3.14.
+
+\begin{theorem}[Fourth-moment comparison]
+\label{thm:intro-k4}
+Let $M$ be a loopless matroid of rank $d+1$, with $d\ge1$.  Then
+\begin{equation}
+ \E\left[(X_M-d/2)^4\right]\le
+ \begin{cases}
+  \dfrac1{16},&d=1,\\[4pt]
+  \dfrac13,&d=2,\\[4pt]
+  \dfrac{(d+2)(5d+8)}{240},&d\ge3.
+ \end{cases}
+ \label{eq:intro-k4-bound}
+\end{equation}
+Equivalently, this is Conjecture~3.14 of \cite{ChengLin} for $k=4$.
+\end{theorem}
+
+The proof gives more than the numerical comparison.  If $N_J$ denotes
+the number of flags of flats of rank type $J\subseteq[d]$, $U_J$ the
+corresponding Boolean flag number, and $a_J^{(4)}$ the fourth-moment
+coefficient derived in Section~\ref{sec:k4-coefficient}, then there are
+explicit $f_d(J,J')\ge0$, nonzero only for covers $J\lessdot J'$, such
+that
+\begin{equation}
+ \sum_{J\subseteq[d]}a_J^{(4)}N_J
+ =\sum_{J\lessdot J'}f_d(J,J')
+ \left(\frac{N_J}{U_J}-\frac{N_{J'}}{U_{J'}}\right)\le0.
+ \label{eq:intro-stronger}
+\end{equation}
+The equality in \eqref{eq:intro-stronger} is a formal identity of linear
+forms; only the final inequality uses matroid theory.
+
+The common structure is as follows.  A flag type $J$ is encoded by a
+composition of $d+2$.  The coefficient vanishes unless every block has
+size at least two, giving a support-composition DAG.  We orient Boolean
+covers upward, from a composition to a refinement.  A flow whose divergence
+is the coefficient vector yields, by summation by parts, a linear
+combination of normalized flag-count differences.  The $k=2$ divergence
+has a direct peel-two flow.  At $k=4$, primitive peel-two, peel-three, and
+peel-four flows first give a signed certificate.  Differences of two paths
+with common endpoints then reroute every negative peel-four occurrence.
+A collision estimate proves that the positive peel-two and peel-three
+reserves cannot be exhausted.
+
+No bounded computation is used in these arguments.  We make no assertion
+about equality cases, optimality of the displayed certificates, higher even
+moments, or the augmented Chow polynomial.
+
+\section{Flag types and support compositions}
+\label{sec:notation}
+
+Write $[d]=\{1,\ldots,d\}$.  For
+$J=\{j_1<\cdots<j_m\}\subseteq[d]$, put $j_0=0$, $r=m+1$, and
+\begin{equation}
+ n_i=j_i-j_{i-1}\quad(1\le i\le m),
+ \qquad n_r=d+2-j_m.
+ \label{eq:composition}
+\end{equation}
+For $J=\varnothing$, this means $c(J)=(d+2)$.  Thus
+$c(J)=(n_1,\ldots,n_r)$ is a composition of
+\[
+ N:=d+2
+\]
+whose final part is at least two.  Conversely, $J$ is the set of proper
+prefix sums of this composition.  We call $n_r$ the final block and all
+earlier blocks nonfinal.
+
+Let $N_J=N_J(M)$ be the number of chains of nonempty proper flats of
+$M$ whose ranks form $J$, with $N_\varnothing=1$.  The Boolean flag
+number is
+\begin{equation}
+ U_J=\frac{(d+1)!\,n_r}{\prod_{i=1}^{r}n_i!}.
+ \label{eq:UJ}
+\end{equation}
+In particular $U_J>0$.  Cheng and Lin's Notation~3.25 and
+Proposition~3.26~\cite[p.~20]{ChengLin} give
+\begin{equation}
+ \CH_M(x)=\sum_{J\subseteq[d]}N_JP_J(x),\qquad
+ P_J(x)=x^{-1}\prod_{i=1}^{r}f_{n_i}(x),
+ \qquad f_n(x)=x+\cdots+x^{n-1}.
+ \label{eq:flag-expansion}
+\end{equation}
+The formula \eqref{eq:UJ} is recorded on p.~21 of \cite{ChengLin}.
+
+We say that $c(J)$ is on the \emph{support} when $n_i\ge2$ for every
+$i$.  Indeed,
+\begin{equation}
+ P_J(1)=\prod_i(n_i-1),
+ \label{eq:PJ1}
+\end{equation}
+so $P_J=0$ and every coefficient used below vanishes if any $n_i=1$.
+The support is denoted $\C_N$.  It consists of the compositions of $N$
+with all parts at least two and with the inherited final-block convention.
+
+A Boolean cover $J\lessdot J\cup\{j\}$ splits one block of $c(J)$.
+If the prefix sum before block $i$ is
+$\pi_i=n_1+\cdots+n_{i-1}$ and $p=j-\pi_i$, the block $n_i$ is
+replaced by $(p,n_i-p)$.  The allowed offsets are
+\[
+ 1\le p\le n_i-1\quad(i<r),\qquad
+ 1\le p\le n_r-2\quad(i=r).
+\]
+The stricter final bound is exactly the condition $j\le d$.  A cover
+between support states therefore splits a block into two parts at least two.
+We orient all such edges from the coarser composition to the finer one.
+
+On the support, let $Y_i$ be independent and uniform on
+$\{1,\ldots,n_i-1\}$.  Dividing \eqref{eq:flag-expansion} by
+\eqref{eq:PJ1} identifies the probability generating function of a flag
+summand with that of
+\begin{equation}
+ F_J=\sum_iY_i-1.
+ \label{eq:FJ}
+\end{equation}
+Since $\E Y_i=n_i/2$, all nonzero flag summands have the common mean
+\begin{equation}
+ \E F_J=\frac12\sum_i n_i-1=\frac d2.
+ \label{eq:common-mean}
+\end{equation}
+This common mean permits central moments of the normalized Chow polynomial
+to be computed term by term.
+
+The only sign theorem about matroids used below is Cheng and Lin's
+Lemma~3.29~\cite[p.~22]{ChengLin}:
+\begin{equation}
+ J\subseteq J'\quad\Longrightarrow\quad
+ \frac{N_J}{U_J}\le\frac{N_{J'}}{U_{J'}}.
+ \label{eq:CL-monotonicity}
+\end{equation}
+
+\section{Finite-poset summation by parts}
+\label{sec:poset}
+
+The passage from a combinatorial flow to a matroid inequality is formal.
+
+\begin{lemma}[Finite-poset flow lemma]
+\label{lem:poset-flow}
+Let $P$ be a finite poset, orient each cover $u\lessdot v$ from $u$
+to $v$, and let $f(u,v)$ be a flow on these edges.  Define
+\[
+ \divg f(u)=\sum_{u\to v}f(u,v)-\sum_{v\to u}f(v,u).
+\]
+For every function $x:P\to\mathbb R$,
+\begin{equation}
+ \sum_{u\in P}\divg f(u)x(u)
+ =\sum_{u\lessdot v}f(u,v)\bigl(x(u)-x(v)\bigr).
+ \label{eq:summation-by-parts}
+\end{equation}
+Consequently, if $f\ge0$, $x$ is isotone, and
+$\divg f=w$, then
+\[
+ \sum_{u\in P}w(u)x(u)\le0.
+\]
+\end{lemma}
+
+\begin{proof}
+Expand the left side of \eqref{eq:summation-by-parts}.  A fixed edge
+$u\to v$ occurs once with coefficient $+x(u)$ in the outflow at $u$
+and once with coefficient $-x(v)$ in the inflow at $v$.  This proves the
+identity.  Under the stated sign assumptions, every summand on the right is
+nonpositive.
+\end{proof}
+
+For the Boolean lattice, take $x_J=N_J/U_J$.  Thus any nonnegative flow
+with divergence $w_J=U_Ja_J$ proves
+\begin{equation}
+ \sum_Ja_JN_J
+ =\sum_{J\lessdot J'}f(J,J')
+ \left(\frac{N_J}{U_J}-\frac{N_{J'}}{U_{J'}}\right)\le0,
+ \label{eq:generic-flag-certificate}
+\end{equation}
+where the equality is formal and the inequality follows from
+\eqref{eq:CL-monotonicity}.
+
+\section{The peel-two flow and Conjecture~3.30}
+\label{sec:k2}
+
+We first derive the variance coefficient.  Put
+\[
+ v(n)=n(n-2),\qquad V(c)=\sum_i v(n_i).
+\]
+By \eqref{eq:FJ}, independence, and the variance of a discrete uniform
+variable,
+\begin{equation}
+ \E\left[(F_J-d/2)^2\right]=\frac{V(c(J))}{12}.
+ \label{eq:block-variance}
+\end{equation}
+The Boolean Eulerian variable has variance $N/12=(d+2)/12$.  Normalize
+\eqref{eq:flag-expansion} at $x=1$, use the common mean, and subtract the
+Boolean variance.  We obtain
+\begin{align}
+ &6\CH_M(1)\left(
+   \E[(X_M-d/2)^2]-\frac{N}{12}\right)\notag\\
+ &\qquad=\sum_{J\subseteq[d]}N_J
+ \prod_i(n_i-1)\frac{V(c(J))-N}{2}
+ =\sum_{J\subseteq[d]}a_J^{(2)}N_J,
+ \label{eq:k2-flag-form}
+\end{align}
+where
+\begin{equation}
+ a_J^{(2)}=\prod_i(n_i-1)
+ \left(\frac12\sum_i n_i(n_i-3)\right).
+ \label{eq:a2}
+\end{equation}
+This is the coefficient in Cheng and Lin's Corollary~3.28 and
+Conjecture~3.30~\cite[p.~22]{ChengLin}.
+
+For a support composition $c=(n_1,\ldots,n_r)$, define
+\begin{equation}
+ G(c)=U_c\prod_i(n_i-1)
+ =(N-1)!\,n_r\prod_i\frac{n_i-1}{n_i!},
+ \qquad
+ \rho(n)=\frac{n(n-3)}2.
+ \label{eq:k2-G-rho}
+\end{equation}
+Then $G(c)>0$, and the desired divergence is
+\begin{equation}
+ w^{(2)}(c)=U_ca_c^{(2)}=G(c)\sum_i\rho(n_i).
+ \label{eq:k2-target}
+\end{equation}
+
+We now define the flow.  For every nonfinal block $m\ge4$, select the
+split
+\[
+ m\longmapsto(2,m-2).
+\]
+For a final block $m\ge4$, select both
+\[
+ m\longmapsto(2,m-2),\qquad m\longmapsto(m-2,2).
+\]
+Each selected move receives raw flow $G(\text{child})$.  When a final
+block $4$ is split into $(2,2)$, the two labels denote the same Boolean
+cover edge, and their flows are added.  All unselected edges receive zero.
+Denote the resulting edge flow by $f^{(2)}_d$.
+
+\begin{lemma}[Peel-two ratios]
+\label{lem:k2-ratios}
+If a block $m\ge4$ is peeled as above, then
+\[
+ \frac{G(\text{child})}{G(\text{parent})}=
+ \begin{cases}
+  \dfrac{m(m-3)}2,&\text{nonfinal},\\[5pt]
+  \dfrac{(m-2)(m-3)}2,&\text{final-left},\\[5pt]
+  m-3,&\text{final-right}.
+ \end{cases}
+\]
+The last two ratios sum to $\rho(m)$.
+\end{lemma}
+
+\begin{proof}
+All unaffected factors in \eqref{eq:k2-G-rho} cancel.  For a nonfinal
+split, the factor $(m-1)/m!$ is replaced by
+$(1/2)(m-3)/(m-2)!$, giving $m(m-3)/2$.  For a final-left split, the
+final-block prefactor changes from $m$ to $m-2$, multiplying the first
+ratio by $(m-2)/m$.  For a final-right split, it changes from $m$ to
+$2$, giving $m-3$.  Their sum is
+$(m-3)((m-2)/2+1)=m(m-3)/2$.
+\end{proof}
+
+\begin{lemma}[Peel-two incoming edges]
+\label{lem:k2-incoming}
+For every support composition $c$, the selected move occurrences with
+child $c$ are in bijection with the blocks of $c$ equal to $2$, and
+each occurrence carries flow $G(c)$.
+\end{lemma}
+
+\begin{proof}
+A nonfinal $2$-block is reversed by merging it with its right neighbor;
+the resulting block has size at least four and its selected nonfinal-left
+peel returns $c$.  A penultimate $2$-block is reversed in the same way
+as a final-left peel, and a final $2$-block is reversed by merging it with
+its left neighbor as a final-right peel.  These inverse operations are
+unique.  If the final two blocks are both $2$, the two occurrences have
+the same parent edge, but that edge was assigned the sum of both labeled
+flows.  Hence multiplicity is preserved.  No selected edge meets an
+off-support state.
+\end{proof}
+
+\begin{proposition}[Variance divergence]
+\label{prop:k2-divergence}
+For every $d\ge1$, $f^{(2)}_d\ge0$ and
+$\divg f^{(2)}_d=w^{(2)}$ on the full Boolean lattice.
+\end{proposition}
+
+\begin{proof}
+At a support composition $c$, Lemma~\ref{lem:k2-ratios} gives
+\[
+ \operatorname{outflow}(c)
+ =G(c)\sum_{n_i\ge4}\rho(n_i).
+\]
+Lemma~\ref{lem:k2-incoming} gives
+$\operatorname{inflow}(c)=G(c)\#\{i:n_i=2\}$.  Since
+$\rho(2)=-1$ and $\rho(3)=0$, their difference is exactly
+$G(c)\sum_i\rho(n_i)=w^{(2)}(c)$.  At an off-support state, both the
+target and every incident selected flow vanish.  Nonnegativity follows from
+$G>0$.  For $d=1$, the sole support state is $(3)$, and both sides are
+zero.
+\end{proof}
+
+Combining Proposition~\ref{prop:k2-divergence} with
+Lemma~\ref{lem:poset-flow} proves the identity
+\[
+ \sum_Ja_J^{(2)}N_J
+ =\sum_{J\lessdot J'}f^{(2)}_d(J,J')
+ \left(\frac{N_J}{U_J}-\frac{N_{J'}}{U_{J'}}\right).
+\]
+All coefficients are nonnegative.  This proves
+Theorem~\ref{thm:intro-k2}, including the precise linear combination claim
+of Cheng and Lin's Conjecture~3.30.
+
+\section{Derivation of the fourth-moment coefficient}
+\label{sec:k4-coefficient}
+
+We next derive the coefficient to which the fourth-moment flow will be
+matched.  Continue to write
+\[
+ v_i=n_i(n_i-2),\qquad V=\sum_i v_i,
+ \qquad Q_2=\sum_i v_i^2.
+\]
+If $Z_i=Y_i-n_i/2$, direct finite summation gives
+\begin{equation}
+ \E Z_i=0,\qquad
+ \E Z_i^2=\frac{v_i}{12},\qquad
+ \E Z_i^4=\frac{v_i(3n_i^2-6n_i-4)}{240}.
+ \label{eq:block-moments}
+\end{equation}
+The $Z_i$ are independent and centered.  Therefore
+\begin{align}
+ 720\E[(F_J-d/2)^4]
+ &=3\sum_i v_i(3n_i^2-6n_i-4)
+    +30\sum_{i<j}v_iv_j\notag\\
+ &=3\sum_i v_i(3v_i-4)+30\sum_{i<j}v_iv_j\notag\\
+ &=9Q_2-12V+15(V^2-Q_2)\notag\\
+ &=15V^2-6Q_2-12V.
+ \label{eq:k4-block-expansion}
+\end{align}
+Thus the polynomial occurring below is a consequence of the flag expansion
+and the moments of a finite uniform variable, not a definition chosen to
+fit the flow.  Write $\mu_4(Z)=\E[(Z-d/2)^4]$ for the fourth central moment
+of any variable in the present rank.
+
+Let
+\[
+ \beta_d=\E[(X_d-d/2)^4],\qquad B_d=720\beta_d.
+\]
+Cheng and Lin's Corollary~3.13~\cite[pp.~13--14]{ChengLin}, together with
+the two small Eulerian polynomials, gives
+\begin{equation}
+ B_1=45,\qquad B_2=240,\qquad
+ B_d=3(d+2)(5d+8)=15N^2-6N\quad(d\ge3).
+ \label{eq:Bd}
+\end{equation}
+Indeed, $1+x$ gives $\beta_1=1/16$, while
+$1+4x+x^2$ gives $\beta_2=1/3$.
+
+Normalize \eqref{eq:flag-expansion}, subtract $\beta_d$, and use
+\eqref{eq:k4-block-expansion}.  Line by line,
+\begin{align}
+ &720\CH_M(1)\left(
+   \E[(X_M-d/2)^4]-\beta_d\right)\notag\\
+ &\quad=\sum_{J\subseteq[d]}N_JP_J(1)
+ \left(720\E[(F_J-d/2)^4]-B_d\right)\notag\\
+ &\quad=\sum_{J\subseteq[d]}N_J\prod_i(n_i-1)
+ \left(15V_J^2-6Q_{2,J}-12V_J-B_d\right)\notag\\
+ &\quad=\sum_{J\subseteq[d]}a_J^{(4)}N_J,
+ \label{eq:k4-flag-form}
+\end{align}
+where
+\begin{equation}
+ a_J^{(4)}
+ =720P_J(1)\bigl(\mu_4(F_J)-\mu_4(X_d)\bigr)
+ =\prod_i(n_i-1)
+ \left(15V_J^2-6Q_{2,J}-12V_J-B_d\right).
+ \label{eq:a4}
+\end{equation}
+Consequently, with $G$ as in \eqref{eq:k2-G-rho},
+\begin{equation}
+ w^{(4)}(c):=U_ca_c^{(4)}
+ =G(c)S_4(c),\qquad
+ S_4(c)=15V(c)^2-6Q_2(c)-12V(c)-B_d.
+ \label{eq:k4-target}
+\end{equation}
+
+\section{Primitive fourth-moment flows}
+\label{sec:k4-primitives}
+
+For $s\in\{2,3,4\}$, define a move multiset $F_s$ on the support DAG.
+From every nonfinal block $m\ge s+2$, select
+$m\mapsto(s,m-s)$.  From every final block $m\ge s+2$, select both
+$m\mapsto(s,m-s)$ and $m\mapsto(m-s,s)$.  Give every selected move raw
+flow $G(\text{child})$.  If the two final labels yield the same balanced
+edge, their contributions are added.
+
+Define
+\begin{align}
+ \tau_2(n)&=\frac{n(n-3)}2,&
+ \tau_3(n)&=\frac{n(n-2)(n-4)}3,\notag\\
+ \tau_4(n)&=\frac{n(n-2)(n-3)(n-5)}8,&
+ T_s(c)&=\sum_i\tau_s(n_i).
+ \label{eq:taus}
+\end{align}
+
+\begin{lemma}[Primitive divergences]
+\label{lem:primitive-divergences}
+For $d\ge3$ and $s\in\{2,3,4\}$,
+\begin{equation}
+ \frac{\divg F_s(c)}{G(c)}=T_s(c).
+ \label{eq:primitive-divergence}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For a nonfinal split $m\mapsto(s,m-s)$, factorial cancellation gives
+\[
+ \frac{G(\text{child})}{G(\text{parent})}
+ =\binom ms\frac{(s-1)(m-s-1)}{m-1}.
+\]
+For a final block, the two orientations acquire the respective final-factor
+ratios $(m-s)/m$ and $s/m$, whose sum is one.  Hence the sum of the two
+final ratios equals the same expression.  Substitution of $s=2,3,4$
+gives respectively $\tau_2(m),\tau_3(m),\tau_4(m)$.
+
+Every occurrence of a block equal to $s$ has one incoming selected move:
+merge it with the right neighbor when it is nonfinal and with the left
+neighbor when it is final.  A balanced final pair is counted with the two
+labels already built into $F_s$.  Each such incoming occurrence has raw
+flow $G(c)$.  Now $\tau_s(s)=-1$, and $\tau_s$ vanishes at every other
+support size below $s+2$.  Outflow minus inflow is therefore
+$G(c)T_s(c)$.  The only sole-block exceptions are $c=(3)$ for $s=3$
+and $c=(4)$ for $s=4$, which occur in $d=1,2$ and are treated
+separately in Section~\ref{sec:small-d}.
+\end{proof}
+
+Let $F_{2,V}$ have the same selected occurrences as $F_2$, but give an
+edge occurrence raw flow $G(\text{child})V(\text{child})$.
+
+\begin{lemma}[Discrete product rule]
+\label{lem:product-rule}
+For $d\ge3$,
+\begin{equation}
+ \frac{\divg F_{2,V}}G
+ =\frac{V(V-N)}2-6T_3-2V.
+ \label{eq:product-rule}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+First, $T_2=(V-N)/2$.  A selected peel-two split
+$m\mapsto(2,m-2)$ changes $V$ by $-4(m-2)$.  Moving the child
+potential through the divergence in \eqref{eq:primitive-divergence} gives
+\[
+ \frac{\divg F_{2,V}}G
+ =VT_2+\sum_i[-4(n_i-2)\tau_2(n_i)].
+\]
+The identity
+\[
+ -4(n-2)\tau_2(n)=-6\tau_3(n)-2n(n-2)
+\]
+now proves \eqref{eq:product-rule}.
+\end{proof}
+
+The further one-variable identity
+\begin{equation}
+ v(n)^2-9v(n)=8\tau_4(n)+18\tau_3(n)
+ \label{eq:one-variable-k4}
+\end{equation}
+implies
+\begin{equation}
+ Q_2-9V=8T_4+18T_3.
+ \label{eq:Q2-T}
+\end{equation}
+
+\begin{proposition}[Signed fourth-moment flow]
+\label{prop:signed-flow}
+For $d\ge3$, the signed flow
+\begin{equation}
+ f_0=30F_{2,V}+(30N-12)F_2+72F_3-48F_4
+ \label{eq:signed-flow}
+\end{equation}
+satisfies $\divg f_0=w^{(4)}$.  Equivalently, a selected $F_2$
+occurrence has coefficient $30V(\text{child})+30N-12$, an $F_3$
+occurrence has coefficient $72$, and an $F_4$ occurrence has coefficient
+$-48$, each multiplying $G(\text{child})$.
+\end{proposition}
+
+\begin{proof}
+Using Lemmas~\ref{lem:primitive-divergences} and
+\ref{lem:product-rule}, the normalized divergence of \eqref{eq:signed-flow}
+is
+\begin{align*}
+ &30\left(\frac{V(V-N)}2-6T_3-2V\right)
+ +(30N-12)\frac{V-N}{2}+72T_3-48T_4\\
+ &\qquad=15V^2-108T_3-48T_4-66V-15N^2+6N.
+\end{align*}
+Equation \eqref{eq:Q2-T} changes this to
+$15V^2-6Q_2-12V-15N^2+6N$, which equals $S_4$ by
+\eqref{eq:Bd} for $d\ge3$.
+\end{proof}
+
+\section{Zero-divergence rerouting}
+\label{sec:rerouting}
+
+Only the $F_4$ occurrences in $f_0$ have negative coefficients.  We
+eliminate them without changing divergence.  For an oriented edge $A\to B$
+write $\edge AB$ for its unit flow.  The difference of the edge chains of
+two directed paths with the same initial and terminal vertices has zero
+divergence.
+
+We use a dot to concatenate blocks, and allow $P,S$ to be empty support
+compositions.  Consider first a nonfinal or final-left $F_4$ occurrence.
+For $t\ge2$, set
+\begin{equation}
+ \begin{aligned}
+ A&=P.(t+4).S,&B&=P.(4,t).S,\\
+ C&=P.(2,t+2).S,&D&=P.(2,2,t).S.
+ \end{aligned}
+ \label{eq:left-square-vertices}
+\end{equation}
+The paths $A\to B\to D$ and $A\to C\to D$ have the same endpoints.
+With $R=48G(B)$, add
+\begin{equation}
+ R\bigl(\edge AB+\edge BD-\edge AC-\edge CD\bigr).
+ \label{eq:left-square}
+\end{equation}
+This cancels the negative $F_4$ occurrence on $A\to B$, adds flow on
+$B\to D$, and subtracts only from selected $F_2$ occurrences.  Relative
+to the normalizing factor $G(\text{child})$ of the consumed edge, the
+subtractions are
+\begin{equation}
+ \begin{array}{c|c}
+ \text{edge}&\text{normalized subtraction}\\ \hline
+ A\to C&12(t+2)(t-1)\quad\text{if the original block is nonfinal},\\
+ A\to C&12t(t-1)\quad\text{if the original block is final},\\
+ C\to D&24.
+ \end{array}
+ \label{eq:left-square-costs}
+\end{equation}
+These identities follow directly by canceling the common factorial factors
+in $48G(B)/G(C)$ and $48G(B)/G(D)$.
+
+For a final-right $F_4$ occurrence, set
+\begin{equation}
+ A=P.(t+4),\quad B=P.(t,4),\quad
+ C=P.(t+2,2),\quad D=P.(t,2,2).
+ \label{eq:right-square-vertices}
+\end{equation}
+The analogous path-square correction cancels $A\to B$, adds flow on the
+final $4\mapsto(2,2)$ edge $B\to D$, and consumes
+$24(t+2)(t-1)$ normalized units from the final-right $F_2$ edge
+$A\to C$.  It leaves the negative raw amount $R=48G(B)$ on the right
+peel $C\to D$, namely $(t+2)\mapsto(t,2)$.
+
+We transfer that remaining debt recursively.  At a stage with
+$y=t-2j\ge4$, let $2^j$ denote $j$ consecutive blocks equal to $2$,
+and put
+\begin{equation}
+ \begin{aligned}
+ X_j&=P.2^j.(y+2,2),&Y_j&=P.2^j.(y,2,2),\\
+ Z_j&=P.2^{j+1}.(y,2),&W_j&=P.2^{j+1}.(y-2,2,2).
+ \end{aligned}
+ \label{eq:cascade-vertices}
+\end{equation}
+Add
+\begin{equation}
+ R\bigl(\edge{X_j}{Y_j}+\edge{Y_j}{W_j}
+       -\edge{X_j}{Z_j}-\edge{Z_j}{W_j}\bigr).
+ \label{eq:cascade-square}
+\end{equation}
+This cancels the current negative right peel, adds flow on
+$Y_j\to W_j$, consumes the selected left $F_2$ occurrence
+$X_j\to Z_j$, and moves the same debt to $Z_j\to W_j$.  Each step lowers
+$y$ by two.  If the process reaches $y=2$, the debt lands on the selected
+$F_2$ edge $4\mapsto(2,2)$; if it reaches $y=3$, it lands on the
+selected $F_3$ edge $5\mapsto(3,2)$.  Thus the process terminates.
+
+Apply \eqref{eq:left-square} to every labeled nonfinal and final-left
+$F_4$ occurrence, and apply the final-right correction and cascade to every
+labeled final-right occurrence.  Balanced final moves retain both labels
+until all corrections are made; in particular, the two occurrences of
+$8\mapsto(4,4)$ are canceled separately.  Define $f_d$ to be the
+result of adding all these corrections to $f_0$.  This is an explicit
+finite prescription on every support DAG.  All vertices and edges appearing
+in the path squares are support vertices and legal upward covers.  Every
+correction has zero divergence, and therefore
+\begin{equation}
+ \divg f_d=w^{(4)}.
+ \label{eq:corrected-divergence}
+\end{equation}
+All surviving flow is supported on peel-two and peel-three cover edges.
+
+\section{Collision accounting and uniform nonnegativity}
+\label{sec:nonnegative}
+
+We prove that the simultaneous corrections never overdraw a positive edge.
+The initial normalized reserve of a selected $F_2$ occurrence is
+\begin{equation}
+ H=30V(\text{child})+30N-12,
+ \label{eq:F2-reserve}
+\end{equation}
+and that of a selected $F_3$ occurrence is $72$.
+
+\begin{lemma}[Cascade collision bound]
+\label{lem:collision}
+Fix a selected nonfinal-left $F_2$ edge consumed by a cascade, and write
+its affected block as $y+2$, with $y\ge2$.  Its possible cascade origins
+are indexed by suffixes of the consecutive run of $2$-blocks immediately
+preceding that block.  Their normalized contributions are $48r_j$, where
+\begin{equation}
+ r_j=2^j\frac{\rho_0(y+2j)}{\rho_0(y)},\qquad
+ \rho_0(n)=\frac{n-1}{n!}.
+ \label{eq:rj}
+\end{equation}
+They satisfy
+\begin{equation}
+ \frac{r_{j+1}}{r_j}
+ =\frac{2}{(y+2j+2)(y+2j-1)},
+ \qquad
+ \sum_j r_j\le\frac{25}{16}.
+ \label{eq:rj-bound}
+\end{equation}
+For a terminal $F_3$ edge, $y=3$ and
+\begin{equation}
+ \sum_j r_j\le\frac{79}{65}<\frac54.
+ \label{eq:rj-F3}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+An origin is recovered uniquely by deleting a suffix of the indicated
+finite $2$-run and replacing $y$ by $y+2j$.  Cancellation of all
+unaffected factors in $G$ gives \eqref{eq:rj}.  Since
+\[
+ \frac{\rho_0(n+2)}{\rho_0(n)}
+ =\frac1{(n+2)(n-1)},
+\]
+the ratio formula follows.  For $y\ge2$, the first ratio is at most
+$1/2$ and each later ratio is at most $1/9$.  Hence
+$\sum_j r_j\le1+(1/2)/(1-1/9)=25/16$.  At $y=3$, the corresponding
+bounds are $1/5$ and $1/14$, giving
+$1+(1/5)/(1-1/14)=79/65$.
+\end{proof}
+
+Thus all cascades together consume at most $75$ normalized units from a
+fixed selected $F_2$ edge and strictly fewer than $60$ from a terminal
+$F_3$ edge.  For completeness, we record why this is the entire collision
+list.  Reverse a tagged correction from a consumed edge.  A top square
+recovers its parent and affected block uniquely.  A bottom square first
+removes the immediately preceding $2$-block.  A cascade removes a unique
+suffix of the preceding $2$-run.  These alternatives are disjoint and
+exhaustive.  Distinct affected blocks cannot define the same Boolean cover.
+This occurrence-level classification also covers coincidences among the
+$F_2,F_3,F_4$ labels at final block sizes $5,6,7$, and the doubled
+balanced labels at sizes $4,6,8$: negative $F_4$ labels are canceled one
+at a time, while coincident positive reserves are added.
+
+\begin{proposition}[Uniform nonnegativity]
+\label{prop:nonnegative}
+For every $d\ge3$, every edge value of $f_d$ is nonnegative.
+\end{proposition}
+
+\begin{proof}
+Consider first a selected nonfinal-left $F_2$ edge whose affected block
+has size $M$.  For $M\ge6$, its unique possible top subtraction is at
+most $12(M-2)(M-5)$, its possible bottom subtraction is $24$, and all
+cascades together cost at most $75$.  The child has
+$V\ge(M-2)(M-4)$, and the presence of a later final block gives
+$N\ge M+2$.  After all subtractions, \eqref{eq:F2-reserve} is therefore
+at least
+\begin{align*}
+ &30(M-2)(M-4)+30(M+2)-12\\
+ &\qquad{}-12(M-2)(M-5)-24-75
+ =18M^2-66M+69>0.
+\end{align*}
+For $M=4,5$, the initial reserves are at least $168,288$, respectively,
+whereas the remaining possible consumption is at most $24+75=99$.
+
+For a final-left $F_2$ edge of size $M\ge6$, no cascade consumes the
+edge.  Total consumption is at most
+$12(M-4)(M-5)+24$, while its reserve is at least
+$30(M-2)(M-4)+30M-12$.  The remaining margin is
+\[
+ 18M^2-42M-36>0.
+\]
+The cases $M=4,5$ are immediate from the same exact costs.
+
+For a final-right $F_2$ edge of size $M\ge6$, its only subtraction is
+the initial right square, of normalized size $24(M-2)(M-5)$.  The reserve
+minus this cost is at least
+\[
+ 6M^2+18M-12>0.
+\]
+Again $M=4,5$ are immediate.  At final $M=4$, the left and right labels
+coincide, so the positive reserves add.
+
+Finally, a terminal $F_3$ edge starts with reserve $72$ and loses
+strictly less than $60$ by Lemma~\ref{lem:collision}.  Every correction
+not listed above adds rather than subtracts flow.  The three margin
+polynomials are already positive at $M=6$, where their values are
+$321,360,312$, and their first differences are positive thereafter.
+Hence every aggregated edge flow is nonnegative.
+\end{proof}
+
+\section{Boundary dimensions and the matroid theorem}
+\label{sec:small-d}
+
+For $d=1$, the support has the single composition $(3)$.  Here
+$S_4(3)=0$, so $w^{(4)}=0$ and we set $f_1=0$.
+
+For $d=2$, the support DAG consists of
+\[
+ (4)\longrightarrow(2,2).
+\]
+Directly from the definitions,
+\[
+ G(4)=G(2,2)=3,\qquad S_4(4)=240,\qquad S_4(2,2)=-240.
+\]
+Assigning raw flow $720$ to this edge gives the required divergence.
+
+Together with Propositions~\ref{prop:signed-flow} and
+\ref{prop:nonnegative}, these cases prove the all-dimensional combinatorial
+statement.
+
+\begin{theorem}[Uniform fourth-moment flow]
+\label{thm:uniform-flow}
+For every $d\ge1$, the prescription above defines a nonnegative flow
+$f_d$ on the support-composition DAG such that
+\[
+ \divg f_d(c)=w^{(4)}(c)
+\]
+at every support state.  Every used edge splits a block as
+$n\mapsto(p,n-p)$ with $\min\{p,n-p\}\le3$.
+\end{theorem}
+
+Extend $f_d$ by zero to the full Boolean lattice.  Off the support,
+$w^{(4)}=0$, and no selected edge is incident, so the divergence equality
+continues to hold everywhere.  Apply Lemma~\ref{lem:poset-flow} with
+$x_J=N_J/U_J$.  We obtain the formal identity
+\begin{equation}
+ \sum_Ja_J^{(4)}N_J
+ =\sum_{J\lessdot J'}f_d(J,J')
+ \left(\frac{N_J}{U_J}-\frac{N_{J'}}{U_{J'}}\right).
+ \label{eq:final-flow-identity}
+\end{equation}
+Cheng and Lin's monotonicity \eqref{eq:CL-monotonicity} makes every bracket
+nonpositive.  Since $f_d\ge0$, the right side is at most zero.  Equation
+\eqref{eq:k4-flag-form} and $\CH_M(1)>0$ then yield
+$\E[(X_M-d/2)^4]\le\beta_d$.  Substitution of \eqref{eq:Bd} proves
+Theorem~\ref{thm:intro-k4} and the stronger identity
+\eqref{eq:intro-stronger}.
+
+This argument applies to every loopless matroid in the standard Chow
+setting of \cite{ChengLin}.  No realizability, field, or simplicity
+hypothesis is introduced, and no additional matroid-theoretic reduction is
+needed.
+
+\section{The common support-DAG mechanism}
+\label{sec:common-mechanism}
+
+The two proofs separate into three layers:
+\begin{enumerate}[label=\textup{(\roman*)}]
+ \item Cheng and Lin's flag expansion converts a moment difference into a
+ coefficient vector $a_J$, supported where every composition block is at
+ least two.
+ \item A moment-specific, purely combinatorial construction writes
+ $w_J=U_Ja_J$ as the divergence of a nonnegative upward flow.
+ \item The finite-poset identity converts that divergence into a sum of
+ normalized flag-count differences, and Cheng and Lin's Lemma~3.29 supplies
+ their sign for matroids.
+\end{enumerate}
+The support reduction, cover dictionary, and final implication are identical
+for $k=2$ and $k=4$.  What changes is only the middle layer.  For the
+variance, the block polynomial $\rho(n)$ is itself the outgoing
+peel-two ratio, and incoming flow records the negative value
+$\rho(2)=-1$.  For the fourth moment, the $V^2$ and $Q_2$ interactions
+require the primitive product rule and the identity
+\eqref{eq:one-variable-k4}; zero-divergence path squares then turn the
+resulting signed flow into a nonnegative one.
+
+\section{Dependencies and machine verification}
+\label{sec:dependencies}
+
+Table~\ref{tab:dependencies} separates external matroid input from the new
+combinatorial arguments.
+
+\begin{table}[ht]
+\caption{Logical dependencies.}
+\label{tab:dependencies}
+\small
+\begin{tabularx}{\textwidth}{@{}
+  >{\raggedright\arraybackslash}p{.28\textwidth}
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}p{.23\textwidth}@{}}
+\toprule
+Input & Role & Status \\
+\midrule
+Cheng--Lin Definition~3.1 and global convention
+ & Defines the standard Chow polynomial and the loopless setting
+ & External notation \\
+Cheng--Lin Notation~3.25 and Proposition~3.26
+ & Gives \eqref{eq:composition} and the flag expansion
+   \eqref{eq:flag-expansion}
+ & External matroid theorem \\
+Boolean flag formula $U_J$
+ & Identifies the normalized target $w_J=U_Ja_J$
+ & External formula from \cite[p.~21]{ChengLin} \\
+Cheng--Lin Corollary~3.13
+ & Gives the Boolean fourth moment for $d\ge3$
+ & External; $d=1,2$ computed directly \\
+Finite uniform moments
+ & Derive the $k=2$ and $k=4$ coefficients
+ & Elementary algebra proved here \\
+Peel flows, path-square corrections, and reserve bounds
+ & Construct nonnegative flows with the required divergences
+ & New combinatorial results proved here \\
+Finite-poset flow lemma
+ & Converts divergence into the exact linear-form identities
+ & Formal incidence identity proved here \\
+Cheng--Lin Lemma~3.29
+ & Supplies the final sign $N_J/U_J\le N_{J'}/U_{J'}$
+ & Sole external sign input \\
+Additional matroid reduction
+ & None required
+ & Not applicable \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Exact symbolic tests accompany the proof.  They check the finite-uniform
+moment expansions, the coefficient bridge, all primitive divergence and
+product identities, the occurrence-level path-square corrections, collision
+accounting, reserve inequalities, boundary cases, and the final finite-poset
+identity.  These tests use integer or rational arithmetic.  Finite support
+DAG evaluations are regression checks only; the proof of
+Theorem~\ref{thm:uniform-flow} is the symbolic argument in
+Sections~\ref{sec:k4-primitives}--\ref{sec:nonnegative}.
+
+The $k=2$ combinatorial core has also been formalized in Lean~4 with
+mathlib: the definitions of $G,w$, the selected edge flow, nonnegativity,
+the full divergence identity, and the abstract summation-by-parts conclusion
+are machine checked.  Cheng and Lin's Lemma~3.29 is supplied there as an
+explicit monotonicity hypothesis; no matroid or Chow-ring theory is
+formalized.  The axiom report for the final theorem contains only
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}, the
+standard mathlib dependencies.  The $k=4$ proof has not been formalized in
+Lean.  Neither the exact test suite nor the Lean development replaces any
+paper proof above.
+
+\begin{thebibliography}{99}
+
+\bibitem{ChengLin}
+Ronnie Cheng and Wangyang Lin,
+\emph{Inequalities for Chow polynomials and Chern numbers of matroids},
+arXiv:2603.21680v3 [math.CO], 29 April 2026,
+\url{https://arxiv.org/abs/2603.21680v3}.
+
+\bibitem{FY}
+E. M. Feichtner and S. Yuzvinsky,
+\emph{Chow rings of toric varieties defined by atomic lattices},
+Invent. Math. \textbf{155} (2004), no.~3, 515--536,
+\href{https://doi.org/10.1007/s00222-003-0327-2}{doi:10.1007/s00222-003-0327-2}.
+
+\bibitem{AHK}
+K. Adiprasito, J. Huh, and E. Katz,
+\emph{Hodge theory for combinatorial geometries},
+Ann. of Math. (2) \textbf{188} (2018), no.~2, 381--452,
+\href{https://doi.org/10.4007/annals.2018.188.2.1}{doi:10.4007/annals.2018.188.2.1}.
+
+\bibitem{FMSV}
+L. Ferroni, J. P. Matherne, M. Stevens, and L. Vecchi,
+\emph{Hilbert--Poincar\'e series of matroid Chow rings and intersection
+cohomology},
+Adv. Math. \textbf{449} (2024), Paper No.~109733,
+\href{https://doi.org/10.1016/j.aim.2024.109733}{doi:10.1016/j.aim.2024.109733}.
+
+\end{thebibliography}
+
+\end{document}
