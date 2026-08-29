@@ -1,0 +1,175 @@
+{
+  "construction": {
+    "negative_term_elimination": "zero-divergence equal-endpoint path-square corrections",
+    "signed_identity": "(30*V(child)+30*N-12)*F2 + 72*F3 - 48*F4",
+    "small_dimensions": {
+      "d1": "zero flow",
+      "d2": "raw flow 720 on (4)->(2,2)"
+    },
+    "surviving_maximum_peel_width": 3
+  },
+  "dimensions": [
+    {
+      "dimension": 1,
+      "divergence_mismatches": 0,
+      "flow_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "minimum_flow": 0,
+      "negative_edges": 0,
+      "states": 1,
+      "total_divergence": 0,
+      "total_raw_flow": "0",
+      "unknown_edges": 0,
+      "used_edges": 0,
+      "verified": true
+    },
+    {
+      "dimension": 2,
+      "divergence_mismatches": 0,
+      "flow_sha256": "bbca9408e68ee85878f7b6b304c16abbb765056efaddb2709727ea05cc3b16c8",
+      "minimum_flow": 720,
+      "negative_edges": 0,
+      "states": 2,
+      "total_divergence": 0,
+      "total_raw_flow": "720",
+      "unknown_edges": 0,
+      "used_edges": 1,
+      "verified": true
+    },
+    {
+      "dimension": 3,
+      "divergence_mismatches": 0,
+      "flow_sha256": "5af6f26a178208cf9e8eab20986cb8dbb099415a10b7afa7ea90fcdf6ba6b5df",
+      "minimum_flow": 2400,
+      "negative_edges": 0,
+      "states": 3,
+      "total_divergence": 0,
+      "total_raw_flow": "6000",
+      "unknown_edges": 0,
+      "used_edges": 2,
+      "verified": true
+    },
+    {
+      "dimension": 4,
+      "divergence_mismatches": 0,
+      "flow_sha256": "3c19f8671542a15ea4470d15d044b35ee1865123d6f92e028884729115e0219f",
+      "minimum_flow": 4320,
+      "negative_edges": 0,
+      "states": 5,
+      "total_divergence": 0,
+      "total_raw_flow": "37080",
+      "unknown_edges": 0,
+      "used_edges": 5,
+      "verified": true
+    },
+    {
+      "dimension": 5,
+      "divergence_mismatches": 0,
+      "flow_sha256": "0f498795d847dd261a3b184cebf0e50f081ae200fdea1fd91468e3eb491077dd",
+      "minimum_flow": 2880,
+      "negative_edges": 0,
+      "states": 8,
+      "total_divergence": 0,
+      "total_raw_flow": "331632",
+      "unknown_edges": 0,
+      "used_edges": 10,
+      "verified": true
+    },
+    {
+      "dimension": 6,
+      "divergence_mismatches": 0,
+      "flow_sha256": "17c8a83e74207bae5ca3ecc4b172f7bc39c71320aaa02953fa54577ce475b391",
+      "minimum_flow": 12096,
+      "negative_edges": 0,
+      "states": 13,
+      "total_divergence": 0,
+      "total_raw_flow": "3064656",
+      "unknown_edges": 0,
+      "used_edges": 18,
+      "verified": true
+    },
+    {
+      "dimension": 7,
+      "divergence_mismatches": 0,
+      "flow_sha256": "e900bd8732c8e5ac7462b3d2fb83737c38eb69c644acb66059bfe862298ad2cf",
+      "minimum_flow": 20160,
+      "negative_edges": 0,
+      "states": 21,
+      "total_divergence": 0,
+      "total_raw_flow": "31647456",
+      "unknown_edges": 0,
+      "used_edges": 33,
+      "verified": true
+    },
+    {
+      "dimension": 8,
+      "divergence_mismatches": 0,
+      "flow_sha256": "3c56fe756cd525cc7b8d1bf7ac6eb797a740b4a94f29c2ead46a4a01c6573a6c",
+      "minimum_flow": 31104,
+      "negative_edges": 0,
+      "states": 34,
+      "total_divergence": 0,
+      "total_raw_flow": "356421600",
+      "unknown_edges": 0,
+      "used_edges": 59,
+      "verified": true
+    },
+    {
+      "dimension": 9,
+      "divergence_mismatches": 0,
+      "flow_sha256": "a25146749315d181e1731ea702db95526af97f45effe09f2b15f3bbe6bf543c8",
+      "minimum_flow": 45360,
+      "negative_edges": 0,
+      "states": 55,
+      "total_divergence": 0,
+      "total_raw_flow": "4361335440",
+      "unknown_edges": 0,
+      "used_edges": 105,
+      "verified": true
+    },
+    {
+      "dimension": 10,
+      "divergence_mismatches": 0,
+      "flow_sha256": "1b6a02c926a4fd846a4f5495bea4822287bb05d3bb356e161ca463a35760dab0",
+      "minimum_flow": 63360,
+      "negative_edges": 0,
+      "states": 89,
+      "total_divergence": 0,
+      "total_raw_flow": "57622228488",
+      "unknown_edges": 0,
+      "used_edges": 185,
+      "verified": true
+    },
+    {
+      "dimension": 11,
+      "divergence_mismatches": 0,
+      "flow_sha256": "a9e403385da17c9b242b55ca9fec05fa6ab56dff45f9fb154368f3e6e37659f7",
+      "minimum_flow": 85536,
+      "negative_edges": 0,
+      "states": 144,
+      "total_divergence": 0,
+      "total_raw_flow": "817813108944",
+      "unknown_edges": 0,
+      "used_edges": 324,
+      "verified": true
+    }
+  ],
+  "schema": "chow-cone/k4-uniform-peel3-certificate/v1",
+  "scope": {
+    "finite_verification_is_not_the_proof": true,
+    "proof_document": "PROOF_K4_FOURTH_MOMENT.md",
+    "verified_dimensions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  "verified": true
+}
