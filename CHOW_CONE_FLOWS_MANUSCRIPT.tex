@@ -37,70 +37,70 @@
 \begin{document}
 
 \begin{abstract}
-Cheng and Lin expressed central-moment inequalities for the standard Chow
-polynomial of a matroid as linear inequalities in flag numbers.  We prove
-their Conjecture~3.30 in every rank by exhibiting its variance flag form as
-an explicit nonnegative combination of their normalized flag-count
-inequalities.  We also prove the case $k=4$ of their Conjecture~3.14: if
-$M$ is a loopless matroid of rank $d+1$, then
-\[
- \E\left[(X_M-d/2)^4\right]\le
- \begin{cases}
-  1/16,&d=1,\\
-  1/3,&d=2,\\
-  (d+2)(5d+8)/240,&d\ge3.
- \end{cases}
-\]
-The fourth-moment result is strengthened to an identity expressing its flag
-form as a nonnegative combination of the same normalized inequalities.
-Both proofs use one mechanism: flag types form a support subgraph of the
-Boolean lattice, the desired coefficient vector is a divergence, and
-finite-poset summation by parts converts a nonnegative flow into the required
-linear combination.  The variance flow uses peel-two splits.  For the fourth
-moment, a signed combination of three primitive peel flows is converted into
-a nonnegative peel-width-three flow by explicit zero-divergence reroutings.
-All identities and inequalities in the proof are symbolic and uniform in
-the rank.
+We study central moments of the probability distribution defined by the
+standard Chow polynomial of a loopless matroid.  We prove Cheng and Lin's
+Conjecture~3.30 in every rank.  We also prove the case $k=4$ of their
+Conjecture~3.14: the fourth central moment is no larger than that of the
+Boolean matroid of the same rank.  In both cases, the corresponding flag form
+admits an explicit decomposition as a nonnegative linear combination of the
+same normalized flag-count inequalities.  The common proof interprets the
+weighted flag coefficients as the divergence of a nonnegative flow on a
+subposet of the Boolean lattice and applies finite-poset summation by parts.
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
 
-Throughout, matroids are loopless, as in the global convention of
-Cheng and Lin~\cite[p.~2]{ChengLin}.  Let $M$ have rank $d+1$.  Its
-standard Chow polynomial is
+The Chow ring of a matroid was introduced, in the language of atomic
+lattices, by Feichtner and Yuzvinsky~\cite{FY}; its Hodge theory was
+established by Adiprasito, Huh, and Katz~\cite{AHK}.  Throughout, all
+matroids are loopless.  Let $M$ have rank $d+1$, where $d\ge1$.  The
+Hilbert--Poincar\'e series of its Chow ring is the standard Chow polynomial
 \[
   \CH_M(x)=\sum_{p=0}^{d}h_p(M)x^p,
   \qquad h_p(M)=\dim_{\mathbb Q}A^p(M),
 \]
-where $A^p(M)$ is the degree-$p$ part of its Chow ring.  Following
-\cite[Definition~3.1, p.~8]{ChengLin}, the associated random variable
-$X_M$ is defined by
-$\Pr(X_M=p)=h_p(M)/\CH_M(1)$.  We follow the conventions and notation of
-Cheng and Lin~\cite{ChengLin}.  Their moment conjectures compare $X_M$ to
-the corresponding random variable $X_d$ for the Boolean matroid on
-$d+1$ elements.  The latter has the Eulerian distribution.
+where $A^p(M)$ is its degree-$p$ part.  These series and related matroid
+invariants have been studied further in~\cite{FMSV}.
 
-The standard Chow ring was introduced in this combinatorial form by
-Feichtner and Yuzvinsky~\cite{FY}; its Hodge theory was established by
-Adiprasito, Huh, and Katz~\cite{AHK}.  Chow-polynomial formulas and related
-Hilbert--Poincar\'e series have been developed further, for example in
-\cite{FMSV}.  Cheng and Lin's flag expansion turns the moment comparisons
-into inequalities in the flag numbers of $M$.  Our contribution is an
-explicit common certificate for two such inequalities.
+Normalize the coefficients of $\CH_M(x)$ to define a random variable $X_M$
+by
+\[
+  \Pr(X_M=p)=\frac{h_p(M)}{\CH_M(1)}\qquad(0\le p\le d).
+\]
+Palindromicity gives $\E X_M=d/2$.  Let $X_d$ be the corresponding random
+variable for the Boolean matroid on $d+1$ elements; it has the Eulerian
+distribution.  Cheng and Lin conjectured that, for every integer $k\ge0$,
+\[
+  \E\left[(X_M-d/2)^k\right]
+  \le \E\left[(X_d-d/2)^k\right].
+\]
+This is their central-moment comparison conjecture
+\cite[Conjecture~3.14]{ChengLin}.
 
-The first result settles their Conjecture~3.30.
+Cheng and Lin's flag expansion expresses $\CH_M(x)$ as a sum indexed by rank
+types of flags of flats~\cite[Proposition~3.26]{ChengLin}.  It therefore
+turns each moment difference into a linear form in flag numbers.  When a
+flag number is divided by its value for the Boolean matroid, the resulting
+ratios are monotone under refinement~\cite[Lemma~3.29]{ChengLin}.  Cheng and
+Lin conjectured that the variance flag form is itself a nonnegative linear
+combination of these monotonicity inequalities
+\cite[Conjecture~3.30]{ChengLin}.
+
+Cheng and Lin verified this conjecture computationally for $d\le19$.  Our
+first main result gives a uniform proof in every rank.
 
 \begin{theorem}[Cheng--Lin Conjecture~3.30]
 \label{thm:intro-k2}
-For every $d\ge1$, the variance flag form of Cheng and Lin is an explicit
-nonnegative linear combination of the normalized flag-count inequalities in
-their Lemma~3.29.  The combination is supported on Boolean cover pairs.
+For every $d\ge1$, the flag-number inequality in
+\cite[Corollary~3.28]{ChengLin} is an explicit nonnegative linear combination
+of the instances of \cite[Lemma~3.29]{ChengLin} corresponding to cover
+relations between rank types.
 \end{theorem}
 
-Our second result proves the fourth-moment instance of Cheng and Lin's
-Conjecture~3.14.
+Our second main result proves the fourth-moment instance of Cheng and Lin's
+central-moment comparison conjecture.
 
 \begin{theorem}[Fourth-moment comparison]
 \label{thm:intro-k4}
@@ -117,36 +117,28 @@ Let $M$ be a loopless matroid of rank $d+1$, with $d\ge1$.  Then
 Equivalently, this is Conjecture~3.14 of \cite{ChengLin} for $k=4$.
 \end{theorem}
 
-The proof gives more than the numerical comparison.  If $N_J$ denotes
-the number of flags of flats of rank type $J\subseteq[d]$, $U_J$ the
-corresponding Boolean flag number, and $a_J^{(4)}$ the fourth-moment
-coefficient derived in Section~\ref{sec:k4-coefficient}, then there are
-explicit $f_d(J,J')\ge0$, nonzero only for covers $J\lessdot J'$, such
-that
-\begin{equation}
- \sum_{J\subseteq[d]}a_J^{(4)}N_J
- =\sum_{J\lessdot J'}f_d(J,J')
- \left(\frac{N_J}{U_J}-\frac{N_{J'}}{U_{J'}}\right)\le0.
- \label{eq:intro-stronger}
-\end{equation}
-The equality in \eqref{eq:intro-stronger} is a formal identity of linear
-forms; only the final inequality uses matroid theory.
+The proof of Theorem~\ref{thm:intro-k4} gives a stronger flag-number
+statement: the associated fourth-moment linear form is an explicit
+nonnegative linear combination of the cover cases of Cheng and Lin's
+monotonicity inequalities.  The coefficients are independent of the matroid
+and are given uniformly in the rank.
 
-The common structure is as follows.  A flag type $J$ is encoded by a
-composition of $d+2$.  The coefficient vanishes unless every block has
-size at least two, giving a support-composition DAG.  We orient Boolean
-covers upward, from a composition to a refinement.  A flow whose divergence
-is the coefficient vector yields, by summation by parts, a linear
-combination of normalized flag-count differences.  The $k=2$ divergence
-has a direct peel-two flow.  At $k=4$, primitive peel-two, peel-three, and
-peel-four flows first give a signed certificate.  Differences of two paths
-with common endpoints then reroute every negative peel-four occurrence.
-A collision estimate proves that the positive peel-two and peel-three
-reserves cannot be exhausted.
+The two proofs have a common order-theoretic core.  The flag expansion turns
+the relevant moment difference into a coefficient vector on a subposet of
+flag types.  We realize the weighted coefficient vector as the divergence of
+a nonnegative upward flow.  Finite-poset summation by parts and the
+monotonicity of normalized flag counts then give the desired inequality.  In
+the fourth-moment case, a preliminary signed flow is modified by
+divergence-free path comparisons, and uniform estimates establish
+nonnegativity.
 
-No bounded computation is used in these arguments.  We make no assertion
-about equality cases, optimality of the displayed certificates, higher even
-moments, or the augmented Chow polynomial.
+Section~\ref{sec:notation} introduces flag types and support compositions,
+and Section~\ref{sec:poset} gives the summation-by-parts lemma.
+Section~\ref{sec:k2} proves Theorem~\ref{thm:intro-k2}.
+Sections~\ref{sec:k4-coefficient}--\ref{sec:small-d} prove
+Theorem~\ref{thm:intro-k4} and the stronger fourth-moment flag-number
+decomposition.  The final two sections compare the common mechanism and
+record the logical dependencies and machine verification.
 
 \section{Flag types and support compositions}
 \label{sec:notation}
@@ -848,7 +840,7 @@ nonpositive.  Since $f_d\ge0$, the right side is at most zero.  Equation
 \eqref{eq:k4-flag-form} and $\CH_M(1)>0$ then yield
 $\E[(X_M-d/2)^4]\le\beta_d$.  Substitution of \eqref{eq:Bd} proves
 Theorem~\ref{thm:intro-k4} and the stronger identity
-\eqref{eq:intro-stronger}.
+\eqref{eq:final-flow-identity}.
 
 This argument applies to every loopless matroid in the standard Chow
 setting of \cite{ChengLin}.  No realizability, field, or simplicity
