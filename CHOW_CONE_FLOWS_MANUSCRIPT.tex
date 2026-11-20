@@ -870,6 +870,135 @@ require the primitive product rule and the identity
 \eqref{eq:one-variable-k4}; zero-divergence path squares then turn the
 resulting signed flow into a nonnegative one.
 
+\section{A finite verification for all even moments}
+\label{sec:finite-all-k}
+
+This section records an exact computation.  It is not used in the proofs of
+Theorems~\ref{thm:intro-k2} and \ref{thm:intro-k4}, and it proves nothing
+beyond the stated range of $d$.
+
+For a function $\varphi:\{0,\ldots,d\}\to\mathbb R$ and a support
+composition $c$, put
+\begin{equation}
+ w^{\varphi}(c)=G(c)\bigl(\E\varphi(F_c)-\E\varphi(X_d)\bigr),
+ \label{eq:w-phi}
+\end{equation}
+where $F_c$ is the flag variable of Section~\ref{sec:notation}.  By the flag
+expansion,
+\[
+ \sum_J\frac{w^{\varphi}_J}{U_J}\,N_J
+ =\CH_M(1)\bigl(\E\varphi(X_M)-\E\varphi(X_d)\bigr).
+\]
+Hence, by Lemma~\ref{lem:poset-flow} and
+\cite[Lemma~3.29]{ChengLin}, a nonnegative flow on the support DAG with
+divergence $w^{\varphi}$ proves $\E\varphi(X_M)\le\E\varphi(X_d)$ for every
+loopless matroid $M$ of rank $d+1$.  We call such a flow a
+\emph{monotonicity certificate} for $\varphi$.  The cases
+$\varphi(p)=(p-d/2)^2$ and $(p-d/2)^4$ are, up to scaling,
+$w^{(2)}$ and $w^{(4)}$.
+
+\begin{lemma}[Affine invariance]
+\label{lem:affine}
+If $\varphi-\psi$ is affine, then $w^{\varphi}=w^{\psi}$.
+\end{lemma}
+
+\begin{proof}
+Every $F_c$ and $X_d$ is a probability distribution with mean $d/2$, so
+$\E\alpha(F_c)=\alpha(d/2)=\E\alpha(X_d)$ for affine $\alpha$.
+\end{proof}
+
+Write $\Delta^2\varphi(a)=\varphi(a+1)-2\varphi(a)+\varphi(a-1)$ for
+$1\le a\le d-1$.  Every $\varphi$ equals
+$\sum_{a=1}^{d-1}\Delta^2\varphi(a)\,(p-a)_+$ plus an affine function, so by
+Lemma~\ref{lem:affine} the weight $w^{\varphi}$ depends only on
+$\Delta^2\varphi$.  For an integer $m\ge0$ of the parity of $d$, let
+$\tau_m$ be the function with
+\[
+ \Delta^2\tau_m(a)=\begin{cases}1,&|2a-d|\ge m,\\0,&\text{otherwise.}
+ \end{cases}
+\]
+The representative $\sum_a\Delta^2\tau_m(a)(p-a)_+$ is not itself a
+symmetric function of $p$; its mirror image differs from it by an affine
+function, which is all that matters.
+
+\begin{lemma}[Tail decomposition]
+\label{lem:tail-decomposition}
+Suppose $\Delta^2\varphi(a)=\lambda(|2a-d|)$ with $\lambda\ge0$
+nondecreasing.  Then, modulo affine functions,
+\[
+ \varphi=\sum_m\mu_m\tau_m,\qquad
+ \mu_m=\lambda(m)-\lambda(m-2)\ge0,
+\]
+where $m$ runs over $d-2,d-4,\ldots$ down to $d \bmod 2$ and
+$\lambda(m-2)$ is read as $0$ for the smallest $m$.  This applies to
+$\varphi(p)=(p-d/2)^k$ for every even $k\ge2$, because
+\begin{equation}
+ \Delta^2\varphi(a)=2\sum_{j=1}^{k/2}\binom{k}{2j}\Bigl(a-\frac d2\Bigr)^{k-2j}
+ \label{eq:moment-second-difference}
+\end{equation}
+is a polynomial in $(a-d/2)^2$ with nonnegative coefficients.
+\end{lemma}
+
+\begin{proof}
+Both sides have the same second difference by telescoping.  Formula
+\eqref{eq:moment-second-difference} is the binomial expansion of
+$(x+1)^k+(x-1)^k-2x^k$ at $x=a-d/2$.
+\end{proof}
+
+\begin{proposition}[Exact computation]
+\label{prop:finite-scan}
+For every $1\le d\le20$ and every admissible $m$, the function $\tau_m$ has
+a monotonicity certificate.
+\end{proposition}
+
+This was decided by exact integer maximum flow on the support DAG; the
+equivalence with the full Boolean lattice is the support reduction, whose
+proof uses only that the weight vanishes off the support.  A flow certificate
+is stored for every case with $d\le10$, and each verdict for $d\le8$ was
+compared with a brute-force minimum over all ancestor-closed sets.
+
+\begin{corollary}
+\label{cor:finite-all-k}
+Let $M$ be a loopless matroid of rank $d+1$ with $1\le d\le20$.  Then
+$\E\varphi(X_M)\le\E\varphi(X_d)$ for every $\varphi$ as in
+Lemma~\ref{lem:tail-decomposition}.  In particular
+\cite[Conjecture~3.14]{ChengLin} holds for every $k$ in ranks $2$ through
+$21$.  In rank $1$ the Chow polynomial is $1$ and both sides vanish.
+\end{corollary}
+
+\begin{proof}
+Certificates add, so Proposition~\ref{prop:finite-scan} and
+Lemma~\ref{lem:tail-decomposition} give a certificate for $\varphi$.  This
+covers every even $k\ge2$.  For $k=0$ both sides equal $1$.  For odd $k$
+both central moments vanish, because every $F_c$, and therefore $X_M$ and
+$X_d$, is symmetric about $d/2$.
+\end{proof}
+
+Corollary~\ref{cor:finite-all-k} rests on Cheng and Lin's flag expansion and
+Lemma~3.29 exactly as Theorems~\ref{thm:intro-k2} and \ref{thm:intro-k4} do,
+and in addition on the correctness of a computer calculation.
+
+\begin{remark}[Peel width]
+In the same range, restricted to $d\le16$, a certificate for the $k$-th
+moment exists on splits of peel width at most $3$ for $k=4,6,8,10,12$, at
+most $4$ for $k=16,24$, and at most $5$ for $k=40$.  Among these values of
+$k$, width $2$ suffices for every $d\le16$ only when $k=2$.
+\end{remark}
+
+\begin{remark}[Absolute deviation]
+\label{rem:absolute-deviation}
+The monotonicity certificates do not reach every convex $\varphi$.  For
+$4\le d\le20$ there is no certificate for $\varphi(p)=|p-d/2|$: some
+ancestor-closed set of support compositions has negative weight.  At $d=4$
+the composition $(3,3)$ has positive weight and no outgoing support edge.
+This shows only that the inequality $\E|X_M-d/2|\le\E|X_d-d/2|$ cannot be
+derived from the cover cases of Lemma~3.29 by this method.  It is not a
+matroid counterexample, and we do not know whether the inequality holds.
+\end{remark}
+
+It is natural to ask whether Proposition~\ref{prop:finite-scan} holds for
+every $d$.  That would prove Conjecture~3.14 of \cite{ChengLin} in full.
+
 \section{Dependencies and machine verification}
 \label{sec:dependencies}
 
@@ -933,11 +1062,13 @@ mathlib: the definitions of $G,w$, the selected edge flow, nonnegativity,
 the full divergence identity, and the abstract summation-by-parts conclusion
 are machine checked.  Cheng and Lin's Lemma~3.29 is supplied there as an
 explicit monotonicity hypothesis; no matroid or Chow-ring theory is
-formalized.  The axiom report for the final theorem contains only
-\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}, the
-standard mathlib dependencies.  The $k=4$ proof has not been formalized in
-Lean.  Neither the exact test suite nor the Lean development replaces any
-paper proof above.
+formalized.  The six project modules compile against a cached build of
+mathlib; the axiom reports for the final theorem and for the eight other
+load-bearing declarations contain only \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}, the standard mathlib
+dependencies.  The compiler emits seven linter warnings and no error.  The
+$k=4$ proof has not been formalized in Lean.  Neither the exact test suite
+nor the Lean development replaces any paper proof above.
 
 \begin{thebibliography}{99}
 
