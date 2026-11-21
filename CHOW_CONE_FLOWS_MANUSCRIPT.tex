@@ -47,6 +47,9 @@ admits an explicit decomposition as a nonnegative linear combination of the
 same normalized flag-count inequalities.  The common proof interprets the
 weighted flag coefficients as the divergence of a nonnegative flow on a
 subposet of the Boolean lattice and applies finite-poset summation by parts.
+The combinatorial core of the first proof is formalized in Lean~4.  An exact
+computation, with witnesses that can be checked independently, verifies
+Conjecture~3.14 for every $k$ for matroids of rank at most~$21$.
 \end{abstract}
 
 \maketitle
@@ -1227,6 +1230,45 @@ finite evaluations of the flows of Theorems~\ref{thm:intro-k2} and
 corroborate symbolic proofs, and no statement about those flows depends on
 them.  At the release commit the test suite passes in full
 (509 tests).
+
+\section*{Use of AI tools}
+
+This work was carried out by the author with AI systems, and their
+contribution was substantial.  The author set the problems and the proof
+obligations, directed each step, and is responsible for every statement in
+the paper.  The dated record, with its sources, is the file
+\texttt{PROVENANCE.md} of the accompanying repository.  The following is a
+summary.
+
+\emph{Theorem~\ref{thm:intro-k2}.}  Exact computations written with a coding
+assistant (Claude Code, Anthropic) showed that certificates supported on
+peel-two splits exist for every $d\le25$.  The uniform formula of
+Section~\ref{sec:k2}, flow $G(\text{child})$ on the selected moves, was
+proposed by ChatGPT (OpenAI) from a report of those computations.  The proof
+was then written and audited with Claude Code, and its combinatorial core was
+formalized in Lean~4 with the same assistant.
+
+\emph{Theorem~\ref{thm:intro-k4}.}  The author's instructions named general
+strategies, among them primitive divergence identities and a product-rule
+lift of the peel-two flow, and contained no formula for a flow.  The signed
+flow~\eqref{eq:signed-flow}, the rerouting of Section~\ref{sec:rerouting},
+the collision bounds of Section~\ref{sec:nonnegative} and the first version
+of the proof were produced by agents of the Codex command-line tool (OpenAI)
+in one session on 28~August 2026.
+
+\emph{Section~\ref{sec:finite-all-k}.}  The functions $\tau_m$ and the
+computation were proposed, programmed and run with Claude Code in November
+2026.
+
+\emph{Text.}  The first version of this manuscript was drafted by the Codex
+agent, and its abstract and introduction were revised with it.
+Section~\ref{sec:finite-all-k} and the reproducibility paragraph of
+Section~\ref{sec:dependencies} were drafted with Claude Code.
+
+\emph{Review.}  The proof of Theorem~\ref{thm:intro-k4} was examined by two
+AI systems, which found no gap, and its construction was checked by exact
+computation for $d\le20$.  It has not been refereed by a person other than
+the author, and it has not been formalized.
 
 \begin{thebibliography}{99}
 

@@ -184,7 +184,7 @@ machine.
 ## Manuscript (2026-11-21)
 
 `latexmk -pdf CHOW_CONE_FLOWS_MANUSCRIPT.tex` builds with no undefined reference and no
-overfull box; 15 pages. Changes since `manuscript-language-pass`:
+overfull box; 16 pages. Changes since `manuscript-language-pass`:
 
 * new §11 (finite verification for all even moments) and a reproducibility subsection in §12;
 * Conjecture 3.30 stated "for every `d >= 1`" in the abstract and introduction; the rank-one
@@ -193,6 +193,10 @@ overfull box; 15 pages. Changes since `manuscript-language-pass`:
 * the support reduction is argued in both directions after Proposition 11.3;
 * Table 1 in §8 lists the six types of charge, and the cases `M = 4` and `M = 5` are separated;
 * the Lean paragraph states what was compiled and the number of warnings.
+
+* the abstract now mentions the Lean formalization and the computation of Section 11, and
+  an unnumbered section "Use of AI tools" precedes the references; it summarizes
+  `PROVENANCE.md`.
 
 Author and date lines were not touched.
 

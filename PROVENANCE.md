@@ -2,7 +2,7 @@
 
 This file describes the traceable discovery process inside this project. It makes no claim
 about priority in the literature. Part 1 covers the `k = 2` certificate, Part 2 the `k = 4`
-certificate.
+certificate, Part 3 the texts.
 
 Each statement is labelled by its source:
 
@@ -279,6 +279,27 @@ reached that conversation. The conversation was not read for this file.
 * Which agent first proposed Step 2. This cannot be settled from the logs as they are stored.
 * How the prompt of 21:36:51 was drafted. Its Methods A and B anticipate the two routes to
   Step 1, so the answer belongs in this record. It is for the author to state.
+
+## Part 3. The texts
+
+**[log]** for the dates, **[repo]** for the commits. Times are UTC.
+
+* `K4_MATROID_BRIDGE.md` and `K2_K4_PAPER_OUTLINE.md` were written by the main agent of the
+  Codex session of Part 2 at 02:28 on 29 August 2026, after the author's instruction of
+  02:24 (commit `Lift the k=4 certificate to Cheng–Lin's matroid theorem`).
+* The first version of `CHOW_CONE_FLOWS_MANUSCRIPT.tex` was written by the same agent at
+  02:44 on 29 August and frozen at 03:03 (commit `Add referee-facing k2-k4 Chow cone
+  manuscript`).
+* On 1 September 2026 a second Codex session (version 0.152.0, model identifier
+  `gpt-5.6-sol`) revised the abstract and the introduction only, under two prompts of the
+  author that restricted it to those parts (commit `Polish the referee-facing Chow cone
+  manuscript`).
+* In November 2026 Section 11, the reproducibility paragraph of Section 12, the five edits
+  proposed by the review of 2026-11-21, the two closing sentences of the abstract and the
+  section "Use of AI tools" were written with Claude Code.
+
+The whole text of the manuscript was therefore drafted by AI systems under the author's
+direction. The manuscript says so in its section "Use of AI tools".
 
 ## What this attribution does not claim
 

@@ -11,12 +11,12 @@ unverified. Remove it, and the pre-release note at the top of `README.md`, when 
    `tests/` and `lean/`, and CC BY 4.0 for the notes and the manuscript.
 3. **The AI disclosure in the paper, and one open point of provenance.** `PROVENANCE.md` now
    records how both certificates were found; Part 2, added on 2026-11-21 from the session
-   logs of the coding agent, covers `k = 4`. Two things remain. The manuscript has no
-   acknowledgment or AI-use statement; one is needed before an arXiv submission, and it
-   should agree with `PROVENANCE.md`. And `PROVENANCE.md` leaves open how the prompt that
-   started the `k = 4` run was drafted, which only the author can state. The `k = 4` commits
-   carry no `Co-Authored-By` line; `PROVENANCE.md`, not the commit metadata, is the record of
-   how that work was done.
+   logs of the coding agent, covers `k = 4`, and Part 3 the texts. The manuscript now has a
+   section "Use of AI tools", written as a draft for the author to confirm sentence by
+   sentence; it must stay in agreement with `PROVENANCE.md`. `PROVENANCE.md` leaves open how
+   the prompt that started the `k = 4` run was drafted, which only the author can state. The
+   `k = 4` commits carry no `Co-Authored-By` line; `PROVENANCE.md`, not the commit metadata, is
+   the record of how that work was done.
 4. **Whether the first version includes the `k = 4` theorem.** Two AI reviews found no gap;
    no human has refereed it.
 5. **Identity on new commits.** The commits added in November 2026 use an address set only in
