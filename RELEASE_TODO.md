@@ -25,6 +25,16 @@ unverified. Remove it, and the pre-release note at the top of `README.md`, when 
    with Claude Code; `PROVENANCE.md`, Part 3, still does. One point stays open for good:
    which agent first proposed the cascade. The `k = 4` commits carry no `Co-Authored-By`
    line; `PROVENANCE.md`, not the commit metadata, is the record of how that work was done.
+   **The manuscript in this repository is behind the author's working copy.** The author is
+   editing the manuscript outside the repository; that copy is the master and replaces the
+   file here when it is returned. Known differences on 2026-11-21: the author line; the date
+   line removed; in Section 8 the two paragraphs around Table 1 reworded; small changes in
+   the section "Use of AI tools". The rewording of Section 8 matters: the sentence here that
+   the intermediate debts of a cascade lie on right peels "which carry no selected
+   occurrence" is wrong for `y = 4`, where the right peel `6 -> (4,2)` of a nonfinal block is
+   also its `F_4` occurrence. The debt is cancelled by the next square whatever else the
+   edge carries, so the proposition and its proof are unaffected; the author's wording says
+   exactly this. Do not make the repository public before the two copies agree.
 4. **Whether the first version includes the `k = 4` theorem.** Two AI reviews found no gap;
    no human has refereed it.
 5. **Identity on commits.** Done on 2026-11-21: every commit carries the name `Xichen Tang`
