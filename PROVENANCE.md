@@ -334,8 +334,8 @@ Details and results are in `RELEASE_CHECKS.md`.
   **[repo: the file returned by the author, compared line by line with the version sent]**
 
 Apart from the author's changes of 2026-11-21, the text of the manuscript was drafted by AI
-systems under the author's direction. How the author's rewording of Section 8 was drafted is
-not recorded here.
+systems under the author's direction. The rewording of Section 8 is the author's own.
+**[author, 2026-11-21]**
 
 ## What this attribution does not claim
 
