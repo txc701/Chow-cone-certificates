@@ -6,8 +6,23 @@ written up as a self-contained proof: **PROOF_CONJECTURE_3_30.md** —
 Conjecture 3.30 holds for every $d\ge1$, with explicit coefficients
 $\lambda_{(J,J\cup\{j\})}=G(c(J\cup\{j\}))$. Machine-corroborated at every
 node for $d\le25$; the staircase identities and shell decomposition are now
-corollaries for all $d$. **Pending: external human review.** The
-fourth-moment generalization remains untouched.
+corollaries for all $d$. **Pending: external human review.**
+
+**Lean certification (2026-08-21, commit `131daca`):** the combinatorial
+core is machine-checked in Lean 4 (`lean/`, mathlib v4.32.2): divergence
+identity `div f = w` for every `d ≥ 1` (support and full lattice), flow
+nonnegativity, the three ratio lemmas, the in-edge classification, the
+abstract nonnegative-combination lemma, and the assembled
+`conjecture_3_30_certificate` on the Fintype of compositions with
+Lemma 3.29 as external hypothesis. No sorry/admit/custom axioms;
+`#print axioms` = standard trio for all nine load-bearing theorems
+(`LEAN_CORRESPONDENCE.md`). Formalization stopped at the mandated point.
+
+**Branch `k4-fourth-moment` (separate discovery work):** the k=4 analogue
+is feasible for all d ≤ 20 (new conjecture), but the k=2 structure
+deforms — staircases slack, shells crossed, peel2 dead, peel-width ≤ 3
+suffices (see `K4_NOTES.md` on that branch). Does not bear on the frozen
+k=2 proof.
 
 Earlier gate summary (still accurate as history): feasibility for every
 $d\le25$ reproduced the authors' $d\le19$ and extended it; Stage 3 found the
@@ -86,8 +101,9 @@ certificate now explains.
 
 None.
 
-## Next decision
+## Branch disposition
 
-Write the first-decision-gate report (REPORT.md): distinguish mechanically
-verified facts / proofs / empirical patterns / speculation / failed
-approaches. Then stop; do not touch the fourth-moment generalization.
+Conjecture 3.30 and its Lean certification stop at the completed combinatorial
+core, pending external human review. Fourth-moment discovery is isolated on
+the existing `k4-fourth-moment` branch; its future questions are recorded in
+`K4_NOTES.md` there.

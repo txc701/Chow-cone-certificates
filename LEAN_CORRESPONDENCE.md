@@ -31,8 +31,8 @@ formalized.
   `inSum c = Σ_{i<r−1} F (mergeAt c i) i (c_i)` (Draft §6: every Boolean
   cover edge into `c` merges a unique adjacent pair — Lemma 7's
   completeness — realized here as the definition of `inSum`, with the
-  equivalence to "sum over all parents" proved in `Glue.lean` as
-  `sum_parents_eq_inSum`).
+  equivalence to "sum over all parents" proved in
+  `lean/ChowCone/Main.lean` as `sum_fEdge_in`).
 * **Moves vs edges, multiplicity.** `F c i p` is *defined* as
   `(indN + indFL + indFR) · G(child)` — the sum over selected moves
   realizing the edge `(c,i,p)`. The FL/FR coincidence at a final block 4
@@ -85,9 +85,9 @@ formalized.
 `Classical.choice`, `Quot.sound` (the standard mathlib trio). No `sorry`,
 no `admit`, no custom axioms, no `native_decide`.
 
-**Status 2026-08-22: ALL VERIFIED.** Full build (mathlib v4.32.2, Lean
+**Status 2026-08-21: ALL VERIFIED.** Full build (mathlib v4.32.2, Lean
 v4.32.2) succeeds; `grep` for sorry/admit/axiom/native_decide over
 `lean/ChowCone*` is clean; the axiom audit (`lean/AxiomCheck.lean`) prints
-exactly the standard trio for all nine theorems. Per the certification
-mandate, formalization STOPS here: Cheng–Lin's Lemma 3.29 and the matroid
-theory remain external hypotheses.
+exactly the standard trio for all nine theorems. Its exact output is preserved
+in `lean/AxiomCheck.txt`. Per the certification mandate, formalization STOPS
+here: Cheng–Lin's Lemma 3.29 and the matroid theory remain external hypotheses.
