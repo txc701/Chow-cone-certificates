@@ -204,11 +204,12 @@ overfull box; 16 pages. Changes since `manuscript-language-pass`:
 * the flag variable `F_J` is used only on the support, with coefficients extended by zero;
 * the support reduction is argued in both directions after Proposition 11.3;
 * Table 1 in §8 lists the six types of charge, and the cases `M = 4` and `M = 5` are separated;
-* the Lean paragraph states what was compiled and the number of warnings.
-
+* the Lean paragraph states what was compiled and the number of warnings;
 * the abstract now mentions the Lean formalization and the computation of Section 11, and
   an unnumbered section "Use of AI tools" precedes the references; it summarizes
-  `PROVENANCE.md`.
+  `PROVENANCE.md`;
+* the introduction cites Bérczi, Coron, Eur and Li, arXiv:2610.17135v1; title, authors and
+  date were taken from the arXiv record.
 
 Author and date lines were not touched.
 
@@ -253,6 +254,21 @@ test files were swept by pattern, not read.
   original ones. On 2026-11-21 the e-mail field of every commit was replaced by the author's
   GitHub `noreply` address; before that the fields held machine-local addresses with host
   names and, in one commit, a placeholder. Trees, dates and messages were verified unchanged.
+
+## Run before publication (2026-11-21)
+
+At the head of `functional-scan`, before this note was added:
+
+* `python3 -m pytest tests/`: 509 passed, 0 failed.
+* The two commands of the functional scan were run again. 120 witnesses were written, the
+  verifier reported 0 problems, `git status` showed no change under `results/`, and the
+  digests of `summary.json` and of the uncompressed witness archive equal those printed in the
+  manuscript.
+* `lake build` in `lean/` completed with no error and seven warnings. This run was a cache
+  replay, not a recompilation; the Lean sources have not changed since they were compiled
+  from source on 2026-11-19. `lake env lean AxiomCheck.lean` reports `propext`,
+  `Classical.choice` and `Quot.sound` for each of the nine theorems.
+* `latexmk` builds the manuscript: 16 pages, no undefined reference, no overfull box.
 
 ## Not checked
 
