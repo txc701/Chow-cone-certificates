@@ -103,7 +103,8 @@ What was run, when, and with which result is recorded in `RELEASE_CHECKS.md`.
   record the SHA-256 of the sources that produced them; `tests/test_source_provenance.py`
   checks that those sources are unchanged.
 * `tests/` — the test suite.
-* `PROVENANCE.md` — who or what proposed the `k = 2` certificate, and how it was audited.
+* `PROVENANCE.md` — who or what proposed each certificate: the `k = 2` candidate and its
+  audit, and the two steps of the `k = 4` construction.
 * `RELEASE_CHECKS.md`, `COMMIT_MAP.md`, `RELEASE_TODO.md` — release records.
 
 ## How to read the dated notes
@@ -142,9 +143,17 @@ empty commit here. Authors, dates and messages are unchanged; hashes differ (`CO
 ## Provenance and use of AI tools
 
 This work was carried out by Xichen Tang with AI tools, and they contributed substantively.
-`PROVENANCE.md` states, for the `k = 2` certificate, which step came from where: the problem
-and coefficients from Cheng and Lin, the peel-2 pattern from this repository's computations,
-the uniform candidate from a ChatGPT conversation, and the audit, proof and Lean development
-from this repository, written with Claude Code. Several commits carry `Co-Authored-By` lines
-for that reason. The checks performed on the `k = 4` proof are AI audits and exact
-computations, described in `RELEASE_CHECKS.md`; they are not a substitute for a referee.
+`PROVENANCE.md` states which step came from where.
+
+* For the `k = 2` certificate: the problem and coefficients from Cheng and Lin, the peel-2
+  pattern from this repository's computations, the uniform candidate from a ChatGPT
+  conversation, and the audit, proof and Lean development from this repository, written with
+  Claude Code. Several commits carry `Co-Authored-By` lines for that reason.
+* For the `k = 4` certificate: the author's prompt named the method families and contained
+  no formula. The signed identity and the rerouting that removes its negative terms were both
+  derived by agents of OpenAI's Codex command-line tool in one session on 28 August 2026,
+  which also wrote the proof text. Which of the agents proposed the rerouting first cannot be
+  read from the surviving logs.
+
+The checks performed on the `k = 4` proof are AI audits and exact computations, described in
+`RELEASE_CHECKS.md`; they are not a substitute for a referee.

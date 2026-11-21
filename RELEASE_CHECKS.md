@@ -139,8 +139,47 @@ replaces a human referee or a formal proof.
   on 4,180 targets for `3 <= d <= 20` and finds the same maxima,
   `143289723347/1915538625` and `4688570972/80405325`.
 
-Both reviews are by AI systems. The first used the same model family that helped draft the
-proof.
+Both reviews are by AI systems. The proof was constructed and written by agents of OpenAI's
+Codex command-line tool (`PROVENANCE.md`, Part 2). The audit of 2026-11-20 was made with
+Claude, a different model family. Which system produced the review pack of 2026-11-21 is for
+the author to state.
+
+Correction, 2026-11-21. This file previously said that the first review "used the same model
+family that helped draft the proof". That was an assumption made before the session logs were
+read, and it was wrong. The audit note of 2026-11-20 carried the same sentence and has been
+annotated.
+
+## Provenance of the `k = 4` construction (2026-11-21)
+
+Read: the prompt history and the session logs of the coding agent on the author's machine for
+the session of 24 to 29 August 2026, that is, the main log and the logs of the sub-agents.
+The method and its limits are stated in `PROVENANCE.md`, Part 2: prompts, commands, outputs,
+progress notes and final answers are stored in clear; reasoning and most messages between
+agents are stored encrypted and were not decrypted; times inside the sub-agents' logs come
+from the unencrypted creation time in the header of each encrypted item.
+
+The header times were validated on the main log, where line timestamps also exist. For the
+283 encrypted items written by the main agent between 2026-08-28 21:36 and 2026-08-29 02:20
+UTC, the line timestamp is later than the header time by at most 4.45 s (median 0.5 s).
+
+Checked against the repository:
+
+* The commit times of `K4: checkpoint degree-five quotient gate` (2026-08-28 21:37:12 UTC)
+  and `Prove the uniform k=4 fourth-moment certificate` (2026-08-29 02:16:44 UTC) agree with
+  the times at which the logs show the agent committing.
+* The first version of `src/k4_uniform_certificate.py` found in the logs (2026-08-28 21:52:47
+  UTC, 253 lines) and the version of the frozen commit (339 lines) differ by additions only:
+  four imports and the code that writes the verification file. The functions that define the
+  flow are identical.
+* `src/k4_uniform_certificate.py` and `PROOF_K4_FOURTH_MOMENT.md` are unchanged between the
+  frozen commit and this branch.
+* All 67 session files of that agent on the machine were searched for the signed identity,
+  the rerouting and the two bounds. The hits in files older than the session are unrelated: a
+  different quantity written `sigma_4`, a failed `k = 2` heuristic called a cascade, and
+  fragments of identifiers.
+
+Not available: the contents of the encrypted messages, and any conversation held outside the
+machine.
 
 ## Manuscript (2026-11-21)
 

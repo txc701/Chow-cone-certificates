@@ -1,16 +1,24 @@
-# Provenance of the k=2 certificate
+# Provenance of the certificates
 
 This file describes the traceable discovery process inside this project. It makes no claim
-about priority in the literature.
+about priority in the literature. Part 1 covers the `k = 2` certificate, Part 2 the `k = 4`
+certificate.
 
 Each statement is labelled by its source:
 
 * **[repo]** — verifiable from this repository's files and commit history.
-* **[author]** — stated by the author (Xichen Tang) from the ChatGPT conversation of
-  2026-08-18, which is not part of this repository. The author re-read that conversation and
-  confirmed these statements on 2026-11-20.
+* **[author]** — stated by the author (Xichen Tang) from the author's own ChatGPT
+  conversations, which are not part of this repository. For Part 1 the author re-read the
+  conversation of 2026-08-18 and confirmed the statements on 2026-11-20. For Part 2 the
+  statements were relayed on 2026-11-21.
+* **[log]** — read on 2026-11-21 by an AI assistant (Claude Code), at the author's request,
+  from the session logs that the coding agent of Part 2 left on the author's machine. The
+  logs are not part of this repository. What they show and what they hide is described at
+  the start of Part 2.
 
-## Who contributed what
+## Part 1. The `k = 2` certificate
+
+### Who contributed what
 
 1. **Problem and coefficients: Cheng and Lin.** Conjecture 3.30, the coefficients $U_J$,
    $a_J$, the inequality of Corollary 3.28 and the monotonicity inequalities of Lemma 3.29 are
@@ -59,7 +67,7 @@ Each statement is labelled by its source:
 6. **Formal certification: Lean 4.** Commit `131daca` (2026-08-21) machine-checks the
    combinatorial core; see `LEAN_CORRESPONDENCE.md` and `RELEASE_CHECKS.md`. **[repo]**
 
-## Candidate versus the proved certificate
+### Candidate versus the proved certificate
 
 Compared: the candidate as confirmed by the author and as recorded in `RESEARCH_NOTES.md`
 §9; the certificate of `PROOF_CONJECTURE_3_30.md` §3 at `d3fb1f6`; the generator
@@ -87,7 +95,193 @@ Findings:
 * The asymmetry between nonfinal blocks (left peel only) and the final block (both peels) is
   consistent with the experiments: `peel2_left` alone is infeasible from $d=3$.
 
+## Part 2. The `k = 4` certificate
+
+The proof in `PROOF_K4_FOURTH_MOMENT.md` has two constructive steps. Their origins are
+recorded separately.
+
+* **Step 1, the signed initial flow.** For $d\ge3$ the flow
+  $(30V(\mathrm{child})+30N-12)F_2+72F_3-48F_4$ has divergence $w^{(4)}$ (§2 of the proof:
+  Lemmas 1 and 2, Proposition 3). It is not yet a certificate, because the $F_4$ term is
+  negative.
+* **Step 2, the removal of the negative terms.** Every negative $F_4$ move is cancelled by a
+  zero-divergence path square, and for a final-right move the remaining debt is passed down
+  a cascade of further squares (§3). Nonnegativity then rests on the collision bounds $25/16$
+  and $79/65$ and on the capacity margins (§4: Lemmas 4 and 5).
+
+### Summary
+
+| | Was it in the author's input? | Who derived it | First readable record (UTC, 28 August 2026) |
+|---|---|---|---|
+| Step 1 | The approach, yes: the prompt named the two method families that lead to it. The formula, no. | Two sub-agents of the coding agent, one by each route. Neither had received anything from the other. | 21:40:32–21:40:42, the primitive divergences in a command; 21:45:25, the complete identity |
+| Step 2 | No. | The agents of the same session, no later than 21:50:46; at 21:45:25 one of them still stated it as an open problem. **The surviving readable records do not determine which agent proposed it first.** | 21:50:46, the name of a task; 21:52:21, a description; 21:52:47, the implementation |
+
+### The session, and what its logs show **[log]**
+
+Both steps were found in one session of OpenAI's Codex command-line agent (version 0.146.0;
+the session settings record the model identifier `gpt-5.6-sol` and reasoning effort `ultra`),
+which the author ran in the private repository. The session began on 24 August 2026. The
+turn that produced the certificate ran from 21:36:51 to 22:14:40 UTC on 28 August, the
+evening of that day in the author's time zone (UTC−4). In that turn the session consisted of
+a main agent and three sub-agents with the task names `lift_basis`, `lift_membership` and
+`lift_tests`. All times below are UTC.
+
+The logs keep in clear the author's prompts, every command the agents ran together with its
+output, the agents' progress notes and their final answers. They keep in encrypted form the
+agents' intermediate reasoning and most messages passed between agents. Nothing encrypted was
+read or decrypted for this file. Each encrypted item carries its creation time in an
+unencrypted header. Those times date the items in the sub-agents' logs, whose own line
+timestamps are not usable; "between" means bracketed by two such headers.
+
+No session record of another coding tool was found on the machine for this repository in
+these days.
+
+### What the author's prompt contained **[log]**
+
+The turn was started by one prompt of the author, entered at 21:36:51. It asked for a
+checkpoint commit and for an exact decision on the shared degree-5 system for $d\le11$, set
+five proof obligations for any $k=4$ argument, and listed five "Proof-directed alternative
+methods". Three of them matter here:
+
+* "Method A — Primitive divergence identities": decompose
+  $w^{(4)}(c)=G(c)\,(15V(c)^2-6Q_2(c)-12V(c)-B_d)$ into natural summands and look for
+  "separate nonnegative or controllably signed flows" whose divergences realize the
+  components.
+* "Method B — Lift and correct the k=2 flow": multiply or pair the proved $k=2$ flow with
+  state statistics, "compute the exact product-rule correction", and prove the remaining
+  correction "by a smaller auxiliary flow".
+* "Method C — Recursive shell/peeling construction", using the peel-width-three structure
+  seen in the earlier computations.
+
+The prompt contains no formula for a flow. It has neither the signed flow of Step 1, nor the
+primitives $F_3$, $F_4$ or their divergences, nor a path square, a cascade or a bound. The
+same is true of every earlier prompt of the session and of the agent's other session logs on
+the machine, which were searched for these terms. The author's only other inputs that night
+were "Continue" at 01:23:27 on 29 August, after the connection had dropped at 22:14:40, and
+the instruction to freeze and commit at 02:13:49.
+
+The logs do not show how the prompt itself was drafted.
+
+### Step 1: the signed initial flow **[log]**
+
+Step 1 was derived inside the session, twice, along the two routes the prompt had named.
+
+1. **`lift_membership`**, whose final answer is headed "Method A". Its turn began at
+   21:37:26. Between 21:40:32 and 21:40:42 it issued a command containing the polynomials
+   $n(n-3)/2$, $n(n-2)(n-4)/3$ and $n(n-2)(n-3)(n-5)/8$, which are the $\tau_2,\tau_3,\tau_4$
+   of Lemma 1, and an ansatz expressing $v^2-9v$, $v=n(n-2)$, as a combination of them, which
+   is identity (1) of the proof for a single block. The command failed because a library was
+   missing, and the agent ran no other computation in that turn. It reported to the main
+   agent at 21:44:20 in a message that is encrypted. Its final answer of 21:58:06 states the
+   identity in the form used in the proof.
+2. **`lift_tests`.** Its turn began at 21:37:31. Its commands show it reading the proved
+   $k=2$ flow and its Lean formalization, and searching the repository for an existing
+   product rule. Its final answer, completed at 21:45:25, multiplies the $k=2$ flow by
+   $P(\mathrm{child})$ with $P=30(V+N)-24$, computes the product-rule residual
+   $\psi=12\rho+72\sigma_3-48\sigma_4$, and concludes that
+   $(P(\mathrm{child})+12)F_2+72F_3-48F_4$ "has exactly the desired divergence" for $d\ge3$.
+   This is the flow of Step 1, and the earliest complete statement of it that can be read.
+   The same answer says that the negative term "blocks a uniform certificate" and names the
+   next problem: a "dimension-stable rerouting" of the $-48F_4$ divergence through edges of
+   peel width at most 3.
+
+Before both had reported, neither sub-agent had received anything from the other. Apart from
+its task, each received one message from the main agent before 21:45 (at 21:43:32 and
+21:43:35; contents encrypted). The command of `lift_membership` quoted above precedes it, and
+when the main agent wrote to `lift_tests` it had not yet heard from `lift_membership`. The
+main agent later called the two results "two independent derivations" (21:52:21). The proof
+keeps both: Lemma 1 is the statement about primitive divergences and Lemma 2 is the discrete
+product rule. **[repo]**
+
+### Step 2: path squares and the final-right cascade **[log]**
+
+Step 2 appeared in the same session a few minutes later. No input of the author intervened.
+The readable sequence is:
+
+| time | agent | event |
+|---|---|---|
+| 21:45:25 | `lift_tests` | poses the rerouting problem (above), without a solution |
+| 21:47:09–21:50:17 | main | its commands are environment checks and exact computations on the linear system of the degree-5 family |
+| 21:50:06 | `lift_membership` | sends the main agent a message; encrypted; logged by the main agent at 21:50:17 |
+| 21:50:23, 21:50:32 | main | assigns new tasks to `lift_basis` and to `lift_tests`; encrypted |
+| 21:50:26 | `lift_basis` | three seconds into the new task, writes to `lift_membership`; encrypted |
+| 21:50:46 | `lift_tests` | tries to start a helper with the task name `derive_cascade`; refused, agent limit reached. **Earliest readable trace of Step 2** |
+| 21:51:36 | `lift_membership` | replies to `lift_basis`; encrypted |
+| between 21:52:05 and 21:52:21 | `lift_tests` | notes that it has "reconstructed the two path-difference circulations" and describes the cascade, which ends on a left-2 edge at $x=2$ or a peel-3 edge at $x=3$ |
+| between 21:52:10 and 21:52:31 | `lift_basis` | notes "I now have the precise rule" and tests it "at raw-flow level, including coincident final splits and every cascade collision" |
+| 21:52:21 | main | "A stronger route has emerged from two independent derivations: an exact all-d signed identity, followed by deterministic path-square rerouting of every negative peel-4 term into peel-2/3 edges." |
+| 21:52:47 | main | writes `src/k4_uniform_certificate.py`: the signed flow, the left path square, the final-right square with its cascade, and the correction at $d=2$ |
+| 21:52:51 | main | exact check for $d=1,\dots,11$: the divergence matches and no edge is negative |
+| 21:54:16 | `lift_tests` | final answer: a separate in-memory implementation agrees for $d=3,\dots,11$ and finds that $d=2$ needs the extra raw flow 72, which the main agent's code already has |
+| 21:58:06 | `lift_membership` | final answer: "Method A produced an exact uniform mechanism"; it describes the "path-difference diamonds", the right-2 debt that cascades down, and collision sums at most $25/16$ and below $5/4$ at the $F_3$ terminal. **Earliest readable statement of the bound** |
+| 21:59:39 | `lift_basis` | final answer: "Method C audit passed" for $d=1,\dots,11$; it warns that each cascade step must update the prefix |
+| 21:59:40 | main | writes the first version of `PROOF_K4_FOURTH_MOMENT.md`, with the bounds $25/16$ and $79/65$ |
+| 22:03:33 | main | progress note stating the bound and the positive margins |
+| 22:14:40 | | the turn ends: the connection to the model was lost |
+
+What this settles: the path squares and the cascade are absent from the author's input, and
+they were produced by the agents of this session no later than 21:50:46, when the cascade is
+first named. At 21:45:25 `lift_tests` still stated the rerouting as an open problem; whether
+another agent already had it then cannot be read.
+
+What it does not settle: which agent proposed them first. The messages that would decide it,
+exchanged between 21:50:06 and 21:51:54, are stored encrypted, and so is all reasoning.
+**The surviving readable records do not determine which agent first proposed Step 2.** The
+order of events is consistent with `lift_membership` having supplied the rule in its message
+of 21:50:06. The main agent had been working on the linear system until then; it re-assigned
+`lift_basis` six seconds and `lift_tests` fifteen seconds after logging that message;
+`lift_basis` turned to `lift_membership` at once and had "the precise rule" after its reply;
+and the final answer of `lift_membership` presents the mechanism as the outcome of its
+method. This is an inference from the order and routing of the messages. It is not a
+readable statement, and it does not exclude that the main agent formulated the rule itself.
+
+### The proof text, the audits inside the session, and the freeze **[log]** **[repo]**
+
+* 21:59:40 on 28 August: first version of `PROOF_K4_FOURTH_MOMENT.md`, 476 lines, written by
+  the main agent.
+* 01:23:27 on 29 August: the author's "Continue". The main agent regenerated the stored
+  results and ran the tests.
+* 01:27:23–01:31:39: `lift_tests` and `lift_membership`, the latter with a helper named
+  `proof_adversary`, audited the proof text and answered "No concrete error found" and "No
+  substantive mathematical gap found", each with a list of corrections to the wording. The
+  main agent applied them between 01:32:42 and 01:36:29.
+* 01:37:12: the main agent's final report, which begins "A genuine all-d symbolic k=4
+  certificate was found."
+* 02:13:49: the author's instruction to freeze and commit without a further review.
+  02:16:44: the commit `Prove the uniform k=4 fourth-moment certificate` (private `c92951f`,
+  here `3c65b2d`), with the proof at 529 lines.
+
+The audits of 01:27–01:31 were made by the same model, in the same session, by agents that
+had taken part in the construction. They are not independent reviews. The reviews made in
+November 2026 are described in `RELEASE_CHECKS.md`.
+
+### First implementation versus the frozen certificate **[log]** **[repo]**
+
+The construction was not revised after it was first written down. The functions that define
+the flow in `src/k4_uniform_certificate.py` (`primitive_moves`, `_signed_primitive_flow`,
+`_left_peel4_correction`, `_final_right_peel4_correction`, `candidate_flow`,
+`verify_candidate_flow`) are the same, line for line, in the version written at 21:52:47 on
+28 August and in the frozen commit. The commit only adds the code that writes
+`results/k4_uniform_certificate/verification.json`. Neither that file nor the proof text has
+changed since the frozen commit.
+
+### The author's own record **[author]**
+
+According to the author, the author's ChatGPT conversation of that night has the terminal
+output with the collision bound at 01:20 UTC on 29 August and the report with the
+all-dimensional construction at 01:46 UTC. The session logs place the production of both
+earlier: the bound between 21:58:01 and 22:03:33 on 28 August, the report at 01:37:12 on
+29 August. The two records agree if the author's times are those at which the material
+reached that conversation. The conversation was not read for this file.
+
+### Open points
+
+* Which agent first proposed Step 2. This cannot be settled from the logs as they are stored.
+* How the prompt of 21:36:51 was drafted. Its Methods A and B anticipate the two routes to
+  Step 1, so the answer belongs in this record. It is for the author to state.
+
 ## What this attribution does not claim
 
-It describes how the result was found within this project. It does not assert that the
-certificate is absent from the literature, and it does not replace a priority check.
+It describes how the results were found within this project. It does not assert that the
+certificates, or the identities behind them, are absent from the literature, and it does not
+replace a priority check.
