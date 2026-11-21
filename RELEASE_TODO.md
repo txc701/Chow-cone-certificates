@@ -19,13 +19,13 @@ unverified. Remove it, and the pre-release note at the top of `README.md`, when 
    not the commit metadata, is the record of how that work was done.
 4. **Whether the first version includes the `k = 4` theorem.** Two AI reviews found no gap;
    no human has refereed it.
-5. **Identity on new commits.** Decided: the `noreply` address shown in the author's GitHub
-   account settings. The author will supply it; it is not to be guessed. Until then the
-   commits of November 2026 carry an address set only in this clone's local git
-   configuration, and they must be re-authored before any push. The historical commits use
-   machine-local addresses that GitHub cannot link to an account, and one of them (`Polish
-   the referee-facing Chow cone manuscript`) has a placeholder instead of an e-mail address.
-   A `.mailmap` can unify how they display without rewriting them.
+5. **Identity on commits.** Done for the commits of November 2026: they carry the author's
+   GitHub `noreply` address (re-authored on 2026-11-21; content unchanged). The historical
+   commits were left as they are. They use machine-local addresses that contain host names
+   and that GitHub cannot link to an account, and one of them (`Polish the referee-facing
+   Chow cone manuscript`) has a placeholder instead of an e-mail address. A `.mailmap` can
+   unify how they display without rewriting them; rewriting them is the author's decision.
+   Push only the branch to be published: the local backup refs still hold the old commits.
 6. **How to distribute the review material that is not in this repository**: the
    independent verifier with its witness archive (4 MB) and the label-level audit script for
    the `k = 4` certificate. Options are release assets, a separate repository, or not at
