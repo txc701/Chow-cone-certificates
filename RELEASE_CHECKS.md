@@ -11,10 +11,10 @@ from every commit. `COMMIT_MAP.md` maps all 26 private commits to their public h
 
 | branch | private head | public head |
 |---|---|---|
-| `main` | `65e1056` | `520d3a0` |
-| `k4-fourth-moment` | `6360104` | `bee8307` |
-| `manuscript-language-pass` | `34317b9` | `6845da3` |
-| `external-referee-dc87a7b` | `dc87a7b` | `8824621` |
+| `main` | `65e1056` | `0eddd6a` |
+| `k4-fourth-moment` | `6360104` | `9bcf0f0` |
+| `manuscript-language-pass` | `34317b9` | `3aa0251` |
+| `external-referee-dc87a7b` | `dc87a7b` | `9ab6cfe` |
 
 The branch `functional-scan` exists only in the public line. It contains
 `manuscript-language-pass`, the two commits that were only on `main`, and the work of
@@ -232,9 +232,10 @@ test files were swept by pattern, not read.
 * No `.log`, `.env` or PDF file is tracked. `build-pdf/` and the witness archive are ignored.
 * Third-party material: the Cheng–Lin PDF was removed from history. The repository quotes
   Cheng–Lin's definitions and statements, nothing else.
-* Commit metadata, which becomes public with the history: author names, machine-local
-  addresses that include host names, and one placeholder in place of an e-mail address. See
-  `RELEASE_TODO.md`, item 5.
+* Commit metadata, which becomes public with the history: author names and dates are the
+  original ones. On 2026-11-21 the e-mail field of every commit was replaced by the author's
+  GitHub `noreply` address; before that the fields held machine-local addresses with host
+  names and, in one commit, a placeholder. Trees, dates and messages were verified unchanged.
 
 ## Not checked
 

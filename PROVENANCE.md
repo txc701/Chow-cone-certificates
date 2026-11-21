@@ -254,7 +254,7 @@ readable statement, and it does not exclude that the main agent formulated the r
   certificate was found."
 * 02:13:49: the author's instruction to freeze and commit without a further review.
   02:16:44: the commit `Prove the uniform k=4 fourth-moment certificate` (private `c92951f`,
-  here `3c65b2d`), with the proof at 529 lines.
+  here `f44aa18`), with the proof at 529 lines.
 
 The audits of 01:27–01:31 were made by the same model, in the same session, by agents that
 had taken part in the construction. They are not independent reviews. The reviews made in
