@@ -161,6 +161,16 @@ family that helped draft the proof". That was an assumption made before the sess
 read, and it was wrong. The audit note of 2026-11-20 carried the same sentence and has been
 annotated.
 
+Second correction, 2026-11-21. The audit note of 2026-11-20, and the text for Section 8 of
+the manuscript written from it the next day, said that the intermediate debts of a cascade
+lie on right peels that carry no selected occurrence. That is wrong for `y = 4`: the right
+peel `6 -> (4,2)` of a nonfinal block is also its `F_4` occurrence. At `d = 6`, for example,
+the edge `(6,2) -> (4,2,2)` carries the `F_4` term `-15120` and the debt `-15120` left by
+`8 -> (4,4)`; each is cancelled by its own square, and the final flow on the edge is 0. A
+debt is cancelled by the next square whatever else its edge carries, so Proposition 8.2,
+its proof and the conclusions of both reviews stand. The author's rewording of Section 8
+says this correctly and has replaced the sentence; the audit note has been annotated.
+
 ## Provenance of the `k = 4` construction (2026-11-21)
 
 Read: the prompt history and the session logs of the coding agent on the author's machine for
@@ -206,17 +216,21 @@ overfull box; 16 pages. Changes since `manuscript-language-pass`:
 * Table 1 in §8 lists the six types of charge, and the cases `M = 4` and `M = 5` are separated;
 * the Lean paragraph states what was compiled and the number of warnings;
 * the abstract now mentions the Lean formalization and the computation of Section 11, and
-  an unnumbered section "Use of AI tools" precedes the references. Since 2026-11-21 its
-  text is the author's own, with one sentence on Rethlas added at the author's request;
-  `RELEASE_TODO.md`, item 3, lists two phrases in it that do not yet agree with
-  `PROVENANCE.md`;
+  an unnumbered section "Use of AI tools" precedes the references. Its text is the
+  author's own, with one sentence on Rethlas added at the author's request;
 * the introduction cites Bérczi, Coron, Eur and Li, arXiv:2610.17135v1; title, authors and
   date were taken from the arXiv record;
 * Section 12 gives the address of the repository;
 * the references include the paper that introduced Rethlas, arXiv:2604.03789v2; title,
   authors and date were taken from the arXiv record.
 
-Author and date lines were not touched.
+On 2026-11-21 the author edited the manuscript outside the repository and returned it. The
+file here is the returned file plus one line, the address of the repository in Section 12.
+A line-by-line comparison of the returned file with the version that had been sent to the
+author shows these changes and no other: the author line and an empty date; in Section 8,
+the two paragraphs around Table 1 reworded; the text of the section "Use of AI tools"; the
+reference for Rethlas; two changes of spacing. The returned file compiles to 16 pages with
+no undefined reference and no overfull box.
 
 ## Reading of the notes (2026-11-21)
 

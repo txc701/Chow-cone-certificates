@@ -55,6 +55,8 @@ Each statement is labelled by its source:
    assigns flows by the closed formula, and checked divergence $=w_J$ at every support node
    for $d\le 25$. Commit `e0e64a3` (22:10:36 UTC) hardened Lemma 2 after an adversarial
    re-audit. Both carry `Co-Authored-By: Claude` trailers. **[repo]**
+   The author states that the proof was written with Claude Code and that the author
+   audited it. **[author, 2026-11-21]**
 
 5. **Blind informal check: Rethlas.** After the audit, the finished proof text was checked
    by the verification agent of Rethlas (H. Ju et al., arXiv:2604.03789; code at
@@ -320,11 +322,20 @@ Details and results are in `RELEASE_CHECKS.md`.
   author that restricted it to those parts (commit `Polish the referee-facing Chow cone
   manuscript`).
 * In November 2026 Section 11, the reproducibility paragraph of Section 12, the five edits
-  proposed by the review of 2026-11-21, the two closing sentences of the abstract and the
-  section "Use of AI tools" were written with Claude Code.
+  proposed by the review of 2026-11-21, the two closing sentences of the abstract, the
+  sentence that cites Bérczi, Coron, Eur and Li, and a first draft of the section "Use of AI
+  tools" were written with Claude Code.
+* On 2026-11-21 the author edited the manuscript outside the repository and returned it.
+  The author's changes are: the author line; an empty date; a rewording of the two
+  paragraphs around Table 1 in Section 8; and the final text of the section "Use of AI
+  tools". In that section the sentence on Rethlas and its reference were supplied by Claude
+  Code at the author's request. The rewording of Section 8 replaced a sentence, written
+  with Claude Code earlier that day, which was wrong for $y=4$; see `RELEASE_CHECKS.md`.
+  **[repo: the file returned by the author, compared line by line with the version sent]**
 
-The whole text of the manuscript was therefore drafted by AI systems under the author's
-direction. The manuscript says so in its section "Use of AI tools".
+Apart from the author's changes of 2026-11-21, the text of the manuscript was drafted by AI
+systems under the author's direction. How the author's rewording of Section 8 was drafted is
+not recorded here.
 
 ## What this attribution does not claim
 

@@ -5,36 +5,24 @@ unverified. Remove it, and the pre-release note at the top of `README.md`, when 
 
 ## Decisions that belong to the author
 
-1. **Author line and date of the manuscript.** The TeX still has `\author{Anonymous}` and
-   `\date{August 28, 2026}`.
+1. **Author line and date of the manuscript.** Set by the author on 2026-11-21:
+   `\author{Xichen Tang}` and an empty date. Still the author's to decide: whether to print
+   a date, an address and an e-mail line. `amsart` prints none of them unless they are given.
 2. **Licence.** Decided by the author on 2026-11-21: Apache-2.0 for code (`LICENSE`), CC BY 4.0
    for the manuscript and the notes (`LICENSE-CC-BY-4.0`); the scope is stated in `README.md`.
    One choice was made in preparing the files and is still the author's to confirm: the
    generated outputs in `results/` are placed under Apache-2.0 with the code.
-3. **The AI disclosure in the paper.** Since 2026-11-21 the section "Use of AI tools" of the
-   manuscript is the author's own text, with one sentence on Rethlas added at the author's
-   request. `PROVENANCE.md` is the record it summarizes, and the two must agree before the
-   repository is made public. Two phrases of the section do not yet agree with the record
-   or with the sentence around them, and are for the author to settle:
-   * "The proof was then written and audited with human". `PROVENANCE.md`, Part 1, step 4,
-     records that the audit and the proof were written with Claude Code, and the commits
-     carry that trailer. The phrase also leaves "the same assistant", later in the sentence,
-     without anything to refer to.
-   * "its abstract and introduction were revised with it by human".
-   The section no longer says that Section 11 and the reproducibility paragraph were drafted
-   with Claude Code; `PROVENANCE.md`, Part 3, still does. One point stays open for good:
-   which agent first proposed the cascade. The `k = 4` commits carry no `Co-Authored-By`
-   line; `PROVENANCE.md`, not the commit metadata, is the record of how that work was done.
-   **The manuscript in this repository is behind the author's working copy.** The author is
-   editing the manuscript outside the repository; that copy is the master and replaces the
-   file here when it is returned. Known differences on 2026-11-21: the author line; the date
-   line removed; in Section 8 the two paragraphs around Table 1 reworded; small changes in
-   the section "Use of AI tools". The rewording of Section 8 matters: the sentence here that
-   the intermediate debts of a cascade lie on right peels "which carry no selected
-   occurrence" is wrong for `y = 4`, where the right peel `6 -> (4,2)` of a nonfinal block is
-   also its `F_4` occurrence. The debt is cancelled by the next square whatever else the
-   edge carries, so the proposition and its proof are unaffected; the author's wording says
-   exactly this. Do not make the repository public before the two copies agree.
+3. **The AI disclosure in the paper.** The section "Use of AI tools" is the author's own
+   text, returned with the manuscript on 2026-11-21. `PROVENANCE.md` is the record it
+   summarizes, and the two agree. The summary is shorter than the record in one place: it
+   does not say that Section 11 and the reproducibility paragraph were drafted with Claude
+   Code, which `PROVENANCE.md`, Part 3, records. One point stays open for good: which agent
+   first proposed the cascade. The `k = 4` commits carry no `Co-Authored-By` line;
+   `PROVENANCE.md`, not the commit metadata, is the record of how that work was done.
+   **The author's copy of the manuscript is the master.** The file here is the copy the
+   author returned on 2026-11-21 plus one line, the address of the repository in Section 12.
+   If the author edits the manuscript again outside the repository, take the returned file
+   whole and re-apply that line; do not edit the manuscript here in the meantime.
 4. **Whether the first version includes the `k = 4` theorem.** Two AI reviews found no gap;
    no human has refereed it.
 5. **Identity on commits.** Done on 2026-11-21: every commit carries the name `Xichen Tang`
