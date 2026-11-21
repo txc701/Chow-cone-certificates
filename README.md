@@ -138,10 +138,10 @@ Cheng and Lin's paper is cited, not redistributed. The notes refer to a pinned c
 
 The public history was made from the private one by removing that file from every commit.
 The first commit of the project (9 August 2026) contained nothing else and is therefore an
-empty commit here. Author names, dates and messages are unchanged. The e-mail
-field of every commit was replaced by the author's GitHub `noreply` address, because the
-original fields were machine-local addresses that contained host names. Hashes differ
-(`COMMIT_MAP.md`).
+empty commit here. Dates and messages are unchanged. In the commit fields
+the author's name is written uniformly as Xichen Tang and the e-mail is the author's GitHub
+`noreply` address; the original fields had the name in two forms and machine-local addresses
+that contained host names. Hashes differ (`COMMIT_MAP.md`).
 
 ## Licences
 

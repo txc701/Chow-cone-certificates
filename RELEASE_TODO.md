@@ -19,18 +19,19 @@ unverified. Remove it, and the pre-release note at the top of `README.md`, when 
    not the commit metadata, is the record of how that work was done.
 4. **Whether the first version includes the `k = 4` theorem.** Two AI reviews found no gap;
    no human has refereed it.
-5. **Identity on commits.** Done on 2026-11-21: every commit carries the author's GitHub
-   `noreply` address in its e-mail field. Author names, dates, messages and content are
-   unchanged. Push only the branches to be published: local backup refs still hold the
-   earlier commits with the old fields.
+5. **Identity on commits.** Done on 2026-11-21: every commit carries the name `Xichen Tang`
+   and the author's GitHub `noreply` address. Dates, messages and content are unchanged.
+   Push only the branches to be published: local backup refs still hold the earlier commits
+   with the old fields.
 6. **How to distribute the review material that is not in this repository**: the
    independent verifier with its witness archive (4 MB) and the label-level audit script for
    the `k = 4` certificate. Options are release assets, a separate repository, or not at
    all. Checksums are in `RELEASE_CHECKS.md`.
-7. **Repository name and URL.** The author's choice is `chow-cone-certificates`, to be made
-   public after version 1 is final. The manuscript still says "the accompanying repository"
-   without a link; add the URL once the repository exists. No push and no tag until the
-   author says so.
+7. **Repository.** `https://github.com/txc701/Chow-cone-certificates`, created by the author
+   on 2026-11-21 as a private, empty repository. The manuscript gives this address in
+   Section 12. Still to come, each on the author's word: the first push, making the
+   repository public once version 1 is final, and the tag `v1.0` that the manuscript
+   refers to.
 
 ## Still to verify
 

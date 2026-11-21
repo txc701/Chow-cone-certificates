@@ -11,10 +11,10 @@ from every commit. `COMMIT_MAP.md` maps all 26 private commits to their public h
 
 | branch | private head | public head |
 |---|---|---|
-| `main` | `65e1056` | `0eddd6a` |
-| `k4-fourth-moment` | `6360104` | `9bcf0f0` |
-| `manuscript-language-pass` | `34317b9` | `3aa0251` |
-| `external-referee-dc87a7b` | `dc87a7b` | `9ab6cfe` |
+| `main` | `65e1056` | `70025f4` |
+| `k4-fourth-moment` | `6360104` | `0fea55d` |
+| `manuscript-language-pass` | `34317b9` | `ae288d3` |
+| `external-referee-dc87a7b` | `dc87a7b` | `d3f2885` |
 
 The branch `functional-scan` exists only in the public line. It contains
 `manuscript-language-pass`, the two commits that were only on `main`, and the work of
@@ -209,7 +209,8 @@ overfull box; 16 pages. Changes since `manuscript-language-pass`:
   an unnumbered section "Use of AI tools" precedes the references; it summarizes
   `PROVENANCE.md`;
 * the introduction cites Bérczi, Coron, Eur and Li, arXiv:2610.17135v1; title, authors and
-  date were taken from the arXiv record.
+  date were taken from the arXiv record;
+* Section 12 gives the address of the repository.
 
 Author and date lines were not touched.
 
@@ -244,16 +245,17 @@ test files were swept by pattern, not read.
   that names `/Users/...` as an example of what to look for, and the `noreply` addresses in
   the commit fields and in `Co-Authored-By` lines. All 288 distinct paths in the history are
   text files; the largest is 10.8 MB.
-* The author's name is recorded in two forms in the commit fields, as it was at the time of
-  each commit.
+* The author's name was written in two forms in the original commit fields. On 2026-11-21
+  it was unified as `Xichen Tang` at the author's request; the files, dates, e-mail fields
+  and messages of every commit were verified unchanged.
 * No credentials, tokens or keys in tracked text.
 * No `.log`, `.env` or PDF file is tracked. `build-pdf/` and the witness archive are ignored.
 * Third-party material: the Cheng–Lin PDF was removed from history. The repository quotes
   Cheng–Lin's definitions and statements, nothing else.
-* Commit metadata, which becomes public with the history: author names and dates are the
-  original ones. On 2026-11-21 the e-mail field of every commit was replaced by the author's
-  GitHub `noreply` address; before that the fields held machine-local addresses with host
-  names and, in one commit, a placeholder. Trees, dates and messages were verified unchanged.
+* Commit metadata, which becomes public with the history: the dates are the original ones.
+  On 2026-11-21 the e-mail field of every commit was replaced by the author's GitHub
+  `noreply` address; before that the fields held machine-local addresses with host names
+  and, in one commit, a placeholder. Trees, dates and messages were verified unchanged.
 
 ## Run before publication (2026-11-21)
 
