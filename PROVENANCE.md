@@ -113,7 +113,7 @@ recorded separately.
 
 | | Was it in the author's input? | Who derived it | First readable record (UTC, 28 August 2026) |
 |---|---|---|---|
-| Step 1 | The approach, yes: the prompt named the two method families that lead to it. The formula, no. | Two sub-agents of the coding agent, one by each route. Neither had received anything from the other. | 21:40:32–21:40:42, the primitive divergences in a command; 21:45:25, the complete identity |
+| Step 1 | The approach, yes: the prompt named the two method families that lead to it, in a passage drafted by ChatGPT. The formula, no. | Two sub-agents of the coding agent, one by each route. Neither had received anything from the other. | 21:40:32–21:40:42, the primitive divergences in a command; 21:45:25, the complete identity |
 | Step 2 | No. | The agents of the same session, no later than 21:50:46; at 21:45:25 one of them still stated it as an open problem. **The surviving readable records do not determine which agent proposed it first.** | 21:50:46, the name of a task; 21:52:21, a description; 21:52:47, the implementation |
 
 ### The session, and what its logs show **[log]**
@@ -160,7 +160,12 @@ the machine, which were searched for these terms. The author's only other inputs
 were "Continue" at 01:23:27 on 29 August, after the connection had dropped at 22:14:40, and
 the instruction to freeze and commit at 02:13:49.
 
-The logs do not show how the prompt itself was drafted.
+The logs do not show how the prompt itself was drafted. The author states it: on 28 August
+the author asked ChatGPT how to continue the search for a proof; at 21:36:07 ChatGPT drafted
+the supplementary passage that contains Method A and Method B; at 21:36:51 the author
+submitted the prompt containing that passage to the Codex command-line tool. **[author]**
+So the two method families that lead to Step 1 were suggested by ChatGPT, and the formulas
+were derived by the Codex agents.
 
 ### Step 1: the signed initial flow **[log]**
 
@@ -276,9 +281,19 @@ reached that conversation. The conversation was not read for this file.
 
 ### Open points
 
-* Which agent first proposed Step 2. This cannot be settled from the logs as they are stored.
-* How the prompt of 21:36:51 was drafted. Its Methods A and B anticipate the two routes to
-  Step 1, so the answer belongs in this record. It is for the author to state.
+* Which agent first proposed Step 2, in particular the cascade. This cannot be settled from
+  the logs as they are stored.
+
+### The reviews of November 2026 **[author]** **[repo]**
+
+* 20 November: audit of the proof and of the step from the certificate to matroids, made
+  with Claude (Anthropic).
+* 21 November: a review pack produced in a separate OpenAI Codex session (ChatGPT Work
+  Mode); the model version was not verified. It is called independent in this repository in
+  one sense only: its checking program was implemented separately, and the two sets of
+  witnesses were verified against each other's checker.
+
+Details and results are in `RELEASE_CHECKS.md`.
 
 ## Part 3. The texts
 

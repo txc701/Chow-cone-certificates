@@ -140,6 +140,18 @@ The public history was made from the private one by removing that file from ever
 The first commit of the project (9 August 2026) contained nothing else and is therefore an
 empty commit here. Authors, dates and messages are unchanged; hashes differ (`COMMIT_MAP.md`).
 
+## Licences
+
+Copyright 2026 Xichen Tang.
+
+* **Code and data: Apache License 2.0** (`LICENSE`). This covers `src/`, `tests/`, `lean/` and
+  the machine-readable outputs in `results/`.
+* **Text: Creative Commons Attribution 4.0 International** (`LICENSE-CC-BY-4.0`). This covers
+  the manuscript `CHOW_CONE_FLOWS_MANUSCRIPT.tex` and every Markdown file in the repository.
+
+Statements and notation quoted from Cheng and Lin's paper remain theirs; their paper is not
+redistributed here.
+
 ## Provenance and use of AI tools
 
 This work was carried out by Xichen Tang with AI tools, and they contributed substantively.
@@ -149,8 +161,8 @@ This work was carried out by Xichen Tang with AI tools, and they contributed sub
   pattern from this repository's computations, the uniform candidate from a ChatGPT
   conversation, and the audit, proof and Lean development from this repository, written with
   Claude Code. Several commits carry `Co-Authored-By` lines for that reason.
-* For the `k = 4` certificate: the author's prompt named the method families and contained
-  no formula. The signed identity and the rerouting that removes its negative terms were both
+* For the `k = 4` certificate: the author's prompt named the method families, in a passage
+  drafted by ChatGPT, and contained no formula for a flow. The signed identity and the rerouting that removes its negative terms were both
   derived by agents of OpenAI's Codex command-line tool in one session on 28 August 2026,
   which also wrote the proof text. Which of the agents proposed the rerouting first cannot be
   read from the surviving logs.

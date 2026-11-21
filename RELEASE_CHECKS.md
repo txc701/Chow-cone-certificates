@@ -141,8 +141,11 @@ replaces a human referee or a formal proof.
 
 Both reviews are by AI systems. The proof was constructed and written by agents of OpenAI's
 Codex command-line tool (`PROVENANCE.md`, Part 2). The audit of 2026-11-20 was made with
-Claude, a different model family. Which system produced the review pack of 2026-11-21 is for
-the author to state.
+Claude, a different model family. The review pack of 2026-11-21 was produced in a separate
+OpenAI Codex session (ChatGPT Work Mode), as stated by the author; the model version was not
+verified. "Independent" means that its checking program was implemented separately and that
+the two sets of witnesses were cross-verified. It does not mean a different model family
+from the one that constructed the proof.
 
 Correction, 2026-11-21. This file previously said that the first review "used the same model
 family that helped draft the proof". That was an assumption made before the session logs were

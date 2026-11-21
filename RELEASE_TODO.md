@@ -7,45 +7,46 @@ unverified. Remove it, and the pre-release note at the top of `README.md`, when 
 
 1. **Author line and date of the manuscript.** The TeX still has `\author{Anonymous}` and
    `\date{August 28, 2026}`.
-2. **Licence.** There is no `LICENSE` file. A common choice would be Apache-2.0 for `src/`,
-   `tests/` and `lean/`, and CC BY 4.0 for the notes and the manuscript.
-3. **The AI disclosure in the paper, and one open point of provenance.** `PROVENANCE.md` now
-   records how both certificates were found; Part 2, added on 2026-11-21 from the session
-   logs of the coding agent, covers `k = 4`, and Part 3 the texts. The manuscript now has a
-   section "Use of AI tools", written as a draft for the author to confirm sentence by
-   sentence; it must stay in agreement with `PROVENANCE.md`. `PROVENANCE.md` leaves open how
-   the prompt that started the `k = 4` run was drafted, which only the author can state. The
-   `k = 4` commits carry no `Co-Authored-By` line; `PROVENANCE.md`, not the commit metadata, is
-   the record of how that work was done.
+2. **Licence.** Decided by the author on 2026-11-21: Apache-2.0 for code (`LICENSE`), CC BY 4.0
+   for the manuscript and the notes (`LICENSE-CC-BY-4.0`); the scope is stated in `README.md`.
+   One choice was made in preparing the files and is still the author's to confirm: the
+   generated outputs in `results/` are placed under Apache-2.0 with the code.
+3. **The AI disclosure in the paper.** The manuscript has a section "Use of AI tools" and
+   `PROVENANCE.md` has three parts; both include the author's statements of 2026-11-21 on how
+   the prompt of the `k = 4` run was drafted and on the origin of the review pack. Keep the
+   two in agreement when either changes. One point stays open for good: which agent first
+   proposed the cascade. The `k = 4` commits carry no `Co-Authored-By` line; `PROVENANCE.md`,
+   not the commit metadata, is the record of how that work was done.
 4. **Whether the first version includes the `k = 4` theorem.** Two AI reviews found no gap;
    no human has refereed it.
-5. **Identity on new commits.** The commits added in November 2026 use an address set only in
-   this clone's local git configuration. Choose the address to appear publicly (a GitHub
-   `noreply` address is possible) before pushing; the commits can be re-authored while they
-   are still local. The historical commits use machine-local addresses that GitHub cannot
-   link to an account, and one of them (`Polish the referee-facing Chow cone manuscript`)
-   has a placeholder instead of an e-mail address. A `.mailmap` can unify how they display
-   without rewriting them.
+5. **Identity on new commits.** Decided: the `noreply` address shown in the author's GitHub
+   account settings. The author will supply it; it is not to be guessed. Until then the
+   commits of November 2026 carry an address set only in this clone's local git
+   configuration, and they must be re-authored before any push. The historical commits use
+   machine-local addresses that GitHub cannot link to an account, and one of them (`Polish
+   the referee-facing Chow cone manuscript`) has a placeholder instead of an e-mail address.
+   A `.mailmap` can unify how they display without rewriting them.
 6. **How to distribute the review material that is not in this repository**: the
    independent verifier with its witness archive (4 MB) and the label-level audit script for
    the `k = 4` certificate. Options are release assets, a separate repository, or not at
    all. Checksums are in `RELEASE_CHECKS.md`.
-7. **Repository name and URL.** The manuscript says "the accompanying repository" without a
-   link.
+7. **Repository name and URL.** The author's choice is `chow-cone-certificates`, to be made
+   public after version 1 is final. The manuscript still says "the accompanying repository"
+   without a link; add the URL once the repository exists. No push and no tag until the
+   author says so.
 
 ## Still to verify
 
 8. **Priority.** On 2026-11-19 an arXiv keyword search and one web search found no follow-up
    to Cheng–Lin's paper proving Conjecture 3.30 or any case of Conjecture 3.14. That is not a
    literature review. Repeat it on the day of release.
-9. **arXiv endorsement** for math.CO.
+9. **arXiv endorsement** for math.CO: unconfirmed. The author will start a submission to see
+   whether the system asks for an endorsement.
 10. **Human review of the `k = 4` proof**, in particular the charge table of manuscript §8.
 
 ## Optional improvements
 
-11. Cite G. Bérczi, B. Coron, C. Eur and S. Li, arXiv:2610.17135, in the introduction: it
-    disproves the real-rootedness conjecture for Chow polynomials, which changes the context
-    of moment inequalities.
+11. Done on 2026-11-21: the introduction cites Bérczi, Coron, Eur and Li, arXiv:2610.17135.
 12. Corrections to the dated notes proposed in `RELEASE_CHECKS.md` (six stale declaration
     names in `LEAN_CORRESPONDENCE.md`).
 
