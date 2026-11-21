@@ -29,6 +29,15 @@ the removed PDF, so it became empty and was silently dropped, and the history be
 empty commit with its original author, committer, dates and message, and all later commits
 were re-parented onto it. Nothing had been published.
 
+Second correction, 2026-11-21. Until that day the content scan below had covered the current
+files only. A scan of every commit found that two release documents written in November 2026
+had, in their earlier versions, contained an e-mail address of the author, a local user name
+and a placeholder text that was not in English: `RELEASE_CHECKS.md` in six commits and
+`README-RELEASE-DRAFT.md` in five. In those commits the two files were replaced by versions
+without these strings; five lines changed in all. Nothing else in those commits changed,
+their authors, dates and messages are as before, and the commits of August and September
+were not touched. Nothing had been published.
+
 ## Lean, `k = 2` (2026-11-19)
 
 The first `lake build` of 2026-11-19, run in the private worktree, reported the project
@@ -226,8 +235,16 @@ test files were swept by pattern, not read.
 * Informal wording such as "kill test", "by mandate" and "FULL MATROID THEOREM" was left
   unchanged.
 
-## Content scan (2026-11-19; new and changed files re-scanned 2026-11-21)
+## Content scan (2026-11-19; every commit scanned 2026-11-21)
 
+* 2026-11-21, after the corrections recorded under "History": the files of every commit on
+  the branches and every commit message were searched for e-mail addresses, host names, local
+  paths and user names, credentials, and text not in English. The only matches are a sentence
+  that names `/Users/...` as an example of what to look for, and the `noreply` addresses in
+  the commit fields and in `Co-Authored-By` lines. All 288 distinct paths in the history are
+  text files; the largest is 10.8 MB.
+* The author's name is recorded in two forms in the commit fields, as it was at the time of
+  each commit.
 * No credentials, tokens or keys in tracked text.
 * No `.log`, `.env` or PDF file is tracked. `build-pdf/` and the witness archive are ignored.
 * Third-party material: the Cheng–Lin PDF was removed from history. The repository quotes
