@@ -325,12 +325,13 @@ Details and results are in `RELEASE_CHECKS.md`.
   proposed by the review of 2026-11-21, the two closing sentences of the abstract, the
   sentence that cites Bérczi, Coron, Eur and Li, and a first draft of the section "Use of AI
   tools" were written with Claude Code.
-* On 2026-11-21 the author edited the manuscript outside the repository and returned it.
-  The author's changes are: the author line; an empty date; a rewording of the two
-  paragraphs around Table 1 in Section 8; and the final text of the section "Use of AI
-  tools". In that section the sentence on Rethlas and its reference were supplied by Claude
-  Code at the author's request. The rewording of Section 8 replaced a sentence, written
-  with Claude Code earlier that day, which was wrong for $y=4$; see `RELEASE_CHECKS.md`.
+* On 2026-11-21 the author edited the manuscript outside the repository and returned it. The
+  author's changes are: the author line, with an address and an e-mail line; an empty date;
+  a rewording of the two paragraphs around Table 1 in Section 8; and the final text of the
+  section "Use of AI tools". In that section the sentence on Rethlas and its reference were
+  supplied by Claude Code at the author's request. The rewording of Section 8 replaced a
+  sentence, written with Claude Code earlier that day, which was wrong for $y=4$; see
+  `RELEASE_CHECKS.md`.
   **[repo: the file returned by the author, compared line by line with the version sent]**
 
 Apart from the author's changes of 2026-11-21, the text of the manuscript was drafted by AI

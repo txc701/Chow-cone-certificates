@@ -228,7 +228,8 @@ overfull box; 16 pages. Changes since `manuscript-language-pass`:
 On 2026-11-21 the author edited the manuscript outside the repository and returned it. The
 file here is the returned file plus one line, the address of the repository in Section 12.
 A line-by-line comparison of the returned file with the version that had been sent to the
-author shows these changes and no other: the author line and an empty date; in Section 8,
+author shows these changes and no other: the author line, an address line, an e-mail line
+and an empty date (the address and e-mail came in a second returned copy); in Section 8,
 the two paragraphs around Table 1 reworded; the text of the section "Use of AI tools"; the
 reference for Rethlas; two changes of spacing. The returned file compiles to 16 pages with
 no undefined reference and no overfull box.
@@ -262,8 +263,9 @@ test files were swept by pattern, not read.
   the branches and every commit message were searched for e-mail addresses, host names,
   local paths (absolute, or relative to a home directory), machine and user names,
   credentials, and text not in English. The only matches are a sentence that names
-  `/Users/...` as an example of what to look for, and the `noreply` addresses in the commit
-  fields and in `Co-Authored-By` lines. All 288 distinct paths in the history are text
+  `/Users/...` as an example of what to look for, the `noreply` addresses in the commit
+  fields and in `Co-Authored-By` lines, and the e-mail address that the author put in the
+  author block of the manuscript. All 288 distinct paths in the history are text
   files; the largest is 10.8 MB.
 * The author's name was written in two forms in the original commit fields. On 2026-11-21
   it was unified as `Xichen Tang` at the author's request; the files, dates, e-mail fields

@@ -5,9 +5,10 @@ unverified. Remove it, and the pre-release note at the top of `README.md`, when 
 
 ## Decisions that belong to the author
 
-1. **Author line and date of the manuscript.** Set by the author on 2026-11-21:
-   `\author{Xichen Tang}` and an empty date. Still the author's to decide: whether to print
-   a date, an address and an e-mail line. `amsart` prints none of them unless they are given.
+1. **Author block of the manuscript.** Set by the author on 2026-11-21: the name, an
+   address line (Duke University), an e-mail line and an empty date. The postal code was
+   checked against the university's own web pages. Still the author's to decide: whether to
+   print a date, and whether to add subject classification and keywords.
 2. **Licence.** Decided by the author on 2026-11-21: Apache-2.0 for code (`LICENSE`), CC BY 4.0
    for the manuscript and the notes (`LICENSE-CC-BY-4.0`); the scope is stated in `README.md`.
    One choice was made in preparing the files and is still the author's to confirm: the
