@@ -55,19 +55,36 @@ def test_hand_calculations():
     }
 
 
+# One audited exception to the ban on "/".  src/k4_weights.py line 63 divides a sum of
+# Fractions by an int: exact rational arithmetic, not floating point.  The SHA-256 of that
+# file is recorded in the source_provenance of two frozen manifests
+# (results/k4_degree4_decision, results/k4_width3_discovery), so the file is kept
+# byte-identical instead of being rewritten (tests/test_source_provenance.py).  The
+# exception is tied to the exact line text, it must be used, and the exactness of the
+# value it computes is tested in test_the_allowed_division_is_exact_rational_arithmetic.
+ALLOWED_TRUE_DIVISIONS = {
+    ("k4_weights.py", 63): "for k, a in enumerate(A)) / tot",
+}
+
+
 def test_no_floating_point_in_sources():
-    """No float literals, no true division, no float() calls in src/."""
+    """No float literals, no float() calls and no true division in src/, apart
+    from the audited exact-rational division in ALLOWED_TRUE_DIVISIONS."""
     import os
 
     src = os.path.join(os.path.dirname(__file__), "..", "src")
+    used = set()
     for fname in sorted(os.listdir(src)):
         if not fname.endswith(".py"):
             continue
         with open(os.path.join(src, fname), "rb") as f:
             toks = list(tokenize.tokenize(f.readline))
         for tok in toks:
-            if tok.type == tokenize.OP:
-                assert tok.string not in ("/", "/="), (fname, tok)
+            if tok.type == tokenize.OP and tok.string in ("/", "/="):
+                key = (fname, tok.start[0])
+                assert tok.string == "/", (fname, tok)
+                assert ALLOWED_TRUE_DIVISIONS.get(key) == tok.line.strip(), (fname, tok)
+                used.add(key)
             if tok.type == tokenize.NUMBER:
                 assert "." not in tok.string and "e" not in tok.string.lower(), (
                     fname,
@@ -75,3 +92,25 @@ def test_no_floating_point_in_sources():
                 )
             if tok.type == tokenize.NAME:
                 assert tok.string != "float", (fname, tok)
+    # an exception that is no longer needed must be removed, not left behind
+    assert used == set(ALLOWED_TRUE_DIVISIONS)
+
+
+def test_the_allowed_division_is_exact_rational_arithmetic():
+    """b4_720(d) = 720 * (fourth central moment of descents on S_{d+1}) is
+    recomputed with integers only and must agree, as an int, for 1 <= d <= 30."""
+    from math import factorial
+
+    from k4_weights import b4_720
+
+    for d in range(1, 31):
+        row = [1]                       # Eulerian numbers A(d+1, k), own recurrence
+        for m in range(2, d + 2):
+            row = [(k + 1) * (row[k] if k < len(row) else 0)
+                   + (m - k) * (row[k - 1] if k >= 1 else 0) for k in range(m)]
+        assert sum(row) == factorial(d + 1)
+        num = 720 * sum(a * (2 * k - d) ** 4 for k, a in enumerate(row))
+        den = 16 * factorial(d + 1)
+        assert num % den == 0
+        value = b4_720(d)
+        assert type(value) is int and value == num // den
