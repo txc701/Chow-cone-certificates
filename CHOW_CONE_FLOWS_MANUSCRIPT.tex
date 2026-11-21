@@ -39,7 +39,8 @@
 \begin{abstract}
 We study central moments of the probability distribution defined by the
 standard Chow polynomial of a loopless matroid.  We prove Cheng and Lin's
-Conjecture~3.30 in every rank.  We also prove the case $k=4$ of their
+Conjecture~3.30 for every $d\ge1$, the full range of the conjecture.  We
+also prove the case $k=4$ of their
 Conjecture~3.14: the fourth central moment is no larger than that of the
 Boolean matroid of the same rank.  In both cases, the corresponding flag form
 admits an explicit decomposition as a nonnegative linear combination of the
@@ -89,7 +90,8 @@ combination of these monotonicity inequalities
 \cite[Conjecture~3.30]{ChengLin}.
 
 Cheng and Lin verified this conjecture computationally for $d\le19$.  Our
-first main result gives a uniform proof in every rank.
+first main result gives a uniform proof for every $d\ge1$, which is the full
+range of the conjecture.
 
 \begin{theorem}[Cheng--Lin Conjecture~3.30]
 \label{thm:intro-k2}
@@ -137,8 +139,13 @@ and Section~\ref{sec:poset} gives the summation-by-parts lemma.
 Section~\ref{sec:k2} proves Theorem~\ref{thm:intro-k2}.
 Sections~\ref{sec:k4-coefficient}--\ref{sec:small-d} prove
 Theorem~\ref{thm:intro-k4} and the stronger fourth-moment flag-number
-decomposition.  The final two sections compare the common mechanism and
-record the logical dependencies and machine verification.
+decomposition.  Section~\ref{sec:common-mechanism} compares the two
+constructions.  Section~\ref{sec:finite-all-k} records an exact computation:
+for matroids of rank at most $21$ it verifies Conjecture~3.14 of
+\cite{ChengLin} for every $k$, and it exhibits a convex functional that the
+method cannot reach.  Section~\ref{sec:dependencies} records the logical
+dependencies, the machine verification, and how to reproduce the
+computation.
 
 \section{Flag types and support compositions}
 \label{sec:notation}
@@ -213,6 +220,12 @@ Since $\E Y_i=n_i/2$, all nonzero flag summands have the common mean
 \end{equation}
 This common mean permits central moments of the normalized Chow polynomial
 to be computed term by term.
+
+Throughout, $F_J$ is used only for $J$ on the support.  Off the support
+$P_J=0$, and no probability distribution is attached to $J$.  Every flag
+coefficient derived below from $F_J$ carries the factor $P_J(1)$ and is
+extended by zero off the support.  The resulting polynomial coefficient sums
+may then run over all $J\subseteq[d]$.
 
 The only sign theorem about matroids used below is Cheng and Lin's
 Lemma~3.29~\cite[p.~22]{ChengLin}:
@@ -448,7 +461,9 @@ Indeed, $1+x$ gives $\beta_1=1/16$, while
 $1+4x+x^2$ gives $\beta_2=1/3$.
 
 Normalize \eqref{eq:flag-expansion}, subtract $\beta_d$, and use
-\eqref{eq:k4-block-expansion}.  Line by line,
+\eqref{eq:k4-block-expansion}.  In the second line below, the summand is
+read as zero for $J$ off the support, where $P_J(1)=0$ and $F_J$ is not
+defined.  Line by line,
 \begin{align}
  &720\CH_M(1)\left(
    \E[(X_M-d/2)^4]-\beta_d\right)\notag\\
@@ -459,7 +474,7 @@ Normalize \eqref{eq:flag-expansion}, subtract $\beta_d$, and use
  &\quad=\sum_{J\subseteq[d]}a_J^{(4)}N_J,
  \label{eq:k4-flag-form}
 \end{align}
-where
+where, for $J$ on the support,
 \begin{equation}
  a_J^{(4)}
  =720P_J(1)\bigl(\mu_4(F_J)-\mu_4(X_d)\bigr)
@@ -467,7 +482,9 @@ where
  \left(15V_J^2-6Q_{2,J}-12V_J-B_d\right).
  \label{eq:a4}
 \end{equation}
-Consequently, with $G$ as in \eqref{eq:k2-G-rho},
+Off the support we put $a_J^{(4)}=0$, which is also the value of the
+polynomial expression on the right.  Consequently, with $G$ as in
+\eqref{eq:k2-G-rho},
 \begin{equation}
  w^{(4)}(c):=U_ca_c^{(4)}
  =G(c)S_4(c),\qquad
@@ -695,10 +712,12 @@ and that of a selected $F_3$ occurrence is $72$.
 
 \begin{lemma}[Cascade collision bound]
 \label{lem:collision}
-Fix a selected nonfinal-left $F_2$ edge consumed by a cascade, and write
-its affected block as $y+2$, with $y\ge2$.  Its possible cascade origins
-are indexed by suffixes of the consecutive run of $2$-blocks immediately
-preceding that block.  Their normalized contributions are $48r_j$, where
+Fix a selected nonfinal-left $F_2$ occurrence charged by a cascade.  Its
+affected block, written $y+2$ with $y\ge2$, is immediately followed by the
+final block $2$.  The possible cascade origins are indexed by the suffixes of
+the run of consecutive $2$-blocks immediately preceding that block: if the
+run has length $h$, the suffix lengths are $j=0,\ldots,h$.  Their normalized
+contributions are $48r_j$, where
 \begin{equation}
  r_j=2^j\frac{\rho_0(y+2j)}{\rho_0(y)},\qquad
  \rho_0(n)=\frac{n-1}{n!}.
@@ -734,18 +753,86 @@ bounds are $1/5$ and $1/14$, giving
 $1+(1/5)/(1-1/14)=79/65$.
 \end{proof}
 
-Thus all cascades together consume at most $75$ normalized units from a
-fixed selected $F_2$ edge and strictly fewer than $60$ from a terminal
-$F_3$ edge.  For completeness, we record why this is the entire collision
-list.  Reverse a tagged correction from a consumed edge.  A top square
-recovers its parent and affected block uniquely.  A bottom square first
-removes the immediately preceding $2$-block.  A cascade removes a unique
-suffix of the preceding $2$-run.  These alternatives are disjoint and
-exhaustive.  Distinct affected blocks cannot define the same Boolean cover.
-This occurrence-level classification also covers coincidences among the
-$F_2,F_3,F_4$ labels at final block sizes $5,6,7$, and the doubled
-balanced labels at sizes $4,6,8$: negative $F_4$ labels are canceled one
-at a time, while coincident positive reserves are added.
+Thus all cascades together charge at most $75$ normalized units to a fixed
+selected $F_2$ occurrence and strictly fewer than $60$ to a terminal $F_3$
+occurrence.
+
+It remains to record that Section~\ref{sec:rerouting} creates no other
+subtraction.  Every negative term introduced by a correction lies on an
+oriented edge that carries a selected occurrence, and we charge the term to
+that occurrence.  Table~\ref{tab:charges} lists the six types of charge.  The
+intermediate debts of a cascade are not charges: they lie on right peels
+$(y+2)\mapsto(y,2)$ of nonfinal blocks with $y\ge4$, which carry no selected
+occurrence, and each is canceled exactly by the next square
+\eqref{eq:cascade-square}.
+
+\begin{table}[ht]
+\caption{The six types of charge.  ``Left'' and ``right'' refer to the
+selected $F_2$ occurrences $m\mapsto(2,m-2)$ and $m\mapsto(m-2,2)$.}
+\label{tab:charges}
+\small
+\begin{tabularx}{\textwidth}{@{}
+  >{\raggedright\arraybackslash}p{.04\textwidth}
+  >{\raggedright\arraybackslash}p{.21\textwidth}
+  >{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}p{.17\textwidth}
+  >{\raggedright\arraybackslash}p{.17\textwidth}@{}}
+\toprule
+ & Negative term & Charged occurrence & Normalized amount & How many \\
+\midrule
+1 & $A\to C$ in a square \eqref{eq:left-square}
+ & left $F_2$ occurrence of the block $t+4$ of $A$, nonfinal or final
+ & $12(t+2)(t-1)$, or $12t(t-1)$ if final
+ & at most one; the block is at least $6$ \\
+2 & $C\to D$ in a square \eqref{eq:left-square}
+ & left $F_2$ occurrence of the block $t+2$ of $C$, nonfinal or final,
+   which is immediately preceded by a $2$
+ & $24$
+ & at most one; needs the preceding $2$ \\
+3 & $A\to C$ in a final-right square \eqref{eq:right-square-vertices}
+ & right $F_2$ occurrence of the final block $t+4$ of $A$
+ & $24(t+2)(t-1)$
+ & at most one; the block is at least $6$ \\
+4 & $X_j\to Z_j$ in a cascade square \eqref{eq:cascade-square}, $y\ge4$
+ & left $F_2$ occurrence of the nonfinal block $y+2$ followed by the
+   final block $2$
+ & $48r_j$
+ & one for each $j=0,\ldots,h$ \\
+5 & terminal debt with $y=2$
+ & $F_2$ occurrence $4\mapsto(2,2)$ of the nonfinal block $4$ followed by
+   the final block $2$
+ & $48r_j$
+ & one for each $j=0,\ldots,h$ \\
+6 & terminal debt with $y=3$
+ & $F_3$ occurrence $5\mapsto(3,2)$ of the nonfinal block $5$ followed by
+   the final block $2$
+ & $48r_j$
+ & one for each $j=0,\ldots,h$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+In the last column, uniqueness refers to the correction together with its
+origin and label: for a fixed charged occurrence and a fixed type, the data
+shown determine the correction.  A top square is recovered from the parent
+and the affected block.  A bottom square is recovered by first removing the
+immediately preceding $2$-block.  A cascade is recovered by removing a
+suffix of the preceding $2$-run, as in Lemma~\ref{lem:collision}.  A single
+Boolean cover may nevertheless receive more than one charge, of different
+types or from different origins.  It may also carry more than one selected
+occurrence: this happens among the $F_2,F_3,F_4$ labels at final block sizes
+$5,6,7$, and for the doubled balanced labels at sizes $4,6,8$.  All estimates
+below are therefore made occurrence by occurrence.  Negative $F_4$ labels are
+canceled one at a time, each selected occurrence is charged only by the
+types listed for it, and the reserves of coincident positive occurrences
+add.
+
+Two configurations of the same shape must be kept apart.  A nonfinal block
+$4$ followed by the final block $2$ carries an $F_2$ occurrence, which can
+receive charges of types 2 and 5.  A nonfinal block $5$ followed by the final
+block $2$ carries an $F_2$ occurrence $5\mapsto(2,3)$, which can receive only
+a charge of type 2, and a different $F_3$ occurrence $5\mapsto(3,2)$, which
+receives exactly the charges of type 6.
 
 \begin{proposition}[Uniform nonnegativity]
 \label{prop:nonnegative}
@@ -754,9 +841,9 @@ For every $d\ge3$, every edge value of $f_d$ is nonnegative.
 
 \begin{proof}
 Consider first a selected nonfinal-left $F_2$ edge whose affected block
-has size $M$.  For $M\ge6$, its unique possible top subtraction is at
-most $12(M-2)(M-5)$, its possible bottom subtraction is $24$, and all
-cascades together cost at most $75$.  The child has
+has size $M$.  For $M\ge6$, its unique possible top subtraction (type 1)
+is at most $12(M-2)(M-5)$, its possible bottom subtraction (type 2) is
+$24$, and all cascades together (type 4) cost at most $75$.  The child has
 $V\ge(M-2)(M-4)$, and the presence of a later final block gives
 $N\ge M+2$.  After all subtractions, \eqref{eq:F2-reserve} is therefore
 at least
@@ -765,11 +852,12 @@ at least
  &\qquad{}-12(M-2)(M-5)-24-75
  =18M^2-66M+69>0.
 \end{align*}
-For $M=4,5$, the initial reserves are at least $168,288$, respectively,
-whereas the remaining possible consumption is at most $24+75=99$.
+For $M=4$ the reserve is at least $168$, and the possible charges, of
+types 2 and 5, total at most $24+75=99$.  For $M=5$ the reserve is at least
+$288$, and only a charge of type 2, equal to $24$, can occur.
 
 For a final-left $F_2$ edge of size $M\ge6$, no cascade consumes the
-edge.  Total consumption is at most
+edge, so only types 1 and 2 occur.  Total consumption is at most
 $12(M-4)(M-5)+24$, while its reserve is at least
 $30(M-2)(M-4)+30M-12$.  The remaining margin is
 \[
@@ -778,7 +866,7 @@ $30(M-2)(M-4)+30M-12$.  The remaining margin is
 The cases $M=4,5$ are immediate from the same exact costs.
 
 For a final-right $F_2$ edge of size $M\ge6$, its only subtraction is
-the initial right square, of normalized size $24(M-2)(M-5)$.  The reserve
+the initial right square (type 3), of normalized size $24(M-2)(M-5)$.  The reserve
 minus this cost is at least
 \[
  6M^2+18M-12>0.
@@ -787,7 +875,8 @@ Again $M=4,5$ are immediate.  At final $M=4$, the left and right labels
 coincide, so the positive reserves add.
 
 Finally, a terminal $F_3$ edge starts with reserve $72$ and loses
-strictly less than $60$ by Lemma~\ref{lem:collision}.  Every correction
+strictly less than $60$ by Lemma~\ref{lem:collision} (type 6); no other
+$F_3$ occurrence is charged.  Every correction
 not listed above adds rather than subtracts flow.  The three margin
 polynomials are already positive at $M=6$, where their values are
 $321,360,312$, and their first differences are positive thereafter.
@@ -883,8 +972,9 @@ composition $c$, put
  w^{\varphi}(c)=G(c)\bigl(\E\varphi(F_c)-\E\varphi(X_d)\bigr),
  \label{eq:w-phi}
 \end{equation}
-where $F_c$ is the flag variable of Section~\ref{sec:notation}.  By the flag
-expansion,
+where $F_c$ is the flag variable of Section~\ref{sec:notation}.  As before,
+$F_c$ is used only on the support, and $w^{\varphi}$ is extended by zero off
+the support.  By the flag expansion,
 \[
  \sum_J\frac{w^{\varphi}_J}{U_J}\,N_J
  =\CH_M(1)\bigl(\E\varphi(X_M)-\E\varphi(X_d)\bigr).
@@ -951,11 +1041,19 @@ For every $1\le d\le20$ and every admissible $m$, the function $\tau_m$ has
 a monotonicity certificate.
 \end{proposition}
 
-This was decided by exact integer maximum flow on the support DAG; the
-equivalence with the full Boolean lattice is the support reduction, whose
-proof uses only that the weight vanishes off the support.  A flow certificate
-is stored for every case with $d\le10$, and each verdict for $d\le8$ was
-compared with a brute-force minimum over all ancestor-closed sets.
+This was decided by exact integer maximum flow on the support DAG.  The
+instances and their witnesses are described in
+Section~\ref{sec:dependencies}.
+
+Working on the support loses nothing.  Extend the weights by zero off the
+support.  The complement of the support is closed under refinement, since a
+block of size one cannot be removed by further splits.  Summing the
+divergence of a flow on the Boolean lattice over that complement yields minus
+its total incoming flow.  Since the divergence sum is zero and the flow is
+nonnegative, there is no crossing flow.  Restriction to the support and zero
+extension therefore preserve feasibility.  This supplies the converse needed
+for Remark~\ref{rem:absolute-deviation}, and not only the implication from a
+certificate on the support.
 
 \begin{corollary}
 \label{cor:finite-all-k}
@@ -963,7 +1061,9 @@ Let $M$ be a loopless matroid of rank $d+1$ with $1\le d\le20$.  Then
 $\E\varphi(X_M)\le\E\varphi(X_d)$ for every $\varphi$ as in
 Lemma~\ref{lem:tail-decomposition}.  In particular
 \cite[Conjecture~3.14]{ChengLin} holds for every $k$ in ranks $2$ through
-$21$.  In rank $1$ the Chow polynomial is $1$ and both sides vanish.
+$21$.  In rank one, both distributions are concentrated at zero, so the two
+expectations equal $\varphi(0)$.  In particular, their positive-order
+central moments vanish and their zeroth moments are both one.
 \end{corollary}
 
 \begin{proof}
@@ -978,22 +1078,39 @@ Corollary~\ref{cor:finite-all-k} rests on Cheng and Lin's flag expansion and
 Lemma~3.29 exactly as Theorems~\ref{thm:intro-k2} and \ref{thm:intro-k4} do,
 and in addition on the correctness of a computer calculation.
 
+The rank-one statement concerns the moment comparison only.  It is not an
+extension of the certificates to $d=0$.  There the support is the single
+composition $(2)$, there is no cover edge, and the coefficient \eqref{eq:a2}
+equals $-1$, while the Boolean variance is $0$ rather than $N/12$.
+Accordingly Cheng and Lin fix $d>0$ before introducing the numbers $U_J$
+\cite[\S3.4]{ChengLin}, and every certificate in this paper is for $d\ge1$.
+
 \begin{remark}[Peel width]
 In the same range, restricted to $d\le16$, a certificate for the $k$-th
-moment exists on splits of peel width at most $3$ for $k=4,6,8,10,12$, at
-most $4$ for $k=16,24$, and at most $5$ for $k=40$.  Among these values of
-$k$, width $2$ suffices for every $d\le16$ only when $k=2$.
+moment exists on splits of peel width at most $2$ for $k=2$, at most $3$ for
+$k=4,6,8,10,12$, at most $4$ for $k=16,24$, and at most $5$ for $k=40$.  For
+$k=2$ this is the flow of Section~\ref{sec:k2}, which is valid for every
+$d$.  For each of the other listed values of $k$, width $2$ already fails at
+$d=4$.
 \end{remark}
 
 \begin{remark}[Absolute deviation]
 \label{rem:absolute-deviation}
 The monotonicity certificates do not reach every convex $\varphi$.  For
 $4\le d\le20$ there is no certificate for $\varphi(p)=|p-d/2|$: some
-ancestor-closed set of support compositions has negative weight.  At $d=4$
-the composition $(3,3)$ has positive weight and no outgoing support edge.
+ancestor-closed set of support compositions has negative weight.  The
+smallest case can be checked by hand.  For $d=4$ and $c=(3,3)$, the flag
+variable takes the values $1,2,3$ with probabilities $1/4,1/2,1/4$, so
+$\E|F_c-2|=1/2$.  The Eulerian probabilities $(1,26,66,26,1)/120$ give
+$\E|X_4-2|=7/15$.  The difference is $+1/30$, so $c$ has positive weight.
+But $c$ is a sink of the support DAG, since a block of size $3$ cannot split
+into two parts at least two, and a nonnegative flow cannot have positive
+divergence at a sink.
 This shows only that the inequality $\E|X_M-d/2|\le\E|X_d-d/2|$ cannot be
-derived from the cover cases of Lemma~3.29 by this method.  It is not a
-matroid counterexample, and we do not know whether the inequality holds.
+derived from the cover cases of Lemma~3.29 by this method, nor from its
+instances for arbitrary nested pairs, each of which is a sum of cover cases.
+It is not a matroid counterexample, and we do not know whether the
+inequality holds.
 \end{remark}
 
 It is natural to ask whether Proposition~\ref{prop:finite-scan} holds for
@@ -1069,6 +1186,47 @@ load-bearing declarations contain only \texttt{propext},
 dependencies.  The compiler emits seven linter warnings and no error.  The
 $k=4$ proof has not been formalized in Lean.  Neither the exact test suite
 nor the Lean development replaces any paper proof above.
+
+\subsection*{Reproducing the computation of Section~\ref{sec:finite-all-k}}
+
+Proposition~\ref{prop:finite-scan} is the only statement in this paper whose
+proof is a computation.  It consists of $100$ instances, namely the
+admissible pairs $(d,m)$ with $2\le d\le20$; for $d=1$ there is no interior
+point $a$, hence no generator and nothing to check.  In release
+\texttt{v1.0} of the accompanying repository, the command
+\begin{center}
+\texttt{python3 src/run\_functional\_scan.py 20 16 10 -{}-witnesses W}
+\end{center}
+recomputes every verdict of Section~\ref{sec:finite-all-k} and writes to the
+file \texttt{W} one explicit witness for each of the $100$ instances and for
+the absolute deviation at each $1\le d\le20$.  The command
+\begin{center}
+\texttt{python3 src/verify\_functional\_scan.py 8 -{}-witnesses W}
+\end{center}
+checks these witnesses without any maximum-flow code.  A witness for a
+feasible instance is a list of nonnegative integer values on cover edges
+whose divergence equals the target weight at every support composition.  A
+witness for an infeasible instance is an ancestor-closed set of support
+compositions with negative total weight; it excludes a nonnegative flow,
+because no edge enters an ancestor-closed set.  For $d\le8$ the same command
+also compares every verdict with a brute-force minimum over all
+ancestor-closed sets.  The output is deterministic.  The SHA-256 digests of
+\texttt{results/functional\_scan/summary.json} and of the uncompressed
+contents of \texttt{W} are
+\begin{center}\small
+\begin{tabular}{@{}l@{}}
+\texttt{f79df8770b8bfdafde79241c7c9ce4dd20a384c89a9c283bf6019e3eaaa2c621},\\
+\texttt{0d94b04493c1d24e765929354d9ee1191ccba0d1a9896c159af6517ead910e1b}.
+\end{tabular}
+\end{center}
+
+This computation is a logical input to
+Corollary~\ref{cor:finite-all-k} and to nothing else.  By contrast, the
+finite evaluations of the flows of Theorems~\ref{thm:intro-k2} and
+\ref{thm:uniform-flow} in the test suite are regression checks: they
+corroborate symbolic proofs, and no statement about those flows depends on
+them.  At the release commit the test suite passes in full
+(509 tests).
 
 \begin{thebibliography}{99}
 
