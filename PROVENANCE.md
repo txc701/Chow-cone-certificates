@@ -56,13 +56,23 @@ Each statement is labelled by its source:
    for $d\le 25$. Commit `e0e64a3` (22:10:36 UTC) hardened Lemma 2 after an adversarial
    re-audit. Both carry `Co-Authored-By: Claude` trailers. **[repo]**
 
-5. **Blind informal check: Rethlas.** After the audit, a Rethlas verification run on the
-   finished proof text returned verdict "correct" with no gaps, and a second run examined
-   Lemma 2. The files are `blind_request.json`, `blind_verdict.json` and
-   `rethlas-chenglin-lemma2/lemma2_verdict.json` in a separate local directory, with local
-   modification times 17:21–17:48 on 2026-08-18, after `d3fb1f6` and before `e0e64a3`. This
-   is an LLM review, not a proof assistant. Rethlas did not produce the peel-2 experiments
-   and did not perform the audit of step 4. **[author; local files outside this repository]**
+5. **Blind informal check: Rethlas.** After the audit, the finished proof text was checked
+   by the verification agent of Rethlas (H. Ju et al., arXiv:2604.03789; code at
+   `github.com/frenzymath/Rethlas`, commit `887cc46`). That agent runs through the Codex
+   command-line tool. There were two runs on 2026-08-18: a check of the whole proof, started
+   at 21:21 UTC, and a check of Lemma 2 and its use, started at 21:44 UTC. Both returned the
+   verdict "correct", with no critical error and no gap. The manifests of the runs record
+   Codex CLI 0.146.0, the model identifier `gpt-5.6-sol` and reasoning effort `max`. The
+   agent was given the statement, the proof and the text of Cheng and Lin's paper; a patch
+   to its instructions forbade web search and any look at this repository. The proof text
+   it received has SHA-256
+   `12bf8f523b7c1d57a7fd8cafa68e8487452933d6376fa5360598997f8b348b7b`, which is the digest
+   of `PROOF_CONJECTURE_3_30.md` at commit `d3fb1f6`. The runs fall after `d3fb1f6` and
+   before `e0e64a3`. This is an LLM review, not a proof assistant. Only the verification
+   agent of Rethlas was used: Rethlas did not generate the proof, did not produce the peel-2
+   experiments and did not perform the audit of step 4.
+   **[author; local files outside this repository; the digest can be checked in this
+   repository]**
 
 6. **Formal certification: Lean 4.** Commit `131daca` (2026-08-21) machine-checks the
    combinatorial core; see `LEAN_CORRESPONDENCE.md` and `RELEASE_CHECKS.md`. **[repo]**

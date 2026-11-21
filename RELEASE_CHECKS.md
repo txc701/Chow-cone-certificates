@@ -206,11 +206,15 @@ overfull box; 16 pages. Changes since `manuscript-language-pass`:
 * Table 1 in §8 lists the six types of charge, and the cases `M = 4` and `M = 5` are separated;
 * the Lean paragraph states what was compiled and the number of warnings;
 * the abstract now mentions the Lean formalization and the computation of Section 11, and
-  an unnumbered section "Use of AI tools" precedes the references; it summarizes
+  an unnumbered section "Use of AI tools" precedes the references. Since 2026-11-21 its
+  text is the author's own, with one sentence on Rethlas added at the author's request;
+  `RELEASE_TODO.md`, item 3, lists two phrases in it that do not yet agree with
   `PROVENANCE.md`;
 * the introduction cites Bérczi, Coron, Eur and Li, arXiv:2610.17135v1; title, authors and
   date were taken from the arXiv record;
-* Section 12 gives the address of the repository.
+* Section 12 gives the address of the repository;
+* the references include the paper that introduced Rethlas, arXiv:2604.03789v2; title,
+  authors and date were taken from the arXiv record.
 
 Author and date lines were not touched.
 

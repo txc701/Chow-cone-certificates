@@ -11,12 +11,20 @@ unverified. Remove it, and the pre-release note at the top of `README.md`, when 
    for the manuscript and the notes (`LICENSE-CC-BY-4.0`); the scope is stated in `README.md`.
    One choice was made in preparing the files and is still the author's to confirm: the
    generated outputs in `results/` are placed under Apache-2.0 with the code.
-3. **The AI disclosure in the paper.** The manuscript has a section "Use of AI tools" and
-   `PROVENANCE.md` has three parts; both include the author's statements of 2026-11-21 on how
-   the prompt of the `k = 4` run was drafted and on the origin of the review pack. Keep the
-   two in agreement when either changes. One point stays open for good: which agent first
-   proposed the cascade. The `k = 4` commits carry no `Co-Authored-By` line; `PROVENANCE.md`,
-   not the commit metadata, is the record of how that work was done.
+3. **The AI disclosure in the paper.** Since 2026-11-21 the section "Use of AI tools" of the
+   manuscript is the author's own text, with one sentence on Rethlas added at the author's
+   request. `PROVENANCE.md` is the record it summarizes, and the two must agree before the
+   repository is made public. Two phrases of the section do not yet agree with the record
+   or with the sentence around them, and are for the author to settle:
+   * "The proof was then written and audited with human". `PROVENANCE.md`, Part 1, step 4,
+     records that the audit and the proof were written with Claude Code, and the commits
+     carry that trailer. The phrase also leaves "the same assistant", later in the sentence,
+     without anything to refer to.
+   * "its abstract and introduction were revised with it by human".
+   The section no longer says that Section 11 and the reproducibility paragraph were drafted
+   with Claude Code; `PROVENANCE.md`, Part 3, still does. One point stays open for good:
+   which agent first proposed the cascade. The `k = 4` commits carry no `Co-Authored-By`
+   line; `PROVENANCE.md`, not the commit metadata, is the record of how that work was done.
 4. **Whether the first version includes the `k = 4` theorem.** Two AI reviews found no gap;
    no human has refereed it.
 5. **Identity on commits.** Done on 2026-11-21: every commit carries the name `Xichen Tang`

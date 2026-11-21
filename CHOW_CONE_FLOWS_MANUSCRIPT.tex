@@ -1245,39 +1245,37 @@ the paper.  The dated record, with its sources, is the file
 \texttt{PROVENANCE.md} of the accompanying repository.  The following is a
 summary.
 
-\emph{Theorem~\ref{thm:intro-k2}.}  Exact computations written with a coding
-assistant (Claude Code, Anthropic) showed that certificates supported on
-peel-two splits exist for every $d\le25$.  The uniform formula of
-Section~\ref{sec:k2}, flow $G(\text{child})$ on the selected moves, was
-proposed by ChatGPT (OpenAI) from a report of those computations.  The proof
-was then written and audited with Claude Code, and its combinatorial core was
-formalized in Lean~4 with the same assistant.
+\emph{Theorem~\ref{thm:intro-k2}.}  Exact computations written with Claude
+Code showed that certificates supported on peel-two splits exist for every
+$d\le25$.  The uniform formula of Section~\ref{sec:k2}, flow
+$G(\text{child})$ on the selected moves, was proposed by ChatGPT from a
+report of those computations.  The proof was then written and audited with
+human, and its combinatorial core was formalized in Lean~4 with the same
+assistant.  Before the formalization, the finished proof was checked twice by the
+verification agent of Rethlas~\cite{Rethlas}, which was given the statement,
+the proof and Cheng and Lin's paper and nothing else; both runs returned the
+verdict ``correct''.
 
-\emph{Theorem~\ref{thm:intro-k4}.}  On 28~August 2026 the author asked how to
-continue the search for a proof.  ChatGPT drafted a passage of instructions
+\emph{Theorem~\ref{thm:intro-k4}.}  ChatGPT drafted a passage of instructions
 that named general strategies, among them primitive divergence identities and
 a product-rule lift of the peel-two flow; it contained no formula for a flow.
 The author submitted instructions containing this passage to the Codex
-command-line tool (OpenAI).  The signed flow~\eqref{eq:signed-flow}, the path
+command-line tool.  The signed flow~\eqref{eq:signed-flow}, the path
 squares and the final-right cascade of Section~\ref{sec:rerouting}, the
 collision bounds of Section~\ref{sec:nonnegative} and the first version of the
 proof were derived by the agents of that Codex session.  The surviving
 records do not determine which agent first proposed the cascade.
 
 \emph{Section~\ref{sec:finite-all-k}.}  The functions $\tau_m$ and the
-computation were proposed, programmed and run with Claude Code in November
-2026.
+computation were proposed, programmed and run with Claude Code.
 
 \emph{Text.}  The first version of this manuscript was drafted by the Codex
-agent, and its abstract and introduction were revised with it.
-Section~\ref{sec:finite-all-k} and the reproducibility paragraph of
-Section~\ref{sec:dependencies} were drafted with Claude Code.
+agent, and its abstract and introduction were revised with it by human.
 
 \emph{Review.}  The proof of Theorem~\ref{thm:intro-k4} was audited with
-Claude (Anthropic) on 20~November 2026.  On 21~November a review pack was
-produced in a separate OpenAI Codex session (ChatGPT Work Mode; the model
-version was not verified).  It is independent in the sense that its checking
-program was implemented separately and that the two sets of witnesses for
+Claude.  A review pack was produced in a separate Codex session.  It is
+independent in the sense that its verification program was implemented
+separately and that the two sets of witnesses for
 Section~\ref{sec:finite-all-k} were verified against each other's checker.
 Neither review found a gap, and the construction was checked by exact
 computation for $d\le20$.  The proof has not been refereed by a person other
@@ -1316,6 +1314,13 @@ G. B\'erczi, B. Coron, C. Eur, and S. Li,
 log-concave},
 arXiv:2610.17135v1 [math.CO], 12 October 2026,
 \url{https://arxiv.org/abs/2610.17135v1}.
+
+\bibitem{Rethlas}
+H. Ju, G. Gao, J. Jiang, B. Wu, Z. Sun, S. Liu, L. Chen, Y. Wang, Y. Wang,
+Z. Wang, W. He, P. Wu, L. Xiao, R. Liu, B. Dai, and B. Dong,
+\emph{Automated conjecture resolution with formal verification},
+arXiv:2604.03789v2 [cs.LG], 30 May 2026,
+\url{https://arxiv.org/abs/2604.03789v2}.
 
 \end{thebibliography}
 

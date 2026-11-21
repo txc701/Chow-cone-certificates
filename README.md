@@ -163,12 +163,14 @@ This work was carried out by Xichen Tang with AI tools, and they contributed sub
 * For the `k = 2` certificate: the problem and coefficients from Cheng and Lin, the peel-2
   pattern from this repository's computations, the uniform candidate from a ChatGPT
   conversation, and the audit, proof and Lean development from this repository, written with
-  Claude Code. Several commits carry `Co-Authored-By` lines for that reason.
+  Claude Code. Several commits carry `Co-Authored-By` lines for that reason. The finished
+  proof was also checked, without access to this repository, by the verification agent of
+  Rethlas.
 * For the `k = 4` certificate: the author's prompt named the method families, in a passage
-  drafted by ChatGPT, and contained no formula for a flow. The signed identity and the rerouting that removes its negative terms were both
-  derived by agents of OpenAI's Codex command-line tool in one session on 28 August 2026,
-  which also wrote the proof text. Which of the agents proposed the rerouting first cannot be
-  read from the surviving logs.
+  drafted by ChatGPT, and contained no formula for a flow. The signed identity and the
+  rerouting that removes its negative terms were both derived by agents of OpenAI's Codex
+  command-line tool in one session on 28 August 2026, which also wrote the proof text. Which
+  of the agents proposed the rerouting first cannot be read from the surviving logs.
 
 The checks performed on the `k = 4` proof are AI audits and exact computations, described in
 `RELEASE_CHECKS.md`; they are not a substitute for a referee.
