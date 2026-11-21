@@ -31,10 +31,11 @@ were re-parented onto it. Nothing had been published.
 
 Second correction, 2026-11-21. Until that day the content scan below had covered the current
 files only. A scan of every commit found that two release documents written in November 2026
-had, in their earlier versions, contained an e-mail address of the author, a local user name
-and a placeholder text that was not in English: `RELEASE_CHECKS.md` in six commits and
-`README-RELEASE-DRAFT.md` in five. In those commits the two files were replaced by versions
-without these strings; five lines changed in all. Nothing else in those commits changed,
+had, in their earlier versions, contained an e-mail address of the author, a local user
+name, the name of a local directory and a placeholder text that was not in English:
+`RELEASE_CHECKS.md` in six commits and `README-RELEASE-DRAFT.md` in five. In those commits
+the two files were replaced by versions without these strings; six lines changed in all,
+in two passes, the second after a wider search. Nothing else in those commits changed,
 their authors, dates and messages are as before, and the commits of August and September
 were not touched. Nothing had been published.
 
@@ -258,11 +259,12 @@ test files were swept by pattern, not read.
 ## Content scan (2026-11-19; every commit scanned 2026-11-21)
 
 * 2026-11-21, after the corrections recorded under "History": the files of every commit on
-  the branches and every commit message were searched for e-mail addresses, host names, local
-  paths and user names, credentials, and text not in English. The only matches are a sentence
-  that names `/Users/...` as an example of what to look for, and the `noreply` addresses in
-  the commit fields and in `Co-Authored-By` lines. All 288 distinct paths in the history are
-  text files; the largest is 10.8 MB.
+  the branches and every commit message were searched for e-mail addresses, host names,
+  local paths (absolute, or relative to a home directory), machine and user names,
+  credentials, and text not in English. The only matches are a sentence that names
+  `/Users/...` as an example of what to look for, and the `noreply` addresses in the commit
+  fields and in `Co-Authored-By` lines. All 288 distinct paths in the history are text
+  files; the largest is 10.8 MB.
 * The author's name was written in two forms in the original commit fields. On 2026-11-21
   it was unified as `Xichen Tang` at the author's request; the files, dates, e-mail fields
   and messages of every commit were verified unchanged.
