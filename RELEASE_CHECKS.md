@@ -244,7 +244,9 @@ proof body repeats `PROOF_CONJECTURE_3_30.md` and was not re-read line by line. 
 test files were swept by pattern, not read.
 
 * No credentials, personal data, absolute paths or non-English text in tracked files. AI
-  tools are named only in `README.md`, `PROVENANCE.md` and this file.
+  tools are named only in `README.md`, `PROVENANCE.md` and this file. (This describes the
+  files at the time of the reading. The manuscript now has a section "Use of AI tools"
+  and, in its author block, the author's address and e-mail.)
 * Dated status sentences, references to the removed PDF and private commit hashes are
   explained in `README.md` ("How to read the dated notes") and `COMMIT_MAP.md`. The notes
   themselves were left as written.
@@ -252,8 +254,8 @@ test files were swept by pattern, not read.
   `G_split_nonfinal`, `G_split_final_left`, `G_split_final_right`, `div`, `div_eq_w`,
   `div_eq_w_all`. The Lean sources have `G_splitAt_nonfinal`, `G_splitAt_final_left`,
   `G_splitAt_final_right`, `flowDiv`, `flowDiv_eq_w`, `flowDiv_eq_w_all`. The section
-  "Verification requirements" of the same file uses the correct names. A patch was proposed
-  to the author; it is **not applied** here.
+  "Verification requirements" of the same file uses the correct names. The six names were
+  corrected at the release of `v1.0`; nothing else in that file changed.
 * Informal wording such as "kill test", "by mandate" and "FULL MATROID THEOREM" was left
   unchanged.
 
@@ -294,8 +296,44 @@ At the head of `functional-scan`, before this note was added:
   `Classical.choice` and `Quot.sound` for each of the nine theorems.
 * `latexmk` builds the manuscript: 16 pages, no undefined reference, no overfull box.
 
+## Release `v1.0` (2026-11-21)
+
+**Literature.** On 2026-11-21 a search was made for work that proves or refutes Cheng–Lin's
+Conjecture 3.30 or any case of their Conjecture 3.14.
+
+* Cheng and Lin's paper is still at version 3 on arXiv (29 April 2026), with no journal
+  reference.
+* arXiv abstracts that contain "Chow polynomial" or "Chow polynomials": 25 papers in all, 11
+  of them since March 2026, and one more found through "matroid", "Eulerian" and "Chow". None
+  mentions central moments, the variance or the two conjectures in its abstract; only Cheng
+  and Lin's own abstract does.
+* The full text of the six closest papers (arXiv:2610.17135, 2607.05835, 2606.22650,
+  2610.33037, 2609.05131, 2604.04550) was searched for "moment", "variance", "Cheng" and the
+  two conjecture numbers. None discusses the moment inequalities.
+* Three web searches found no follow-up. A citation index (Semantic Scholar) listed no citing
+  paper; that shows only that its coverage is incomplete, since arXiv:2606.22650 cites Cheng
+  and Lin.
+
+Nothing was found. This is a search, not a proof of priority. Google Scholar, MathSciNet and
+zbMATH were not consulted.
+
+**Run on the tree of the release commit**, before it was committed:
+
+* `python3 -m pytest tests/`: 509 passed, 0 failed.
+* The functional scan and its verifier, run again: 120 witnesses, 0 problems, no change under
+  `results/`, and both digests equal to those printed in the manuscript.
+* `lake build` in `lean/`: no error, seven warnings. This was a cache replay; the Lean sources
+  are unchanged since they were compiled from source on 2026-11-19. The axiom report equals
+  `lean/AxiomCheck.txt`: nine theorems on `propext`, `Classical.choice` and `Quot.sound`.
+* The manuscript builds to 16 pages with no undefined reference and no overfull box.
+
+**Closing changes.** The pre-release note of `README.md` and the file of open items were
+removed. Six stale declaration names in `LEAN_CORRESPONDENCE.md` were corrected (see "Reading
+of the notes"). The manuscript is the author's final copy, plus the address of the
+repository in Section 12.
+
 ## Not checked
 
-* Priority, beyond an arXiv keyword search and one web search on 2026-11-19.
+* Priority, beyond the searches recorded under "Release `v1.0`".
 * A clean download of Mathlib on a second machine (about 7 GB; deliberately not done).
-* The `k = 4` proof by a human or a proof assistant.
+* The `k = 4` proof by a proof assistant, or by a person other than the author.

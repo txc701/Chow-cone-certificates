@@ -22,7 +22,7 @@ formalized.
 * **Scalars in ℚ.** All quantities ($G$, $w$, $\rho$, flows) are rationals
   defined by the *verbatim* formulas with casts; no integrality claims are
   needed anywhere in the frozen proof, and none are asserted.
-* **Divergence.** `div c := outSum c − inSum c` with
+* **Divergence.** `flowDiv c := outSum c − inSum c` with
   `outSum c = Σ_{i<r} Σ_{p ∈ Icc 1 (c_i−1)} F c i p` (all admissible
   splits; Draft §2 notes offsets `p = c_r − 1` at the final block do not
   correspond to Boolean edges — `F` vanishes there definitionally, since
@@ -53,14 +53,14 @@ formalized.
 | `Flow.lean : splitAt, mergeAt` | Draft §2 dictionary | block surgery on lists |
 | `Flow.lean : indN, indFL, indFR, F` | Draft Def. 4 | selected-move indicators; `F = (indN+indFL+indFR)·G(child)` |
 | `Flow.lean : F_nonneg` | Draft Def. 4, $f\ge0$ | `0 ≤ F c i p` |
-| `Flow.lean : outSum, inSum, div` | Draft §3 divergence | as above |
-| `Ratios.lean : G_split_nonfinal` | Draft Lemma 5 (N) | `G(splitAt c i 2) = rho c_i * G c` for nonfinal `c_i ≥ 4` |
-| `Ratios.lean : G_split_final_left` | Draft Lemma 5 (FL) | `G(...) = (c_i−2)(c_i−3)/2 * G c` final |
-| `Ratios.lean : G_split_final_right` | Draft Lemma 5 (FR) | `G(...) = (c_i−3) * G c` final |
+| `Flow.lean : outSum, inSum, flowDiv` | Draft §3 divergence | as above |
+| `Ratios.lean : G_splitAt_nonfinal` | Draft Lemma 5 (N) | `G(splitAt c i 2) = rho c_i * G c` for nonfinal `c_i ≥ 4` |
+| `Ratios.lean : G_splitAt_final_left` | Draft Lemma 5 (FL) | `G(...) = (c_i−2)(c_i−3)/2 * G c` final |
+| `Ratios.lean : G_splitAt_final_right` | Draft Lemma 5 (FR) | `G(...) = (c_i−3) * G c` final |
 | `Divergence.lean : outSum_eq` | Draft Cor. 6 | `outSum c = G c * Σ_{c_i≥4} rho c_i` |
 | `Divergence.lean : inSum_eq` | Draft Lemma 7 | `inSum c = G c * #{i : c_i = 2}` (terminal-(2,2) multiplicity definitional, see above) |
-| `Divergence.lean : div_eq_w` | Draft Thm 1 (§7), main identity | `Supp c → 3 ≤ c.sum → div c = w c` |
-| `Divergence.lean : div_eq_w_all` | Draft §7 non-support nodes | `3 ≤ c.sum → div c = w c` for ALL compositions (parts ≥ 1) |
+| `Divergence.lean : flowDiv_eq_w` | Draft Thm 1 (§7), main identity | `Supp c → 3 ≤ c.sum → flowDiv c = w c` |
+| `Divergence.lean : flowDiv_eq_w_all` | Draft §7 non-support nodes | `(∀ m ∈ c, 1 ≤ m) → 3 ≤ c.sum → flowDiv c = w c` for ALL compositions (parts ≥ 1) |
 | `Main.lean : splitAt_valid_of_pos, splitAt_inversion` | Draft Lemma 7 (aliasing + completeness) | degenerate splits cannot match a composition; a valid split landing on `c` forces parent `mergeAt c i`, offset `c_i` |
 | `Main.lean : fEdge, fEdge_nonneg` | Draft Def. 4 edge flow | vertex-pair flow on the Fintype `Composition n` |
 | `Main.lean : sum_fEdge_out / sum_fEdge_in` | Draft §3/§6 + Lemma 7 completeness | Σ over ALL children/parents equals `outSum`/`inSum` |

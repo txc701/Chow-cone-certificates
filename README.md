@@ -1,7 +1,8 @@
 # Nonnegative flows for Chow-polynomial moments of matroids
 
-> **Pre-release state.** This README describes the intended first public release (`v1.0`).
-> Nothing has been published or tagged yet. The open items are listed in `RELEASE_TODO.md`.
+> **Release `v1.0`, 21 November 2026.** The paper is `CHOW_CONE_FLOWS_MANUSCRIPT.tex`
+> (Xichen Tang, *Nonnegative flows for Chow-polynomial moments of matroids*). It refers to
+> this repository at the tag `v1.0`. Its arXiv identifier will be added here once it exists.
 
 This repository studies the probability distribution defined by the Chow polynomial of a
 loopless matroid, following R. Cheng and W. Lin, *Inequalities for Chow polynomials and Chern
@@ -16,7 +17,7 @@ the flag inequality is a nonnegative linear combination of their monotonicity in
 | | Statement | Where | Verification |
 |---|---|---|---|
 | 1 | **Conjecture 3.30 for every `d >= 1`**, by an explicit flow `f = G(child)` on "peel-2" cover edges | `PROOF_CONJECTURE_3_30.md`, manuscript §4 | Symbolic proof. Its combinatorial core is machine-checked in Lean 4 (`lean/`), with Cheng–Lin Lemma 3.29 as an explicit hypothesis. |
-| 2 | **The case `k = 4` of Conjecture 3.14**: the fourth central moment is at most the Boolean one, with a flag-level certificate of peel width at most 3 | `PROOF_K4_FOURTH_MOMENT.md`, `K4_MATROID_BRIDGE.md`, manuscript §§5–9 | Symbolic proof. The tests here check the construction exactly for small `d`. An AI audit in a fresh session and two separately written checking programs, none of them part of this repository, found no gap up to `d = 20` (`RELEASE_CHECKS.md`). **Not formalized. No human referee has read it.** |
+| 2 | **The case `k = 4` of Conjecture 3.14**: the fourth central moment is at most the Boolean one, with a flag-level certificate of peel width at most 3 | `PROOF_K4_FOURTH_MOMENT.md`, `K4_MATROID_BRIDGE.md`, manuscript §§5–9 | Symbolic proof. The tests here check the construction exactly for small `d`. An AI audit in a fresh session and two separately written checking programs, none of them part of this repository, found no gap up to `d = 20` (`RELEASE_CHECKS.md`). **Not formalized. It has not been refereed by anyone other than the author.** |
 | 3 | **Conjecture 3.14 for every `k`, for matroids of rank 2 to 21** | `FUNCTIONAL_SCAN.md`, manuscript §11 | Exact computation: 100 instances, each with an explicit witness that is checked without a solver, cross-checked against an independently written implementation. Finite; it proves nothing for larger rank. |
 | 4 | The absolute deviation `E|X_M - d/2|` has **no** certificate of this kind for `4 <= d <= 20` | same | Exact computation with explicit witnesses. This is a limit of the method. It is **not** a matroid counterexample. |
 | 5 | The exact computations and failed searches behind 1 and 2 | `src/`, `results/`, `tests/`, `RESEARCH_NOTES.md`, `K4_*.md` | Exact integer or rational arithmetic throughout. |
@@ -49,7 +50,8 @@ the prose proof is in `LEAN_CORRESPONDENCE.md`. The `k = 4` proof is not formali
 
 ## What is not established
 
-* The `k = 4` theorem has no formal proof and no human referee.
+* The `k = 4` theorem has no formal proof and has not been refereed by anyone other than the
+  author.
 * Conjecture 3.14 for `k` other than 2 and 4 is open beyond rank 21.
 * Whether `E|X_M - d/2| <= E|X_d - d/2|` holds for matroids is not addressed.
 * The description of the tight principal ideals as staircases (`RESEARCH_NOTES.md` §8) is
@@ -105,7 +107,8 @@ What was run, when, and with which result is recorded in `RELEASE_CHECKS.md`.
 * `tests/` — the test suite.
 * `PROVENANCE.md` — who or what proposed each certificate: the `k = 2` candidate and its
   audit, and the two steps of the `k = 4` construction.
-* `RELEASE_CHECKS.md`, `COMMIT_MAP.md`, `RELEASE_TODO.md` — release records.
+* `RELEASE_CHECKS.md`, `COMMIT_MAP.md` — release records.
+* `LICENSE`, `LICENSE-CC-BY-4.0` — the two licences; see "Licences" below.
 
 ## How to read the dated notes
 
@@ -119,7 +122,8 @@ What was run, when, and with which result is recorded in `RELEASE_CHECKS.md`.
 * **"External human review is warranted before public claims"** appears in
   `PROOF_CONJECTURE_3_30.md` and `RESEARCH_NOTES.md`. No external human review has taken
   place. Since those lines were written the `k = 2` core has been checked in Lean; the `k = 4`
-  proof has not been checked by a human or a proof assistant, as stated above.
+  proof has been checked neither by a proof assistant nor by a person other than the author,
+  as stated above.
 * **Commit hashes are those of the private repository.** `COMMIT_MAP.md` translates them.
   One test, `test_no_floating_point_in_sources`, is reported as failing in several `K4_*.md`
   notes; `RELEASE_CHECKS.md` explains how it was resolved without changing the pinned source.
@@ -163,9 +167,9 @@ This work was carried out by Xichen Tang with AI tools, and they contributed sub
 * For the `k = 2` certificate: the problem and coefficients from Cheng and Lin, the peel-2
   pattern from this repository's computations, the uniform candidate from a ChatGPT
   conversation, and the audit, proof and Lean development from this repository, written with
-  Claude Code. Several commits carry `Co-Authored-By` lines for that reason. The finished
-  proof was also checked, without access to this repository, by the verification agent of
-  Rethlas.
+  Claude Code. Several commits carry `Co-Authored-By` lines for that reason. The author
+  states that the author audited the proof. The finished proof was also checked, without
+  access to this repository, by the verification agent of Rethlas.
 * For the `k = 4` certificate: the author's prompt named the method families, in a passage
   drafted by ChatGPT, and contained no formula for a flow. The signed identity and the
   rerouting that removes its negative terms were both derived by agents of OpenAI's Codex
