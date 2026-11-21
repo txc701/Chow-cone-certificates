@@ -80,18 +80,58 @@ All statements about matroids are conditional on Cheng-Lin's flag expansion
 
 ## Files and independent checking
 
-    python3 src/run_functional_scan.py [DMAX] [DWIDTH] [DFLOW]   # defaults 20 16 10
-    python3 src/verify_functional_scan.py [DBRUTE]               # default 8; exit status 1 on any problem
+    python3 src/run_functional_scan.py [DMAX] [DWIDTH] [DFLOW] [--witnesses FILE]   # defaults 20 16 10
+    python3 src/verify_functional_scan.py [DBRUTE] [--witnesses FILE]               # default 8; exit status 1 on any problem
     python3 -m pytest tests/test_functional_scan.py
+
+Committed results (deterministic; SHA-256 in `RELEASE_CHECKS.md`):
 
 * `results/functional_scan/summary.json`: verdicts, deficits, minimal peel widths.
 * `results/functional_scan/flows.json`: one explicit flow per feasible case with `d <= 10`
-  (153 flows). `check_flow` re-verifies each without any max-flow code.
+  (153 flows, all functionals). `check_flow` re-verifies each without any max-flow code.
 * `results/functional_scan/cuts.json`: for each of the 22 infeasible cases, generators of a
   descendant-closed set whose complement is an ancestor-closed set of negative weight.
   `check_cut` re-verifies each without any max-flow code.
 * For `d <= 8` the verifier compares all 120 verdicts with a brute-force minimum over every
   ancestor-closed set.
 
-For `11 <= d <= 20` the feasible verdicts rest on the max-flow value alone (flows are not
-stored, to keep the repository small); rerun the driver with a larger `DFLOW` to store them.
+### Witnesses for all 100 instances of the finite verification
+
+The finite theorem rests on 100 instances: the tail generators `tail_m` for
+`2 <= d <= 20` (at `d = 1` there is no interior point, hence no generator and nothing to
+check). To regenerate an explicit witness for each of them, and for the absolute deviation
+at every `1 <= d <= 20`:
+
+    python3 src/run_functional_scan.py 20 16 10 --witnesses results/functional_scan/witnesses.jsonl.gz
+    python3 src/verify_functional_scan.py 8 --witnesses results/functional_scan/witnesses.jsonl.gz
+
+The archive (about 2.6 MB, 120 lines) is not committed; it is reproducible byte for byte and
+its SHA-256 is recorded in `RELEASE_CHECKS.md`. The format is documented at the end of
+`src/functional_scan.py`.
+
+What counts as a witness:
+
+* **Feasible case.** A list of strictly positive integer amounts on cover edges whose
+  divergence (outflow minus inflow) equals the target weight at every support composition.
+  Checking this needs only the weights, not a solver.
+* **Infeasible case.** An ancestor-closed set of support compositions with negative total
+  weight. Its outflow would have to equal that negative sum, which is impossible for a
+  nonnegative flow.
+
+Expected verdict: 100 tail flows, 3 absolute-deviation flows (`d = 1, 2, 3`) and 17
+absolute-deviation cuts (`d = 4, ..., 20`).
+
+### Cross-check against an independently written implementation
+
+A separate review produced its own implementation from the definitions: its own enumeration
+of compositions, flag polynomials by prefix sums, Eulerian numbers by a different
+recurrence, and a push-relabel solver in C++ with arbitrary-precision integers. It shares no
+code with this repository and uses the same witness format. Both directions were run:
+
+* its verifier accepts all 120 witnesses produced here;
+* `verify_functional_scan.py --witnesses` accepts all 120 of its witnesses.
+
+The two sets agree on every verdict and differ as flows in 76 of the 120 cases, so the
+agreement is between different certificates of the same statements, not between copies.
+That implementation is distributed separately from this repository; see
+`RELEASE_CHECKS.md` for its checksum.

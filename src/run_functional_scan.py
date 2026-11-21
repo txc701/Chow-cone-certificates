@@ -1,23 +1,30 @@
 """Driver for the functional scan.
 
-Usage:  python3 src/run_functional_scan.py [DMAX] [DWIDTH] [DFLOW]
+Usage:  python3 src/run_functional_scan.py [DMAX] [DWIDTH] [DFLOW] [--witnesses FILE]
         (defaults 20 16 10)
 Writes: results/functional_scan/summary.json   verdicts for 1 <= d <= DMAX
         results/functional_scan/cuts.json      an infeasibility certificate
                                                for every infeasible case
         results/functional_scan/flows.json     a flow certificate for every
                                                feasible case with d <= DFLOW
-Output is deterministic.  Check it with src/verify_functional_scan.py.
+With --witnesses FILE it also writes one compact witness per case for the tail
+generators and the absolute deviation, 1 <= d <= DMAX (gzip, one JSON object per
+line; format described in functional_scan.py).  For DMAX = 20 these are the 100
+instances of the finite verification plus 20 absolute-deviation cases.
+Output is deterministic, byte for byte.  Check it with
+src/verify_functional_scan.py [--witnesses FILE].
 """
 
+import gzip
 import json
 import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from functional_scan import (Level, exp_phi, moment_phi, shell_phi,  # noqa: E402
-                             shell_values, tail_decomposition, tail_phi)
+from functional_scan import (Level, check_witness, exp_phi,  # noqa: E402
+                             make_witness, moment_phi, shell_phi, shell_values,
+                             tail_decomposition, tail_phi, witness_cases)
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results",
                    "functional_scan")
@@ -38,10 +45,17 @@ def functionals(d: int):
 
 
 def main() -> None:
-    dmax = int(sys.argv[1]) if len(sys.argv) > 1 else 20
-    dwidth = int(sys.argv[2]) if len(sys.argv) > 2 else 16
-    dflow = int(sys.argv[3]) if len(sys.argv) > 3 else 10
+    args = sys.argv[1:]
+    witness_path = None
+    if "--witnesses" in args:
+        k = args.index("--witnesses")
+        witness_path = args[k + 1]
+        del args[k:k + 2]
+    dmax = int(args[0]) if len(args) > 0 else 20
+    dwidth = int(args[1]) if len(args) > 1 else 16
+    dflow = int(args[2]) if len(args) > 2 else 10
     os.makedirs(OUT, exist_ok=True)
+    witness_lines = []
     summary = {"d_range": [1, dmax], "width_d_range": [1, dwidth],
                "flow_d_range": [1, dflow], "moments": list(MOMENTS),
                "levels": {}, "min_peel_width": {}}
@@ -67,6 +81,12 @@ def main() -> None:
         row["tail_decomposition_ok"] = all(
             tail_decomposition(moment_phi(d, k)) is not None for k in range(2, 42, 2))
         summary["levels"][str(d)] = row
+        if witness_path is not None:
+            for dd, kind, m in witness_cases(d):
+                if dd == d:
+                    rec = make_witness(level, kind, m)
+                    assert check_witness(level, rec) == ""
+                    witness_lines.append(json.dumps(rec, separators=(",", ":"), sort_keys=True))
         print("d=%2d nodes=%6d infeasible=%s" % (d, len(level.comps),
                                                  sorted(row["infeasible"])), flush=True)
     for k in WIDTH_MOMENTS:
@@ -84,6 +104,14 @@ def main() -> None:
         with open(os.path.join(OUT, name), "w") as f:
             json.dump(obj, f, indent=1, sort_keys=True)
             f.write("\n")
+    if witness_path is not None:
+        # fixed mtime and empty embedded name: the archive is reproducible byte for byte
+        with open(witness_path, "wb") as raw:
+            with gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0,
+                               compresslevel=6) as gz:
+                for line in witness_lines:
+                    gz.write((line + "\n").encode("ascii"))
+        print("wrote %d witnesses to %s" % (len(witness_lines), witness_path))
 
 
 if __name__ == "__main__":

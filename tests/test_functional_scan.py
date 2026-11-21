@@ -157,6 +157,63 @@ def test_certificate_checkers_reject_corrupted_certificates():
     assert not fs.check_cut(lv, w, lv.solve(w0, want="certificate")["cut_generators"])
 
 
+def test_witness_numbering_follows_the_documented_convention():
+    lv = fs.Level(4)
+    order, vid, edges = fs.witness_index(lv)
+    assert order == [(6,), (2, 4), (3, 3), (4, 2), (2, 2, 2)]
+    assert [fs.comp_mask(c) for c in order] == [0, 2, 4, 8, 10]
+    assert edges == [(0, 1), (0, 2), (0, 3), (3, 4), (1, 4)]
+    # every edge is a legal split, and every legal split is listed once
+    for d in range(1, 11):
+        lv = fs.Level(d)
+        order, vid, edges = fs.witness_index(lv)
+        legal = sorted((vid[c], vid[child]) for c, i, p, child in lv.edges())
+        assert sorted(edges) == legal and len(set(edges)) == len(edges)
+
+
+def test_absolute_deviation_functional_is_the_central_shell_up_to_scaling():
+    for d in range(2, 13):
+        lv = fs.Level(d)
+        w_abs = lv.weights(fs.abs_phi(d))
+        w_shell = lv.weights(fs.shell_phi(d, d % 2))
+        factor = 4 if d % 2 == 0 else 2
+        assert all(w_abs[c] == factor * w_shell[c] for c in lv.comps)
+    assert all(v == 0 for v in fs.Level(1).weights(fs.abs_phi(1)).values())
+
+
+@pytest.mark.parametrize("d", range(1, 11))
+def test_witness_records_verify_and_tampered_records_are_rejected(d):
+    lv = fs.Level(d)
+    cases = [(kind, m) for dd, kind, m in fs.witness_cases(d) if dd == d]
+    assert cases == [("tail", m) for m in fs.shell_values(d)] + [("abs", 0)]
+    for kind, m in cases:
+        rec = fs.make_witness(lv, kind, m)
+        assert fs.check_witness(lv, rec) == ""
+        assert ("flow" in rec) == (kind == "tail" or d < 4)
+        if rec.get("flow"):
+            bad = json.loads(json.dumps(rec))
+            bad["flow"][0][1] += 1
+            assert fs.check_witness(lv, bad) == "incorrect vertex divergence"
+            bad = json.loads(json.dumps(rec))
+            bad["flow"][0][1] = 0
+            assert fs.check_witness(lv, bad) == "invalid edge number, order or amount"
+        if "cut" in rec:
+            assert rec["cut"][0] == 0                   # an ancestor-closed set contains the root
+            assert fs.check_witness(lv, dict(rec, cut=[])) == "cut weight is not negative"
+            if len(rec["cut"]) > 1:
+                assert (fs.check_witness(lv, dict(rec, cut=rec["cut"][1:]))
+                        == "cut is not closed under ancestors")
+        assert fs.check_witness(lv, dict(rec, m=m + 1)) == "unknown case"
+        assert fs.check_witness(lv, dict(rec, d=d + 1)) == "unknown case"
+
+
+def test_there_are_exactly_100_tail_instances_for_d_up_to_20():
+    cases = fs.witness_cases(20)
+    assert sum(1 for c in cases if c[1] == "tail") == 100
+    assert sum(1 for c in cases if c[1] == "abs") == 20
+    assert not any(c[1] == "tail" and c[0] == 1 for c in cases)   # no interior point at d = 1
+
+
 def test_saved_results_are_complete_and_pass_the_independent_verifier():
     summary = json.load(open(os.path.join(RES, "summary.json")))
     assert summary["d_range"] == [1, 20]

@@ -100,6 +100,11 @@ def exp_phi(d: int, x: int) -> list[int]:
     return [x ** p + x ** (d - p) for p in range(d + 1)]
 
 
+def abs_phi(d: int) -> list[int]:
+    """|2p - d|, twice the absolute deviation from the common mean d/2."""
+    return [abs(2 * p - d) for p in range(d + 1)]
+
+
 def second_difference(phi: list[int]) -> list[int]:
     d = len(phi) - 1
     return [0] + [phi[a + 1] - 2 * phi[a] + phi[a - 1] for a in range(1, d)] + [0]
@@ -248,10 +253,9 @@ def check_flow(level: Level, weights, scale: int, flow, width: int | None = None
     return all(div[c] * scale == weights[c] for c in level.comps)
 
 
-def check_cut(level: Level, weights, generators, width: int | None = None) -> bool:
-    """An infeasibility certificate: D = complement of the descendant closure
-    of `generators` is ancestor-closed by construction, and its weight sum is
-    negative.  Uses no max-flow code."""
+def descendant_closure(level: Level, generators, width: int | None = None):
+    """All support compositions reachable from `generators` by splits, or None
+    if a generator is not a support composition."""
     children = {c: [] for c in level.comps}
     for c, i, p, child in level.edges(width):
         children[c].append(child)
@@ -262,9 +266,19 @@ def check_cut(level: Level, weights, generators, width: int | None = None) -> bo
         if c in seen:
             continue
         if c not in children:
-            return False
+            return None
         seen.add(c)
         stack.extend(children[c])
+    return seen
+
+
+def check_cut(level: Level, weights, generators, width: int | None = None) -> bool:
+    """An infeasibility certificate: D = complement of the descendant closure
+    of `generators` is ancestor-closed by construction, and its weight sum is
+    negative.  Uses no max-flow code."""
+    seen = descendant_closure(level, generators, width)
+    if seen is None:
+        return False
     return sum(weights[c] for c in level.comps if c not in seen) < 0
 
 
@@ -297,3 +311,117 @@ def min_ideal_sum(level: Level, weights) -> tuple[int, int]:
 
     rec(0, 0)
     return best[0], count[0]
+
+
+# ------------------------------------------------------------ compact witnesses
+#
+# One JSON object per case, for the 100 tail generators and the absolute
+# deviation, 1 <= d <= 20:
+#   {"d": d, "kind": "tail" | "abs", "m": m, "flow": [[edge, amount], ...]}
+#   {"d": d, "kind": "abs", "m": 0, "cut": [vertex, ...]}
+# Vertices are the support compositions sorted by the bit mask of their proper
+# prefix sums (prefix sum j <-> bit j-1).  Edges point from the coarser to the
+# finer composition and are numbered by the finer vertex, then by the position
+# of the removed cut, ascending.  The target is the weight divided by the gcd of
+# its entries, so it does not depend on positive rescaling of the functional.
+# A flow lists strictly positive integer amounts on increasing edge numbers and
+# must have divergence equal to the target at every vertex.  A cut lists the
+# vertices of an ancestor-closed set with negative total target.
+
+def comp_mask(c: tuple[int, ...]) -> int:
+    total = mask = 0
+    for n in c[:-1]:
+        total += n
+        mask |= 1 << (total - 1)
+    return mask
+
+
+def witness_index(level: Level):
+    """(vertices in witness order, composition -> vertex number, edge list)."""
+    order = sorted(level.comps, key=comp_mask)
+    vid = {c: k for k, c in enumerate(order)}
+    by_mask = {comp_mask(c): c for c in order}
+    edges = []
+    for v, c in enumerate(order):
+        m = comp_mask(c)
+        bits = m
+        while bits:
+            low = bits & -bits
+            edges.append((vid[by_mask[m ^ low]], v))
+            bits ^= low
+    return order, vid, edges
+
+
+def witness_phi(d: int, kind: str, m: int) -> list[int]:
+    if kind == "tail":
+        return tail_phi(d, m)
+    if kind == "abs" and m == 0:
+        return abs_phi(d)
+    raise ValueError("unknown witness case %r %r" % (kind, m))
+
+
+def witness_cases(dmax: int) -> list[tuple[int, str, int]]:
+    out = []
+    for d in range(1, dmax + 1):
+        out.extend((d, "tail", m) for m in shell_values(d))
+        out.append((d, "abs", 0))
+    return out
+
+
+def witness_target(level: Level, kind: str, m: int, order) -> list[int]:
+    w = level.weights(witness_phi(level.d, kind, m))
+    scale = reduce(gcd, (abs(v) for v in w.values() if v), 0) or 1
+    return [w[c] // scale for c in order]
+
+
+def make_witness(level: Level, kind: str, m: int) -> dict:
+    """Solve one case and return its witness record (a flow or a cut)."""
+    order, vid, edges = witness_index(level)
+    w = level.weights(witness_phi(level.d, kind, m))
+    res = level.solve(w, want="certificate")
+    rec = {"d": level.d, "kind": kind, "m": m}
+    if res["feasible"]:
+        number = {e: k for k, e in enumerate(edges)}
+        rec["flow"] = sorted([number[(vid[tuple(u)], vid[tuple(v)])], x]
+                             for u, v, x in res["flow"])
+    else:
+        inside = descendant_closure(level, res["cut_generators"])
+        rec["cut"] = sorted(vid[c] for c in level.comps if c not in inside)
+    return rec
+
+
+def check_witness(level: Level, record: dict) -> str:
+    """Independent check of one witness record.  Returns "" if it is valid and
+    a short reason otherwise.  Uses no max-flow code."""
+    kind, m = record.get("kind"), record.get("m")
+    known = type(m) is int and ((kind == "abs" and m == 0)
+                                or (kind == "tail" and m in shell_values(level.d)))
+    if record.get("d") != level.d or not known:
+        return "unknown case"
+    order, vid, edges = witness_index(level)
+    target = witness_target(level, kind, m, order)
+    if set(record) == {"d", "kind", "m", "flow"}:
+        div = [0] * len(order)
+        prev = -1
+        for pair in record["flow"]:
+            if type(pair) is not list or len(pair) != 2:
+                return "invalid flow entry"
+            j, x = pair
+            if type(j) is not int or type(x) is not int or not prev < j < len(edges) or x <= 0:
+                return "invalid edge number, order or amount"
+            u, v = edges[j]
+            div[u] += x
+            div[v] -= x
+            prev = j
+        return "" if div == target else "incorrect vertex divergence"
+    if set(record) == {"d", "kind", "m", "cut"}:
+        listed = record["cut"]
+        if any(type(k) is not int or not 0 <= k < len(order) for k in listed):
+            return "invalid cut vertex"
+        cut = set(listed)
+        if len(cut) != len(listed):
+            return "repeated cut vertex"
+        if any(v in cut and u not in cut for u, v in edges):
+            return "cut is not closed under ancestors"
+        return "" if sum(target[k] for k in cut) < 0 else "cut weight is not negative"
+    return "record is neither a flow nor a cut"
