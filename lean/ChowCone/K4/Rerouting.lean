@@ -392,7 +392,7 @@ every support composition of `N`. -/
 theorem divOf_fd (d : ℕ) (hd : 3 ≤ d) (c : List ℕ) (hs : Supp c) (hN : c.sum = d + 2) :
     divOf (fd (d + 2)) c = w4 c := by
   rw [divOf_fd_eq_divOf_f0]
-  exact signed_flow_divergence d hd c hs hN
+  exact divOf_f0 c hs (by omega)
 
 /-! ### The vertices of the squares are support compositions -/
 

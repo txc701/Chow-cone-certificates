@@ -305,10 +305,12 @@ lemma ind_final (s : ℕ) (c : List ℕ) (i p : ℕ) (hs : Supp c)
   ring
 
 /-- Per-block outflow.  The weight `φ` is assumed to take the same value on
-the two children of a final block. -/
+the two children of a final block `m ≥ s + 2`, that is on `(.., s, m-s)` and
+`(.., m-s, s)`. -/
 lemma sum_p_wprim (s : ℕ) (hs1 : 1 ≤ s) (φ : List ℕ → ℚ) (c : List ℕ) (i : ℕ)
     (hs : Supp c) (hi : i < c.length)
-    (hsym : i + 1 = c.length → φ (splitAt c i (c.getD i 0 - s)) = φ (splitAt c i s)) :
+    (hsym : i + 1 = c.length → s + 2 ≤ c.getD i 0 →
+      φ (splitAt c i (c.getD i 0 - s)) = φ (splitAt c i s)) :
     ∑ p ∈ Icc 1 (c.getD i 0 - 1), wprim s φ c i p
       = G c * (if s + 2 ≤ c.getD i 0 then tau s (c.getD i 0) * φ (splitAt c i s) else 0) := by
   by_cases h : s + 2 ≤ c.getD i 0
@@ -350,7 +352,7 @@ lemma sum_p_wprim (s : ℕ) (hs1 : 1 ≤ s) (φ : List ℕ → ℚ) (c : List �
         sum_ite_eq' (Icc 1 (c.getD i 0 - 1)) s (fun _ => φ (splitAt c i s) * G (splitAt c i s)),
         sum_ite_eq' (Icc 1 (c.getD i 0 - 1)) (c.getD i 0 - s)
           (fun _ => φ (splitAt c i (c.getD i 0 - s)) * G (splitAt c i (c.getD i 0 - s))),
-        if_pos hmem, if_pos hmemr, hsym heq,
+        if_pos hmem, if_pos hmemr, hsym heq h,
         G_splitAt_final_left' s c i heq (by omega) (by omega),
         G_splitAt_final_right' s c i heq (by omega) (by omega)]
       field_simp
@@ -359,7 +361,7 @@ lemma sum_p_wprim (s : ℕ) (hs1 : 1 ≤ s) (φ : List ℕ → ℚ) (c : List �
     simp
 
 lemma outSumOf_wprim (s : ℕ) (hs1 : 1 ≤ s) (φ : List ℕ → ℚ) (c : List ℕ) (hs : Supp c)
-    (hsym : ∀ i, i + 1 = c.length →
+    (hsym : ∀ i, i + 1 = c.length → s + 2 ≤ c.getD i 0 →
       φ (splitAt c i (c.getD i 0 - s)) = φ (splitAt c i s)) :
     outSumOf (wprim s φ) c = G c * ∑ i ∈ range c.length,
       (if s + 2 ≤ c.getD i 0 then tau s (c.getD i 0) * φ (splitAt c i s) else 0) := by
@@ -447,10 +449,12 @@ lemma inSumOf_wprim (s : ℕ) (φ : List ℕ → ℚ) (c : List ℕ) (hs : Supp 
       if_pos (mem_range.2 (by omega))]
     conv_rhs => rw [sum_range_succ (fun i => if c.getD i 0 = s then (1 : ℚ) else 0) (k + 1)]
 
-/-- **Divergence of a weighted primitive flow.** -/
+/-- **Divergence of a weighted primitive flow.**  The hypothesis `hsym` says
+that the weight takes the same value on the two children of a final block
+`m ≥ s + 2`. -/
 theorem divOf_wprim (s : ℕ) (hs1 : 1 ≤ s) (φ : List ℕ → ℚ) (c : List ℕ) (hs : Supp c)
     (hne : c ≠ [s])
-    (hsym : ∀ i, i + 1 = c.length →
+    (hsym : ∀ i, i + 1 = c.length → s + 2 ≤ c.getD i 0 →
       φ (splitAt c i (c.getD i 0 - s)) = φ (splitAt c i s)) :
     divOf (wprim s φ) c = G c * ∑ i ∈ range c.length,
       ((if s + 2 ≤ c.getD i 0 then tau s (c.getD i 0) * φ (splitAt c i s) else 0)
@@ -571,7 +575,7 @@ def T4 (c : List ℕ) : ℚ := (c.map tau4).sum
 theorem divOf_prim_two (c : List ℕ) (hs : Supp c) (hne : c ≠ [2]) :
     divOf (prim 2) c = G c * T2 c := by
   unfold prim T2
-  rw [divOf_wprim 2 (by norm_num) _ c hs hne (fun _ _ => rfl), map_sum_eq_range rho c]
+  rw [divOf_wprim 2 (by norm_num) _ c hs hne (fun _ _ _ => rfl), map_sum_eq_range rho c]
   congr 1
   refine sum_congr rfl fun i hi => ?_
   simpa using block_two _ (hs _ (getD_mem c i (mem_range.1 hi)))
@@ -579,7 +583,7 @@ theorem divOf_prim_two (c : List ℕ) (hs : Supp c) (hne : c ≠ [2]) :
 theorem divOf_prim_three (c : List ℕ) (hs : Supp c) (hne : c ≠ [3]) :
     divOf (prim 3) c = G c * T3 c := by
   unfold prim T3
-  rw [divOf_wprim 3 (by norm_num) _ c hs hne (fun _ _ => rfl), map_sum_eq_range tau3 c]
+  rw [divOf_wprim 3 (by norm_num) _ c hs hne (fun _ _ _ => rfl), map_sum_eq_range tau3 c]
   congr 1
   refine sum_congr rfl fun i hi => ?_
   simpa using block_three _ (hs _ (getD_mem c i (mem_range.1 hi)))
@@ -587,7 +591,7 @@ theorem divOf_prim_three (c : List ℕ) (hs : Supp c) (hne : c ≠ [3]) :
 theorem divOf_prim_four (c : List ℕ) (hs : Supp c) (hne : c ≠ [4]) :
     divOf (prim 4) c = G c * T4 c := by
   unfold prim T4
-  rw [divOf_wprim 4 (by norm_num) _ c hs hne (fun _ _ => rfl), map_sum_eq_range tau4 c]
+  rw [divOf_wprim 4 (by norm_num) _ c hs hne (fun _ _ _ => rfl), map_sum_eq_range tau4 c]
   congr 1
   refine sum_congr rfl fun i hi => ?_
   simpa using block_four _ (hs _ (getD_mem c i (mem_range.1 hi)))
@@ -666,9 +670,9 @@ lemma Q2_sub_nine_V (c : List ℕ) : Q2 c - 9 * V c = 8 * T4 c + 18 * T3 c := by
 `div F_{2,V} / G = V(V-N)/2 - 6 T_3 - 2V`. -/
 theorem divOf_F2V (c : List ℕ) (hs : Supp c) (hne : c ≠ [2]) :
     divOf F2V c = G c * (V c * (V c - (c.sum : ℚ)) / 2 - 6 * T3 c - 2 * V c) := by
-  have hsym : ∀ i, i + 1 = c.length →
+  have hsym : ∀ i, i + 1 = c.length → 2 + 2 ≤ c.getD i 0 →
       V (splitAt c i (c.getD i 0 - 2)) = V (splitAt c i 2) := by
-    intro i hi
+    intro i hi _
     have hlt : i < c.length := by omega
     have hm := hs _ (getD_mem c i hlt)
     rw [V_splitAt c i _ hlt, V_splitAt c i 2 hlt,
@@ -776,7 +780,8 @@ theorem divOf_f0_eq (c : List ℕ) :
   ring
 
 /-- **Proposition 6.3 (signed fourth-moment flow).**  At every support
-composition of `N ≥ 5`, `div f_0 = w^{(4)}`. -/
+composition of `N ≥ 5`, that is for `d ≥ 3` and `N = d + 2`,
+`div f_0 = w^{(4)}`. -/
 theorem divOf_f0 (c : List ℕ) (hs : Supp c) (h5 : 5 ≤ c.sum) : divOf f0 c = w4 c := by
   obtain ⟨h2, h3, h4⟩ := primitive_divergences c hs h5
   rw [divOf_f0_eq, divOf_F2V c hs (ne_singleton_of_sum (by omega)), h2, h3, h4]
@@ -784,12 +789,6 @@ theorem divOf_f0 (c : List ℕ) (hs : Supp c) (h5 : 5 ≤ c.sum) : divOf f0 c = 
   have hQ := Q2_sub_nine_V c
   unfold w4 S4
   linear_combination (G c * (30 * (c.sum : ℚ) - 12)) * hT2 + (6 * G c) * hQ
-
-/-- **Proposition 6.3**, in the form of the manuscript: fix `d ≥ 3` and
-`N = d + 2`. -/
-theorem signed_flow_divergence (d : ℕ) (hd : 3 ≤ d) (c : List ℕ) (hs : Supp c)
-    (hN : c.sum = d + 2) : divOf f0 c = w4 c :=
-  divOf_f0 c hs (by omega)
 
 /-! ### Diagnostic values
 

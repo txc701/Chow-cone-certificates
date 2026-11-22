@@ -770,9 +770,9 @@ theorem total_multiplicity (N : ℕ) (Q : List ℕ) (y : ℕ) (hQ : Supp Q) (hy 
   exact (Set.Finite.mem_toFinset _).2 (origin_valid N Q y j hQ hy hN hj)
 
 /-- **Origins and multiplicities of the cascade charges, rows 4–6 of
-Table 1.**  Fix `d ≥ 3` and `N = d + 2`, and the label at `Q.(y+2,2)` with
-`Q` a support composition, `y ≥ 2` and `sum Q + y + 4 = N`.  Let `h` be the
-length of the trailing run of 2s of `Q`.  Then:
+Table 1.**  Fix a size `N` and the label at `Q.(y+2,2)` with `Q` a support
+composition, `y ≥ 2` and `sum Q + y + 4 = N`.  Let `h` be the length of the
+trailing run of 2s of `Q`.  Then:
 
 1. the list of origins has no repetition and `h + 1` entries;
 2. every origin is a source at size `N`;
@@ -782,17 +782,17 @@ length of the trailing run of 2s of `Q`.  Then:
 5. every source charges the label as often as it occurs among the origins;
 6. the total multiplicity over all sources at size `N` is `h + 1`.
 
-The hypothesis `3 ≤ d` is implied by the others (they force `d ≥ 4`); it is
-kept because the manuscript fixes `d ≥ 3`. -/
-theorem cascade_charge_origins (d : ℕ) (_hd : 3 ≤ d) (Q : List ℕ) (y : ℕ)
-    (hQ : Supp Q) (hy : 2 ≤ y) (hN : Q.sum + y + 4 = d + 2) :
+The manuscript fixes `d ≥ 3` and `N = d + 2`.  The hypotheses force `N ≥ 6`,
+that is `d ≥ 4`, so no condition on `d` is stated. -/
+theorem cascade_charge_origins (N : ℕ) (Q : List ℕ) (y : ℕ)
+    (hQ : Supp Q) (hy : 2 ≤ y) (hN : Q.sum + y + 4 = N) :
     ((origins Q y).Nodup ∧ (origins Q y).length = trailingTwos Q + 1) ∧
-    (∀ s ∈ origins Q y, s.Valid (d + 2)) ∧
+    (∀ s ∈ origins Q y, s.Valid N) ∧
     (∀ j, j ≤ trailingTwos Q → (origin Q y j).trace[j]? = some (chargeAt Q y)) ∧
     (∀ (s : Source) (j : ℕ), s.trace[j]? = some (chargeAt Q y) ↔
       j ≤ trailingTwos Q ∧ s = origin Q y j) ∧
     (∀ s : Source, s.trace.count (chargeAt Q y) = (origins Q y).count s) ∧
-    ∑ s ∈ (validSources_finite (d + 2)).toFinset, s.trace.count (chargeAt Q y) =
+    ∑ s ∈ (validSources_finite N).toFinset, s.trace.count (chargeAt Q y) =
       trailingTwos Q + 1 := by
   refine ⟨⟨origins_nodup Q y, origins_length Q y⟩, ?_, ?_, ?_, ?_, ?_⟩
   · intro s hs

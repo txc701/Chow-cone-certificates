@@ -80,7 +80,6 @@ open ChowCone.K4
 #print axioms top_origin_unique
 
 -- The signed flow f_0 and its divergence (SignedFlow).
-#print axioms signed_flow_divergence
 #print axioms divOf_f0
 #print axioms divOf_f0_eq
 #print axioms primitive_divergences
@@ -142,7 +141,6 @@ open ChowCone.K4
 #print axioms chargeFlow_eq_zero
 
 -- Nonnegativity of f_d (Nonnegativity).
-#print axioms uniform_nonnegativity
 #print axioms fd_nonneg
 #print axioms amount_CD
 #print axioms amount_AC_nonfinal
@@ -168,6 +166,11 @@ open ChowCone.K4
 #print axioms fdAll_nonneg
 #print axioms fdAll_used_edge
 #print axioms fd_eq_zero_of_wide
+#print axioms fd_eq_zero_of_not
+#print axioms fdAll_ne_zero_suppEdge
+#print axioms fdAll_ne_zero_supp
+#print axioms outSumOf_fdAll_suppEdges
+#print axioms divOf_fdAll_suppEdges
 #print axioms LAB_add_RAB
 #print axioms fd_apply_cancelled
 #print axioms divOf_f0_all
@@ -179,6 +182,12 @@ open ChowCone.K4
 -- The certificate on the Boolean lattice (Certificate).
 #print axioms fourth_moment_certificate
 #print axioms fourth_moment_coefficient_sum_nonpos
+#print axioms fourth_moment_identity
+#print axioms fourth_moment_identity_on_support
+#print axioms fourth_moment_coefficient_sum_nonpos_on_support
+#print axioms fEdge4_ne_zero_supp
+#print axioms lastPart_ge_two_of_supp
+#print axioms a4d_eq_zero_of_not_supp
 #print axioms fEdge4_nonneg
 #print axioms fEdge4_div
 #print axioms fEdge4_ne_zero_cover

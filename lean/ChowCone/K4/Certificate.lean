@@ -258,31 +258,61 @@ theorem fEdge4_div (d : ℕ) (hd : 1 ≤ d) (v : Composition (d + 2)) :
   rw [fEdgeOf_div]
   exact divOf_fdAll d hd v.blocks (fun m hm => v.blocks_pos hm) v.blocks_sum
 
-/-- Every pair with nonzero flow is a Boolean cover that splits a block as
-`n ↦ (p, n-p)` with `min(p, n-p) ≤ 3`. -/
+/-- Every pair with nonzero flow is a Boolean cover between two support
+compositions: it splits a block as `n ↦ (p, n-p)` with both parts at least 2
+and `min(p, n-p) ≤ 3`. -/
 theorem fEdge4_ne_zero_cover (d : ℕ) (q c : Composition (d + 2)) (h : fEdge4 d q c ≠ 0) :
-    ∃ i p, i < q.blocks.length ∧ 1 ≤ p ∧ p < q.blocks.getD i 0 ∧
+    ∃ i p, i < q.blocks.length ∧ 2 ≤ p ∧ 2 ≤ q.blocks.getD i 0 - p ∧
       splitAt q.blocks i p = c.blocks ∧ (p ≤ 3 ∨ q.blocks.getD i 0 - p ≤ 3) := by
-  obtain ⟨i, p, h1, h2, h3, h4, h5⟩ := fEdgeOf_ne_zero_cover _ q c h
-  exact ⟨i, p, h1, h2, h3, h4, fdAll_used_edge d q.blocks i p q.blocks_sum h5⟩
+  obtain ⟨i, p, h1, -, -, h4, h5⟩ := fEdgeOf_ne_zero_cover _ q c h
+  obtain ⟨-, h6, h7⟩ := fdAll_ne_zero_suppEdge d q.blocks i p q.blocks_sum h5
+  exact ⟨i, p, h1, h6, h7, h4, fdAll_used_edge d q.blocks i p q.blocks_sum h5⟩
 
-/-- **Fourth-moment certificate.**  For every `d ≥ 1` and `N = d + 2`: the
-flow `fEdge4` on the compositions of `N` is nonnegative and has divergence
-`w^{(4)}`.  Consequently, for any `N U : Composition (d+2) → ℚ` with
-`U ≠ 0` that satisfy the monotonicity inequalities along the edges carrying
-flow (supplied for flag numbers by Cheng and Lin's Lemma 3.29, the external
-hypothesis), the sum `Σ (w^{(4)}/U) · N` equals the nonnegative combination
-of monotonicity differences (identity (39)) and is at most zero. -/
+/-- **No edge carrying flow meets a composition off the support.**  The
+vertex type `Composition (d + 2)` also contains compositions with a part
+equal to 1, among them those with final part 1, which are not flag types; a
+pair with nonzero flow consists of two support compositions. -/
+theorem fEdge4_ne_zero_supp (d : ℕ) (q c : Composition (d + 2)) (h : fEdge4 d q c ≠ 0) :
+    Supp q.blocks ∧ Supp c.blocks := by
+  obtain ⟨i, p, -, -, -, hsp, hne⟩ := fEdgeOf_ne_zero_cover _ q c h
+  have := fdAll_ne_zero_supp d q.blocks i p q.blocks_sum hne
+  rw [hsp] at this
+  exact this
+
+/-- **Identity (39), general form.**  For every `d ≥ 1` and any
+`N U : Composition (d+2) → ℚ`, the sum `Σ (w^{(4)}/U) · N` equals the
+combination of the differences `N_v/U_v - N_u/U_u` along the flow.  No
+hypothesis on `N` or `U` is needed. -/
+theorem fourth_moment_identity (d : ℕ) (hd : 1 ≤ d) (N U : Composition (d + 2) → ℚ) :
+    ∑ v : Composition (d + 2), (w4d d v.blocks / U v) * N v
+      = ∑ v : Composition (d + 2), ∑ u : Composition (d + 2),
+          fEdge4 d v u * (N v / U v - N u / U u) := by
+  rw [← flow_identity (fEdge4 d) (fun v => w4d d v.blocks) (fun v => N v / U v)
+    (fEdge4_div d hd)]
+  refine sum_congr rfl fun v _ => ?_
+  ring
+
+/-- **Fourth-moment certificate.**  For every `d ≥ 1` and `N = d + 2`: for
+any `N U : Composition (d+2) → ℚ` that satisfy the monotonicity inequalities
+along the edges carrying flow (supplied for flag numbers by Cheng and Lin's
+Lemma 3.29, the external hypothesis), the sum `Σ (w^{(4)}/U) · N` equals the
+nonnegative combination of monotonicity differences (identity (39)) and is
+at most zero. -/
 theorem fourth_moment_certificate (d : ℕ) (hd : 1 ≤ d)
-    (N U : Composition (d + 2) → ℚ) (hU : ∀ v, U v ≠ 0)
+    (N U : Composition (d + 2) → ℚ)
     (hmono : ∀ q c : Composition (d + 2), fEdge4 d q c ≠ 0 → N q / U q ≤ N c / U c) :
     (∑ v : Composition (d + 2), (w4d d v.blocks / U v) * N v
       = ∑ v : Composition (d + 2), ∑ u : Composition (d + 2),
           fEdge4 d v u * (N v / U v - N u / U u))
-    ∧ ∑ v : Composition (d + 2), (w4d d v.blocks / U v) * N v ≤ 0 :=
-  ⟨conjecture_combination (fEdge4 d) (fun v => w4d d v.blocks) N U (fEdge4_div d hd) hU,
-   conjecture_nonpos (fEdge4 d) (fun v => w4d d v.blocks) N U (fEdge4_div d hd)
-     (fun u v => fEdge4_nonneg d u v) hU hmono⟩
+    ∧ ∑ v : Composition (d + 2), (w4d d v.blocks / U v) * N v ≤ 0 := by
+  refine ⟨fourth_moment_identity d hd N U, ?_⟩
+  have h := flow_nonneg_combination (fEdge4 d) (fun v => w4d d v.blocks)
+    (fun v => N v / U v) (fEdge4_div d hd) (fun u v => fEdge4_nonneg d u v) hmono
+  have he : ∑ v : Composition (d + 2), (w4d d v.blocks / U v) * N v
+      = ∑ v : Composition (d + 2), w4d d v.blocks * (N v / U v) :=
+    sum_congr rfl fun v _ => by ring
+  rw [he]
+  exact h
 
 /-! ### The same statement with the Boolean flag numbers -/
 
@@ -298,24 +328,122 @@ lemma comp_blocks_ne_nil (d : ℕ) (v : Composition (d + 2)) : v.blocks ≠ [] :
   rw [h] at this
   simp at this
 
+lemma U_comp_ne_zero (d : ℕ) (v : Composition (d + 2)) : U v.blocks ≠ 0 :=
+  U_ne_zero v.blocks (fun _ hm => v.blocks_pos hm) (comp_blocks_ne_nil d v)
+
 /-- **The coefficient form.**  With `U` the Boolean flag number
 `U_J = (d+1)! n_r / Π n_i!` and `a^{(4)}` the coefficient (20): if
 `N_J / U_J` is monotone along the edges carrying flow, then
-`Σ_J a_J^{(4)} N_J ≤ 0`. -/
+`Σ_J a_J^{(4)} N_J ≤ 0`.  The sum runs over all compositions of `d + 2`;
+`fourth_moment_coefficient_sum_nonpos_on_support` restricts it to the
+support. -/
 theorem fourth_moment_coefficient_sum_nonpos (d : ℕ) (hd : 1 ≤ d)
     (N : Composition (d + 2) → ℚ)
     (hmono : ∀ q c : Composition (d + 2), fEdge4 d q c ≠ 0 →
       N q / U q.blocks ≤ N c / U c.blocks) :
     ∑ v : Composition (d + 2), a4d d v.blocks * N v ≤ 0 := by
-  have hU : ∀ v : Composition (d + 2), U v.blocks ≠ 0 := fun v =>
-    U_ne_zero v.blocks (fun m hm => v.blocks_pos hm) (comp_blocks_ne_nil d v)
-  have h := (fourth_moment_certificate d hd N (fun v => U v.blocks) hU hmono).2
+  have h := (fourth_moment_certificate d hd N (fun v => U v.blocks) hmono).2
   have he : ∀ v : Composition (d + 2),
       a4d d v.blocks * N v = (w4d d v.blocks / U v.blocks) * N v := by
     intro v
-    rw [w4d_eq_U_mul_a4d, mul_div_cancel_left₀ _ (hU v)]
+    rw [w4d_eq_U_mul_a4d, mul_div_cancel_left₀ _ (U_comp_ne_zero d v)]
   rw [sum_congr rfl fun v _ => he v]
   exact h
+
+/-! ### The statement on the lattice of the manuscript
+
+The manuscript's sums run over the subsets `J ⊆ [d]`, that is over the
+compositions of `d + 2` with final part at least 2, and its coefficients
+vanish off the support.  `Composition (d + 2)` has `2^(d+1)` elements, twice
+as many.  The theorems below restrict both sums of (39) to the support
+compositions, where every term of the manuscript's sums lives, and assume
+monotonicity only between support compositions joined by an edge carrying
+flow: instances of Cheng and Lin's Lemma 3.29 for `J ⊆ J' ⊆ [d]`.  They were
+first proved in a probe of the review of release `v1.1`
+(`RELEASE_CHECKS.md`). -/
+
+/-- A support composition of `d + 2` has final part at least 2: it is the
+flag type `c(J)` of a subset `J ⊆ [d]`. -/
+theorem lastPart_ge_two_of_supp (d : ℕ) (c : Composition (d + 2)) (h : Supp c.blocks) :
+    2 ≤ lastPart c.blocks :=
+  h _ (lastPart_mem c.blocks (comp_blocks_ne_nil d c))
+
+/-- The coefficient `a^{(4)}` vanishes off the support. -/
+lemma a4d_eq_zero_of_not_supp (d : ℕ) (c : List ℕ) (h1 : ∀ m ∈ c, 1 ≤ m) (hs : ¬ Supp c) :
+    a4d d c = 0 := by
+  unfold a4d
+  have hone := one_mem_of_not_supp c h1 hs
+  have hz : (0 : ℚ) ∈ c.map partQ := by
+    rw [List.mem_map]
+    exact ⟨1, hone, by norm_num [partQ]⟩
+  rw [List.prod_eq_zero hz, zero_mul]
+
+/-- The support compositions of `d + 2`. -/
+abbrev suppComps (d : ℕ) : Finset (Composition (d + 2)) :=
+  univ.filter fun v : Composition (d + 2) => Supp v.blocks
+
+lemma sum_a4d_suppComps (d : ℕ) (N : Composition (d + 2) → ℚ) :
+    ∑ v ∈ suppComps d, a4d d v.blocks * N v
+      = ∑ v : Composition (d + 2), a4d d v.blocks * N v := by
+  refine sum_subset (filter_subset _ _) fun v _ hv => ?_
+  have hns : ¬ Supp v.blocks := fun hs => hv (mem_filter.2 ⟨mem_univ v, hs⟩)
+  rw [a4d_eq_zero_of_not_supp d v.blocks (fun m hm => v.blocks_pos hm) hns, zero_mul]
+
+lemma fEdge4_eq_zero_left (d : ℕ) (v u : Composition (d + 2)) (h : ¬ Supp v.blocks) :
+    fEdge4 d v u = 0 := by
+  by_contra hne
+  exact h (fEdge4_ne_zero_supp d v u hne).1
+
+lemma fEdge4_eq_zero_right (d : ℕ) (v u : Composition (d + 2)) (h : ¬ Supp u.blocks) :
+    fEdge4 d v u = 0 := by
+  by_contra hne
+  exact h (fEdge4_ne_zero_supp d v u hne).2
+
+/-- **Identity (39).**  With the coefficient `a^{(4)}` and the Boolean flag
+numbers `U`, both sums running over the support compositions: for every
+`d ≥ 1` and every `N`,
+`Σ_J a_J^{(4)} N_J = Σ f(J,J') (N_J/U_J - N_{J'}/U_{J'})`.  The values of `N`
+off the support do not occur. -/
+theorem fourth_moment_identity_on_support (d : ℕ) (hd : 1 ≤ d)
+    (N : Composition (d + 2) → ℚ) :
+    ∑ v ∈ suppComps d, a4d d v.blocks * N v
+      = ∑ v ∈ suppComps d, ∑ u ∈ suppComps d,
+          fEdge4 d v u * (N v / U v.blocks - N u / U u.blocks) := by
+  have hid := fourth_moment_identity d hd N (fun v => U v.blocks)
+  have hL : ∑ v : Composition (d + 2), (w4d d v.blocks / U v.blocks) * N v
+      = ∑ v : Composition (d + 2), a4d d v.blocks * N v :=
+    sum_congr rfl fun v _ => by
+      rw [w4d_eq_U_mul_a4d, mul_div_cancel_left₀ _ (U_comp_ne_zero d v)]
+  have hR : (∑ v ∈ suppComps d, ∑ u ∈ suppComps d,
+        fEdge4 d v u * (N v / U v.blocks - N u / U u.blocks))
+      = ∑ v : Composition (d + 2), ∑ u : Composition (d + 2),
+          fEdge4 d v u * (N v / U v.blocks - N u / U u.blocks) := by
+    have h1 : ∀ v ∈ suppComps d,
+        (∑ u ∈ suppComps d, fEdge4 d v u * (N v / U v.blocks - N u / U u.blocks))
+          = ∑ u : Composition (d + 2),
+              fEdge4 d v u * (N v / U v.blocks - N u / U u.blocks) := by
+      intro v _
+      refine sum_subset (filter_subset _ _) fun u _ hu => ?_
+      have hns : ¬ Supp u.blocks := fun hs => hu (mem_filter.2 ⟨mem_univ u, hs⟩)
+      rw [fEdge4_eq_zero_right d v u hns, zero_mul]
+    rw [sum_congr rfl h1]
+    refine sum_subset (filter_subset _ _) fun v _ hv => ?_
+    have hns : ¬ Supp v.blocks := fun hs => hv (mem_filter.2 ⟨mem_univ v, hs⟩)
+    exact sum_eq_zero fun u _ => by rw [fEdge4_eq_zero_left d v u hns, zero_mul]
+  rw [sum_a4d_suppComps, hR, ← hL]
+  exact hid
+
+/-- **The sign of (39).**  If `N_J / U_J` is monotone along the edges that
+carry flow between support compositions, then `Σ_J a_J^{(4)} N_J ≤ 0`, the
+sum running over the support compositions. -/
+theorem fourth_moment_coefficient_sum_nonpos_on_support (d : ℕ) (hd : 1 ≤ d)
+    (N : Composition (d + 2) → ℚ)
+    (hmono : ∀ q c : Composition (d + 2), Supp q.blocks → Supp c.blocks →
+      fEdge4 d q c ≠ 0 → N q / U q.blocks ≤ N c / U c.blocks) :
+    ∑ v ∈ suppComps d, a4d d v.blocks * N v ≤ 0 := by
+  rw [sum_a4d_suppComps]
+  exact fourth_moment_coefficient_sum_nonpos d hd N fun q c hne =>
+    hmono q c (fEdge4_ne_zero_supp d q c hne).1 (fEdge4_ne_zero_supp d q c hne).2 hne
 
 end K4
 end ChowCone

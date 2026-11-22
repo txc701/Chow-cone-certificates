@@ -301,12 +301,13 @@ theorem Source.count_row3 (s : Source) (o : Occ) :
   · subst h; simp [Source.topCharges]
   · simp [Source.topCharges, h]
 
-/-- A left source makes no charge of row 3, and a final-right source makes
-no charge of rows 1 and 2 in its initial square. -/
+/-- A left source makes no charge of row 3. -/
 theorem LeftSource.count_row3 (s : LeftSource) (o : Occ) :
     s.charges.count ⟨.row3, o⟩ = 0 := by
   simp [LeftSource.charges]
 
+/-- A final-right source makes no charge of rows 1 and 2 in its initial
+square. -/
 theorem Source.count_row1_row2 (s : Source) (o : Occ) :
     s.topCharges.count ⟨.row1, o⟩ = 0 ∧ s.topCharges.count ⟨.row2, o⟩ = 0 := by
   simp [Source.topCharges]

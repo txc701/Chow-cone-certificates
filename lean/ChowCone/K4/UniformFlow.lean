@@ -285,6 +285,152 @@ theorem divOf_f0_all (c : List ℕ) (h1 : ∀ m ∈ c, 1 ≤ m) (h5 : 5 ≤ c.su
     unfold w4
     rw [G_eq_zero_of_one_mem c (one_mem_of_not_supp c h1 hs), zero_mul]
 
+/-! ### The flow lives on the support DAG
+
+The manuscript's flow is defined on the support DAG: its vertices are the
+support compositions and its edges split a block into two parts at least 2.
+In Lean a flow is a function of every positional edge `(c, i, p)`, and the
+divergence sums over every offset `1 ≤ p ≤ c_i - 1`.  The lemmas below show
+that `f_d` vanishes on every positional edge that is not an edge of the
+support DAG, so the two descriptions agree.  They were first proved in probes
+of the review of release `v1.1` (`RELEASE_CHECKS.md`). -/
+
+/-- `(c, i, p)` is an edge of the support DAG: `c` is a support composition
+and the split leaves two parts at least 2, so the child is a support
+composition as well. -/
+abbrev SuppEdge (c : List ℕ) (i p : ℕ) : Prop := Supp c ∧ 2 ≤ p ∧ 2 ≤ c.getD i 0 - p
+
+lemma indNs_eq_zero_of_not (s : ℕ) (hs : 2 ≤ s) (c : List ℕ) (i p : ℕ)
+    (h : ¬ SuppEdge c i p) : indNs s c i p = 0 := by
+  rcases indNs_cases s c i p with h0 | h1
+  · exact h0
+  · exfalso
+    obtain ⟨hsupp, -, hp, hm⟩ := indNs_eq_one h1
+    exact h ⟨hsupp, by omega, by omega⟩
+
+lemma indFLs_eq_zero_of_not (s : ℕ) (hs : 2 ≤ s) (c : List ℕ) (i p : ℕ)
+    (h : ¬ SuppEdge c i p) : indFLs s c i p = 0 := by
+  rcases indFLs_cases s c i p with h0 | h1
+  · exact h0
+  · exfalso
+    obtain ⟨hsupp, -, hp, hm⟩ := indFLs_eq_one h1
+    exact h ⟨hsupp, by omega, by omega⟩
+
+lemma indFRs_eq_zero_of_not (s : ℕ) (hs : 2 ≤ s) (c : List ℕ) (i p : ℕ)
+    (h : ¬ SuppEdge c i p) : indFRs s c i p = 0 := by
+  rcases indFRs_cases s c i p with h0 | h1
+  · exact h0
+  · exfalso
+    obtain ⟨hsupp, -, hp, hm⟩ := indFRs_eq_one h1
+    exact h ⟨hsupp, by omega, by omega⟩
+
+/-- Row 1 charges nothing off the support DAG. -/
+lemma LAC_eq_zero_of_not (N : ℕ) (c : List ℕ) (i p : ℕ) (h : ¬ SuppEdge c i p) :
+    LAC N c i p = 0 := by
+  have h1 := LAC_le N c i p
+  rw [indNs_eq_zero_of_not 2 (by norm_num) c i p h,
+    indFLs_eq_zero_of_not 2 (by norm_num) c i p h] at h1
+  have h2 := LAC_nonneg N c i p
+  simp only [zero_mul, add_zero] at h1
+  linarith
+
+/-- Row 2 charges nothing off the support DAG. -/
+lemma LCD_eq_zero_of_not (N : ℕ) (c : List ℕ) (i p : ℕ) (h : ¬ SuppEdge c i p) :
+    LCD N c i p = 0 := by
+  have h1 := LCD_le N c i p
+  rw [indNs_eq_zero_of_not 2 (by norm_num) c i p h,
+    indFLs_eq_zero_of_not 2 (by norm_num) c i p h] at h1
+  have h2 := LCD_nonneg N c i p
+  simp only [zero_mul, add_zero] at h1
+  linarith
+
+/-- Row 3 charges nothing off the support DAG. -/
+lemma RAC_eq_zero_of_not (N : ℕ) (c : List ℕ) (i p : ℕ) (h : ¬ SuppEdge c i p) :
+    RAC N c i p = 0 := by
+  have h1 := RAC_le N c i p
+  rw [indFRs_eq_zero_of_not 2 (by norm_num) c i p h] at h1
+  have h2 := RAC_nonneg N c i p
+  simp only [zero_mul] at h1
+  linarith
+
+/-- Rows 4–6 charge nothing off the support DAG. -/
+lemma RCH_eq_zero_of_not (N : ℕ) (c : List ℕ) (i p : ℕ) (h : ¬ SuppEdge c i p) :
+    RCH N c i p = 0 := by
+  have h1 := RCH_le N c i p
+  rw [indNs_eq_zero_of_not 2 (by norm_num) c i p h,
+    indNs_eq_zero_of_not 3 (by norm_num) c i p h] at h1
+  have h2 := RCH_nonneg N c i p
+  simp only [zero_mul, add_zero] at h1
+  linarith
+
+lemma LBD_eq_zero_of_not (N : ℕ) (c : List ℕ) (i p : ℕ) (h : ¬ SuppEdge c i p) :
+    LBD N c i p = 0 := by
+  rw [LBD_apply]
+  refine sum_eq_zero fun s hs => ?_
+  rw [if_neg, mul_zero]
+  intro he
+  apply h
+  obtain ⟨P, t, S⟩ := s
+  obtain ⟨hP, hS, ht, -⟩ := mem_leftSources.1 hs
+  simp only at hP hS ht
+  simp only [LeftSource.eBD, PEdge.mk.injEq] at he
+  obtain ⟨rfl, rfl, rfl⟩ := he
+  refine ⟨supp_append.2 ⟨hP, supp_cons.2 ⟨by norm_num, supp_cons.2 ⟨ht, hS⟩⟩⟩, le_refl 2, ?_⟩
+  rw [getD_append_length]
+
+lemma RBD_eq_zero_of_not (N : ℕ) (c : List ℕ) (i p : ℕ) (h : ¬ SuppEdge c i p) :
+    RBD N c i p = 0 := by
+  rw [RBD_apply]
+  refine sum_eq_zero fun s hs => ?_
+  rw [if_neg, mul_zero]
+  intro he
+  apply h
+  obtain ⟨P, t⟩ := s
+  obtain ⟨hP, ht, -⟩ := mem_rightSources.1 hs
+  simp only at hP ht
+  simp only [Source.eBD, PEdge.mk.injEq] at he
+  obtain ⟨rfl, rfl, rfl⟩ := he
+  refine ⟨supp_append.2 ⟨hP, supp_cons.2 ⟨ht, supp_cons.2 ⟨by norm_num, supp_nil⟩⟩⟩,
+    le_refl 2, ?_⟩
+  rw [getD_append_length_succ']
+
+lemma posFlow_eq_zero_of_not (Q : List ℕ) (y : ℕ) (hQ : Supp Q) (c : List ℕ) (i p : ℕ)
+    (h : ¬ SuppEdge c i p) : posFlow Q y c i p = 0 := by
+  induction Q, y using posFlow.induct with
+  | case1 => rw [posFlow]; rfl
+  | case2 => rw [posFlow]; rfl
+  | case3 => rw [posFlow]; rfl
+  | case4 => rw [posFlow]; rfl
+  | case5 Q y ih =>
+    rw [posFlow]
+    show edgeUnit (cYW Q (y + 4)) c i p + posFlow (Q ++ [2]) (y + 2) c i p = 0
+    rw [ih (supp_append.2 ⟨hQ, supp_cons.2 ⟨le_refl 2, supp_nil⟩⟩), add_zero, edgeUnit_apply,
+      if_neg]
+    intro he
+    apply h
+    simp only [cYW, sqY, PEdge.mk.injEq] at he
+    obtain ⟨rfl, rfl, rfl⟩ := he
+    refine ⟨supp_append.2 ⟨hQ, supp_cons.2 ⟨by omega, supp_cons.2 ⟨le_refl 2,
+      supp_cons.2 ⟨le_refl 2, supp_nil⟩⟩⟩⟩, le_refl 2, ?_⟩
+    rw [getD_append_length]
+    omega
+
+lemma RPOS_eq_zero_of_not (N : ℕ) (c : List ℕ) (i p : ℕ) (h : ¬ SuppEdge c i p) :
+    RPOS N c i p = 0 := by
+  rw [RPOS_apply]
+  refine sum_eq_zero fun s hs => ?_
+  rw [posFlow_eq_zero_of_not s.P s.t (mem_rightSources.1 hs).1 c i p h, mul_zero]
+
+/-- `f_d` vanishes on every positional edge that is not an edge of the
+support DAG. -/
+theorem fd_eq_zero_of_not (N : ℕ) (c : List ℕ) (i p : ℕ) (hN : c.sum = N)
+    (h : ¬ SuppEdge c i p) : fd N c i p = 0 := by
+  rw [fd_apply_cancelled N c i p hN, ind_eq_zero_of_not 2 (by norm_num) c i p h,
+    ind_eq_zero_of_not 3 (by norm_num) c i p h, LBD_eq_zero_of_not N c i p h,
+    RBD_eq_zero_of_not N c i p h, RPOS_eq_zero_of_not N c i p h, LAC_eq_zero_of_not N c i p h,
+    LCD_eq_zero_of_not N c i p h, RAC_eq_zero_of_not N c i p h, RCH_eq_zero_of_not N c i p h]
+  ring
+
 /-! ### The boundary dimensions `d = 1, 2` and the flow for every `d` -/
 
 /-- `B_d = 720 β_d` (equation (18)): `B_1 = 45`, `B_2 = 240`, and
@@ -425,6 +571,62 @@ theorem fdAll_nonneg (d : ℕ) (c : List ℕ) (i p : ℕ) (hN : c.sum = d + 2) :
   · exact mul_nonneg (by norm_num) (edgeUnit_nonneg _ _ _ _)
   · exact fd_nonneg (d + 2) c i p hN
 
+/-- **The flow of Theorem 9.1 is a flow on the support DAG.**  An edge of a
+composition of `d + 2` that carries flow has a support parent and splits a
+block into two parts at least 2. -/
+theorem fdAll_ne_zero_suppEdge (d : ℕ) (c : List ℕ) (i p : ℕ) (hN : c.sum = d + 2)
+    (h : fdAll d c i p ≠ 0) : SuppEdge c i p := by
+  by_contra hg
+  apply h
+  unfold fdAll
+  split_ifs with h1 h2
+  · rfl
+  · show (720 : ℚ) * edgeUnit ⟨[4], 0, 2⟩ c i p = 0
+    rw [edgeUnit_apply, if_neg, mul_zero]
+    intro he
+    apply hg
+    simp only [PEdge.mk.injEq] at he
+    obtain ⟨rfl, rfl, rfl⟩ := he
+    exact ⟨by decide, by decide, by decide⟩
+  · exact fd_eq_zero_of_not (d + 2) c i p hN hg
+
+/-- Both ends of an edge that carries flow are support compositions. -/
+theorem fdAll_ne_zero_supp (d : ℕ) (c : List ℕ) (i p : ℕ) (hN : c.sum = d + 2)
+    (h : fdAll d c i p ≠ 0) : Supp c ∧ Supp (splitAt c i p) := by
+  obtain ⟨hs, hp, hq⟩ := fdAll_ne_zero_suppEdge d c i p hN h
+  exact ⟨hs, Supp_splitAt c i p hs hp hq⟩
+
+/-- The outflow of the flow only involves the offsets `2 ≤ p ≤ n_i - 2`, the
+out-edges of the support DAG.  In particular the split of the final block
+that leaves a final part 1, which the Lean divergence allows and Section 2
+of the manuscript excludes, carries no flow. -/
+theorem outSumOf_fdAll_suppEdges (d : ℕ) (c : List ℕ) (hN : c.sum = d + 2) :
+    outSumOf (fdAll d) c
+      = ∑ i ∈ range c.length, ∑ p ∈ Icc 2 (c.getD i 0 - 2), fdAll d c i p := by
+  unfold outSumOf
+  refine sum_congr rfl fun i _ => ?_
+  symm
+  refine sum_subset ?_ ?_
+  · intro p hp
+    rw [mem_Icc] at hp ⊢
+    omega
+  · intro p hp hnp
+    by_contra hne
+    obtain ⟨-, h2, h3⟩ := fdAll_ne_zero_suppEdge d c i p hN hne
+    apply hnp
+    rw [mem_Icc] at hp ⊢
+    omega
+
+/-- The divergence identity of Theorem 9.1 with the edges of the support DAG
+only: out-edges with both parts at least 2, and in-edges from the merges of
+adjacent blocks. -/
+theorem divOf_fdAll_suppEdges (d : ℕ) (hd : 1 ≤ d) (c : List ℕ) (hs : Supp c)
+    (hN : c.sum = d + 2) :
+    (∑ i ∈ range c.length, ∑ p ∈ Icc 2 (c.getD i 0 - 2), fdAll d c i p)
+        - inSumOf (fdAll d) c = w4d d c := by
+  rw [← outSumOf_fdAll_suppEdges d c hN]
+  exact divOf_fdAll d hd c (fun m hm => by have := hs m hm; omega) hN
+
 /-- Every edge that carries flow splits a block as `n ↦ (p, n-p)` with
 `min(p, n-p) ≤ 3`. -/
 theorem fdAll_used_edge (d : ℕ) (c : List ℕ) (i p : ℕ) (hN : c.sum = d + 2)
@@ -445,17 +647,19 @@ theorem fdAll_used_edge (d : ℕ) (c : List ℕ) (i p : ℕ) (hN : c.sum = d + 2
     exact h (fd_eq_zero_of_wide (d + 2) c i p hN (by omega) (by omega))
 
 /-- **Theorem 9.1 (uniform fourth-moment flow).**  For every `d ≥ 1`, the
-flow is nonnegative on the compositions of `N = d + 2`, its divergence is
-`w^{(4)}` at every composition of `N` with positive parts, and every edge
-that carries flow splits a block with `min(p, n-p) ≤ 3`. -/
+flow is nonnegative on the compositions of `N = d + 2`; its divergence is
+`w^{(4)}` at every composition of `N` with positive parts, in particular at
+every support state; and every edge that carries flow is an edge of the
+support DAG (a support composition, split into two parts at least 2) and
+splits a block with `min(p, n-p) ≤ 3`. -/
 theorem uniform_fourth_moment_flow (d : ℕ) (hd : 1 ≤ d) :
     (∀ (c : List ℕ) (i p : ℕ), c.sum = d + 2 → 0 ≤ fdAll d c i p) ∧
     (∀ c : List ℕ, (∀ m ∈ c, 1 ≤ m) → c.sum = d + 2 → divOf (fdAll d) c = w4d d c) ∧
     (∀ (c : List ℕ) (i p : ℕ), c.sum = d + 2 → fdAll d c i p ≠ 0 →
-      p ≤ 3 ∨ c.getD i 0 - p ≤ 3) :=
+      SuppEdge c i p ∧ (p ≤ 3 ∨ c.getD i 0 - p ≤ 3)) :=
   ⟨fun c i p hN => fdAll_nonneg d c i p hN,
     fun c h1 hN => divOf_fdAll d hd c h1 hN,
-    fun c i p hN h => fdAll_used_edge d c i p hN h⟩
+    fun c i p hN h => ⟨fdAll_ne_zero_suppEdge d c i p hN h, fdAll_used_edge d c i p hN h⟩⟩
 
 end K4
 end ChowCone

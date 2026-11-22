@@ -371,8 +371,9 @@ lemma a3_nonneg (m : ℕ) : 0 ≤ a3 m := by
   · exact le_refl 0
 
 /-- **Row 1.**  The total charge on an edge from the edges `A → C` of the
-left squares is at most the normalized amount of row 1 times `G(child)`,
-and it is zero unless the edge carries a left `F_2` occurrence. -/
+left squares is at most the normalized amount of row 1 times `G(child)` if
+the edge carries a left `F_2` occurrence, and at most zero on any other
+edge.  With `LAC_nonneg` it vanishes there (`LAC_eq_zero_of_not`). -/
 theorem LAC_le (N : ℕ) (c : List ℕ) (i p : ℕ) :
     LAC N c i p ≤ (indNs 2 c i p * a1n (c.getD i 0) + indFLs 2 c i p * a1f (c.getD i 0))
       * G (splitAt c i p) := by
@@ -409,8 +410,9 @@ theorem LAC_le (N : ℕ) (c : List ℕ) (i p : ℕ) :
       ring
 
 /-- **Row 2.**  The total charge from the edges `C → D` of the left squares
-is at most `24 G(child)`, and it is zero unless the edge carries a left
-`F_2` occurrence. -/
+is at most `24 G(child)` if the edge carries a left `F_2` occurrence, and at
+most zero on any other edge.  With `LCD_nonneg` it vanishes there
+(`LCD_eq_zero_of_not`). -/
 theorem LCD_le (N : ℕ) (c : List ℕ) (i p : ℕ) :
     LCD N c i p ≤ (indNs 2 c i p + indFLs 2 c i p) * 24 * G (splitAt c i p) := by
   rw [LCD_apply]
@@ -447,8 +449,9 @@ theorem LCD_le (N : ℕ) (c : List ℕ) (i p : ℕ) :
       ring
 
 /-- **Row 3.**  The total charge from the edges `A → C` of the final-right
-squares is at most the normalized amount of row 3 times `G(child)`, and it
-is zero unless the edge carries a right `F_2` occurrence. -/
+squares is at most the normalized amount of row 3 times `G(child)` if the
+edge carries a right `F_2` occurrence, and at most zero on any other edge.
+With `RAC_nonneg` it vanishes there (`RAC_eq_zero_of_not`). -/
 theorem RAC_le (N : ℕ) (c : List ℕ) (i p : ℕ) :
     RAC N c i p ≤ indFRs 2 c i p * a3 (c.getD i 0) * G (splitAt c i p) := by
   rw [RAC_apply]
@@ -548,9 +551,9 @@ lemma RCH_le_of_charge (N : ℕ) (c : List ℕ) (i p : ℕ) (Q : List ℕ) (y : 
     nlinarith [hle, hn3]
 
 /-- **Rows 4–6.**  All cascades together charge at most `75 G(child)` to an
-edge that carries a nonfinal `F_2` occurrence and at most `60 G(child)` to
-an edge that carries a nonfinal `F_3` occurrence, and nothing to any other
-edge. -/
+edge that carries a nonfinal `F_2` occurrence, at most `60 G(child)` to an
+edge that carries a nonfinal `F_3` occurrence, and at most zero to any other
+edge.  With `RCH_nonneg` the charge vanishes there (`RCH_eq_zero_of_not`). -/
 theorem RCH_le (N : ℕ) (c : List ℕ) (i p : ℕ) :
     RCH N c i p ≤ (indNs 2 c i p * 75 + indNs 3 c i p * 60) * G (splitAt c i p) := by
   by_cases h : ∃ s ∈ rightSources N, ∃ ch ∈ s.trace, ch.label.edge = ⟨c, i, p⟩
@@ -610,8 +613,11 @@ lemma vq_sub_two (m : ℕ) (hm : 2 ≤ m) : vq (m - 2) = ((m : ℚ) - 2) * ((m :
   push_cast
   ring
 
-/-- Nonfinal left `F_2` occurrence of a block `M`: the margin
-`18M^2 - 66M + 69` for `M ≥ 6`, and the cases `M = 4, 5`. -/
+/-- Nonfinal left `F_2` occurrence of a block `M`: the reserve (35) minus
+the largest possible charges of rows 1, 2 and 4–5 is nonnegative.  With
+`V(child) ≥ (M-2)(M-4)` and `N ≥ M + 2` the difference is at least
+`18M^2 - 66M + 69` for `M ≥ 6`; the cases `M = 4, 5` are included.  The
+manuscript states the strict inequality; `≥ 0` is what nonnegativity uses. -/
 lemma margin_N2 (c : List ℕ) (i p : ℕ) (h : indNs 2 c i p = 1) :
     0 ≤ 30 * V (splitAt c i p) + 30 * (c.sum : ℚ) - 12 - a1n (c.getD i 0) - 99 := by
   obtain ⟨hsupp, hi, rfl, hm⟩ := indNs_eq_one h
@@ -629,8 +635,10 @@ lemma margin_N2 (c : List ℕ) (i p : ℕ) (h : indNs 2 c i p = 1) :
     nlinarith [mul_nonneg (sub_nonneg.2 hx6) (sub_nonneg.2 hx6)]
   · nlinarith [mul_nonneg (sub_nonneg.2 hx) (sub_nonneg.2 hx)]
 
-/-- Final-left `F_2` occurrence of a block `M`: the margin
-`18M^2 - 42M - 36` for `M ≥ 6`, and the cases `M = 4, 5`. -/
+/-- Final-left `F_2` occurrence of a block `M`: the reserve (35) minus the
+largest possible charges of rows 1 and 2 is nonnegative.  With
+`V(child) ≥ (M-2)(M-4)` and `N ≥ M` the difference is at least
+`18M^2 - 42M - 36` for `M ≥ 6`; the cases `M = 4, 5` are included. -/
 lemma margin_FL2 (c : List ℕ) (i p : ℕ) (h : indFLs 2 c i p = 1) :
     0 ≤ 30 * V (splitAt c i p) + 30 * (c.sum : ℚ) - 12 - a1f (c.getD i 0) - 24 := by
   obtain ⟨hsupp, hi, rfl, hm⟩ := indFLs_eq_one h
@@ -647,8 +655,10 @@ lemma margin_FL2 (c : List ℕ) (i p : ℕ) (h : indFLs 2 c i p = 1) :
     nlinarith [mul_nonneg (sub_nonneg.2 hx6) (sub_nonneg.2 hx6)]
   · nlinarith [mul_nonneg (sub_nonneg.2 hx) (sub_nonneg.2 hx)]
 
-/-- Final-right `F_2` occurrence of a block `M`: the margin
-`6M^2 + 18M - 12` for `M ≥ 6`, and the cases `M = 4, 5`. -/
+/-- Final-right `F_2` occurrence of a block `M`: the reserve (35) minus the
+largest possible charge of row 3 is nonnegative.  With
+`V(child) ≥ (M-2)(M-4)` and `N ≥ M` the difference is at least
+`6M^2 + 18M - 12` for `M ≥ 6`; the cases `M = 4, 5` are included. -/
 lemma margin_FR2 (c : List ℕ) (i p : ℕ) (h : indFRs 2 c i p = 1) :
     0 ≤ 30 * V (splitAt c i p) + 30 * (c.sum : ℚ) - 12 - a3 (c.getD i 0) := by
   obtain ⟨hsupp, hi, rfl, hm⟩ := indFRs_eq_one h
@@ -668,8 +678,9 @@ lemma margin_FR2 (c : List ℕ) (i p : ℕ) (h : indFRs 2 c i p = 1) :
 
 /-! ### Proposition 8.2 -/
 
-/-- **Nonnegativity of `f_d`.**  On the compositions of `N`, every edge
-value of `f_d` is nonnegative. -/
+/-- **Proposition 8.2 (uniform nonnegativity).**  On the compositions of
+`N`, every edge value of `f_d` is nonnegative.  The manuscript states this
+for `d ≥ 3`, `N = d + 2`; the proof needs no condition on `N`. -/
 theorem fd_nonneg (N : ℕ) (c : List ℕ) (i p : ℕ) (hN : c.sum = N) : 0 ≤ fd N c i p := by
   rw [fd_apply, f0_eq]
   have hLAB := LAB_ge N c i p hN
@@ -707,13 +718,6 @@ theorem fd_nonneg (N : ℕ) (c : List ℕ) (i p : ℕ) (hN : c.sum = N) : 0 ≤ 
   have t6 := indFRs_mul_G_nonneg (by norm_num : 2 ≤ 3) c i p
   unfold ind
   nlinarith [hLAB, hRAB, hLBD, hRBD, hRPOS, hLAC, hLCD, hRAC, hRCH, t1, t2, t3, t4, t5, t6]
-
-/-- **Proposition 8.2 (uniform nonnegativity)**, in the form of the
-manuscript: for every `d ≥ 3`, every edge value of `f_d` is nonnegative.
-The hypothesis `3 ≤ d` is not used. -/
-theorem uniform_nonnegativity (d : ℕ) (_hd : 3 ≤ d) (c : List ℕ) (i p : ℕ)
-    (hN : c.sum = d + 2) : 0 ≤ fd (d + 2) c i p :=
-  fd_nonneg (d + 2) c i p hN
 
 end K4
 end ChowCone
