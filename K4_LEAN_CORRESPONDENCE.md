@@ -26,14 +26,31 @@ charges, one per stage. The theorem `cascade_charge_origins` says:
 
 Rows 4, 5 and 6 are the cases `y ≥ 4`, `y = 2` and `y = 3`.
 
+## Second milestone: sizes of the charges (`ChowCone.K4.CascadeSizes`)
+
+File `lean/ChowCone/K4/CascadeSizes.lean`. With `r_j = 2^j ρ₀(y+2j)/ρ₀(y)`,
+`ρ₀(n) = (n-1)/n!` (equation (36); `ρ₀` is `blockTerm` of the `k = 2` files):
+
+* the raw debit `48 G(P.(t,4))` of the `j`-th origin equals `48 r_j` times `G` of the child of
+  the charged occurrence (`rawDebit_origin`);
+* `r_{j+1}/r_j = 2/((y+2j+2)(y+2j-1))`, `Σ_{j ≤ h} r_j ≤ 25/16` for `y ≥ 2`, and
+  `Σ_{j ≤ h} r_j ≤ 79/65` for `y = 3` (equations (37) and (38));
+* summed over all sources at `N` with multiplicity, the label receives
+  `48 Σ_{j ≤ h} r_j · G(child)`, which is at most `75 G(child)`, and strictly less than
+  `60 G(child)` for a terminal `F_3` label.
+
+The raw debit `R = 48 G(B)` is taken from the text of Section 7 as a definition
+(`Source.rawDebit`). It is not derived from a formal definition of the flow `f_0`, which does
+not yet exist in Lean.
+
 ## What is not proved
 
-Row 3 (the initial final-right `F_2` charge), rows 1 and 2, the sizes of the charges
-(`48 r_j` and equations (36)–(38) of Lemma 8.1), the collision and capacity inequalities,
-Proposition 8.2, the divergence of the signed flow, the statement that each path square has
-zero divergence, and the matroid bridge. No flow values appear in the file: the cancellation
-of a debit by the next square is represented only by the identification of the edges
-involved. Theorem 9.1 is a later target.
+Row 3 (the initial final-right `F_2` charge), rows 1 and 2, the collision and capacity
+inequalities of Proposition 8.2 beyond the two totals above, the divergence of the signed
+flow, the statement that each path square has zero divergence, and the matroid bridge. No
+edge flow is defined: the cancellation of a debit by the next square is represented only by
+the identification of the edges involved, and the amounts are the raw debits of the sources.
+Theorem 9.1 is a later target.
 
 ## Design decisions affecting fidelity
 
@@ -84,6 +101,13 @@ involved. Theorem 9.1 is a later target.
 | `validSources_finite`, `sum_count_trace`, `total_multiplicity` | "one for each `j = 0, …, h`" | total multiplicity over all sources at `N` is `h + 1` |
 | `mem_trace_iff`, `label_s_of_mem_trace`, `leftF2_three_not_charged` | Section 8, the paragraph on the blocks 4 and 5 before a final 2 | only these labels are charged; never an `F_4` label; never the `F_2` label `5 ↦ (2,3)` |
 | `cascade_charge_origins` | Lemma 8.1 (origins only) and Table 1, rows 4–6 | the assembled statement |
+| `r`, `r_zero`, `r_pos` | (36) | `r_j = 2^j ρ₀(y+2j)/ρ₀(y)` |
+| `blockTerm_add_two`, `r_succ` | proof of Lemma 8.1; (37), first formula | `ρ₀(n+2)/ρ₀(n) = 1/((n+2)(n-1))`; the ratio `r_{j+1}/r_j` |
+| `sum_r_le` | (37), second formula | `Σ_{j ≤ h} r_j ≤ 25/16` |
+| `sum_r_three_le` | (38) | `Σ_{j ≤ h} r_j ≤ 79/65` at `y = 3` |
+| `Source.rawDebit` | Section 7, `R = 48 G(B)` | definition, taken from the text |
+| `G_source_child_eq`, `G_sqY_eq_sqZ`, `rawDebit_origin` | Lemma 8.1, "cancellation of all unaffected factors in `G` gives (36)"; Table 1, rows 4–6, "normalized amount" | the `j`-th origin charges `48 r_j · G(child)` |
+| `total_charge`, `total_charge_le`, `total_charge_F3_lt` | the sentence after Lemma 8.1 | all cascades together: at most 75 units, fewer than 60 on a terminal `F_3` label |
 
 ## Diagnostic examples (in the file, section `Examples`)
 
@@ -103,10 +127,11 @@ Run in a worktree of the branch, with the `.lake` directory of the `v1.0` build 
 copy-on-write. Mathlib was reused from cache (`lake build --no-build Mathlib`: "All targets
 up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not recompiled.
 
-* `lake build ChowCone.K4.CascadeOrigins`: the module was built from source; "Build completed
-  successfully (8657 jobs)". No warning from the new file.
-* `lake env lean ChowCone/K4/CascadeOrigins.lean`: no output, exit status 0.
-* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 33 declarations
+* `lake build ChowCone.K4.CascadeOrigins` and `lake build ChowCone.K4.CascadeSizes`: both
+  modules were built from source; "Build completed successfully" (8657 and 8659 jobs). No
+  warning from the new files.
+* `lake env lean` on each of the two files: no output, exit status 0.
+* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 42 declarations
   depend only on `propext`, `Classical.choice`, `Quot.sound`, or a subset of these.
 * `lake build`: "Build completed successfully (8662 jobs)", with the same seven linter
   warnings in the `k = 2` files that `RELEASE_CHECKS.md` lists. `lake env lean AxiomCheck.lean`
@@ -114,11 +139,16 @@ up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not 
 * No `sorry`, `admit`, `axiom`, `native_decide`, `skipKernelTC`, `implemented_by`,
   `@[extern]` or `unsafe` in `lean/ChowCone*`, `lean/AxiomCheck.lean` or
   `lean/K4AxiomCheck.lean`.
+* `python3 -m pytest tests/` on the first commit of the branch: 509 passed. No Python file
+  has changed.
 
-The new module is not imported by `lean/ChowCone.lean`, which is unchanged. The default
-`lake build` therefore does not compile it; use `lake build ChowCone.K4.CascadeOrigins`.
+The new modules are not imported by `lean/ChowCone.lean`, which is unchanged. The default
+`lake build` therefore does not compile them; use `lake build ChowCone.K4.CascadeSizes`,
+which also builds `ChowCone.K4.CascadeOrigins`.
 
-Dependencies of the new file: `ChowCone.Flow` (hence `ChowCone.Basic` and Mathlib). From the
+Dependencies of `CascadeOrigins`: `ChowCone.Flow` (hence `ChowCone.Basic` and Mathlib). From the
 `k = 2` project it uses `Supp`, `splitAt`, `indN`, `decomp_at` and `length_take_of_lt`. From
 Mathlib it uses list lemmas, `Finset` sums, and `Composition` only to prove that the set of
-sources at a given size is finite.
+sources at a given size is finite. `CascadeSizes` imports `CascadeOrigins` and
+`ChowCone.Ratios`; from the `k = 2` project it uses `G`, `gprod`, `blockTerm`, `lastPart` and
+their lemmas (`G_pos`, `blockTerm_pos`, `blockTerm_two`, `gprod_append`, `gprod_cons`).

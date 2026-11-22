@@ -1,4 +1,5 @@
 import ChowCone.K4.CascadeOrigins
+import ChowCone.K4.CascadeSizes
 
 open ChowCone.K4
 
@@ -40,3 +41,14 @@ open ChowCone.K4
 #print axioms sqY_eq_splitAt_source_child
 #print axioms sqW_eq_splitAt_sqZ
 #print axioms sqZ_ne_sqY
+
+-- Sizes of the charges and the bounds of Lemma 8.1 (CascadeSizes).
+#print axioms r_succ
+#print axioms sum_r_le
+#print axioms sum_r_three_le
+#print axioms G_sqY_eq_sqZ
+#print axioms G_source_child_eq
+#print axioms rawDebit_origin
+#print axioms total_charge
+#print axioms total_charge_le
+#print axioms total_charge_F3_lt
