@@ -1195,13 +1195,16 @@ $a^{(4)}_J$ and $S_4$ are entered as the definitions \eqref{eq:Bd},
 Section~\ref{sec:k4-coefficient} is not formalized.  The fifteen project
 modules, six for $k=2$ and nine for $k=4$, compile against a cached build of
 mathlib.  The axiom reports, for nine declarations of the first development
-and $155$ of the second, contain only \texttt{propext},
+and $164$ of the second, contain only \texttt{propext},
 \texttt{Classical.choice}, and \texttt{Quot.sound}, the standard mathlib
 dependencies.  The compiler emits seven linter warnings, all in the $k=2$
 modules, and no error.  The agreement of the Lean definitions for $k=4$ with
-the text above was checked only by the AI system that wrote the
-formalization.  Neither the exact test suite nor the Lean development
-replaces any paper proof above.
+the text above was reviewed in five separate sessions of the AI system that
+wrote the formalization, each with one criterion and without access to the
+session that wrote it; they found no false statement, and the defects of
+wording, naming and unused hypotheses that they reported are corrected.  It
+has not been reviewed by a person.  Neither the exact test suite nor the Lean
+development replaces any paper proof above.
 
 \subsection*{Reproducing the computation of Section~\ref{sec:finite-all-k}}
 
@@ -1209,7 +1212,7 @@ Proposition~\ref{prop:finite-scan} is the only statement in this paper whose
 proof is a computation.  It consists of $100$ instances, namely the
 admissible pairs $(d,m)$ with $2\le d\le20$; for $d=1$ there is no interior
 point $a$, hence no generator and nothing to check.  In release
-\texttt{v1.1} of the accompanying repository,
+\texttt{v1.2} of the accompanying repository,
 \url{https://github.com/txc701/Chow-cone-certificates}, the command
 \begin{center}
 \texttt{python3 src/run\_functional\_scan.py 20 16 10 -{}-witnesses W}
@@ -1281,7 +1284,7 @@ agent, and its abstract and introduction were revised by the author with it.
 
 \emph{Review.}  The proof of Theorem~\ref{thm:intro-k4} was audited with
 Claude. A review pack was
-produced in a separate Codex session.  It is independent in the sense that its verification program was implemented separately and that the two sets of witnesses for Section~\ref{sec:finite-all-k} were verified against each other's checker. Neither review found a gap, and the construction was checked by exact computation for $d\le20$.  The proof has not been refereed by a person other than the author.  Its combinatorial core has been formalized in Lean~4, as described in Section~\ref{sec:dependencies}; the agreement of the formal definitions with the text was checked only by the AI system that wrote the formalization.
+produced in a separate Codex session.  It is independent in the sense that its verification program was implemented separately and that the two sets of witnesses for Section~\ref{sec:finite-all-k} were verified against each other's checker. Neither review found a gap, and the construction was checked by exact computation for $d\le20$.  The proof has not been refereed by a person other than the author.  Its combinatorial core has been formalized in Lean~4, as described in Section~\ref{sec:dependencies}; the agreement of the formal definitions with the text was reviewed only by further sessions of the AI system that wrote the formalization, not by a person.
 
 \begin{thebibliography}{99}
 

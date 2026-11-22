@@ -396,10 +396,136 @@ characters in the added lines are mathematical and typographic symbols.
 The agreement of the Lean definitions with the manuscript was checked only by the assistant
 that wrote them (`K4_LEAN_CORRESPONDENCE.md`, `PROVENANCE.md` Part 4).
 
+## Review of the `k = 4` formalization at `v1.1` (2026-11-22)
+
+Dates and times in this section and the next are UTC.
+
+**Who.** Five reviewers, each a fresh session of Claude Code started by the session that had
+written the formalization, at the author's request. They are instances of the same model as
+the author of the formalization. No person and no other AI system took part. "Independent"
+means only this: a reviewer received the repository at `v1.1`, the manuscript and its own
+instructions, and nothing from the authoring session; it could not see the other reviewers'
+files; and it was told to treat every text in the repository as data, not as evidence.
+
+**How.** One criterion each: substantiveness (is each statement the right strength; every
+suspected hypothesis deleted and the proof recompiled), correspondence (does the Lean say
+what the docstrings, the README, Section 12 of the manuscript and `K4_LEAN_CORRESPONDENCE.md`
+say), faithfulness to the manuscript for Sections 5–7 and for Sections 8–9 (definitions
+compared with the text word by word, each result in both directions), and non-vacuity (a
+compiled witness for every definition and hypothesis bundle). Each reviewer had to give a
+verdict on every item of a fixed list, with the file and line it checked, and to keep every
+Lean file and script it relied on. The reviewed tree was a detached worktree at `v1.1` with
+the nine `k = 4` modules built from source; it was identical before and after the review
+(same `git ls-files -s` digest, empty `git status`, no file newer than the start).
+
+**Result.** 180 items: 163 Pass, 9 Fail, 8 Ambiguous, none left unexamined.
+
+| lane | decision | Pass | Fail | Ambiguous |
+|---|---|---|---|---|
+| substantiveness | FAIL | 39 | 4 | 2 |
+| correspondence | FAIL | 67 | 5 | 3 |
+| faithfulness, Sections 5–7 | PASS | 10 | 0 | 1 |
+| faithfulness, Sections 8–9 | PASS | 10 | 0 | 1 |
+| non-vacuity | PASS | 37 | 0 | 1 |
+
+No Fail and no Ambiguous item concerns a false statement.
+
+* The nine Fails: in the table of `K4_LEAN_CORRESPONDENCE.md`, 20 names without the prefix
+  `LeftSource.` or `Source.` that they have in the code, one of which then matched two
+  theorems; the docstrings of `LAC_le`, `LCD_le`, `RAC_le`, `RCH_le`, which said "is zero"
+  where the statements give "at most zero"; the hypothesis `U ≠ 0` of
+  `fourth_moment_certificate`, which its proof does not use; the unused hypothesis `3 ≤ d`
+  of `cascade_charge_origins` and of `uniform_nonnegativity`; and `signed_flow_divergence`,
+  which restates `divOf_f0`.
+* The Ambiguous items: the Lean vertex type `Composition (d+2)` has `2^(d+1)` elements where
+  the lattice of the manuscript has `2^d`, and the Lean divergence admits the final offset
+  `p = n_r - 1`, which Section 2 excludes (raised under four items by three reviewers; the
+  other two noted it outside their criteria); the docstrings of the three margin lemmas name a
+  polynomial that the statements do not contain; and at `d = 1` the target `w^{(4)}` is
+  identically zero, as Section 9 says. On the first point the reviewers observed that the
+  repository stated only in prose that no edge carrying flow meets a composition off the
+  support, and three of them proved it in a probe.
+* A numerical probe by the reviewer of Sections 5–7: the Lean definitions of `f_0` and `f_d`
+  were transcribed clause by clause into a script and compared with
+  `src/k4_uniform_certificate.py` on every positional edge for `3 ≤ d ≤ 8`, 4080 edges in
+  all, and with an implementation the reviewer wrote from the manuscript. No difference was
+  found, and nine deliberate changes to the transcription were all detected. The
+  transcription is the reviewer's reading of the Lean text; for `f_d` its agreement with
+  Lean's own evaluation rests on lists of sources whose completeness was checked by
+  counting, not by proof.
+
+**What was verified afterwards**, by the session that wrote the formalization: the digest and
+the lane identifier of each of the five verdict files; that every item of each list has a verdict; that
+the reviewed tree was unchanged; and seven of the reviewers' Lean probes, run again, all with
+exit status 0 (the three proofs that the flow lives on the support DAG, the deletion of `hU`,
+the two deletions of `3 ≤ d`, and the equivalence of the two forms of Proposition 6.3). The
+findings were judged, and the corrections of `v1.2` made, by that same session, that is by
+the reviewed party.
+
+**Record.** The instructions, the five verdicts and all probes are in an archive delivered
+outside this repository, `k4-lean-review-v1.1-2026-11-22.tgz`, SHA-256
+`12ad19cbdc365d6acf5e4d783f8aa0259431c7c34309d4021c27846c20928a18`. The paths inside it are
+those of the machine the review ran on.
+
+## Release `v1.2` (2026-11-22)
+
+Prepared on the branch `k4-lean-review-fixes`, which starts at the commit of `v1.1`.
+
+**What changed since `v1.1`.** Seven of the nine `k = 4` modules, `lean/K4AxiomCheck.lean`
+and its output; three passages of the manuscript; `K4_LEAN_CORRESPONDENCE.md`, `README.md`,
+`PROVENANCE.md` and this file. Nothing under `src/`, `tests/` and `results/`, and no `k = 2`
+Lean source.
+
+* New: `fd_eq_zero_of_not`, `fdAll_ne_zero_suppEdge`, `fdAll_ne_zero_supp`,
+  `fEdge4_ne_zero_supp` (an edge carrying flow joins two support compositions);
+  `outSumOf_fdAll_suppEdges`, `divOf_fdAll_suppEdges` (the divergence with the offsets of
+  Section 2); `fourth_moment_identity` (identity (39) without the monotonicity hypothesis);
+  `fourth_moment_identity_on_support`, `fourth_moment_coefficient_sum_nonpos_on_support`
+  (both sums over the support compositions). The third clause of
+  `uniform_fourth_moment_flow` and the conclusion of `fEdge4_ne_zero_cover` are stronger.
+* Removed: the hypothesis `hU` of `fourth_moment_certificate`; the hypothesis `3 ≤ d` of
+  `cascade_charge_origins`, now stated for a size `N`; the theorems `uniform_nonnegativity`
+  and `signed_flow_divergence`. The symmetry hypothesis of `divOf_wprim` is asked only for
+  final blocks `m ≥ s + 2`.
+* Reworded: seven docstrings and the passages of `K4_LEAN_CORRESPONDENCE.md` named by the
+  review; all names in its table are qualified and were checked to exist (324 names).
+
+**Lean.** Run after the last change to a Lean file, in a fresh worktree of the branch with
+the `.lake` directory of the `v1.0` build copied copy-on-write (Mathlib reused from cache,
+the `k = 2` modules replayed):
+
+* `lake build ChowCone.K4.Certificate` compiled the nine `k = 4` modules from source (each
+  reported "Built"). "Build completed successfully (8669 jobs)." No warning from them.
+* `lake env lean` on each of the nine files: no output, exit status 0.
+* `lake env lean K4AxiomCheck.lean` reproduces `lean/K4AxiomCheck.txt` line for line: 164
+  declarations, of which 152 depend on `propext`, `Classical.choice`, `Quot.sound`, 7 on
+  `propext`, `Quot.sound`, and 5 on `propext`.
+* `lake build`: "Build completed successfully (8662 jobs)", with the seven warnings listed
+  under "Lean, `k = 2`". `lake env lean AxiomCheck.lean` reproduces `lean/AxiomCheck.txt`.
+* No `sorry`, `admit`, `axiom`, `native_decide`, `skipKernelTC`, `implemented_by`,
+  `@[extern]` or `unsafe` in `lean/ChowCone*`, `lean/AxiomCheck.lean` or
+  `lean/K4AxiomCheck.lean`.
+
+**Python tests.** `python3 -m pytest tests/`: 509 passed, 0 failed, on the tree of this
+release.
+
+**Manuscript.** Three passages changed since `v1.1`, and nothing else: in the paragraph on
+Lean in Section 12, the number of declarations in the axiom report (164) and the sentence on
+who checked the agreement of the Lean definitions with the text; the corresponding sentence
+of the paragraph "Review" in the section "Use of AI tools"; and the name of the release in
+Section 12, now `v1.2`. `latexmk -pdf CHOW_CONE_FLOWS_MANUSCRIPT.tex` builds 16 pages with no
+undefined reference and no overfull box, and the number of every section, statement,
+equation and table is the same as in the build of `v1.0`.
+
+**Content scan.** The lines added by the commits after `v1.1`, and their messages, were
+searched as for `v1.1`. Nothing was found beyond the `noreply` addresses in the commit
+fields and in the `Co-Authored-By` lines.
+
 ## Not checked
 
 * Priority, beyond the searches recorded under "Release `v1.0`".
 * A clean download of Mathlib on a second machine (about 7 GB; deliberately not done).
 * The `k = 4` proof by a person other than the author. Since `v1.1` its combinatorial core is
-  checked in Lean; the agreement of the Lean definitions with the manuscript has not been
-  reviewed independently.
+  checked in Lean. The agreement of the Lean definitions with the manuscript has been
+  reviewed by AI sessions of the same system that wrote them, as described above, and by no
+  person.

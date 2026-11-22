@@ -345,6 +345,11 @@ Details and results are in `RELEASE_CHECKS.md`.
   including the two sentences in the section "Use of AI tools". The author asked for the
   changes to be applied to the file and received the changed file.
   **[repo: the manuscript at `v1.0` compared with `v1.1`]** **[session]**
+* On the same day, after the review of Part 4, three of these passages were changed again
+  with Claude Code: in the paragraph on Lean in Section 12 the number of declarations in the
+  axiom report and the sentence on who checked the agreement of the Lean definitions with
+  the text; the corresponding sentence of the paragraph "Review"; and the name of the
+  release. **[repo: the manuscript at `v1.1` compared with `v1.2`]** **[session]**
 
 Apart from the author's changes of 2026-11-21, the text of the manuscript was drafted by AI
 systems under the author's direction. The rewording of Section 8 is the author's own.
@@ -377,13 +382,28 @@ are UTC.
   (the origins of rows 4 to 6, and nonnegativity). A numerical test value written by the
   assistant, `r_2 = 1/36` for `y = 2`, was wrong and was rejected by Lean; the file has the
   correct value `1/18`. **[session]** **[repo: `K4_LEAN_CORRESPONDENCE.md`]**
-* **What was checked, and by whom.** Lean checked every proof, and the axiom report lists
-  155 declarations on the three standard axioms or a subset of them. The agreement of the
-  Lean definitions with the manuscript was checked only by the assistant that wrote them.
-  The assistant also computed the flow for `N = 6` by hand and found it in agreement with
-  the divergence identity; that computation is not in the repository. No review of the
-  formalization by a person or by a second AI system is recorded. **[session]**
-  **[repo: `RELEASE_CHECKS.md`]**
+* **What was checked, and by whom, up to `v1.1`.** Lean checked every proof, and the axiom
+  report of `v1.1` lists 155 declarations on the three standard axioms or a subset of them.
+  The agreement of the Lean definitions with the manuscript was checked only by the
+  assistant that wrote them. The assistant also computed the flow for `N = 6` by hand and
+  found it in agreement with the divergence identity; that computation is not in the
+  repository. **[session]** **[repo: `RELEASE_CHECKS.md`]**
+* **The review of `v1.1`.** On 22 November 2026 the same assistant, at the author's request,
+  started five further sessions of Claude Code as reviewers. Each was a fresh session that
+  received the repository at `v1.1`, the manuscript and one criterion, and nothing from the
+  session that had written the formalization: substantiveness, correspondence,
+  faithfulness to Sections 5 to 7, faithfulness to Sections 8 to 9, and non-vacuity. Each
+  had to give a verdict with evidence on every item of a fixed list and to keep the files
+  it relied on. The reviewers are instances of the same model as the author of the
+  formalization. Their findings were then checked, and the corrections made, by the
+  assistant that wrote the formalization, that is by the reviewed party. No person and no
+  other AI system took part. **[session]** **[repo: `RELEASE_CHECKS.md`]**
+* **What the review changed (`v1.2`).** The lemmas that the flow vanishes off the support
+  DAG, and the statements of identity (39) and its sign with the sums restricted to the
+  support compositions, were first proved by reviewers in their probes and were adapted
+  from there. The other changes remove an idle hypothesis, an unused hypothesis and two
+  redundant theorems, and correct docstrings and the correspondence table. **[session]**
+  **[repo: the commits after `v1.1`]**
 
 ## What this attribution does not claim
 

@@ -1,11 +1,13 @@
 # Nonnegative flows for Chow-polynomial moments of matroids
 
-> **Release `v1.1`, 22 November 2026.** The paper is `CHOW_CONE_FLOWS_MANUSCRIPT.tex`
+> **Release `v1.2`, 22 November 2026.** The paper is `CHOW_CONE_FLOWS_MANUSCRIPT.tex`
 > (Xichen Tang, *Nonnegative flows for Chow-polynomial moments of matroids*). It refers to
-> this repository at the tag `v1.1`. Its arXiv identifier will be added here once it exists.
-> Release `v1.1` adds to `v1.0` the Lean formalization of the combinatorial core of the
+> this repository at the tag `v1.2`. Its arXiv identifier will be added here once it exists.
+> Release `v1.1` added to `v1.0` the Lean formalization of the combinatorial core of the
 > `k = 4` proof, and the passages of the manuscript and of the documents here that describe
-> it. Nothing under `src/`, `tests/` and `results/` and no `k = 2` Lean source changed.
+> it. Release `v1.2` contains the changes made after a review of that formalization
+> (`RELEASE_CHECKS.md`). Nothing under `src/`, `tests/` and `results/` and no `k = 2` Lean
+> source has changed since `v1.0`.
 
 This repository studies the probability distribution defined by the Chow polynomial of a
 loopless matroid, following R. Cheng and W. Lin, *Inequalities for Chow polynomials and Chern
@@ -20,7 +22,7 @@ the flag inequality is a nonnegative linear combination of their monotonicity in
 | | Statement | Where | Verification |
 |---|---|---|---|
 | 1 | **Conjecture 3.30 for every `d >= 1`**, by an explicit flow `f = G(child)` on "peel-2" cover edges | `PROOF_CONJECTURE_3_30.md`, manuscript §4 | Symbolic proof. Its combinatorial core is machine-checked in Lean 4 (`lean/`), with Cheng–Lin Lemma 3.29 as an explicit hypothesis. |
-| 2 | **The case `k = 4` of Conjecture 3.14**: the fourth central moment is at most the Boolean one, with a flag-level certificate of peel width at most 3 | `PROOF_K4_FOURTH_MOMENT.md`, `K4_MATROID_BRIDGE.md`, manuscript §§5–9 | Symbolic proof. Its combinatorial core (manuscript §§6–9: the flow, its divergence, its nonnegativity, the cases `d = 1, 2` and the final identity) is machine-checked in Lean 4 (`lean/ChowCone/K4/`), with Cheng–Lin Lemma 3.29 as an explicit hypothesis; the agreement of the Lean definitions with the manuscript has not been reviewed independently (`K4_LEAN_CORRESPONDENCE.md`). The tests here check the construction exactly for small `d`. An AI audit in a fresh session and two separately written checking programs, none of them part of this repository, found no gap up to `d = 20` (`RELEASE_CHECKS.md`). **It has not been refereed by anyone other than the author.** |
+| 2 | **The case `k = 4` of Conjecture 3.14**: the fourth central moment is at most the Boolean one, with a flag-level certificate of peel width at most 3 | `PROOF_K4_FOURTH_MOMENT.md`, `K4_MATROID_BRIDGE.md`, manuscript §§5–9 | Symbolic proof. Its combinatorial core (manuscript §§6–9: the flow, its divergence, its nonnegativity, the cases `d = 1, 2` and the final identity) is machine-checked in Lean 4 (`lean/ChowCone/K4/`), with Cheng–Lin Lemma 3.29 as an explicit hypothesis; the agreement of the Lean definitions with the manuscript was reviewed by five further sessions of the AI system that wrote them and by no person (`K4_LEAN_CORRESPONDENCE.md`, `RELEASE_CHECKS.md`). The tests here check the construction exactly for small `d`. An AI audit in a fresh session and two separately written checking programs, none of them part of this repository, found no gap up to `d = 20` (`RELEASE_CHECKS.md`). **It has not been refereed by anyone other than the author.** |
 | 3 | **Conjecture 3.14 for every `k`, for matroids of rank 2 to 21** | `FUNCTIONAL_SCAN.md`, manuscript §11 | Exact computation: 100 instances, each with an explicit witness that is checked without a solver, cross-checked against an independently written implementation. Finite; it proves nothing for larger rank. |
 | 4 | The absolute deviation `E|X_M - d/2|` has **no** certificate of this kind for `4 <= d <= 20` | same | Exact computation with explicit witnesses. This is a limit of the method. It is **not** a matroid counterexample. |
 | 5 | The exact computations and failed searches behind 1 and 2 | `src/`, `results/`, `tests/`, `RESEARCH_NOTES.md`, `K4_*.md` | Exact integer or rational arithmetic throughout. |
@@ -54,31 +56,37 @@ the prose proof is in `LEAN_CORRESPONDENCE.md`.
 For `k = 4`, `lean/ChowCone/K4/Certificate.lean` ends with
 
 ```lean
-theorem fourth_moment_coefficient_sum_nonpos (d : ℕ) (hd : 1 ≤ d)
+theorem fourth_moment_coefficient_sum_nonpos_on_support (d : ℕ) (hd : 1 ≤ d)
     (N : Composition (d + 2) → ℚ)
-    (hmono : ∀ q c : Composition (d + 2), fEdge4 d q c ≠ 0 →
-      N q / U q.blocks ≤ N c / U c.blocks) :
-    ∑ v : Composition (d + 2), a4d d v.blocks * N v ≤ 0
+    (hmono : ∀ q c : Composition (d + 2), Supp q.blocks → Supp c.blocks →
+      fEdge4 d q c ≠ 0 → N q / U q.blocks ≤ N c / U c.blocks) :
+    ∑ v ∈ suppComps d, a4d d v.blocks * N v ≤ 0
 ```
 
-Here `a4d` is the coefficient `a_J^(4)` of the manuscript (equation (20)), `U` is the Boolean
-flag number, and `fEdge4` is the flow of Theorem 9.1 of the manuscript. That the flow is
-nonnegative, has divergence `w^(4)` and uses only splits `n -> (p, n-p)` with
-`min(p, n-p) <= 3` is the theorem `uniform_fourth_moment_flow` in
-`lean/ChowCone/K4/UniformFlow.lean`. As for `k = 2`, Lemma 3.29 is the hypothesis `hmono` and
+Here `suppComps d` is the set of support compositions of `d + 2` (all parts at least 2;
+these are flag types, and the coefficient vanishes on every other flag type), `a4d` is the
+coefficient `a_J^(4)` of the manuscript (equation (20)), `U` is the Boolean flag number, and
+`fEdge4` is the flow of Theorem 9.1 of the manuscript. That the flow is nonnegative, has
+divergence `w^(4)`, and is nonzero only between support compositions and on splits
+`n -> (p, n-p)` with `min(p, n-p) <= 3` is the theorem `uniform_fourth_moment_flow` in
+`lean/ChowCone/K4/UniformFlow.lean`. The identity behind the inequality is
+`fourth_moment_identity_on_support`. As for `k = 2`, Lemma 3.29 is the hypothesis `hmono` and
 matroids are not mentioned. The polynomial `S_4`, the constants `B_d` and the coefficient
 `a^(4)` are entered as definitions; their derivation in §5 of the manuscript, and the step
 from this inequality to the inequality of fourth moments, are not formalized. The axiom
-report `lean/K4AxiomCheck.txt` lists 155 declarations, all on `propext`, `Classical.choice`,
+report `lean/K4AxiomCheck.txt` lists 164 declarations, all on `propext`, `Classical.choice`,
 `Quot.sound` or a subset of these; there is no `sorry`. The correspondence with the
 manuscript is in `K4_LEAN_CORRESPONDENCE.md`. It was written by the AI assistant that wrote
-the Lean proofs and has not been reviewed independently.
+the Lean proofs. At `v1.1` it was reviewed by five further sessions of the same AI system,
+which found no false statement and nine defects of wording, naming and unused hypotheses;
+`v1.2` corrects them (`RELEASE_CHECKS.md`). It has not been reviewed by a person.
 
 ## What is not established
 
 * The `k = 4` theorem has not been refereed by anyone other than the author. Its Lean
   formalization covers the combinatorial core only, and the agreement of the Lean
-  definitions with the manuscript has not been reviewed independently.
+  definitions with the manuscript has been reviewed only by sessions of the AI system that
+  wrote them, not by a person.
 * Neither Lean development contains matroid or Chow-ring theory: Cheng and Lin's flag
   expansion and Lemma 3.29 are used, not formalized.
 * Conjecture 3.14 for `k` other than 2 and 4 is open beyond rank 21.
@@ -208,7 +216,8 @@ This work was carried out by Xichen Tang with AI tools, and they contributed sub
   command-line tool in one session on 28 August 2026, which also wrote the proof text. Which
   of the agents proposed the rerouting first cannot be read from the surviving logs.
 * For the Lean formalization of the `k = 4` certificate: it was written with Claude Code on
-  21 and 22 November 2026 (`PROVENANCE.md`, Part 4).
+  21 and 22 November 2026, and reviewed on 22 November by five further Claude Code sessions
+  (`PROVENANCE.md`, Part 4).
 
 The checks performed on the `k = 4` proof are AI audits, exact computations and the Lean
 formalization of its combinatorial core, described in `RELEASE_CHECKS.md` and
