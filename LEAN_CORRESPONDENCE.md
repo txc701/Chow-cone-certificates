@@ -10,6 +10,10 @@ Cheng–Lin's Lemma 3.29 and everything matroid-theoretic enter solely as
 **hypotheses** of the final corollaries; no Chow-ring/matroid theory is
 formalized.
 
+Note of 22 November 2026. This file covers the `k = 2` formalization. The formalization of
+the `k = 4` certificate, added in release `v1.1`, is in `lean/ChowCone/K4/` and is described
+in `K4_LEAN_CORRESPONDENCE.md`. The `k = 2` Lean sources are unchanged.
+
 ## Design decisions affecting fidelity (declared up front)
 
 * **Compositions as `List ℕ`.** A support state is a list `c` with

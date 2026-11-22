@@ -332,8 +332,73 @@ removed. Six stale declaration names in `LEAN_CORRESPONDENCE.md` were corrected 
 of the notes"). The manuscript is the author's final copy, plus the address of the
 repository in Section 12.
 
+## Release `v1.1` (2026-11-22)
+
+Prepared on the branch `k4-lean-cascade-origins`, which starts at the commit of `v1.0`. The
+checks were run on the author's Mac by an AI assistant (Claude Code) at the author's
+request. The same assistant wrote the Lean files that are checked here.
+
+**What changed since `v1.0`.** Twelve new files: the nine modules of `lean/ChowCone/K4/`,
+`lean/K4AxiomCheck.lean`, `lean/K4AxiomCheck.txt` and `K4_LEAN_CORRESPONDENCE.md`. Five
+passages of the manuscript, listed below. `README.md`, `PROVENANCE.md`,
+`LEAN_CORRESPONDENCE.md` and this file. Nothing under `src/`, `tests/` and `results/`
+changed, and no `k = 2` Lean source: `lean/ChowCone.lean`, the six modules of
+`lean/ChowCone/`, `lean/AxiomCheck.lean`, `lean/AxiomCheck.txt`, `lean/lakefile.toml`,
+`lean/lake-manifest.json` and `lean/lean-toolchain` are those of `v1.0`.
+
+**Lean, `k = 4`.** Run after the last change to a Lean file, in a fresh worktree of the
+branch:
+
+* The `.lake` directory of the `v1.0` build was copied copy-on-write.
+  `lake build --no-build Mathlib` reported "All targets up-to-date (8654 jobs)", so Mathlib
+  was **reused from cache, not recompiled**. The `k = 2` modules were replayed from cache.
+* `lake build ChowCone.K4.Certificate` compiled the **nine `k = 4` modules** from source, with
+  no prior build products for them: `CascadeOrigins`, `CascadeSizes`, `SquareCharges`,
+  `SignedFlow`, `Rerouting`, `Evaluation`, `Nonnegativity`, `UniformFlow`, `Certificate` (each
+  reported "Built"). "Build completed successfully (8669 jobs)." No warning from these
+  modules.
+* `lake env lean` on each of the nine files: no output, exit status 0.
+* `lake env lean K4AxiomCheck.lean` reproduces `lean/K4AxiomCheck.txt` line for line: 155
+  declarations, of which 144 depend on `propext`, `Classical.choice`, `Quot.sound`, 7 on
+  `propext`, `Quot.sound`, and 4 on `propext`.
+* `lake build`: "Build completed successfully (8662 jobs)", with the seven warnings listed
+  under "Lean, `k = 2`". `lake env lean AxiomCheck.lean` reproduces `lean/AxiomCheck.txt`.
+* No `sorry`, `admit`, `axiom`, `native_decide`, `skipKernelTC`, `implemented_by`,
+  `@[extern]` or `unsafe` in `lean/ChowCone*`, `lean/AxiomCheck.lean` or
+  `lean/K4AxiomCheck.lean`.
+* The nine modules are not imported by `lean/ChowCone.lean`. The default `lake build` does
+  not compile them; `lake build ChowCone.K4.Certificate` does.
+
+**Python tests.** `python3 -m pytest tests/`: 509 passed, 0 failed, on the tree with the
+last Lean change and again on the tree of this release.
+
+**Functional scan.** Not run again. No file it reads or writes has changed, and the two
+digests printed in the manuscript are those recorded under "Functional scan".
+
+**Manuscript.** Five passages changed, and nothing else: the sentence on Lean in the
+abstract; the paragraph on Lean in Section 12; the name of the release in Section 12, now
+`v1.1`; one sentence added to the paragraph on Theorem 1.2 in the section "Use of AI tools";
+the last sentence of the paragraph "Review" in that section. The base was the file of
+`v1.0`. `latexmk -pdf CHOW_CONE_FLOWS_MANUSCRIPT.tex` builds 16 pages with no undefined
+reference and no overfull box. The number of every section, statement, equation and table
+is the same as in the build of `v1.0` (the label entries of the two `.aux` files were
+compared).
+
+**Content scan.** The lines added by the commits after `v1.0`, and the messages of those
+commits, were searched for e-mail addresses, host names, local paths, user and machine
+names, credentials and text not in English. Nothing of that kind was found. The patterns
+matched only the `noreply` addresses in the commit fields and in the `Co-Authored-By` lines,
+and the Lean identifier `Source.net`, which has the form of a host name. The non-ASCII
+characters in the added lines are mathematical and typographic symbols.
+
+**Not done.** No review of the `k = 4` formalization by a person or by a second AI system.
+The agreement of the Lean definitions with the manuscript was checked only by the assistant
+that wrote them (`K4_LEAN_CORRESPONDENCE.md`, `PROVENANCE.md` Part 4).
+
 ## Not checked
 
 * Priority, beyond the searches recorded under "Release `v1.0`".
 * A clean download of Mathlib on a second machine (about 7 GB; deliberately not done).
-* The `k = 4` proof by a proof assistant, or by a person other than the author.
+* The `k = 4` proof by a person other than the author. Since `v1.1` its combinatorial core is
+  checked in Lean; the agreement of the Lean definitions with the manuscript has not been
+  reviewed independently.

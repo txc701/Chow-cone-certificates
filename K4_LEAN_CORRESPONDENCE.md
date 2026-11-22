@@ -3,9 +3,11 @@
 Lean formalization of the combinatorial part of the fourth-moment certificate. Manuscript:
 `CHOW_CONE_FLOWS_MANUSCRIPT.tex` as of 21 November 2026 (release `v1.0`), Sections 5–9. Lean
 files: `lean/ChowCone/K4/*.lean`, namespace `ChowCone.K4`. Toolchain and Mathlib are those of
-the `k = 2` project (Lean `v4.32.2`, Mathlib `v4.32.2`); nothing in the `k = 2` sources, the
-manuscript or the toolchain was changed. This file complements `LEAN_CORRESPONDENCE.md`, which
-covers `k = 2`.
+the `k = 2` project (Lean `v4.32.2`, Mathlib `v4.32.2`); nothing in the `k = 2` sources or the
+toolchain was changed. After the formalization, the manuscript was changed in the abstract,
+in Section 12 and in the section on AI tools only, to describe it (release `v1.1`); Sections
+1–11 and the numbering of every statement and equation are those of `v1.0`. This file
+complements `LEAN_CORRESPONDENCE.md`, which covers `k = 2`.
 
 ## Summary
 

@@ -49,7 +49,7 @@ admits an explicit decomposition as a nonnegative linear combination of the
 same normalized flag-count inequalities.  The common proof interprets the
 weighted flag coefficients as the divergence of a nonnegative flow on a
 subposet of the Boolean lattice and applies finite-poset summation by parts.
-The combinatorial core of the first proof is formalized in Lean~4.  An exact
+The combinatorial cores of both proofs are formalized in Lean~4.  An exact
 computation, with witnesses that can be checked independently, verifies
 Conjecture~3.14 for every $k$ for matroids of rank at most~$21$.
 \end{abstract}
@@ -1174,18 +1174,34 @@ DAG evaluations are regression checks only; the proof of
 Theorem~\ref{thm:uniform-flow} is the symbolic argument in
 Sections~\ref{sec:k4-primitives}--\ref{sec:nonnegative}.
 
-The $k=2$ combinatorial core has also been formalized in Lean~4 with
-mathlib: the definitions of $G,w$, the selected edge flow, nonnegativity,
-the full divergence identity, and the abstract summation-by-parts conclusion
-are machine checked.  Cheng and Lin's Lemma~3.29 is supplied there as an
-explicit monotonicity hypothesis; no matroid or Chow-ring theory is
-formalized.  The six project modules compile against a cached build of
-mathlib; the axiom reports for the final theorem and for the eight other
-load-bearing declarations contain only \texttt{propext},
+The combinatorial cores of both proofs have also been formalized in Lean~4
+with mathlib.  For $k=2$ the definitions of $G,w$, the selected edge flow,
+nonnegativity, the full divergence identity, and the abstract
+summation-by-parts conclusion are machine checked.  For $k=4$ the
+formalization covers
+Sections~\ref{sec:k4-primitives}--\ref{sec:small-d}: the primitive flows and
+the signed flow~\eqref{eq:signed-flow}, with
+Lemmas~\ref{lem:primitive-divergences} and~\ref{lem:product-rule} and
+Proposition~\ref{prop:signed-flow}; the path squares and the flow $f_d$, with
+\eqref{eq:corrected-divergence}; the origins and the sizes of the charges of
+Table~\ref{tab:charges}, with Lemma~\ref{lem:collision};
+Proposition~\ref{prop:nonnegative}; the cases $d=1,2$;
+Theorem~\ref{thm:uniform-flow}; and the identity
+\eqref{eq:final-flow-identity} with its sign.  In both developments Cheng and
+Lin's Lemma~3.29 is supplied as an explicit monotonicity hypothesis, and no
+matroid or Chow-ring theory is formalized.  For $k=4$ the quantities $B_d$,
+$a^{(4)}_J$ and $S_4$ are entered as the definitions \eqref{eq:Bd},
+\eqref{eq:a4} and \eqref{eq:k4-target}; their derivation in
+Section~\ref{sec:k4-coefficient} is not formalized.  The fifteen project
+modules, six for $k=2$ and nine for $k=4$, compile against a cached build of
+mathlib.  The axiom reports, for nine declarations of the first development
+and $155$ of the second, contain only \texttt{propext},
 \texttt{Classical.choice}, and \texttt{Quot.sound}, the standard mathlib
-dependencies.  The compiler emits seven linter warnings and no error.  The
-$k=4$ proof has not been formalized in Lean.  Neither the exact test suite
-nor the Lean development replaces any paper proof above.
+dependencies.  The compiler emits seven linter warnings, all in the $k=2$
+modules, and no error.  The agreement of the Lean definitions for $k=4$ with
+the text above was checked only by the AI system that wrote the
+formalization.  Neither the exact test suite nor the Lean development
+replaces any paper proof above.
 
 \subsection*{Reproducing the computation of Section~\ref{sec:finite-all-k}}
 
@@ -1193,7 +1209,7 @@ Proposition~\ref{prop:finite-scan} is the only statement in this paper whose
 proof is a computation.  It consists of $100$ instances, namely the
 admissible pairs $(d,m)$ with $2\le d\le20$; for $d=1$ there is no interior
 point $a$, hence no generator and nothing to check.  In release
-\texttt{v1.0} of the accompanying repository,
+\texttt{v1.1} of the accompanying repository,
 \url{https://github.com/txc701/Chow-cone-certificates}, the command
 \begin{center}
 \texttt{python3 src/run\_functional\_scan.py 20 16 10 -{}-witnesses W}
@@ -1253,7 +1269,9 @@ command-line tool.  The signed flow~\eqref{eq:signed-flow}, the path
 squares and the final-right cascade of Section~\ref{sec:rerouting}, the
 collision bounds of Section~\ref{sec:nonnegative} and the first version of the
 proof were derived by the agents of that Codex session. The surviving
-records do not determine which agent first proposed the cascade.
+records do not determine which agent first proposed the cascade.  The
+combinatorial core of the proof was afterwards formalized in Lean~4 with
+Claude Code.
 
 \emph{Section~\ref{sec:finite-all-k}.}  The functions $\tau_m$ and the
 computation were proposed, programmed and run with Claude Code.
@@ -1263,7 +1281,7 @@ agent, and its abstract and introduction were revised by the author with it.
 
 \emph{Review.}  The proof of Theorem~\ref{thm:intro-k4} was audited with
 Claude. A review pack was
-produced in a separate Codex session.  It is independent in the sense that its verification program was implemented separately and that the two sets of witnesses for Section~\ref{sec:finite-all-k} were verified against each other's checker. Neither review found a gap, and the construction was checked by exact computation for $d\le20$.  The proof has not been refereed by a person other than the author, and it has not been formalized.
+produced in a separate Codex session.  It is independent in the sense that its verification program was implemented separately and that the two sets of witnesses for Section~\ref{sec:finite-all-k} were verified against each other's checker. Neither review found a gap, and the construction was checked by exact computation for $d\le20$.  The proof has not been refereed by a person other than the author.  Its combinatorial core has been formalized in Lean~4, as described in Section~\ref{sec:dependencies}; the agreement of the formal definitions with the text was checked only by the AI system that wrote the formalization.
 
 \begin{thebibliography}{99}
 

@@ -2,7 +2,7 @@
 
 This file describes the traceable discovery process inside this project. It makes no claim
 about priority in the literature. Part 1 covers the `k = 2` certificate, Part 2 the `k = 4`
-certificate, Part 3 the texts.
+certificate, Part 3 the texts, Part 4 the Lean formalization of the `k = 4` certificate.
 
 Each statement is labelled by its source:
 
@@ -15,6 +15,9 @@ Each statement is labelled by its source:
   from the session logs that the coding agent of Part 2 left on the author's machine. The
   logs are not part of this repository. What they show and what they hide is described at
   the start of Part 2.
+* **[session]** — stated by the AI assistant (Claude Code) that carried out the work of
+  Part 4, from its own working session of 21 and 22 November 2026. The record of that
+  session is not part of this repository.
 
 ## Part 1. The `k = 2` certificate
 
@@ -334,9 +337,62 @@ Details and results are in `RELEASE_CHECKS.md`.
   `RELEASE_CHECKS.md`.
   **[repo: the file returned by the author, compared line by line with the version sent]**
 
+* On 2026-11-22, after the Lean formalization of Part 4, five passages of the manuscript
+  were changed with Claude Code at the author's request: one sentence of the abstract; the
+  paragraph on Lean in Section 12; the name of the release in Section 12; one sentence added
+  to the paragraph on Theorem 1.2 in the section "Use of AI tools"; and the last sentence of
+  the paragraph "Review" in that section. The wording of all five is by Claude Code,
+  including the two sentences in the section "Use of AI tools". The author asked for the
+  changes to be applied to the file and received the changed file.
+  **[repo: the manuscript at `v1.0` compared with `v1.1`]** **[session]**
+
 Apart from the author's changes of 2026-11-21, the text of the manuscript was drafted by AI
 systems under the author's direction. The rewording of Section 8 is the author's own.
 **[author, 2026-11-21]**
+
+## Part 4. The Lean formalization of the `k = 4` certificate
+
+**[repo]** for the files and the commits, **[session]** for how the work proceeded. Times
+are UTC.
+
+* **What it is.** Nine Lean modules in `lean/ChowCone/K4/`, the axiom report
+  `lean/K4AxiomCheck.lean` with its output `lean/K4AxiomCheck.txt`, and
+  `K4_LEAN_CORRESPONDENCE.md`. They formalize the combinatorial core of the proof of Part 2
+  as it stands in Sections 6 to 9 of the manuscript of 21 November 2026, with Cheng and
+  Lin's Lemma 3.29 as a hypothesis. **[repo: the commits after `v1.0` whose messages begin
+  "Lean, k = 4" or "K4 correspondence"]**
+* **Who wrote it.** The definitions, the statements, the proofs and the correspondence table
+  were written by Claude Code (Anthropic) in one working session on the author's machine,
+  between 23:46 on 21 November 2026, when the brief arrived, and 03:20 on 22 November, the
+  time of the last of those commits. The commits carry `Co-Authored-By` trailers for that
+  reason. The author wrote no Lean code. **[session]** **[repo: the commit times]**
+* **What the author supplied.** A written brief for the first step, the origins and
+  multiplicities of the charges of rows 4 to 6 of Table 1. The brief fixed the notion of a
+  source, the forward construction and the statement to be proved, listed four test cases,
+  and set the conditions of acceptance: no `sorry`, no custom axiom, no `native_decide`, and
+  no use of the enumeration as a hypothesis. How the brief was drafted is not known to the
+  assistant. The later steps were proposed by the assistant, each after the previous one
+  was finished: the sizes of the charges, rows 1 to 3, the signed flow, the rerouting,
+  nonnegativity, Theorem 9.1 and the certificate. The author approved each continuation in
+  a short message. **[session]**
+* **What it used.** The manuscript and the `k = 2` Lean files of this repository. The proof
+  document `PROOF_K4_FOURTH_MOMENT.md` and the implementation
+  `src/k4_uniform_certificate.py` were not used. No web search and no other AI system was
+  used. **[session]**
+* **Where it departs from the text.** The estimates of Section 8 are made edge by edge, with
+  indicator functions for the occurrences on an edge, and not occurrence by occurrence. The
+  list of origins of a label is proved from a forward construction defined by recursion, as
+  the brief required. The hypothesis `d ≥ 3` turned out not to be needed in two statements
+  (the origins of rows 4 to 6, and nonnegativity). A numerical test value written by the
+  assistant, `r_2 = 1/36` for `y = 2`, was wrong and was rejected by Lean; the file has the
+  correct value `1/18`. **[session]** **[repo: `K4_LEAN_CORRESPONDENCE.md`]**
+* **What was checked, and by whom.** Lean checked every proof, and the axiom report lists
+  155 declarations on the three standard axioms or a subset of them. The agreement of the
+  Lean definitions with the manuscript was checked only by the assistant that wrote them.
+  The assistant also computed the flow for `N = 6` by hand and found it in agreement with
+  the divergence identity; that computation is not in the repository. No review of the
+  formalization by a person or by a second AI system is recorded. **[session]**
+  **[repo: `RELEASE_CHECKS.md`]**
 
 ## What this attribution does not claim
 
