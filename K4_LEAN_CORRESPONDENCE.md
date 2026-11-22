@@ -88,16 +88,37 @@ the positional one. Its identification with the divergence on the vertices of th
 lattice (every edge into `c` merges a unique adjacent pair of blocks) is proved in the `k = 2`
 files for the flow `F` only, and remains to be done for the `k = 4` flows.
 
+## Fifth milestone: the rerouting and the flow `f_d` (`ChowCone.K4.Rerouting`)
+
+File `lean/ChowCone/K4/Rerouting.lean`.
+
+* `edgeUnit e` is the unit flow on a positional edge `e`; its divergence is `+1` at the parent
+  and `-1` at the child (`divOf_edgeUnit`). A path square `squareFlow` is the difference of the
+  edge chains of two paths with the same ends, and has zero divergence (`divOf_squareFlow`).
+* The left square (29) of a nonfinal or final-left source, the final-right square (31) and the
+  cascade squares (33) are defined on the edges named in the manuscript, and each has zero
+  divergence. The edges are identified with the occurrences of the earlier milestones: `A → B`
+  is the `F_4` occurrence, `A → C` and `C → D` are the labels of rows 1, 2 and 3, `X → Z` is
+  the label of row 4, and `Z_j → W_j` is `X_{j+1} → Y_{j+1}`.
+* `fd N` is `f_0` plus `R` times the left square of every left source at size `N`, plus `R`
+  times the final-right square and all cascade squares of every final-right source at size `N`,
+  with `R = 48 G(B)`.
+* **Equation (34)** (`divOf_fd`): for `d ≥ 3`, `div f_d = w^{(4)}` at every support composition
+  of `N = d + 2`.
+* The vertices of all squares of valid sources are support compositions (`square_supp`,
+  `cascSquare_supp`).
+
+Not in this milestone: the values of `f_d` on edges and their nonnegativity.
+
 ## What is not proved
+
 
 
 
 The amounts of the charges of rows 1–3 (equation (30) and the amount of row 3), the
 collision and capacity inequalities of Proposition 8.2 beyond the two cascade totals above,
-the flow `f_d` of Section 7 and the statement that each path square has zero divergence,
-nonnegativity, the cases `d = 1, 2`, Theorem 9.1 and the matroid bridge. The milestones on
-the charges (first to third) are not yet connected to the flow `f_0` of the fourth: the
-raw debit `48 G(B)` of a source is a definition there, not the value of `f_0` on an edge.
+nonnegativity of `f_d`, the cases `d = 1, 2`, Theorem 9.1 and the matroid bridge. The
+milestones on the charges (first to third) are not yet used to evaluate `f_d` on an edge.
 
 ## Design decisions affecting fidelity
 
@@ -183,6 +204,18 @@ raw debit `48 G(B)` of a source is a definition there, not the value of `f_0` on
 | `S4`, `w4`, `a4`, `w4_eq_U_mul_a4`, `Bd_eq` | (18), (20), (21) | `w^{(4)} = G S_4 = U a^{(4)}`; `B_d = 3(d+2)(5d+8)` |
 | `divOf_f0`, `signed_flow_divergence` | Proposition 6.3 | `div f_0 = w^{(4)}` for `d ≥ 3` |
 
+| `divOf_add`, `divOf_smul`, `divOf_sub`, `divOf_sum` | Section 7, "every correction has zero divergence, and therefore …" | linearity of the divergence |
+| `PEdge`, `PEdge.child`, `PEdge.Valid`, `Occ.edge`, `edgeUnit`, `divOf_edgeUnit` | Section 7, the unit flow `[A → B]` | divergence `+1` at `A`, `-1` at `B` |
+| `squareFlow`, `divOf_squareFlow` | Section 7, "the difference of the edge chains of two directed paths with the same initial and terminal vertices has zero divergence" | path squares |
+| `LeftSource.eAB`, `eBD`, `eAC`, `eCD`, `LeftSource.square`, `LeftSource.rawDebit`, `LeftSource.divOf_square` | (28), (29) | the left square and `R = 48 G(B)` |
+| `LeftSource.eAB_eq`, `eAC_eq`, `eCD_eq` | (29), Table 1 rows 1–2 | the edges are the `F_4` occurrence and the labels of rows 1 and 2 |
+| `Source.eAB`, `eBD`, `eAC`, `eCD`, `Source.square`, `Source.divOf_square`, `Source.eAB_eq`, `Source.eAC_eq`, `Source.eCD_eq` | (31), Table 1 row 3 | the final-right square; `C → D` is the first debt edge |
+| `cXY`, `cYW`, `cXZ`, `cZW`, `cascSquare`, `cascadeFlow`, `divOf_cascSquare`, `divOf_cascadeFlow` | (32), (33) | the cascade squares of one source |
+| `cXZ_eq`, `cXY_two`, `cXY_three`, `cZW_eq_cXY_next` | Section 7, the recursive transfer; Table 1 rows 4–6 | the cascade edges are the labels of rows 4–6; the debt moves to the next debt edge |
+| `validLeftSources_finite`, `leftSources`, `rightSources` | "apply … to every labeled … occurrence" | the finite sets of sources at size `N` |
+| `fd`, `divOf_fd_eq_divOf_f0`, `divOf_fd` | definition of `f_d`; (34) | `div f_d = w^{(4)}` for `d ≥ 3` |
+| `LeftSource.square_supp`, `Source.square_supp`, `cascSquare_supp` | "all vertices … in the path squares are support vertices" | support of the square vertices |
+
 ## Diagnostic examples (in the file, section `Examples`)
 
 * `Q = (2,2)`, `y = 2`: `h = 2`; the origins are the final-right labels of `(2,2,6)`, `(2,8)`
@@ -210,11 +243,11 @@ Run in a worktree of the branch, with the `.lake` directory of the `v1.0` build 
 copy-on-write. Mathlib was reused from cache (`lake build --no-build Mathlib`: "All targets
 up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not recompiled.
 
-* `lake build` of `ChowCone.K4.CascadeOrigins`, `ChowCone.K4.CascadeSizes`,
-  `ChowCone.K4.SquareCharges` and `ChowCone.K4.SignedFlow`: the four modules were built from
-  source; "Build completed successfully". No warning from the new files.
-* `lake env lean` on each of the four files: no output, exit status 0.
-* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 88 declarations
+* `lake build ChowCone.K4.Rerouting`, which builds the five `K4` modules (`CascadeOrigins`,
+  `CascadeSizes`, `SquareCharges`, `SignedFlow`, `Rerouting`): all five were built from source;
+  "Build completed successfully (8665 jobs)". No warning from the new files.
+* `lake env lean` on each of the five files: no output, exit status 0.
+* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 107 declarations
   depend only on `propext`, `Classical.choice`, `Quot.sound`, or a subset of these.
 * `lake build`: "Build completed successfully (8662 jobs)", with the same seven linter
   warnings in the `k = 2` files that `RELEASE_CHECKS.md` lists. `lake env lean AxiomCheck.lean`
@@ -226,15 +259,14 @@ up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not 
   has changed.
 
 The new modules are not imported by `lean/ChowCone.lean`, which is unchanged. The default
-`lake build` therefore does not compile them; use
-`lake build ChowCone.K4.SignedFlow ChowCone.K4.SquareCharges`, which also builds the other
-two.
+`lake build` therefore does not compile them; use `lake build ChowCone.K4.Rerouting`.
 
-Dependencies of `CascadeOrigins`: `ChowCone.Flow` (hence `ChowCone.Basic` and Mathlib). From the
-`k = 2` project it uses `Supp`, `splitAt`, `indN`, `decomp_at` and `length_take_of_lt`. From
-Mathlib it uses list lemmas, `Finset` sums, and `Composition` only to prove that the set of
-sources at a given size is finite. `CascadeSizes` imports `CascadeOrigins` and
-`ChowCone.Ratios`; from the `k = 2` project it uses `G`, `gprod`, `blockTerm`, `lastPart` and
-their lemmas (`G_pos`, `blockTerm_pos`, `blockTerm_two`, `gprod_append`, `gprod_cons`). `SquareCharges` imports `CascadeOrigins` only. `SignedFlow` imports
-`ChowCone.Main` and `CascadeSizes`; from the `k = 2` project it uses `F`, `flowDiv`, `mergeAt`
-and the lemmas on merges and sums of `Divergence.lean` and `Main.lean`.
+Dependencies. `CascadeOrigins` imports `ChowCone.Flow` (hence `ChowCone.Basic` and Mathlib);
+from the `k = 2` project it uses `Supp`, `splitAt`, `indN`, `decomp_at` and
+`length_take_of_lt`, and from Mathlib list lemmas, `Finset` sums, and `Composition` only to
+prove that the set of sources at a given size is finite. `CascadeSizes` imports
+`CascadeOrigins` and `ChowCone.Ratios`, and uses `G`, `gprod`, `blockTerm`, `lastPart` and
+their lemmas. `SquareCharges` imports `CascadeOrigins` only. `SignedFlow` imports
+`ChowCone.Main` and `CascadeSizes`, and uses `F`, `flowDiv`, `mergeAt` and the lemmas on merges
+and sums of `Divergence.lean` and `Main.lean`. `Rerouting` imports `SignedFlow` and
+`SquareCharges`, and uses `splitAt_inversion` and `splitAt_mergeAt`.

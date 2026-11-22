@@ -2,6 +2,7 @@ import ChowCone.K4.CascadeOrigins
 import ChowCone.K4.CascadeSizes
 import ChowCone.K4.SquareCharges
 import ChowCone.K4.SignedFlow
+import ChowCone.K4.Rerouting
 
 open ChowCone.K4
 
@@ -104,3 +105,24 @@ open ChowCone.K4
 #print axioms indFRs_eq_one_iff
 #print axioms w4_eq_U_mul_a4
 #print axioms Bd_eq
+
+-- The rerouting and the flow f_d (Rerouting).
+#print axioms divOf_fd
+#print axioms divOf_fd_eq_divOf_f0
+#print axioms divOf_edgeUnit
+#print axioms divOf_squareFlow
+#print axioms LeftSource.divOf_square
+#print axioms Source.divOf_square
+#print axioms divOf_cascSquare
+#print axioms divOf_cascadeFlow
+#print axioms divOf_sum
+#print axioms validLeftSources_finite
+#print axioms LeftSource.eAB_eq
+#print axioms LeftSource.eAC_eq
+#print axioms LeftSource.eCD_eq
+#print axioms Source.eAB_eq
+#print axioms Source.eAC_eq
+#print axioms cZW_eq_cXY_next
+#print axioms LeftSource.square_supp
+#print axioms Source.square_supp
+#print axioms cascSquare_supp
