@@ -110,15 +110,56 @@ File `lean/ChowCone/K4/Rerouting.lean`.
 
 Not in this milestone: the values of `f_d` on edges and their nonnegativity.
 
+## Sixth milestone: nonnegativity of `f_d` (`ChowCone.K4.Evaluation`, `ChowCone.K4.Nonnegativity`)
+
+Files `lean/ChowCone/K4/Evaluation.lean` and `lean/ChowCone/K4/Nonnegativity.lean`.
+
+* **Telescoping** (`cascade_net`): for one final-right source, the debt on `X → Y` together
+  with all cascade squares equals the positive additions `Y_j → W_j` minus one unit on the
+  edge of each charge of the forward construction of the first milestone. The debts on the
+  intermediate right peels cancel, whatever else those edges carry.
+* **Evaluation** (`fd_eq`, `fd_apply`): `f_d` is `f_0` plus nine sums over the sources, one for
+  each role of an edge in a square: `A → B`, `B → D`, `A → C`, `C → D` of the left squares,
+  `A → B`, `B → D`, `A → C` of the final-right squares, the additions `Y_j → W_j`, and the
+  charges of rows 4–6.
+* **Amounts of rows 1–3** (`amount_AC_nonfinal`, `amount_AC_final`, `amount_CD`,
+  `amount_right_AC`): `48 G(B)` equals `12(t+2)(t-1) G(C)` or `12t(t-1) G(C)`, `24 G(D)`,
+  and `24(t+2)(t-1) G(C)`, as in equation (30) and the text after (31).
+* **Bounds on the nine sums.** The two `A → B` sums put at least `48 G(child)` on the edge of
+  every `F_4` occurrence (`LAB_ge`, `RAB_ge`). The three additions are nonnegative. The sums
+  of rows 1, 2 and 3 are bounded by the amounts above times `G(child)` and vanish unless the
+  edge carries the corresponding `F_2` occurrence (`LAC_le`, `LCD_le`, `RAC_le`); this uses
+  that a label has at most one origin. The sum of rows 4–6 is at most `75 G(child)` on an edge
+  with a nonfinal `F_2` occurrence and at most `60 G(child)` on an edge with a nonfinal `F_3`
+  occurrence, and vanishes elsewhere (`RCH_le`); this uses the list of origins of the first
+  milestone and the bounds of the second.
+* **Margins** (`margin_N2`, `margin_FL2`, `margin_FR2`): with the reserve (35) bounded below by
+  `V(child) ≥ (M-2)(M-4)` and `N ≥ M + 2` or `N ≥ M`, the three margin polynomials
+  `18M^2 - 66M + 69`, `18M^2 - 42M - 36`, `6M^2 + 18M - 12` for `M ≥ 6` and the cases
+  `M = 4, 5`.
+* **Proposition 8.2** (`fd_nonneg`, `uniform_nonnegativity`): for every `N`, every edge value
+  of `f_d` on the compositions of `N` is nonnegative. The hypothesis `d ≥ 3` of the manuscript
+  is not needed for this statement.
+
+Two points where the Lean proof is organized differently from the text. First, the estimates
+are made on edges, with the occurrences on an edge counted by the indicators `indNs`,
+`indFLs`, `indFRs`; the reserves of coincident occurrences add because the indicators add.
+Second, for the cancellation of the `F_4` occurrences only the inequality "at least
+`48 G(child)`" is proved, which is what nonnegativity needs. The exact value of `f_d` on an
+edge is not computed, so the sentence "all surviving flow is supported on peel-two and
+peel-three cover edges" is not yet a theorem.
+
 ## What is not proved
 
 
 
 
-The amounts of the charges of rows 1–3 (equation (30) and the amount of row 3), the
-collision and capacity inequalities of Proposition 8.2 beyond the two cascade totals above,
-nonnegativity of `f_d`, the cases `d = 1, 2`, Theorem 9.1 and the matroid bridge. The
-milestones on the charges (first to third) are not yet used to evaluate `f_d` on an edge.
+
+The exact value of `f_d` on an edge and the statement that the surviving flow is on
+peel-two and peel-three edges, the cases `d = 1, 2`, the identification of the positional
+divergence with the divergence on the vertices of the Boolean lattice for the `k = 4` flows,
+Theorem 9.1 and the matroid bridge. As before, `S_4` and `B_d` are definitions taken from
+equations (18) and (21).
 
 ## Design decisions affecting fidelity
 
@@ -216,6 +257,17 @@ milestones on the charges (first to third) are not yet used to evaluate `f_d` on
 | `fd`, `divOf_fd_eq_divOf_f0`, `divOf_fd` | definition of `f_d`; (34) | `div f_d = w^{(4)}` for `d ≥ 3` |
 | `LeftSource.square_supp`, `Source.square_supp`, `cascSquare_supp` | "all vertices … in the path squares are support vertices" | support of the square vertices |
 
+| `posFlow`, `chargeFlow`, `cascade_net`, `Source.net` | Section 8, "the two terms cancel, regardless of any other label on the edge" | telescoping of the debts of one source |
+| `LAB`, `LBD`, `LAC`, `LCD`, `RAB`, `RBD`, `RAC`, `RPOS`, `RCH`, `fd_eq`, `fd_apply` | Section 7, definition of `f_d`; Table 1, column "negative term" | `f_d` as `f_0` plus nine sums |
+| `sum_key_le`, `sum_key_ge`, `chargeFlow_eq_count` | Table 1, column "how many" | at most one source per key; multiplicity of a charge |
+| `amount_AC_nonfinal`, `amount_AC_final`, `amount_CD`, `amount_right_AC` | (30); text after (31); Table 1 rows 1–3, "normalized amount" | `12(t+2)(t-1)`, `12t(t-1)`, `24`, `24(t+2)(t-1)` |
+| `LAB_ge`, `RAB_ge` | "this cancels the negative `F_4` occurrence on `A → B`" | at least `48 G(child)` per `F_4` occurrence |
+| `LBD_nonneg`, `RBD_nonneg`, `RPOS_nonneg` | "every correction not listed above adds rather than subtracts flow" | the additions are nonnegative |
+| `a1n`, `a1f`, `a3`, `LAC_le`, `LCD_le`, `RAC_le` | Table 1 rows 1–3 | total charge of each row on an edge |
+| `chargeAt_edge`, `chargeAt_edge_injective`, `RCH_le_of_charge`, `RCH_le` | Table 1 rows 4–6; the sentence after Lemma 8.1 | at most `75` units on a nonfinal `F_2` edge, `60` on a nonfinal `F_3` edge |
+| `vq_le_V`, `two_blocks_le_sum`, `margin_N2`, `margin_FL2`, `margin_FR2` | proof of Proposition 8.2 | the three margin polynomials and `M = 4, 5` |
+| `fd_nonneg`, `uniform_nonnegativity` | Proposition 8.2 | every edge value of `f_d` is nonnegative |
+
 ## Diagnostic examples (in the file, section `Examples`)
 
 * `Q = (2,2)`, `y = 2`: `h = 2`; the origins are the final-right labels of `(2,2,6)`, `(2,8)`
@@ -243,11 +295,12 @@ Run in a worktree of the branch, with the `.lake` directory of the `v1.0` build 
 copy-on-write. Mathlib was reused from cache (`lake build --no-build Mathlib`: "All targets
 up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not recompiled.
 
-* `lake build ChowCone.K4.Rerouting`, which builds the five `K4` modules (`CascadeOrigins`,
-  `CascadeSizes`, `SquareCharges`, `SignedFlow`, `Rerouting`): all five were built from source;
-  "Build completed successfully (8665 jobs)". No warning from the new files.
-* `lake env lean` on each of the five files: no output, exit status 0.
-* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 107 declarations
+* `lake build ChowCone.K4.Nonnegativity`, which builds the seven `K4` modules
+  (`CascadeOrigins`, `CascadeSizes`, `SquareCharges`, `SignedFlow`, `Rerouting`, `Evaluation`,
+  `Nonnegativity`): all seven were built from source; "Build completed successfully
+  (8667 jobs)". No warning from the new files.
+* `lake env lean` on each of the seven files: no output, exit status 0.
+* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 134 declarations
   depend only on `propext`, `Classical.choice`, `Quot.sound`, or a subset of these.
 * `lake build`: "Build completed successfully (8662 jobs)", with the same seven linter
   warnings in the `k = 2` files that `RELEASE_CHECKS.md` lists. `lake env lean AxiomCheck.lean`
@@ -259,7 +312,7 @@ up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not 
   has changed.
 
 The new modules are not imported by `lean/ChowCone.lean`, which is unchanged. The default
-`lake build` therefore does not compile them; use `lake build ChowCone.K4.Rerouting`.
+`lake build` therefore does not compile them; use `lake build ChowCone.K4.Nonnegativity`.
 
 Dependencies. `CascadeOrigins` imports `ChowCone.Flow` (hence `ChowCone.Basic` and Mathlib);
 from the `k = 2` project it uses `Supp`, `splitAt`, `indN`, `decomp_at` and
@@ -269,4 +322,6 @@ prove that the set of sources at a given size is finite. `CascadeSizes` imports
 their lemmas. `SquareCharges` imports `CascadeOrigins` only. `SignedFlow` imports
 `ChowCone.Main` and `CascadeSizes`, and uses `F`, `flowDiv`, `mergeAt` and the lemmas on merges
 and sums of `Divergence.lean` and `Main.lean`. `Rerouting` imports `SignedFlow` and
-`SquareCharges`, and uses `splitAt_inversion` and `splitAt_mergeAt`.
+`SquareCharges`, and uses `splitAt_inversion` and `splitAt_mergeAt`. `Evaluation` imports
+`Rerouting`. `Nonnegativity` imports `Evaluation`, and uses `G_nonneg`, `Supp_splitAt`,
+`mem_le_sum`, `p_mem_splitAt` and `rest_mem_splitAt`.

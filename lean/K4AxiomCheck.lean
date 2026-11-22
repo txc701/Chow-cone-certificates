@@ -3,6 +3,8 @@ import ChowCone.K4.CascadeSizes
 import ChowCone.K4.SquareCharges
 import ChowCone.K4.SignedFlow
 import ChowCone.K4.Rerouting
+import ChowCone.K4.Evaluation
+import ChowCone.K4.Nonnegativity
 
 open ChowCone.K4
 
@@ -126,3 +128,34 @@ open ChowCone.K4
 #print axioms LeftSource.square_supp
 #print axioms Source.square_supp
 #print axioms cascSquare_supp
+
+-- Evaluation of f_d on an edge (Evaluation).
+#print axioms cascade_net
+#print axioms Source.net
+#print axioms fd_eq
+#print axioms fd_apply
+#print axioms sum_key_le
+#print axioms sum_key_ge
+#print axioms chargeFlow_eq_count
+#print axioms chargeFlow_eq_zero
+
+-- Nonnegativity of f_d (Nonnegativity).
+#print axioms uniform_nonnegativity
+#print axioms fd_nonneg
+#print axioms amount_CD
+#print axioms amount_AC_nonfinal
+#print axioms amount_AC_final
+#print axioms amount_right_AC
+#print axioms LAB_ge
+#print axioms RAB_ge
+#print axioms LBD_nonneg
+#print axioms RBD_nonneg
+#print axioms RPOS_nonneg
+#print axioms LAC_le
+#print axioms LCD_le
+#print axioms RAC_le
+#print axioms RCH_le_of_charge
+#print axioms RCH_le
+#print axioms margin_N2
+#print axioms margin_FL2
+#print axioms margin_FR2
