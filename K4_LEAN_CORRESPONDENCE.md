@@ -1,14 +1,45 @@
-# Lean ⇄ manuscript correspondence, `k = 4`: origins of the cascade charges
+# Lean ⇄ manuscript correspondence, `k = 4`
 
-First Lean milestone for the fourth-moment certificate. Manuscript:
-`CHOW_CONE_FLOWS_MANUSCRIPT.tex` as of 21 November 2026 (release `v1.0`), Section 7,
-equations (31)–(33), Lemma 8.1 and Table 1. Lean file:
-`lean/ChowCone/K4/CascadeOrigins.lean`, module `ChowCone.K4.CascadeOrigins`, namespace
-`ChowCone.K4`. Toolchain and Mathlib are those of the `k = 2` project (Lean `v4.32.2`,
-Mathlib `v4.32.2`); nothing in the `k = 2` sources, the manuscript or the toolchain was
-changed. This file complements `LEAN_CORRESPONDENCE.md`, which covers `k = 2`.
+Lean formalization of the combinatorial part of the fourth-moment certificate. Manuscript:
+`CHOW_CONE_FLOWS_MANUSCRIPT.tex` as of 21 November 2026 (release `v1.0`), Sections 5–9. Lean
+files: `lean/ChowCone/K4/*.lean`, namespace `ChowCone.K4`. Toolchain and Mathlib are those of
+the `k = 2` project (Lean `v4.32.2`, Mathlib `v4.32.2`); nothing in the `k = 2` sources, the
+manuscript or the toolchain was changed. This file complements `LEAN_CORRESPONDENCE.md`, which
+covers `k = 2`.
 
-## What is proved
+## Summary
+
+The final statements are in `ChowCone.K4.UniformFlow` and `ChowCone.K4.Certificate`:
+
+* `uniform_fourth_moment_flow` (Theorem 9.1): for every `d ≥ 1` there is an explicit flow on
+  the compositions of `N = d + 2` that is nonnegative, has divergence `w^{(4)} = G S_4` at
+  every composition, and is supported on edges that split a block `n ↦ (p, n-p)` with
+  `min(p, n-p) ≤ 3`.
+* `fourth_moment_certificate` and `fourth_moment_coefficient_sum_nonpos` (identity (39) and
+  its sign): for every `d ≥ 1`, if `N_J / U_J` is monotone along the edges carrying flow, then
+  `Σ_J a_J^{(4)} N_J` equals a nonnegative combination of the monotonicity differences and is
+  at most zero. The monotonicity is Cheng and Lin's Lemma 3.29; it is a hypothesis.
+
+What stays outside Lean, as in the `k = 2` formalization: all matroid and Chow-ring theory,
+Cheng and Lin's Lemma 3.29, the flag expansion (4), the derivation of `S_4` from the moments
+of the flag summands in Section 5 (equations (16)–(17)), the values of `B_d` from Cheng and
+Lin's Corollary 3.13 (equation (18)), and the step (19) from `Σ_J a_J^{(4)} N_J ≤ 0` to the
+inequality of fourth moments. `S_4`, `B_d` and `a^{(4)}` are definitions taken from equations
+(18), (20) and (21). Sections 10 and 11 are not treated.
+
+The sections below follow the order in which the modules were written.
+
+| module | content |
+|---|---|
+| `CascadeOrigins` | first milestone: origins and multiplicities of the charges of rows 4–6 |
+| `CascadeSizes` | second: sizes `48 r_j` and the bounds of Lemma 8.1 |
+| `SquareCharges` | third: origins of the charges of rows 1–3 |
+| `SignedFlow` | fourth: `f_0`, Lemmas 6.1 and 6.2, Proposition 6.3 |
+| `Rerouting` | fifth: the path squares, `f_d`, equation (34) |
+| `Evaluation`, `Nonnegativity` | sixth: Proposition 8.2 |
+| `UniformFlow`, `Certificate` | seventh: `d = 1, 2`, Theorem 9.1, identity (39) |
+
+## First milestone: origins of the charges of rows 4–6 (`ChowCone.K4.CascadeOrigins`)
 
 Fix a label of rows 4–6: the charged occurrence on the block `y + 2` of `Q.(y+2,2)`, with
 `Q` a support composition (possibly empty), `y ≥ 2` and `sum Q + y + 4 = N`. Let `h` be the
@@ -40,8 +71,9 @@ File `lean/ChowCone/K4/CascadeSizes.lean`. With `r_j = 2^j ρ₀(y+2j)/ρ₀(y)`
   `60 G(child)` for a terminal `F_3` label.
 
 The raw debit `R = 48 G(B)` is taken from the text of Section 7 as a definition
-(`Source.rawDebit`). It is not derived from a formal definition of the flow `f_0`, which does
-not yet exist in Lean.
+(`Source.rawDebit`). The flow `f_0` is defined in the fourth milestone, and the seventh
+(`LAB_add_RAB`) shows that the corrections with this `R` cancel the `F_4` terms of `f_0`
+exactly.
 
 ## Third milestone: origins of rows 1–3 (`ChowCone.K4.SquareCharges`)
 
@@ -58,7 +90,7 @@ occurrence of the final block `t + 4` (row 3, edge `A → C = X_0`).
   (row 1); a selected left `F_2` occurrence whose block is immediately preceded by a 2
   (row 2); a selected right `F_2` occurrence of a final block at least 6 (row 3).
 
-The amounts (30) of these charges are not formalized.
+The amounts (30) of these charges are computed in the sixth milestone.
 
 ## Fourth milestone: the signed flow `f_0` (`ChowCone.K4.SignedFlow`)
 
@@ -84,9 +116,8 @@ any `s ≥ 1` and any weight `φ` that agrees on the two children of a final blo
 Limits of this milestone. `S_4` and `B_d = 15N^2 - 6N` are taken from equations (18) and (21)
 as definitions; the derivation of `S_4` from the moments of the flag summands in Section 5 and
 the value of `B_d` from Cheng and Lin's Corollary 3.13 are not formalized. The divergence is
-the positional one. Its identification with the divergence on the vertices of the Boolean
-lattice (every edge into `c` merges a unique adjacent pair of blocks) is proved in the `k = 2`
-files for the flow `F` only, and remains to be done for the `k = 4` flows.
+the positional one; its identification with the divergence on the vertices of the Boolean
+lattice is proved for every positional flow in the seventh milestone.
 
 ## Fifth milestone: the rerouting and the flow `f_d` (`ChowCone.K4.Rerouting`)
 
@@ -144,10 +175,36 @@ Files `lean/ChowCone/K4/Evaluation.lean` and `lean/ChowCone/K4/Nonnegativity.lea
 Two points where the Lean proof is organized differently from the text. First, the estimates
 are made on edges, with the occurrences on an edge counted by the indicators `indNs`,
 `indFLs`, `indFRs`; the reserves of coincident occurrences add because the indicators add.
-Second, for the cancellation of the `F_4` occurrences only the inequality "at least
-`48 G(child)`" is proved, which is what nonnegativity needs. The exact value of `f_d` on an
-edge is not computed, so the sentence "all surviving flow is supported on peel-two and
-peel-three cover edges" is not yet a theorem.
+Second, for the cancellation of the `F_4` occurrences this milestone uses only the inequality
+"at least `48 G(child)`", which is what nonnegativity needs; the exact cancellation is proved
+in the seventh milestone.
+
+## Seventh milestone: Theorem 9.1 and the certificate (`ChowCone.K4.UniformFlow`, `ChowCone.K4.Certificate`)
+
+Files `lean/ChowCone/K4/UniformFlow.lean` and `lean/ChowCone/K4/Certificate.lean`.
+
+* **Exact cancellation** (`LAB_add_RAB`, `fd_apply_cancelled`): the corrections put exactly
+  `48 G(child)` on the edge of every `F_4` occurrence, so on every edge `f_d` is the reserves
+  of the `F_2` and `F_3` occurrences, plus the additions, minus the charges of rows 1–6.
+* **Support of the flow** (`fd_eq_zero_of_wide`): if both parts of a split are at least 4,
+  the edge carries no flow.
+* **Off the support** (`divOf_f0_all`): Proposition 6.3 holds at every composition of `N ≥ 5`
+  with positive parts; where some part is 1 both sides vanish.
+* **Boundary dimensions** (`Bd`, `w4d_one`, `divOf_fdAll_two`): `B_1 = 45` and `S_4(3) = 0`;
+  `B_2 = 240`, `G(4) = G(2,2) = 3`, and the raw flow `720` on `(4) → (2,2)`.
+* **Theorem 9.1** (`uniform_fourth_moment_flow`): for every `d ≥ 1`, with
+  `fdAll d` equal to `0`, to `720 [(4) → (2,2)]`, or to `f_d`.
+* **Vertex form** (`fEdgeOf`, `sum_fEdgeOf_out`, `sum_fEdgeOf_in`, `fEdgeOf_div`): for any
+  positional flow, the divergence on the vertices `Composition n` equals the positional
+  divergence. This generalizes `sum_fEdge_out` and `sum_fEdge_in` of the `k = 2` file
+  `ChowCone.Main`, which treat the flow `F`.
+* **Certificate** (`fourth_moment_certificate`, `fourth_moment_coefficient_sum_nonpos`): the
+  finite-poset flow lemma of the `k = 2` file `ChowCone.Abstract` applied to `fEdge4`.
+
+As in the `k = 2` formalization, the vertex type is Mathlib's `Composition (d+2)`, which also
+contains the compositions whose final part is 1. These are not flag types. On them `G`, hence
+`w^{(4)}` and `a^{(4)}`, vanishes, and no edge carrying flow meets them, so the sums and the
+monotonicity hypothesis are those of the Boolean lattice.
 
 ## What is not proved
 
@@ -155,11 +212,12 @@ peel-three cover edges" is not yet a theorem.
 
 
 
-The exact value of `f_d` on an edge and the statement that the surviving flow is on
-peel-two and peel-three edges, the cases `d = 1, 2`, the identification of the positional
-divergence with the divergence on the vertices of the Boolean lattice for the `k = 4` flows,
-Theorem 9.1 and the matroid bridge. As before, `S_4` and `B_d` are definitions taken from
-equations (18) and (21).
+
+Everything listed under "What stays outside Lean" in the summary. Inside the combinatorial
+part, two items are not formalized: closed formulas for the additions `B → D` and
+`Y_j → W_j` on an edge (they are only shown to be nonnegative, and zero on edges whose two
+parts are at least 4), and the diagnostic value check of `f_d` for `N = 6`, which was done by
+hand.
 
 ## Design decisions affecting fidelity
 
@@ -181,6 +239,19 @@ equations (18) and (21).
   source, since `t ≥ 2` and each stage lowers the parameter by 2 only when it is at least 4.
   `chargeAt Q y` for `y < 2` is the row-4 form and is never used; every theorem that needs
   it assumes `2 ≤ y`.
+* **Positional flows.** A flow is a function of `(c, i, p)`: split block `i` of `c` at offset
+  `p`. Divergence is `outSumOf - inSumOf`, written as `flowDiv` in the `k = 2` files. The
+  passage to vertex pairs is `fEdgeOf`.
+* **`fd N` and `fdAll d` are indexed by the size.** Their statements assume `c.sum = N`. On a
+  composition of another size `fd N` is `f_0`, which has negative values; this is outside the
+  domain of the theorems.
+* **Unused hypotheses.** `3 ≤ d` is not used in `cascade_charge_origins` and in
+  `uniform_nonnegativity`; in both it is named `_hd` and the docstring says so. Nonnegativity
+  of `fd N` holds for every `N`. `3 ≤ d` is used in `signed_flow_divergence` and `divOf_fd`.
+* **Definitions taken from the manuscript, not derived.** `S4`, `S4d`, `Bd`, `a4`, `a4d`
+  (equations (18), (20), (21)) and the raw debit `48 G(B)`.
+* **Vertices.** `Composition (d+2)` contains compositions with final part 1, which are not
+  flag types; see the seventh milestone.
 
 ## Table
 
@@ -268,6 +339,17 @@ equations (18) and (21).
 | `vq_le_V`, `two_blocks_le_sum`, `margin_N2`, `margin_FL2`, `margin_FR2` | proof of Proposition 8.2 | the three margin polynomials and `M = 4, 5` |
 | `fd_nonneg`, `uniform_nonnegativity` | Proposition 8.2 | every edge value of `f_d` is nonnegative |
 
+| `LAB_le`, `RAB_le`, `LAB_add_RAB`, `fd_apply_cancelled` | Section 7, "this cancels the negative `F_4` occurrence on `A → B`" | exact cancellation |
+| `fd_eq_zero_of_wide`, `fdAll_used_edge` | Section 7, "all surviving flow is supported on peel-two and peel-three cover edges"; Theorem 9.1, last sentence | `min(p, n-p) ≤ 3` on every edge carrying flow |
+| `divOf_f0_of_not_supp`, `divOf_f0_all` | Section 9, "off the support `w^{(4)} = 0`, and no selected edge is incident" | divergence at every composition |
+| `Bd`, `S4d`, `w4d`, `a4d`, `w4d_eq_U_mul_a4d`, `w4d_eq_w4` | (18), (20), (21) | the target for every `d` |
+| `fdAll`, `w4d_one`, `divOf_fdAll_two`, `G_four`, `G_two_two` | Section 9, `d = 1` and `d = 2` | `f_1 = 0`; raw flow `720` on `(4) → (2,2)` |
+| `divOf_fdAll`, `fdAll_nonneg`, `uniform_fourth_moment_flow` | Theorem 9.1 | the uniform fourth-moment flow |
+| `fEdgeOf`, `fEdgeOf_F`, `sum_fEdgeOf_out`, `sum_fEdgeOf_in`, `fEdgeOf_div` | Section 2, Boolean covers as splits; Lemma 3.1 | vertex divergence = positional divergence |
+| `fEdge4`, `fEdge4_nonneg`, `fEdge4_div`, `fEdge4_ne_zero_cover` | Section 9, "extend `f_d` by zero to the full Boolean lattice" | the flow on `Composition (d+2)` |
+| `fourth_moment_certificate` | (39) and the sentence after it | identity and sign, with Lemma 3.29 as hypothesis |
+| `U_ne_zero`, `fourth_moment_coefficient_sum_nonpos` | (3), (20), (39) | `Σ_J a_J^{(4)} N_J ≤ 0` with the Boolean flag numbers `U_J` |
+
 ## Diagnostic examples (in the file, section `Examples`)
 
 * `Q = (2,2)`, `y = 2`: `h = 2`; the origins are the final-right labels of `(2,2,6)`, `(2,8)`
@@ -295,12 +377,12 @@ Run in a worktree of the branch, with the `.lake` directory of the `v1.0` build 
 copy-on-write. Mathlib was reused from cache (`lake build --no-build Mathlib`: "All targets
 up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not recompiled.
 
-* `lake build ChowCone.K4.Nonnegativity`, which builds the seven `K4` modules
-  (`CascadeOrigins`, `CascadeSizes`, `SquareCharges`, `SignedFlow`, `Rerouting`, `Evaluation`,
-  `Nonnegativity`): all seven were built from source; "Build completed successfully
-  (8667 jobs)". No warning from the new files.
-* `lake env lean` on each of the seven files: no output, exit status 0.
-* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 134 declarations
+* `lake build ChowCone.K4.Certificate`, which builds the nine `K4` modules (`CascadeOrigins`,
+  `CascadeSizes`, `SquareCharges`, `SignedFlow`, `Rerouting`, `Evaluation`, `Nonnegativity`,
+  `UniformFlow`, `Certificate`): all nine were built from source; "Build completed
+  successfully (8669 jobs)". No warning from the new files.
+* `lake env lean` on each of the nine files: no output, exit status 0.
+* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 155 declarations
   depend only on `propext`, `Classical.choice`, `Quot.sound`, or a subset of these.
 * `lake build`: "Build completed successfully (8662 jobs)", with the same seven linter
   warnings in the `k = 2` files that `RELEASE_CHECKS.md` lists. `lake env lean AxiomCheck.lean`
@@ -312,7 +394,10 @@ up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not 
   has changed.
 
 The new modules are not imported by `lean/ChowCone.lean`, which is unchanged. The default
-`lake build` therefore does not compile them; use `lake build ChowCone.K4.Nonnegativity`.
+`lake build` therefore does not compile them; use `lake build ChowCone.K4.Certificate`.
+
+Not checked by a second party: the correspondence between the Lean definitions and the
+manuscript was written and read by the same AI assistant that wrote the proofs.
 
 Dependencies. `CascadeOrigins` imports `ChowCone.Flow` (hence `ChowCone.Basic` and Mathlib);
 from the `k = 2` project it uses `Supp`, `splitAt`, `indN`, `decomp_at` and
@@ -324,4 +409,7 @@ their lemmas. `SquareCharges` imports `CascadeOrigins` only. `SignedFlow` import
 and sums of `Divergence.lean` and `Main.lean`. `Rerouting` imports `SignedFlow` and
 `SquareCharges`, and uses `splitAt_inversion` and `splitAt_mergeAt`. `Evaluation` imports
 `Rerouting`. `Nonnegativity` imports `Evaluation`, and uses `G_nonneg`, `Supp_splitAt`,
-`mem_le_sum`, `p_mem_splitAt` and `rest_mem_splitAt`.
+`mem_le_sum`, `p_mem_splitAt` and `rest_mem_splitAt`. `UniformFlow` imports `Nonnegativity`,
+and uses `G_eq_zero_of_one_mem` and `U`. `Certificate` imports `UniformFlow`, and uses
+`fEdge`, `splitAt_valid_of_pos`, `comp_blocks_pos`, `comp_length_le`, `comp_getD_le` of
+`ChowCone.Main` and `conjecture_combination`, `conjecture_nonpos` of `ChowCone.Abstract`.

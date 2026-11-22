@@ -5,6 +5,8 @@ import ChowCone.K4.SignedFlow
 import ChowCone.K4.Rerouting
 import ChowCone.K4.Evaluation
 import ChowCone.K4.Nonnegativity
+import ChowCone.K4.UniformFlow
+import ChowCone.K4.Certificate
 
 open ChowCone.K4
 
@@ -159,3 +161,28 @@ open ChowCone.K4
 #print axioms margin_N2
 #print axioms margin_FL2
 #print axioms margin_FR2
+
+-- Theorem 9.1 in positional coordinates (UniformFlow).
+#print axioms uniform_fourth_moment_flow
+#print axioms divOf_fdAll
+#print axioms fdAll_nonneg
+#print axioms fdAll_used_edge
+#print axioms fd_eq_zero_of_wide
+#print axioms LAB_add_RAB
+#print axioms fd_apply_cancelled
+#print axioms divOf_f0_all
+#print axioms divOf_fdAll_two
+#print axioms w4d_one
+#print axioms w4d_eq_w4
+#print axioms w4d_eq_U_mul_a4d
+
+-- The certificate on the Boolean lattice (Certificate).
+#print axioms fourth_moment_certificate
+#print axioms fourth_moment_coefficient_sum_nonpos
+#print axioms fEdge4_nonneg
+#print axioms fEdge4_div
+#print axioms fEdge4_ne_zero_cover
+#print axioms sum_fEdgeOf_out
+#print axioms sum_fEdgeOf_in
+#print axioms fEdgeOf_div
+#print axioms fEdgeOf_F
