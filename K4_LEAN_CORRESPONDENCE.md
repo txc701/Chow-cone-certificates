@@ -390,8 +390,11 @@ up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not 
 * No `sorry`, `admit`, `axiom`, `native_decide`, `skipKernelTC`, `implemented_by`,
   `@[extern]` or `unsafe` in `lean/ChowCone*`, `lean/AxiomCheck.lean` or
   `lean/K4AxiomCheck.lean`.
-* `python3 -m pytest tests/` on the first commit of the branch: 509 passed. No Python file
-  has changed.
+* `python3 -m pytest tests/` on the first commit of the branch and again on the commit that
+  added `Certificate`: 509 passed both times. No Python file has changed.
+* After the last Lean commit the branch was checked out into a fresh worktree with a fresh
+  copy of the `v1.0` build directory, and the nine modules were built again from source; the
+  axiom report was reproduced line for line.
 
 The new modules are not imported by `lean/ChowCone.lean`, which is unchanged. The default
 `lake build` therefore does not compile them; use `lake build ChowCone.K4.Certificate`.
