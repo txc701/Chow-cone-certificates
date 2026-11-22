@@ -1,6 +1,7 @@
 import ChowCone.K4.CascadeOrigins
 import ChowCone.K4.CascadeSizes
 import ChowCone.K4.SquareCharges
+import ChowCone.K4.SignedFlow
 
 open ChowCone.K4
 
@@ -72,3 +73,34 @@ open ChowCone.K4
 #print axioms row2_origin_exists_iff
 #print axioms row3_origin_exists_iff
 #print axioms top_origin_unique
+
+-- The signed flow f_0 and its divergence (SignedFlow).
+#print axioms signed_flow_divergence
+#print axioms divOf_f0
+#print axioms divOf_f0_eq
+#print axioms primitive_divergences
+#print axioms divOf_prim_two
+#print axioms divOf_prim_three
+#print axioms divOf_prim_four
+#print axioms divOf_F2V
+#print axioms divOf_wprim
+#print axioms outSumOf_wprim
+#print axioms inSumOf_wprim
+#print axioms ind_merge
+#print axioms G_splitAt_nonfinal'
+#print axioms G_splitAt_final_left'
+#print axioms G_splitAt_final_right'
+#print axioms tau_two
+#print axioms tau_three
+#print axioms tau_four
+#print axioms T2_eq
+#print axioms Q2_sub_nine_V
+#print axioms V_splitAt
+#print axioms f0_eq
+#print axioms prim_two
+#print axioms divOf_F
+#print axioms indNs_eq_one_iff
+#print axioms indFLs_eq_one_iff
+#print axioms indFRs_eq_one_iff
+#print axioms w4_eq_U_mul_a4
+#print axioms Bd_eq

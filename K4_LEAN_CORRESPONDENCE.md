@@ -60,15 +60,44 @@ occurrence of the final block `t + 4` (row 3, edge `A → C = X_0`).
 
 The amounts (30) of these charges are not formalized.
 
+## Fourth milestone: the signed flow `f_0` (`ChowCone.K4.SignedFlow`)
+
+File `lean/ChowCone/K4/SignedFlow.lean`. Flows are functions of positional edges
+`(c, i, p)`, as `F` in the `k = 2` files, and `divOf f c = outSumOf f c - inSumOf f c` is
+defined exactly as `flowDiv` there (`divOf_F` is `rfl`).
+
+* The primitive flows `F_s` (`prim s`) give every selected occurrence of `F_s` the raw flow
+  `G(child)`; `F_2` is the `k = 2` flow (`prim_two`). The indicators are those of the tagged
+  occurrences of the first milestone (`indNs_eq_one_iff` and its two companions).
+* **Lemma 6.1** (`primitive_divergences`): at every support composition of `N ≥ 5`,
+  `div F_s = G · T_s` for `s = 2, 3, 4`.
+* **Lemma 6.2** (`divOf_F2V`): `div F_{2,V} = G · (V(V-N)/2 - 6 T_3 - 2V)`.
+* **Proposition 6.3** (`divOf_f0`, `signed_flow_divergence`): for
+  `f_0 = 30 F_{2,V} + (30N-12) F_2 + 72 F_3 - 48 F_4` and `d ≥ 3`, `div f_0 = w^{(4)}` at
+  every support composition of `N = d + 2`, where `w^{(4)} = G · S_4` and
+  `S_4 = 15V^2 - 6Q_2 - 12V - (15N^2 - 6N)`.
+
+The three statements are derived from one general theorem, `divOf_wprim`, on the divergence
+of a flow that gives every selected occurrence of `F_s` the raw flow `φ(child) G(child)`, for
+any `s ≥ 1` and any weight `φ` that agrees on the two children of a final block.
+
+Limits of this milestone. `S_4` and `B_d = 15N^2 - 6N` are taken from equations (18) and (21)
+as definitions; the derivation of `S_4` from the moments of the flag summands in Section 5 and
+the value of `B_d` from Cheng and Lin's Corollary 3.13 are not formalized. The divergence is
+the positional one. Its identification with the divergence on the vertices of the Boolean
+lattice (every edge into `c` merges a unique adjacent pair of blocks) is proved in the `k = 2`
+files for the flow `F` only, and remains to be done for the `k = 4` flows.
+
 ## What is not proved
+
 
 
 The amounts of the charges of rows 1–3 (equation (30) and the amount of row 3), the
 collision and capacity inequalities of Proposition 8.2 beyond the two cascade totals above,
-the divergence of the signed flow, the statement that each path square has zero divergence,
-and the matroid bridge. No edge flow is defined: the cancellation of a debit by the next
-square is represented only by the identification of the edges involved, and the amounts are
-the raw debits of the sources. Theorem 9.1 is a later target.
+the flow `f_d` of Section 7 and the statement that each path square has zero divergence,
+nonnegativity, the cases `d = 1, 2`, Theorem 9.1 and the matroid bridge. The milestones on
+the charges (first to third) are not yet connected to the flow `f_0` of the fourth: the
+raw debit `48 G(B)` of a source is a definition there, not the value of `f_0` on an edge.
 
 ## Design decisions affecting fidelity
 
@@ -139,6 +168,21 @@ the raw debits of the sources. Theorem 9.1 is a later target.
 | `row1_origin_exists_iff`, `row3_origin_exists_iff` | Table 1, rows 1 and 3, "the block is at least 6" | when an origin exists |
 | `row2_origin_exists_iff` | Table 1, row 2, "needs the preceding 2"; "recovered by merging the affected block with the 2 immediately preceding it" | when an origin exists |
 
+| `EdgeFlow`, `outSumOf`, `inSumOf`, `divOf`, `divOf_F` | Lemma 3.1, definition of `div` | positional divergence; equal to `flowDiv` for the `k = 2` flow |
+| `indNs`, `indFLs`, `indFRs`, `ind`, `indNs_eq_one_iff`, `indFLs_eq_one_iff`, `indFRs_eq_one_iff` | Section 6, the move multiset `F_s` | indicators of the selected occurrences; `ind` is 2 on a balanced final edge |
+| `wprim`, `prim`, `prim_two` | Section 6, "give every selected move raw flow `G(child)`" | `F_s`; `F_2 = F` |
+| `tau`, `G_ratio_N'`, `G_ratio_FL'`, `G_ratio_FR'`, `G_splitAt_nonfinal'`, `G_splitAt_final_left'`, `G_splitAt_final_right'` | proof of Lemma 6.1, first paragraph | `G(child)/G(parent)`; the final ratios `(m-s)/m` and `s/m` |
+| `tau3`, `tau4`, `tau_two`, `tau_three`, `tau_four` | (22) | `τ_2 = ρ`, `τ_3(n) = n(n-2)(n-4)/3`, `τ_4(n) = n(n-2)(n-3)(n-5)/8` |
+| `block_two`, `block_three`, `block_four` | proof of Lemma 6.1, "`τ_s(s) = -1`, and `τ_s` vanishes at every other support size below `s+2`" | per-block balance |
+| `ind_merge`, `wprim_merge`, `inSumOf_wprim` | proof of Lemma 6.1, second paragraph | every block equal to `s` has one incoming selected occurrence; `(s)` alone is excluded |
+| `outSumOf_wprim`, `divOf_wprim` | proof of Lemma 6.1 | divergence of a weighted primitive flow |
+| `T2`, `T3`, `T4`, `divOf_prim_two`, `divOf_prim_three`, `divOf_prim_four`, `primitive_divergences` | Lemma 6.1, (23) | `div F_s = G T_s` |
+| `vq`, `V`, `Q2`, `F2V`, `V_splitAt`, `T2_eq`, `divOf_F2V` | Lemma 6.2, (24) | the discrete product rule |
+| `Q2_sub_nine_V` | (25), (26) | `Q_2 - 9V = 8T_4 + 18T_3` |
+| `f0`, `f0_eq`, `divOf_f0_eq` | (27) and the sentence "Equivalently, …" | the signed flow, occurrence by occurrence; linearity |
+| `S4`, `w4`, `a4`, `w4_eq_U_mul_a4`, `Bd_eq` | (18), (20), (21) | `w^{(4)} = G S_4 = U a^{(4)}`; `B_d = 3(d+2)(5d+8)` |
+| `divOf_f0`, `signed_flow_divergence` | Proposition 6.3 | `div f_0 = w^{(4)}` for `d ≥ 3` |
+
 ## Diagnostic examples (in the file, section `Examples`)
 
 * `Q = (2,2)`, `y = 2`: `h = 2`; the origins are the final-right labels of `(2,2,6)`, `(2,8)`
@@ -156,17 +200,21 @@ Examples of `SquareCharges`: the square of the nonfinal block 6 of `(6,2)`, whos
 block 8, whose two `F_4` labels charge different `F_2` occurrences; a block 5, which has no
 row-1 origin; the block 5 of `(2,5,2)`, whose row-2 origin is on `(7,2)`.
 
+Values in `SignedFlow`, computed from the definitions and not from the theorem: for `N = 5`,
+`f_0` is `3600` on `(5) → (2,3)` and `2400` on `(5) → (3,2)`, and `w^{(4)}(5) = 6000`; the
+balanced edge `(8) → (4,4)` carries two `F_4` occurrences.
+
 ## Verification (2026-11-21 and 2026-11-22)
 
 Run in a worktree of the branch, with the `.lake` directory of the `v1.0` build copied
 copy-on-write. Mathlib was reused from cache (`lake build --no-build Mathlib`: "All targets
 up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not recompiled.
 
-* `lake build` of `ChowCone.K4.CascadeOrigins`, `ChowCone.K4.CascadeSizes` and
-  `ChowCone.K4.SquareCharges`: the three modules were built from source; "Build completed
-  successfully". No warning from the new files.
-* `lake env lean` on each of the three files: no output, exit status 0.
-* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 59 declarations
+* `lake build` of `ChowCone.K4.CascadeOrigins`, `ChowCone.K4.CascadeSizes`,
+  `ChowCone.K4.SquareCharges` and `ChowCone.K4.SignedFlow`: the four modules were built from
+  source; "Build completed successfully". No warning from the new files.
+* `lake env lean` on each of the four files: no output, exit status 0.
+* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 88 declarations
   depend only on `propext`, `Classical.choice`, `Quot.sound`, or a subset of these.
 * `lake build`: "Build completed successfully (8662 jobs)", with the same seven linter
   warnings in the `k = 2` files that `RELEASE_CHECKS.md` lists. `lake env lean AxiomCheck.lean`
@@ -179,12 +227,14 @@ up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not 
 
 The new modules are not imported by `lean/ChowCone.lean`, which is unchanged. The default
 `lake build` therefore does not compile them; use
-`lake build ChowCone.K4.CascadeSizes ChowCone.K4.SquareCharges`, which also builds
-`ChowCone.K4.CascadeOrigins`.
+`lake build ChowCone.K4.SignedFlow ChowCone.K4.SquareCharges`, which also builds the other
+two.
 
 Dependencies of `CascadeOrigins`: `ChowCone.Flow` (hence `ChowCone.Basic` and Mathlib). From the
 `k = 2` project it uses `Supp`, `splitAt`, `indN`, `decomp_at` and `length_take_of_lt`. From
 Mathlib it uses list lemmas, `Finset` sums, and `Composition` only to prove that the set of
 sources at a given size is finite. `CascadeSizes` imports `CascadeOrigins` and
 `ChowCone.Ratios`; from the `k = 2` project it uses `G`, `gprod`, `blockTerm`, `lastPart` and
-their lemmas (`G_pos`, `blockTerm_pos`, `blockTerm_two`, `gprod_append`, `gprod_cons`). `SquareCharges` imports `CascadeOrigins` only.
+their lemmas (`G_pos`, `blockTerm_pos`, `blockTerm_two`, `gprod_append`, `gprod_cons`). `SquareCharges` imports `CascadeOrigins` only. `SignedFlow` imports
+`ChowCone.Main` and `CascadeSizes`; from the `k = 2` project it uses `F`, `flowDiv`, `mergeAt`
+and the lemmas on merges and sums of `Divergence.lean` and `Main.lean`.
