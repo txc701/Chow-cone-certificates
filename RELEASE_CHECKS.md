@@ -334,8 +334,9 @@ repository in Section 12.
 
 ## Release `v1.1` (2026-11-22)
 
-Prepared on the branch `k4-lean-cascade-origins`, which starts at the commit of `v1.0`. The
-checks were run on the author's Mac by an AI assistant (Claude Code) at the author's
+Prepared on the branch `k4-lean-cascade-origins`, which starts at the commit of `v1.0`, and
+released by fast-forwarding `main` to the head of that branch; the tag `v1.0` is unchanged.
+The checks were run on the author's Mac by an AI assistant (Claude Code) at the author's
 request. The same assistant wrote the Lean files that are checked here.
 
 **What changed since `v1.0`.** Twelve new files: the nine modules of `lean/ChowCone/K4/`,

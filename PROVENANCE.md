@@ -363,26 +363,17 @@ are UTC.
   "Lean, k = 4" or "K4 correspondence"]**
 * **Who wrote it.** The definitions, the statements, the proofs and the correspondence table
   were written by Claude Code (Anthropic) in one working session on the author's machine,
-  between 23:46 on 21 November 2026, when the brief arrived, and 03:20 on 22 November, the
-  time of the last of those commits. The commits carry `Co-Authored-By` trailers for that
-  reason. The author wrote no Lean code. **[session]** **[repo: the commit times]**
-* **What the author supplied.** A written brief for the first step, the origins and
-  multiplicities of the charges of rows 4 to 6 of Table 1. The brief fixed the notion of a
-  source, the forward construction and the statement to be proved, listed four test cases,
-  and set the conditions of acceptance: no `sorry`, no custom axiom, no `native_decide`, and
-  no use of the enumeration as a hypothesis. How the brief was drafted is not known to the
-  assistant. The later steps were proposed by the assistant, each after the previous one
-  was finished: the sizes of the charges, rows 1 to 3, the signed flow, the rerouting,
-  nonnegativity, Theorem 9.1 and the certificate. The author approved each continuation in
-  a short message. **[session]**
+  between 23:46 on 21 November 2026 and 03:20 on 22 November, the time of the last of those
+  commits. The commits carry `Co-Authored-By` trailers for that reason. The author wrote no
+  Lean code. **[session]** **[repo: the commit times]**
 * **What it used.** The manuscript and the `k = 2` Lean files of this repository. The proof
   document `PROOF_K4_FOURTH_MOMENT.md` and the implementation
   `src/k4_uniform_certificate.py` were not used. No web search and no other AI system was
   used. **[session]**
 * **Where it departs from the text.** The estimates of Section 8 are made edge by edge, with
   indicator functions for the occurrences on an edge, and not occurrence by occurrence. The
-  list of origins of a label is proved from a forward construction defined by recursion, as
-  the brief required. The hypothesis `d ≥ 3` turned out not to be needed in two statements
+  list of origins of a label is proved from a forward construction defined by recursion.
+  The hypothesis `d ≥ 3` turned out not to be needed in two statements
   (the origins of rows 4 to 6, and nonnegativity). A numerical test value written by the
   assistant, `r_2 = 1/36` for `y = 2`, was wrong and was rejected by Lean; the file has the
   correct value `1/18`. **[session]** **[repo: `K4_LEAN_CORRESPONDENCE.md`]**

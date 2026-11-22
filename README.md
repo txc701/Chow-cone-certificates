@@ -208,8 +208,7 @@ This work was carried out by Xichen Tang with AI tools, and they contributed sub
   command-line tool in one session on 28 August 2026, which also wrote the proof text. Which
   of the agents proposed the rerouting first cannot be read from the surviving logs.
 * For the Lean formalization of the `k = 4` certificate: it was written with Claude Code on
-  21 and 22 November 2026, from a written brief of the author for the first step and with
-  the author's approval for each later step (`PROVENANCE.md`, Part 4).
+  21 and 22 November 2026 (`PROVENANCE.md`, Part 4).
 
 The checks performed on the `k = 4` proof are AI audits, exact computations and the Lean
 formalization of its combinatorial core, described in `RELEASE_CHECKS.md` and
