@@ -43,14 +43,32 @@ The raw debit `R = 48 G(B)` is taken from the text of Section 7 as a definition
 (`Source.rawDebit`). It is not derived from a formal definition of the flow `f_0`, which does
 not yet exist in Lean.
 
+## Third milestone: origins of rows 1–3 (`ChowCone.K4.SquareCharges`)
+
+File `lean/ChowCone/K4/SquareCharges.lean`. A *left source* is a tagged nonfinal or final-left
+`F_4` occurrence on the block `t + 4` of `A = P.(t+4).S`; it is final-left exactly when `S` is
+empty. Its square (28)–(29) charges the left `F_2` occurrence of the block `t + 4` of `A`
+(row 1, edge `A → C`) and the left `F_2` occurrence of the block `t + 2` of `C = P.(2,t+2).S`
+(row 2, edge `C → D`). The initial square (31) of a final-right source charges the right `F_2`
+occurrence of the final block `t + 4` (row 3, edge `A → C = X_0`).
+
+* In each row the charged occurrence determines the origin (`top_origin_unique`), and a source
+  charges a label once or not at all (`count_row1`, `count_row2`, `count_row3`).
+* An origin exists exactly for: a selected left `F_2` occurrence of a block at least 6
+  (row 1); a selected left `F_2` occurrence whose block is immediately preceded by a 2
+  (row 2); a selected right `F_2` occurrence of a final block at least 6 (row 3).
+
+The amounts (30) of these charges are not formalized.
+
 ## What is not proved
 
-Row 3 (the initial final-right `F_2` charge), rows 1 and 2, the collision and capacity
-inequalities of Proposition 8.2 beyond the two totals above, the divergence of the signed
-flow, the statement that each path square has zero divergence, and the matroid bridge. No
-edge flow is defined: the cancellation of a debit by the next square is represented only by
-the identification of the edges involved, and the amounts are the raw debits of the sources.
-Theorem 9.1 is a later target.
+
+The amounts of the charges of rows 1–3 (equation (30) and the amount of row 3), the
+collision and capacity inequalities of Proposition 8.2 beyond the two cascade totals above,
+the divergence of the signed flow, the statement that each path square has zero divergence,
+and the matroid bridge. No edge flow is defined: the cancellation of a debit by the next
+square is represented only by the identification of the edges involved, and the amounts are
+the raw debits of the sources. Theorem 9.1 is a later target.
 
 ## Design decisions affecting fidelity
 
@@ -109,6 +127,18 @@ Theorem 9.1 is a later target.
 | `G_source_child_eq`, `G_sqY_eq_sqZ`, `rawDebit_origin` | Lemma 8.1, "cancellation of all unaffected factors in `G` gives (36)"; Table 1, rows 4–6, "normalized amount" | the `j`-th origin charges `48 r_j · G(child)` |
 | `total_charge`, `total_charge_le`, `total_charge_F3_lt` | the sentence after Lemma 8.1 | all cascades together: at most 75 units, fewer than 60 on a terminal `F_3` label |
 
+| `LeftSource`, `LeftSource.Valid`, `LeftSource.occ`, `leftTag` | Section 7, (28): nonfinal or final-left `F_4` occurrence | the occurrence `P.(t+4).S → P.(4,t).S` |
+| `selected_left_F4_iff` | Section 6 and (28) | left sources at `N` = selected nonfinal and final-left `F_4` occurrences on compositions of `N` |
+| `LeftSource.row1Label`, `row1Label_parent`, `row1Label_child` | Table 1, row 1 | left `F_2` occurrence of the block `t+4` of `A`; edge `A → C` |
+| `LeftSource.row2Label`, `row2Label_parent`, `row2Label_child` | Table 1, row 2 | left `F_2` occurrence of the block `t+2` of `C`; edge `C → D` |
+| `LeftSource.occ_child`, `LeftSource.square_closes` | (28) | `B = P.(4,t).S`; `B → D` is the split `4 ↦ (2,2)` |
+| `Source.row3Label`, `row3Label_parent`, `row3Label_child` | Table 1, row 3; (31) | right `F_2` occurrence of the final block `t+4`; edge `A → C = X_0` |
+| `row1Label_selected`, `row2Label_selected`, `row3Label_selected` | Table 1, "charged occurrence" | the labels are selected `F_2` occurrences |
+| `TopRow`, `TopCharge`, `LeftSource.charges`, `Source.topCharges`, `count_row1`, `count_row2`, `count_row3` | Table 1, rows 1–3, "at most one" | each source charges a label once or not at all |
+| `row1Label_injective`, `row2Label_injective`, `row3Label_injective`, `top_origin_unique` | "For types 1–3, the charged occurrence and the type determine the origin" | at most one origin |
+| `row1_origin_exists_iff`, `row3_origin_exists_iff` | Table 1, rows 1 and 3, "the block is at least 6" | when an origin exists |
+| `row2_origin_exists_iff` | Table 1, row 2, "needs the preceding 2"; "recovered by merging the affected block with the 2 immediately preceding it" | when an origin exists |
+
 ## Diagnostic examples (in the file, section `Examples`)
 
 * `Q = (2,2)`, `y = 2`: `h = 2`; the origins are the final-right labels of `(2,2,6)`, `(2,8)`
@@ -121,17 +151,22 @@ Theorem 9.1 is a later target.
   contains no charge on that occurrence.
 * `Q = (2,3)`, `y = 2`: `h = 0`, one origin.
 
-## Verification (2026-11-21)
+Examples of `SquareCharges`: the square of the nonfinal block 6 of `(6,2)`, whose row-2 label
+`(2,4,2) → (2,2,2,2)` is also the row-5 label of the cascade at `Q = (2)`, `y = 2`; the final
+block 8, whose two `F_4` labels charge different `F_2` occurrences; a block 5, which has no
+row-1 origin; the block 5 of `(2,5,2)`, whose row-2 origin is on `(7,2)`.
+
+## Verification (2026-11-21 and 2026-11-22)
 
 Run in a worktree of the branch, with the `.lake` directory of the `v1.0` build copied
 copy-on-write. Mathlib was reused from cache (`lake build --no-build Mathlib`: "All targets
 up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not recompiled.
 
-* `lake build ChowCone.K4.CascadeOrigins` and `lake build ChowCone.K4.CascadeSizes`: both
-  modules were built from source; "Build completed successfully" (8657 and 8659 jobs). No
-  warning from the new files.
-* `lake env lean` on each of the two files: no output, exit status 0.
-* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 42 declarations
+* `lake build` of `ChowCone.K4.CascadeOrigins`, `ChowCone.K4.CascadeSizes` and
+  `ChowCone.K4.SquareCharges`: the three modules were built from source; "Build completed
+  successfully". No warning from the new files.
+* `lake env lean` on each of the three files: no output, exit status 0.
+* `lake env lean K4AxiomCheck.lean`: output in `lean/K4AxiomCheck.txt`. All 59 declarations
   depend only on `propext`, `Classical.choice`, `Quot.sound`, or a subset of these.
 * `lake build`: "Build completed successfully (8662 jobs)", with the same seven linter
   warnings in the `k = 2` files that `RELEASE_CHECKS.md` lists. `lake env lean AxiomCheck.lean`
@@ -143,12 +178,13 @@ up-to-date (8654 jobs)"). The six `k = 2` modules were replayed from cache, not 
   has changed.
 
 The new modules are not imported by `lean/ChowCone.lean`, which is unchanged. The default
-`lake build` therefore does not compile them; use `lake build ChowCone.K4.CascadeSizes`,
-which also builds `ChowCone.K4.CascadeOrigins`.
+`lake build` therefore does not compile them; use
+`lake build ChowCone.K4.CascadeSizes ChowCone.K4.SquareCharges`, which also builds
+`ChowCone.K4.CascadeOrigins`.
 
 Dependencies of `CascadeOrigins`: `ChowCone.Flow` (hence `ChowCone.Basic` and Mathlib). From the
 `k = 2` project it uses `Supp`, `splitAt`, `indN`, `decomp_at` and `length_take_of_lt`. From
 Mathlib it uses list lemmas, `Finset` sums, and `Composition` only to prove that the set of
 sources at a given size is finite. `CascadeSizes` imports `CascadeOrigins` and
 `ChowCone.Ratios`; from the `k = 2` project it uses `G`, `gprod`, `blockTerm`, `lastPart` and
-their lemmas (`G_pos`, `blockTerm_pos`, `blockTerm_two`, `gprod_append`, `gprod_cons`).
+their lemmas (`G_pos`, `blockTerm_pos`, `blockTerm_two`, `gprod_append`, `gprod_cons`). `SquareCharges` imports `CascadeOrigins` only.

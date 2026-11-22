@@ -1,5 +1,6 @@
 import ChowCone.K4.CascadeOrigins
 import ChowCone.K4.CascadeSizes
+import ChowCone.K4.SquareCharges
 
 open ChowCone.K4
 
@@ -52,3 +53,22 @@ open ChowCone.K4
 #print axioms total_charge
 #print axioms total_charge_le
 #print axioms total_charge_F3_lt
+
+-- Origins of the charges of rows 1-3 (SquareCharges).
+#print axioms selected_left_F4_iff
+#print axioms LeftSource.occ_child
+#print axioms LeftSource.row1Label_child
+#print axioms LeftSource.row2Label_parent
+#print axioms LeftSource.row2Label_child
+#print axioms LeftSource.square_closes
+#print axioms Source.row3Label_child
+#print axioms LeftSource.row1Label_selected
+#print axioms LeftSource.row2Label_selected
+#print axioms Source.row3Label_selected
+#print axioms LeftSource.count_row1
+#print axioms LeftSource.count_row2
+#print axioms Source.count_row3
+#print axioms row1_origin_exists_iff
+#print axioms row2_origin_exists_iff
+#print axioms row3_origin_exists_iff
+#print axioms top_origin_unique
